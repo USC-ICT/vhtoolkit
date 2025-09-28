@@ -1,0 +1,212 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed200f2c5b226f44488ff29468c6dfe6, type: 3}
+  m_Name: AssetCatalogProfile
+  m_EditorClassIdentifier: 
+  allLabels:
+  - Kevin
+  - Ellie
+  - rb_Business_Female_01
+  - rb_Business_Female_03
+  - rb_Business_Male_01
+  - rb_Business_Male_02
+  - rb_Business_Male_03
+  - rb_Business_Male_04
+  - rb_Business_Male_05
+  - rb_Chef_Female_01
+  - rb_Female_Adult_02
+  - rb_Female_Adult_05
+  - rb_Female_Adult_09
+  - rb_Female_Adult_14
+  - rb_Female_Adult_15
+  - rb_Male_Adult_03
+  - rb_Male_Adult_04
+  - rb_Male_Adult_08
+  - rb_Male_Adult_10
+  - rb_Medical_Female_01
+  - rb_Pilot_Female_01
+  - rb_Pilot_Female_02
+  - rb_Pilot_Male_01
+  - rb_Pilot_Male_02
+  - rb_Pilot_Male_03
+  - rb_Police_Male_01
+  - rb_Police_Male_03
+  - rb_Police_Male_04
+  - rb_Police_Male_05
+  - rb_Police_Male_06
+  - rb_Police_Male_07
+  - rb_Security_Female_01
+  - rb_Security_Male_01
+  - rb_Sports_Female_02
+  - rb_Sports_Male_01
+  - rb_Sports_Male_02
+  - Kevin_Civilian
+  groups:
+  - groupName: Kevin
+    localPrefixPath: C:/RIDE/Content/AssetCatalogs/VH/Kevin
+    remotePrefixPath: bucketname/AssetCatalogs/VH/Kevin
+    assets:
+    - asset: {fileID: 1377460951968152, guid: 221bb65b6a324274888f1e4332be4c0c, type: 3}
+      labels:
+      - Kevin
+    - asset: {fileID: 100000, guid: 025e045dbbfc82949809d940157d0812, type: 3}
+      labels:
+      - Kevin_Civilian
+    includeInBuild: 0
+  - groupName: Ellie
+    localPrefixPath: C:/RIDE/Content/AssetCatalogs/VH/Ellie
+    remotePrefixPath: bucketname/AssetCatalogs/VH/Ellie
+    assets:
+    - asset: {fileID: 100000, guid: f171bfb6327dcd94c9493ab175f6d2fb, type: 3}
+      labels:
+      - Ellie
+    includeInBuild: 0
+  - groupName: Rocketbox
+    localPrefixPath: C:/RIDE/Content/AssetCatalogs/VH/Rocketbox
+    remotePrefixPath: bucketname/AssetCatalogs/VH/Rocketbox
+    assets:
+    - asset: {fileID: 8533594433580601122, guid: e36421d6be884e24fb3100fa87aae44a,
+        type: 3}
+      labels:
+      - rb_Business_Female_01
+    - asset: {fileID: 5473353915904925096, guid: 1db57eea25caeb2428d9f45dada5320b,
+        type: 3}
+      labels:
+      - rb_Business_Female_03
+    - asset: {fileID: 1896506967457894261, guid: 0bca1df54826f714eaabeb19abde6019,
+        type: 3}
+      labels:
+      - rb_Business_Male_01
+    - asset: {fileID: 2469332726000452260, guid: 1ce3d39823cbcb445ad6ed9a13b22964,
+        type: 3}
+      labels:
+      - rb_Business_Male_02
+    - asset: {fileID: 5178065998300063300, guid: bfcfe773d8662f446b77884dfef92b42,
+        type: 3}
+      labels:
+      - rb_Business_Male_03
+    - asset: {fileID: 9004676182506876584, guid: 46061ef9a0a075947a4e40ae1377cb6c,
+        type: 3}
+      labels:
+      - rb_Business_Male_04
+    - asset: {fileID: 4800436019677874398, guid: a3f7d286bb41d6243b9f3eccef1821a5,
+        type: 3}
+      labels:
+      - rb_Business_Male_05
+    - asset: {fileID: 4901323893498712708, guid: abb2eefe0524ed8449a66a90eca391af,
+        type: 3}
+      labels:
+      - rb_Chef_Female_01
+    - asset: {fileID: 8435642478962791687, guid: e286d63d602dd644e8daf90d6de35559,
+        type: 3}
+      labels:
+      - rb_Female_Adult_02
+    - asset: {fileID: 7983884980100019434, guid: cacd8a2d2ffb1594781b68b28d7273d6,
+        type: 3}
+      labels:
+      - rb_Female_Adult_05
+    - asset: {fileID: 5499620133264236373, guid: ed7d80704c89ec14b9bb73d7402d839e,
+        type: 3}
+      labels:
+      - rb_Female_Adult_09
+    - asset: {fileID: 81404742108957045, guid: 424f5afe8beeb5f4fad0827947e7a609, type: 3}
+      labels:
+      - rb_Female_Adult_14
+    - asset: {fileID: 235897247222773239, guid: 32c8c1e937747264fad6432f108be4a3,
+        type: 3}
+      labels:
+      - rb_Female_Adult_15
+    - asset: {fileID: 6035224569863204807, guid: d12b3b42da1a02f49935a7f404f1032e,
+        type: 3}
+      labels:
+      - rb_Male_Adult_03
+    - asset: {fileID: 5523601866896164443, guid: e78ca70d439e7ca439d84821a762c944,
+        type: 3}
+      labels:
+      - rb_Male_Adult_04
+    - asset: {fileID: 6104743535161927119, guid: 04188338cb0ebea40ab6a31391057d1a,
+        type: 3}
+      labels:
+      - rb_Male_Adult_08
+    - asset: {fileID: 1682049922805453433, guid: 78732806750062b4d81d3ed1cd33a82b,
+        type: 3}
+      labels:
+      - rb_Male_Adult_10
+    - asset: {fileID: 4797922094858886579, guid: 6949fbd9ad84ce8489c3aa2fd7ae916d,
+        type: 3}
+      labels:
+      - rb_Medical_Female_01
+    - asset: {fileID: 3613094297554622209, guid: 4a4d16381c3141f49bdb46af24c943a3,
+        type: 3}
+      labels:
+      - rb_Pilot_Female_01
+    - asset: {fileID: 2806497218070745952, guid: 24d7b6d93ea03eb4bb2c121a45b8132b,
+        type: 3}
+      labels:
+      - rb_Pilot_Female_02
+    - asset: {fileID: 8890760934062464130, guid: 5ffee36a28e85ef42b1a94ef7408b811,
+        type: 3}
+      labels:
+      - rb_Pilot_Male_01
+    - asset: {fileID: 1004341986803699030, guid: fda7ad502a440d740a7466929b1389e1,
+        type: 3}
+      labels:
+      - rb_Pilot_Male_02
+    - asset: {fileID: 771021460937926170, guid: 759c56df1987ad34db8e40540b0611fc,
+        type: 3}
+      labels:
+      - rb_Pilot_Male_03
+    - asset: {fileID: 8547294703223970765, guid: a70eff397de09d343a58afcdc2b79494,
+        type: 3}
+      labels:
+      - rb_Police_Male_01
+    - asset: {fileID: 2149239419469757497, guid: 6a3bdf4a58d7c1c45b6747af130dea7f,
+        type: 3}
+      labels:
+      - rb_Police_Male_03
+    - asset: {fileID: 8410200244946801110, guid: d91860e751723884a8b33933db63a082,
+        type: 3}
+      labels:
+      - rb_Police_Male_04
+    - asset: {fileID: 4727715186447115867, guid: b983df71da898de42b8ec3694cf14046,
+        type: 3}
+      labels:
+      - rb_Police_Male_05
+    - asset: {fileID: 4510740385224333056, guid: 24fe2e8e748354b4c9afaf60992cf0c4,
+        type: 3}
+      labels:
+      - rb_Police_Male_06
+    - asset: {fileID: 438148211506511525, guid: 651dacba5c8432a45a38d25e0496e174,
+        type: 3}
+      labels:
+      - rb_Police_Male_07
+    - asset: {fileID: 6363115232927657456, guid: f52823d9301d921488468235d5a62c03,
+        type: 3}
+      labels:
+      - rb_Security_Female_01
+    - asset: {fileID: 4062786545739183167, guid: bd561566636dbcf4aabc38edd3893441,
+        type: 3}
+      labels:
+      - rb_Security_Male_01
+    - asset: {fileID: 761743756256352239, guid: 72be291072b367f41a2d5c25dd2b2c5d,
+        type: 3}
+      labels:
+      - rb_Sports_Female_02
+    - asset: {fileID: 3748095174699346757, guid: 0394ed62f516a4e4fae150998f0ea9f7,
+        type: 3}
+      labels:
+      - rb_Sports_Male_01
+    - asset: {fileID: 895384198849811299, guid: dcac7b2bf4f89ef4cb84cbff7d1a85bb,
+        type: 3}
+      labels:
+      - rb_Sports_Male_02
+    includeInBuild: 1

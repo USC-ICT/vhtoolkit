@@ -1,0 +1,2236 @@
+fileFormatVersion: 2
+guid: f4e6456a0d6eca54e97934d23da10b6f
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: _IctSettings_
+  - first:
+      1: 100002
+    second: AnmDef_IdleSeatedBack02_PalmDownRt01
+  - first:
+      1: 100004
+    second: AnmDefGlobalSettings
+  - first:
+      1: 100006
+    second: CharacterRoot
+  - first:
+      1: 100008
+    second: ChrDefSettings
+  - first:
+      1: 100010
+    second: //RootNode
+  - first:
+      1: 100012
+    second: JtAnkleLf
+  - first:
+      1: 100014
+    second: JtAnkleRt
+  - first:
+      1: 100016
+    second: JtBallLf
+  - first:
+      1: 100018
+    second: JtBallRt
+  - first:
+      1: 100020
+    second: JtBrowParentLf
+  - first:
+      1: 100022
+    second: JtBrowParentRt
+  - first:
+      1: 100024
+    second: JtCheekLowerLf
+  - first:
+      1: 100026
+    second: JtCheekLowerRt
+  - first:
+      1: 100028
+    second: JtCheekUpperLf
+  - first:
+      1: 100030
+    second: JtCheekUpperRt
+  - first:
+      1: 100032
+    second: JtClavicleLf
+  - first:
+      1: 100034
+    second: JtClavicleRt
+  - first:
+      1: 100036
+    second: JtEarLf
+  - first:
+      1: 100038
+    second: JtEarRt
+  - first:
+      1: 100040
+    second: JtElbowLf
+  - first:
+      1: 100042
+    second: JtElbowRt
+  - first:
+      1: 100044
+    second: JtEyebrow01Lf
+  - first:
+      1: 100046
+    second: JtEyebrow01Rt
+  - first:
+      1: 100048
+    second: JtEyebrow02Lf
+  - first:
+      1: 100050
+    second: JtEyebrow02Rt
+  - first:
+      1: 100052
+    second: JtEyebrow03Lf
+  - first:
+      1: 100054
+    second: JtEyebrow03Rt
+  - first:
+      1: 100056
+    second: JtEyebrow04Lf
+  - first:
+      1: 100058
+    second: JtEyebrow04Rt
+  - first:
+      1: 100060
+    second: JtEyeLf
+  - first:
+      1: 100062
+    second: JtEyelidLowerLf
+  - first:
+      1: 100064
+    second: JtEyelidLowerRt
+  - first:
+      1: 100066
+    second: JtEyelidUpperLf
+  - first:
+      1: 100068
+    second: JtEyelidUpperRt
+  - first:
+      1: 100070
+    second: JtEyeRt
+  - first:
+      1: 100072
+    second: JtForearmTwistALf
+  - first:
+      1: 100074
+    second: JtForearmTwistARt
+  - first:
+      1: 100076
+    second: JtForearmTwistBLf
+  - first:
+      1: 100078
+    second: JtForearmTwistBRt
+  - first:
+      1: 100080
+    second: JtHeelLf
+  - first:
+      1: 100082
+    second: JtHeelRt
+  - first:
+      1: 100084
+    second: JtHipLf
+  - first:
+      1: 100086
+    second: JtHipRt
+  - first:
+      1: 100088
+    second: JtIndexALf
+  - first:
+      1: 100090
+    second: JtIndexARt
+  - first:
+      1: 100092
+    second: JtIndexBLf
+  - first:
+      1: 100094
+    second: JtIndexBRt
+  - first:
+      1: 100096
+    second: JtIndexCLf
+  - first:
+      1: 100098
+    second: JtIndexCRt
+  - first:
+      1: 100100
+    second: JtIndexDLf
+  - first:
+      1: 100102
+    second: JtIndexDRt
+  - first:
+      1: 100104
+    second: JtJaw
+  - first:
+      1: 100106
+    second: JtJawBack
+  - first:
+      1: 100108
+    second: JtJawFront
+  - first:
+      1: 100110
+    second: JtKneeLf
+  - first:
+      1: 100112
+    second: JtKneeRt
+  - first:
+      1: 100114
+    second: JtLipCornerLf
+  - first:
+      1: 100116
+    second: JtLipCornerRt
+  - first:
+      1: 100118
+    second: JtLipLowerLf
+  - first:
+      1: 100120
+    second: JtLipLowerMid
+  - first:
+      1: 100122
+    second: JtLipLowerRt
+  - first:
+      1: 100124
+    second: JtLipUpperLf
+  - first:
+      1: 100126
+    second: JtLipUpperMid
+  - first:
+      1: 100128
+    second: JtLipUpperRt
+  - first:
+      1: 100130
+    second: JtLittleALf
+  - first:
+      1: 100132
+    second: JtLittleARt
+  - first:
+      1: 100134
+    second: JtLittleBLf
+  - first:
+      1: 100136
+    second: JtLittleBRt
+  - first:
+      1: 100138
+    second: JtLittleCLf
+  - first:
+      1: 100140
+    second: JtLittleCRt
+  - first:
+      1: 100142
+    second: JtLittleDLf
+  - first:
+      1: 100144
+    second: JtLittleDRt
+  - first:
+      1: 100146
+    second: JtLowerFaceParent
+  - first:
+      1: 100148
+    second: JtLowerNoseLf
+  - first:
+      1: 100150
+    second: JtLowerNoseRt
+  - first:
+      1: 100152
+    second: JtMiddleALf
+  - first:
+      1: 100154
+    second: JtMiddleARt
+  - first:
+      1: 100156
+    second: JtMiddleBLf
+  - first:
+      1: 100158
+    second: JtMiddleBRt
+  - first:
+      1: 100160
+    second: JtMiddleCLf
+  - first:
+      1: 100162
+    second: JtMiddleCRt
+  - first:
+      1: 100164
+    second: JtMiddleDLf
+  - first:
+      1: 100166
+    second: JtMiddleDRt
+  - first:
+      1: 100168
+    second: JtNeckA
+  - first:
+      1: 100170
+    second: JtNeckB
+  - first:
+      1: 100172
+    second: JtPelvis
+  - first:
+      1: 100174
+    second: JtRingALf
+  - first:
+      1: 100176
+    second: JtRingARt
+  - first:
+      1: 100178
+    second: JtRingBLf
+  - first:
+      1: 100180
+    second: JtRingBRt
+  - first:
+      1: 100182
+    second: JtRingCLf
+  - first:
+      1: 100184
+    second: JtRingCRt
+  - first:
+      1: 100186
+    second: JtRingDLf
+  - first:
+      1: 100188
+    second: JtRingDRt
+  - first:
+      1: 100190
+    second: JtRoot
+  - first:
+      1: 100192
+    second: JtShoulderLf
+  - first:
+      1: 100194
+    second: JtShoulderRt
+  - first:
+      1: 100196
+    second: JtSkullA
+  - first:
+      1: 100198
+    second: JtSkullB
+  - first:
+      1: 100200
+    second: JtSpineA
+  - first:
+      1: 100202
+    second: JtSpineB
+  - first:
+      1: 100204
+    second: JtSpineC
+  - first:
+      1: 100206
+    second: JtThumbALf
+  - first:
+      1: 100208
+    second: JtThumbARt
+  - first:
+      1: 100210
+    second: JtThumbBLf
+  - first:
+      1: 100212
+    second: JtThumbBRt
+  - first:
+      1: 100214
+    second: JtThumbCLf
+  - first:
+      1: 100216
+    second: JtThumbCRt
+  - first:
+      1: 100218
+    second: JtThumbDLf
+  - first:
+      1: 100220
+    second: JtThumbDRt
+  - first:
+      1: 100222
+    second: JtToeLf
+  - first:
+      1: 100224
+    second: JtToeRt
+  - first:
+      1: 100226
+    second: JtTongueA
+  - first:
+      1: 100228
+    second: JtTongueB
+  - first:
+      1: 100230
+    second: JtTongueC
+  - first:
+      1: 100232
+    second: JtUpperArmTwistALf
+  - first:
+      1: 100234
+    second: JtUpperArmTwistARt
+  - first:
+      1: 100236
+    second: JtUpperArmTwistBLf
+  - first:
+      1: 100238
+    second: JtUpperArmTwistBRt
+  - first:
+      1: 100240
+    second: JtUpperFaceParent
+  - first:
+      1: 100242
+    second: JtUpperNoseLf
+  - first:
+      1: 100244
+    second: JtUpperNoseRt
+  - first:
+      1: 100246
+    second: JtWristLf
+  - first:
+      1: 100248
+    second: JtWristRt
+  - first:
+      1: 100250
+    second: Mesh
+  - first:
+      1: 100252
+    second: MorphTargets
+  - first:
+      1: 100254
+    second: MshRef
+  - first:
+      1: 100256
+    second: SkinnedMesh
+  - first:
+      4: 400000
+    second: _IctSettings_
+  - first:
+      4: 400002
+    second: AnmDef_IdleSeatedBack02_PalmDownRt01
+  - first:
+      4: 400004
+    second: AnmDefGlobalSettings
+  - first:
+      4: 400006
+    second: CharacterRoot
+  - first:
+      4: 400008
+    second: ChrDefSettings
+  - first:
+      4: 400010
+    second: //RootNode
+  - first:
+      4: 400012
+    second: JtAnkleLf
+  - first:
+      4: 400014
+    second: JtAnkleRt
+  - first:
+      4: 400016
+    second: JtBallLf
+  - first:
+      4: 400018
+    second: JtBallRt
+  - first:
+      4: 400020
+    second: JtBrowParentLf
+  - first:
+      4: 400022
+    second: JtBrowParentRt
+  - first:
+      4: 400024
+    second: JtCheekLowerLf
+  - first:
+      4: 400026
+    second: JtCheekLowerRt
+  - first:
+      4: 400028
+    second: JtCheekUpperLf
+  - first:
+      4: 400030
+    second: JtCheekUpperRt
+  - first:
+      4: 400032
+    second: JtClavicleLf
+  - first:
+      4: 400034
+    second: JtClavicleRt
+  - first:
+      4: 400036
+    second: JtEarLf
+  - first:
+      4: 400038
+    second: JtEarRt
+  - first:
+      4: 400040
+    second: JtElbowLf
+  - first:
+      4: 400042
+    second: JtElbowRt
+  - first:
+      4: 400044
+    second: JtEyebrow01Lf
+  - first:
+      4: 400046
+    second: JtEyebrow01Rt
+  - first:
+      4: 400048
+    second: JtEyebrow02Lf
+  - first:
+      4: 400050
+    second: JtEyebrow02Rt
+  - first:
+      4: 400052
+    second: JtEyebrow03Lf
+  - first:
+      4: 400054
+    second: JtEyebrow03Rt
+  - first:
+      4: 400056
+    second: JtEyebrow04Lf
+  - first:
+      4: 400058
+    second: JtEyebrow04Rt
+  - first:
+      4: 400060
+    second: JtEyeLf
+  - first:
+      4: 400062
+    second: JtEyelidLowerLf
+  - first:
+      4: 400064
+    second: JtEyelidLowerRt
+  - first:
+      4: 400066
+    second: JtEyelidUpperLf
+  - first:
+      4: 400068
+    second: JtEyelidUpperRt
+  - first:
+      4: 400070
+    second: JtEyeRt
+  - first:
+      4: 400072
+    second: JtForearmTwistALf
+  - first:
+      4: 400074
+    second: JtForearmTwistARt
+  - first:
+      4: 400076
+    second: JtForearmTwistBLf
+  - first:
+      4: 400078
+    second: JtForearmTwistBRt
+  - first:
+      4: 400080
+    second: JtHeelLf
+  - first:
+      4: 400082
+    second: JtHeelRt
+  - first:
+      4: 400084
+    second: JtHipLf
+  - first:
+      4: 400086
+    second: JtHipRt
+  - first:
+      4: 400088
+    second: JtIndexALf
+  - first:
+      4: 400090
+    second: JtIndexARt
+  - first:
+      4: 400092
+    second: JtIndexBLf
+  - first:
+      4: 400094
+    second: JtIndexBRt
+  - first:
+      4: 400096
+    second: JtIndexCLf
+  - first:
+      4: 400098
+    second: JtIndexCRt
+  - first:
+      4: 400100
+    second: JtIndexDLf
+  - first:
+      4: 400102
+    second: JtIndexDRt
+  - first:
+      4: 400104
+    second: JtJaw
+  - first:
+      4: 400106
+    second: JtJawBack
+  - first:
+      4: 400108
+    second: JtJawFront
+  - first:
+      4: 400110
+    second: JtKneeLf
+  - first:
+      4: 400112
+    second: JtKneeRt
+  - first:
+      4: 400114
+    second: JtLipCornerLf
+  - first:
+      4: 400116
+    second: JtLipCornerRt
+  - first:
+      4: 400118
+    second: JtLipLowerLf
+  - first:
+      4: 400120
+    second: JtLipLowerMid
+  - first:
+      4: 400122
+    second: JtLipLowerRt
+  - first:
+      4: 400124
+    second: JtLipUpperLf
+  - first:
+      4: 400126
+    second: JtLipUpperMid
+  - first:
+      4: 400128
+    second: JtLipUpperRt
+  - first:
+      4: 400130
+    second: JtLittleALf
+  - first:
+      4: 400132
+    second: JtLittleARt
+  - first:
+      4: 400134
+    second: JtLittleBLf
+  - first:
+      4: 400136
+    second: JtLittleBRt
+  - first:
+      4: 400138
+    second: JtLittleCLf
+  - first:
+      4: 400140
+    second: JtLittleCRt
+  - first:
+      4: 400142
+    second: JtLittleDLf
+  - first:
+      4: 400144
+    second: JtLittleDRt
+  - first:
+      4: 400146
+    second: JtLowerFaceParent
+  - first:
+      4: 400148
+    second: JtLowerNoseLf
+  - first:
+      4: 400150
+    second: JtLowerNoseRt
+  - first:
+      4: 400152
+    second: JtMiddleALf
+  - first:
+      4: 400154
+    second: JtMiddleARt
+  - first:
+      4: 400156
+    second: JtMiddleBLf
+  - first:
+      4: 400158
+    second: JtMiddleBRt
+  - first:
+      4: 400160
+    second: JtMiddleCLf
+  - first:
+      4: 400162
+    second: JtMiddleCRt
+  - first:
+      4: 400164
+    second: JtMiddleDLf
+  - first:
+      4: 400166
+    second: JtMiddleDRt
+  - first:
+      4: 400168
+    second: JtNeckA
+  - first:
+      4: 400170
+    second: JtNeckB
+  - first:
+      4: 400172
+    second: JtPelvis
+  - first:
+      4: 400174
+    second: JtRingALf
+  - first:
+      4: 400176
+    second: JtRingARt
+  - first:
+      4: 400178
+    second: JtRingBLf
+  - first:
+      4: 400180
+    second: JtRingBRt
+  - first:
+      4: 400182
+    second: JtRingCLf
+  - first:
+      4: 400184
+    second: JtRingCRt
+  - first:
+      4: 400186
+    second: JtRingDLf
+  - first:
+      4: 400188
+    second: JtRingDRt
+  - first:
+      4: 400190
+    second: JtRoot
+  - first:
+      4: 400192
+    second: JtShoulderLf
+  - first:
+      4: 400194
+    second: JtShoulderRt
+  - first:
+      4: 400196
+    second: JtSkullA
+  - first:
+      4: 400198
+    second: JtSkullB
+  - first:
+      4: 400200
+    second: JtSpineA
+  - first:
+      4: 400202
+    second: JtSpineB
+  - first:
+      4: 400204
+    second: JtSpineC
+  - first:
+      4: 400206
+    second: JtThumbALf
+  - first:
+      4: 400208
+    second: JtThumbARt
+  - first:
+      4: 400210
+    second: JtThumbBLf
+  - first:
+      4: 400212
+    second: JtThumbBRt
+  - first:
+      4: 400214
+    second: JtThumbCLf
+  - first:
+      4: 400216
+    second: JtThumbCRt
+  - first:
+      4: 400218
+    second: JtThumbDLf
+  - first:
+      4: 400220
+    second: JtThumbDRt
+  - first:
+      4: 400222
+    second: JtToeLf
+  - first:
+      4: 400224
+    second: JtToeRt
+  - first:
+      4: 400226
+    second: JtTongueA
+  - first:
+      4: 400228
+    second: JtTongueB
+  - first:
+      4: 400230
+    second: JtTongueC
+  - first:
+      4: 400232
+    second: JtUpperArmTwistALf
+  - first:
+      4: 400234
+    second: JtUpperArmTwistARt
+  - first:
+      4: 400236
+    second: JtUpperArmTwistBLf
+  - first:
+      4: 400238
+    second: JtUpperArmTwistBRt
+  - first:
+      4: 400240
+    second: JtUpperFaceParent
+  - first:
+      4: 400242
+    second: JtUpperNoseLf
+  - first:
+      4: 400244
+    second: JtUpperNoseRt
+  - first:
+      4: 400246
+    second: JtWristLf
+  - first:
+      4: 400248
+    second: JtWristRt
+  - first:
+      4: 400250
+    second: Mesh
+  - first:
+      4: 400252
+    second: MorphTargets
+  - first:
+      4: 400254
+    second: MshRef
+  - first:
+      4: 400256
+    second: SkinnedMesh
+  - first:
+      74: 7400000
+    second: Take 001
+  - first:
+      111: 11100000
+    second: //RootNode
+  - first:
+      114: 11400000
+    second: AnmDef_IdleSeatedBack02_PalmDownRt01
+  - first:
+      114: 11400002
+    second: JtAnkleLf
+  - first:
+      114: 11400004
+    second: JtAnkleRt
+  - first:
+      114: 11400006
+    second: JtBallLf
+  - first:
+      114: 11400008
+    second: JtBallRt
+  - first:
+      114: 11400010
+    second: JtClavicleLf
+  - first:
+      114: 11400012
+    second: JtClavicleRt
+  - first:
+      114: 11400014
+    second: JtElbowLf
+  - first:
+      114: 11400016
+    second: JtElbowRt
+  - first:
+      114: 11400018
+    second: JtForearmTwistALf
+  - first:
+      114: 11400020
+    second: JtForearmTwistARt
+  - first:
+      114: 11400022
+    second: JtForearmTwistBLf
+  - first:
+      114: 11400024
+    second: JtForearmTwistBRt
+  - first:
+      114: 11400026
+    second: JtHipLf
+  - first:
+      114: 11400028
+    second: JtHipRt
+  - first:
+      114: 11400030
+    second: JtIndexALf
+  - first:
+      114: 11400032
+    second: JtIndexARt
+  - first:
+      114: 11400034
+    second: JtIndexBLf
+  - first:
+      114: 11400036
+    second: JtIndexBRt
+  - first:
+      114: 11400038
+    second: JtIndexCLf
+  - first:
+      114: 11400040
+    second: JtIndexCRt
+  - first:
+      114: 11400042
+    second: JtKneeLf
+  - first:
+      114: 11400044
+    second: JtKneeRt
+  - first:
+      114: 11400046
+    second: JtLittleALf
+  - first:
+      114: 11400048
+    second: JtLittleARt
+  - first:
+      114: 11400050
+    second: JtLittleBLf
+  - first:
+      114: 11400052
+    second: JtLittleBRt
+  - first:
+      114: 11400054
+    second: JtLittleCLf
+  - first:
+      114: 11400056
+    second: JtLittleCRt
+  - first:
+      114: 11400058
+    second: JtMiddleALf
+  - first:
+      114: 11400060
+    second: JtMiddleARt
+  - first:
+      114: 11400062
+    second: JtMiddleBLf
+  - first:
+      114: 11400064
+    second: JtMiddleBRt
+  - first:
+      114: 11400066
+    second: JtMiddleCLf
+  - first:
+      114: 11400068
+    second: JtMiddleCRt
+  - first:
+      114: 11400070
+    second: JtNeckA
+  - first:
+      114: 11400072
+    second: JtNeckB
+  - first:
+      114: 11400074
+    second: JtRingALf
+  - first:
+      114: 11400076
+    second: JtRingARt
+  - first:
+      114: 11400078
+    second: JtRingBLf
+  - first:
+      114: 11400080
+    second: JtRingBRt
+  - first:
+      114: 11400082
+    second: JtRingCLf
+  - first:
+      114: 11400084
+    second: JtRingCRt
+  - first:
+      114: 11400086
+    second: JtRoot
+  - first:
+      114: 11400088
+    second: JtShoulderLf
+  - first:
+      114: 11400090
+    second: JtShoulderRt
+  - first:
+      114: 11400092
+    second: JtSkullA
+  - first:
+      114: 11400094
+    second: JtSpineA
+  - first:
+      114: 11400096
+    second: JtSpineB
+  - first:
+      114: 11400098
+    second: JtSpineC
+  - first:
+      114: 11400100
+    second: JtThumbALf
+  - first:
+      114: 11400102
+    second: JtThumbARt
+  - first:
+      114: 11400104
+    second: JtThumbBLf
+  - first:
+      114: 11400106
+    second: JtThumbBRt
+  - first:
+      114: 11400108
+    second: JtThumbCLf
+  - first:
+      114: 11400110
+    second: JtThumbCRt
+  - first:
+      114: 11400112
+    second: JtToeLf
+  - first:
+      114: 11400114
+    second: JtToeRt
+  - first:
+      114: 11400116
+    second: JtUpperArmTwistALf
+  - first:
+      114: 11400118
+    second: JtUpperArmTwistARt
+  - first:
+      114: 11400120
+    second: JtUpperArmTwistBLf
+  - first:
+      114: 11400122
+    second: JtUpperArmTwistBRt
+  - first:
+      114: 11400124
+    second: JtWristLf
+  - first:
+      114: 11400126
+    second: JtWristRt
+  - first:
+      74: 1541660212340636781
+    second: IdleSeatedBack02_PalmDownRt01
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 1
+    materialSearch: 2
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'JtBallLf' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'JtUpperArmTwistBLf'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'JtUpperArmTwistBRt'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: IdleSeatedBack02_PalmDownRt01
+      takeName: Take 001
+      internalID: 1541660212340636781
+      firstFrame: 2
+      lastFrame: 65
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 1
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.15384616
+        functionName: readyTime
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 10
+        messageOptions: 1
+      - time: 0.18461539
+        functionName: strokeStartTime
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 12
+        messageOptions: 1
+      - time: 0.41538462
+        functionName: emphasisTime
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 27
+        messageOptions: 1
+      - time: 0.8
+        functionName: strokeTime
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 52
+        messageOptions: 1
+      - time: 0.84615386
+        functionName: relaxTime
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 55
+        messageOptions: 1
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: JtRoot
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtHipLf
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtHipRt
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtKneeLf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtKneeRt
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtAnkleLf
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtAnkleRt
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtSpineA
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtSpineB
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtNeckA
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtSkullA
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtClavicleLf
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtClavicleRt
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtShoulderLf
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtShoulderRt
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtElbowLf
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtElbowRt
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtWristLf
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtWristRt
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtToeLf
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtToeRt
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtEyeLf
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtEyeRt
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtJaw
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtThumbALf
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtThumbBLf
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtThumbCLf
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtIndexALf
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtIndexBLf
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtIndexCLf
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtMiddleALf
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtMiddleBLf
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtMiddleCLf
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtRingALf
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtRingBLf
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtRingCLf
+      humanName: Left Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtLittleALf
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtLittleBLf
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtLittleCLf
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtThumbARt
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtThumbBRt
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtThumbCRt
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtIndexARt
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtIndexBRt
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtIndexCRt
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtMiddleARt
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtMiddleBRt
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtMiddleCRt
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtRingARt
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtRingBRt
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtRingCRt
+      humanName: Right Ring Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtLittleARt
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtLittleBRt
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtLittleCRt
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: JtSpineC
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: ChrGenericMleAdult@IdleSeatedBack02_PalmDownRt01(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: _IctSettings_
+      parentName: ChrGenericMleAdult@IdleSeatedBack02_PalmDownRt01(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AnmDef_IdleSeatedBack02_PalmDownRt01
+      parentName: _IctSettings_
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AnmDefGlobalSettings
+      parentName: _IctSettings_
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ChrDefSettings
+      parentName: _IctSettings_
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CharacterRoot
+      parentName: ChrGenericMleAdult@IdleSeatedBack02_PalmDownRt01(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtRoot
+      parentName: CharacterRoot
+      position: {x: 0.006730462, y: 1.0923774, z: -0.0025635064}
+      rotation: {x: -0.075786516, y: -0.009316323, z: -0.052221972, w: 0.9957121}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtPelvis
+      parentName: JtRoot
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtHipRt
+      parentName: JtPelvis
+      position: {x: 0.098242335, y: -0.058648262, z: -0.006304294}
+      rotation: {x: 0.67764604, y: -0.5083725, z: 0.33038193, w: -0.41617435}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtKneeRt
+      parentName: JtHipRt
+      position: {x: 0.4491095, y: 3.50758e-11, z: 0.0000000024969256}
+      rotation: {x: 0.009047686, y: -0.012674389, z: 0.31777087, w: 0.94803965}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtAnkleRt
+      parentName: JtKneeRt
+      position: {x: 0.4492002, y: 5.7259652e-11, z: -0.0000000031879437}
+      rotation: {x: 0.11768092, y: -0.0011612446, z: -0.5501609, w: 0.8267242}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtBallRt
+      parentName: JtAnkleRt
+      position: {x: 0.18054976, y: 1.7763568e-17, z: 4.913068e-10}
+      rotation: {x: -0.00000007301497, y: 0.000000017393447, z: -0.22989011, w: 0.9732166}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtToeRt
+      parentName: JtBallRt
+      position: {x: 0.06392462, y: -3.3797832e-17, z: 1.5556342e-10}
+      rotation: {x: -9.3352374e-11, y: 0.0000000038388976, z: 1, w: 6.159071e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtHeelRt
+      parentName: JtToeRt
+      position: {x: 0.2584772, y: -3.455894e-16, z: -6.290162e-10}
+      rotation: {x: 2.646978e-23, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtHipLf
+      parentName: JtPelvis
+      position: {x: -0.098242335, y: -0.058648262, z: -0.006304294}
+      rotation: {x: 0.4049834, y: 0.42187405, z: 0.5556246, w: 0.5910094}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtKneeLf
+      parentName: JtHipLf
+      position: {x: -0.4491095, y: 1.4210854e-16, z: -2.4868996e-16}
+      rotation: {x: 0.009159727, y: -0.011934188, z: 0.32250586, w: 0.9464479}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtAnkleLf
+      parentName: JtKneeLf
+      position: {x: -0.4492002, y: 8.8817837e-17, z: 1.0658141e-16}
+      rotation: {x: 0.104571916, y: 0.058939453, z: -0.53730917, w: 0.83479923}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtBallLf
+      parentName: JtAnkleLf
+      position: {x: -0.18054976, y: -7.105427e-17, z: -7.105427e-17}
+      rotation: {x: -0.00000028728752, y: 0.0000012379087, z: -0.22988497, w: 0.97321784}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtToeLf
+      parentName: JtBallLf
+      position: {x: -0.06392462, y: 1.1845992e-17, z: 0}
+      rotation: {x: -2.3552535e-10, y: 0.0000000020264845, z: 1, w: 6.1709626e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtHeelLf
+      parentName: JtToeLf
+      position: {x: -0.2584772, y: -1.7876822e-17, z: 3.7466207e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtSpineA
+      parentName: JtRoot
+      position: {x: 1.7763568e-17, y: 0.077673316, z: -0.0052060974}
+      rotation: {x: 0.50399643, y: -0.50130326, z: -0.45193383, w: 0.5389235}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtSpineB
+      parentName: JtSpineA
+      position: {x: -0.12750632, y: -1.9539925e-16, z: -2.6645352e-17}
+      rotation: {x: 0.0071352236, y: 0.055566255, z: -0.16406393, w: 0.9848576}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtSpineC
+      parentName: JtSpineB
+      position: {x: -0.123722844, y: 1.7763567e-16, z: 0}
+      rotation: {x: 0.02132446, y: -0.0036208373, z: -0.15082626, w: 0.9883237}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtClavicleLf
+      parentName: JtSpineC
+      position: {x: -0.08814716, y: -0.008353435, z: 0.022990363}
+      rotation: {x: -0.10619266, y: 0.7563418, z: -0.05903902, w: 0.6427943}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtShoulderLf
+      parentName: JtClavicleLf
+      position: {x: -0.1643538, y: -2.1316282e-16, z: 1.4210854e-16}
+      rotation: {x: -0.02393346, y: -0.12050976, z: 0.086200915, w: 0.98867285}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtUpperArmTwistBLf
+      parentName: JtShoulderLf
+      position: {x: -0.25146034, y: 7.105427e-17, z: 1.4210854e-16}
+      rotation: {x: 0.22361377, y: -0, z: -0, w: 0.97467786}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtElbowLf
+      parentName: JtUpperArmTwistBLf
+      position: {x: 1.4210854e-16, y: 7.105427e-17, z: -1.4210854e-16}
+      rotation: {x: -0.008611929, y: -0.012875483, z: -0.0029327432, w: 0.9998758}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtForearmTwistALf
+      parentName: JtElbowLf
+      position: {x: -0.12573014, y: -7.105427e-17, z: -7.105427e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtForearmTwistBLf
+      parentName: JtElbowLf
+      position: {x: -0.25146028, y: -2.1316282e-16, z: 7.105427e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtWristLf
+      parentName: JtForearmTwistBLf
+      position: {x: -0, y: 1.4210854e-16, z: 2.1316282e-16}
+      rotation: {x: 0.3883069, y: 0.027563957, z: -0.074203886, w: 0.9181241}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtThumbALf
+      parentName: JtWristLf
+      position: {x: -0.015280069, y: 0.015104699, z: 0.011734039}
+      rotation: {x: 0.8480985, y: -0.20057859, z: 0.2715136, w: 0.40838405}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtThumbBLf
+      parentName: JtThumbALf
+      position: {x: -0.03052383, y: 1.4210854e-16, z: 1.5987211e-16}
+      rotation: {x: -0.000009568454, y: -0.0027929093, z: -0.027344737, w: 0.99962217}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtThumbCLf
+      parentName: JtThumbBLf
+      position: {x: -0.047460716, y: -2.1316282e-16, z: 7.105427e-17}
+      rotation: {x: -0.000074805124, y: 0.00062123826, z: -0.035927657, w: 0.99935424}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtThumbDLf
+      parentName: JtThumbCLf
+      position: {x: -0.03436732, y: 0, z: -7.105427e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtRingALf
+      parentName: JtWristLf
+      position: {x: -0.09034478, y: -0.023304803, z: 0.0011212158}
+      rotation: {x: 0.7032972, y: 0.06567877, z: -0.045880497, w: 0.7063671}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtRingBLf
+      parentName: JtRingALf
+      position: {x: -0.045978773, y: 7.105427e-17, z: 3.5527135e-16}
+      rotation: {x: -0.00000041723226, y: 0.000002600251, z: -0.03217099, w: 0.99948245}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtRingCLf
+      parentName: JtRingBLf
+      position: {x: -0.025672037, y: -4.2632563e-16, z: -2.842171e-16}
+      rotation: {x: -0.00000018800726, y: -0.0000015554508, z: -0.034660343, w: 0.9993991}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtRingDLf
+      parentName: JtRingCLf
+      position: {x: -0.020505492, y: 1.4210854e-16, z: -1.4210854e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLittleALf
+      parentName: JtWristLf
+      position: {x: -0.08359578, y: -0.04393193, z: 0.0090204505}
+      rotation: {x: 0.7104417, y: 0.07692873, z: 0.014608202, w: 0.69938624}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLittleBLf
+      parentName: JtLittleALf
+      position: {x: -0.03894602, y: -7.105427e-17, z: 1.0658141e-16}
+      rotation: {x: -0.00000017881385, y: -0.0000035278483, z: -0.03687126, w: 0.99932003}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLittleCLf
+      parentName: JtLittleBLf
+      position: {x: -0.022089245, y: -3.5527135e-16, z: 3.0198067e-16}
+      rotation: {x: 0.0000007419953, y: 0.00000084410914, z: -0.034397498, w: 0.9994083}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLittleDLf
+      parentName: JtLittleCLf
+      position: {x: -0.016747886, y: -2.842171e-16, z: -1.4210854e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtIndexALf
+      parentName: JtWristLf
+      position: {x: -0.103922345, y: 0.023359435, z: 0.002488328}
+      rotation: {x: 0.70230603, y: 0.039991353, z: -0.06487139, w: 0.7077843}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtIndexBLf
+      parentName: JtIndexALf
+      position: {x: -0.038494956, y: -2.4868996e-16, z: -3.5527136e-17}
+      rotation: {x: 0.000000029802308, y: -0.00000042654554, z: -0.032672826, w: 0.9994662}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtIndexCLf
+      parentName: JtIndexBLf
+      position: {x: -0.024999999, y: 2.3980816e-16, z: 3.5527136e-17}
+      rotation: {x: -0.00000011109447, y: 0.000001079568, z: -0.037931353, w: 0.9992804}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtIndexDLf
+      parentName: JtIndexCLf
+      position: {x: -0.020024583, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtMiddleALf
+      parentName: JtWristLf
+      position: {x: -0.097467266, y: 0.00003122316, z: 0.00032406359}
+      rotation: {x: 0.70432526, y: 0.054905936, z: -0.057339862, w: 0.70542437}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtMiddleBLf
+      parentName: JtMiddleALf
+      position: {x: -0.0451478, y: 0, z: 1.2434498e-16}
+      rotation: {x: 0.00000029802297, y: -0.00000062212297, z: -0.030294362, w: 0.999541}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtMiddleCLf
+      parentName: JtMiddleBLf
+      position: {x: -0.026899725, y: 0, z: 1.7763567e-16}
+      rotation: {x: 0.00000030339558, y: 0.0000011359647, z: -0.032331146, w: 0.9994772}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtMiddleDLf
+      parentName: JtMiddleCLf
+      position: {x: -0.023340482, y: -1.4210854e-16, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtUpperArmTwistALf
+      parentName: JtShoulderLf
+      position: {x: -0.12573017, y: 7.105427e-17, z: 3.5527135e-16}
+      rotation: {x: 0.11252148, y: -0, z: -0, w: 0.9936493}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtNeckA
+      parentName: JtSpineC
+      position: {x: -0.15430191, y: -7.105427e-17, z: 8.881784e-18}
+      rotation: {x: -0.031984497, y: -0.0026797068, z: -0.052023098, w: 0.99813}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtNeckB
+      parentName: JtNeckA
+      position: {x: -0.05016784, y: 1.4210854e-16, z: -2.6645352e-17}
+      rotation: {x: 5.079661e-17, y: -6.52713e-17, z: 0.012215935, w: 0.9999254}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtSkullA
+      parentName: JtNeckB
+      position: {x: -0.04657698, y: -1.4210854e-16, z: 8.881784e-18}
+      rotation: {x: -0.031639878, y: -0.0027193932, z: 0.08558939, w: 0.9958243}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtSkullB
+      parentName: JtSkullA
+      position: {x: -0.21478117, y: 1.4210854e-16, z: -9.5382e-17}
+      rotation: {x: 1, y: -1.3357371e-16, z: -2.775285e-16, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLowerFaceParent
+      parentName: JtSkullA
+      position: {x: -0.10343008, y: 0.0024110365, z: -4.5262982e-17}
+      rotation: {x: 0.50450253, y: -0.49545655, z: -0.50450253, w: -0.49545655}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtCheekLowerRt
+      parentName: JtLowerFaceParent
+      position: {x: 0.051871117, y: -0.06540191, z: 0.09769307}
+      rotation: {x: 0.84790736, y: -0.17356451, z: 0.49075162, w: -0.10045563}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLipUpperMid
+      parentName: JtLowerFaceParent
+      position: {x: -1.8989959e-16, y: -0.07507644, z: 0.1353794}
+      rotation: {x: 0.14623372, y: 0.69182056, z: 0.14623372, w: 0.69182056}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLipUpperRt
+      parentName: JtLowerFaceParent
+      position: {x: 0.013016664, y: -0.07596591, z: 0.1308669}
+      rotation: {x: 0.72194976, y: -0.1557514, z: 0.6590265, w: -0.14217652}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtCheekUpperLf
+      parentName: JtLowerFaceParent
+      position: {x: -0.037357297, y: -0.03550583, z: 0.123155884}
+      rotation: {x: 0.06056868, y: 0.6053657, z: 0.07901157, w: 0.78969675}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLipCornerLf
+      parentName: JtLowerFaceParent
+      position: {x: -0.026232, y: -0.07761044, z: 0.11898324}
+      rotation: {x: 0.15041512, y: 0.60629815, z: 0.18802747, w: 0.75790733}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtCheekLowerLf
+      parentName: JtLowerFaceParent
+      position: {x: -0.051871117, y: -0.06540191, z: 0.09769307}
+      rotation: {x: 0.10045563, y: 0.49075162, z: 0.17356451, w: 0.84790736}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLipUpperLf
+      parentName: JtLowerFaceParent
+      position: {x: -0.0130166635, y: -0.07596591, z: 0.1308669}
+      rotation: {x: 0.14217652, y: 0.6590265, z: 0.1557514, w: 0.72194976}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtJaw
+      parentName: JtLowerFaceParent
+      position: {x: -9.259073e-17, y: -0.048084114, z: 0.046259355}
+      rotation: {x: 0.41309437, y: 0.5738929, z: 0.41309437, w: 0.5738929}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtTongueA
+      parentName: JtJaw
+      position: {x: -0.047901023, y: 0.029562358, z: -4.1451847e-16}
+      rotation: {x: 2.9756162e-15, y: 3.9518767e-15, z: -0.5845401, w: 0.81136477}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtTongueB
+      parentName: JtTongueA
+      position: {x: -0.020469114, y: 2.842171e-16, z: -1.0983621e-17}
+      rotation: {x: -2.363324e-16, y: -4.4356656e-16, z: 0.026204573, w: 0.9996566}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtTongueC
+      parentName: JtTongueB
+      position: {x: -0.015562958, y: 2.842171e-16, z: 1.2370228e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtJawBack
+      parentName: JtJaw
+      position: {x: -0.03472476, y: -7.105427e-17, z: 2.1091346e-18}
+      rotation: {x: -2.1018794e-15, y: -1.486877e-15, z: -0.4858809, w: 0.87402505}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtJawFront
+      parentName: JtJawBack
+      position: {x: -0.0723739, y: 0, z: -8.6527184e-16}
+      rotation: {x: -3.1472136e-15, y: 5.73378e-15, z: -0.6494242, w: 0.76042634}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLipLowerMid
+      parentName: JtJawFront
+      position: {x: -0.036361754, y: -5.684342e-16, z: -7.397029e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLipLowerRt
+      parentName: JtJawFront
+      position: {x: -0.0363645, y: 0.0044969935, z: 0.012485844}
+      rotation: {x: 0.17791595, y: 0.38018847, z: 0.90661216, w: -0.043093886}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLipLowerLf
+      parentName: JtJawFront
+      position: {x: -0.0363645, y: 0.0044969935, z: -0.012485844}
+      rotation: {x: 0.38018847, y: -0.17791595, z: 0.043093886, w: 0.90661216}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLipCornerRt
+      parentName: JtLowerFaceParent
+      position: {x: 0.026232, y: -0.07761044, z: 0.11898324}
+      rotation: {x: 0.75790733, y: -0.18802747, z: 0.60629815, w: -0.15041512}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtCheekUpperRt
+      parentName: JtLowerFaceParent
+      position: {x: 0.037357297, y: -0.03550583, z: 0.123155884}
+      rotation: {x: 0.78969675, y: -0.07901157, z: 0.6053657, w: -0.06056868}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtUpperFaceParent
+      parentName: JtSkullA
+      position: {x: -0.130156, y: 0.02079595, z: -5.2028837e-17}
+      rotation: {x: 0.50450253, y: -0.49545655, z: -0.50450253, w: -0.49545655}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtBrowParentRt
+      parentName: JtUpperFaceParent
+      position: {x: 0.034, y: -0.0010810135, z: 0.071618415}
+      rotation: {x: 1, y: -0, z: 0, w: 6.123234e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEyebrow01Rt
+      parentName: JtBrowParentRt
+      position: {x: -0.023000002, y: 0.026983246, z: -0.045082476}
+      rotation: {x: 0.04430314, y: 0.82684404, z: 0.029998971, w: 0.5598806}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEyebrow04Rt
+      parentName: JtBrowParentRt
+      position: {x: 0.012579805, y: 0.026903378, z: -0.029080443}
+      rotation: {x: 0.042982213, y: 0.4936729, z: 0.075339355, w: 0.8653113}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEyebrow02Rt
+      parentName: JtBrowParentRt
+      position: {x: -0.010000001, y: 0.024576413, z: -0.041645203}
+      rotation: {x: 0.023599021, y: 0.7409805, z: 0.021362983, w: 0.67077166}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEyebrow03Rt
+      parentName: JtBrowParentRt
+      position: {x: 0.00407448, y: 0.024667153, z: -0.03662437}
+      rotation: {x: 0.028089726, y: 0.6273492, z: 0.034810636, w: 0.77745235}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEyelidLowerLf
+      parentName: JtUpperFaceParent
+      position: {x: -0.030848904, y: -0.044239163, z: 0.1013107}
+      rotation: {x: 0.07840841, y: 0.70274615, z: 0.07840841, w: 0.70274615}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEyelidUpperLf
+      parentName: JtUpperFaceParent
+      position: {x: -0.030848904, y: -0.035385936, z: 0.1013107}
+      rotation: {x: -0.045896996, y: 0.7056157, z: -0.045896996, w: 0.7056157}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtUpperNoseRt
+      parentName: JtUpperFaceParent
+      position: {x: 0.007138162, y: -0.047409423, z: 0.12067765}
+      rotation: {x: 0.84027445, y: -0.5389777, z: 0.049382176, w: -0.031675234}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLowerNoseRt
+      parentName: JtUpperNoseRt
+      position: {x: 0.025669925, y: 1.066995e-10, z: -1.0354647e-10}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEyelidUpperRt
+      parentName: JtUpperFaceParent
+      position: {x: 0.030848904, y: -0.035385936, z: 0.1013107}
+      rotation: {x: 0.7056157, y: 0.045896996, z: 0.7056157, w: 0.045896996}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEarLf
+      parentName: JtUpperFaceParent
+      position: {x: -0.07636092, y: -0.050435167, z: 0.017061781}
+      rotation: {x: 0.06447228, y: 0.22024845, z: 0.27343825, w: 0.9341122}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEyeRt
+      parentName: JtUpperFaceParent
+      position: {x: 0.030848904, y: -0.03874638, z: 0.08586469}
+      rotation: {x: 1, y: 0, z: 0, w: -2.4492131e-12}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtUpperNoseLf
+      parentName: JtUpperFaceParent
+      position: {x: -0.007138162, y: -0.047409423, z: 0.12067765}
+      rotation: {x: 0.031675234, y: 0.049382176, z: 0.5389777, w: 0.84027445}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLowerNoseLf
+      parentName: JtUpperNoseLf
+      position: {x: -0.025669925, y: -4.2632563e-16, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEarRt
+      parentName: JtUpperFaceParent
+      position: {x: 0.07636092, y: -0.050435167, z: 0.017061781}
+      rotation: {x: 0.9341122, y: -0.27343825, z: 0.22024845, w: -0.06447228}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEyeLf
+      parentName: JtUpperFaceParent
+      position: {x: -0.030848904, y: -0.03874638, z: 0.08586469}
+      rotation: {x: 0, y: 1.2246469e-16, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtBrowParentLf
+      parentName: JtUpperFaceParent
+      position: {x: -0.034, y: -0.0010810135, z: 0.071618415}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEyebrow02Lf
+      parentName: JtBrowParentLf
+      position: {x: 0.01, y: -0.024576413, z: 0.041645203}
+      rotation: {x: 0.023599021, y: 0.7409805, z: 0.021362983, w: 0.67077166}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEyebrow03Lf
+      parentName: JtBrowParentLf
+      position: {x: -0.0040744827, y: -0.024667153, z: 0.03662437}
+      rotation: {x: 0.028089726, y: 0.6273492, z: 0.034810636, w: 0.77745235}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEyebrow04Lf
+      parentName: JtBrowParentLf
+      position: {x: -0.012579807, y: -0.026903378, z: 0.029080443}
+      rotation: {x: 0.042982213, y: 0.4936729, z: 0.075339355, w: 0.8653113}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEyebrow01Lf
+      parentName: JtBrowParentLf
+      position: {x: 0.022999998, y: -0.026983246, z: 0.045082476}
+      rotation: {x: 0.04430314, y: 0.82684404, z: 0.029998971, w: 0.5598806}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtEyelidLowerRt
+      parentName: JtUpperFaceParent
+      position: {x: 0.030848904, y: -0.044239163, z: 0.1013107}
+      rotation: {x: 0.70274615, y: -0.07840841, z: 0.70274615, w: -0.07840841}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtClavicleRt
+      parentName: JtSpineC
+      position: {x: -0.08814716, y: -0.008353435, z: -0.022990359}
+      rotation: {x: 0.79408646, y: 0.023630442, z: -0.60653204, w: -0.0314226}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtShoulderRt
+      parentName: JtClavicleRt
+      position: {x: 0.1643538, y: 3.7976518e-11, z: -7.1380596e-10}
+      rotation: {x: -0.13536187, y: -0.07626351, z: 0.039302867, w: 0.9870747}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtUpperArmTwistBRt
+      parentName: JtShoulderRt
+      position: {x: 0.25146034, y: 7.105427e-17, z: -9.7714545e-11}
+      rotation: {x: 0.2355505, y: -0, z: -0, w: 0.97186214}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtElbowRt
+      parentName: JtUpperArmTwistBRt
+      position: {x: 1.4210854e-16, y: -7.105427e-17, z: 2.1316282e-16}
+      rotation: {x: -0.0029840604, y: -0.008606242, z: -0.018632172, w: 0.99978495}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtForearmTwistBRt
+      parentName: JtElbowRt
+      position: {x: 0.25146028, y: 0.000000003788874, z: 0.0000000053582827}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtWristRt
+      parentName: JtForearmTwistBRt
+      position: {x: -0, y: 3.5527136e-17, z: 1.4210854e-16}
+      rotation: {x: 0.23284301, y: -0.25734782, z: -0.1360362, w: 0.92792803}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtRingARt
+      parentName: JtWristRt
+      position: {x: 0.09034479, y: 0.023304816, z: -0.0011211957}
+      rotation: {x: 0.7126706, y: 0.078281015, z: -0.010058673, w: 0.69704485}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtRingBRt
+      parentName: JtRingARt
+      position: {x: 0.045978755, y: -0.000000035308652, z: 0.000000021693934}
+      rotation: {x: 0.00000026822067, y: 0.0000015124666, z: -0.038703732, w: 0.9992508}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtRingCRt
+      parentName: JtRingBRt
+      position: {x: 0.02567204, y: 0.000000013295559, z: -0.000000007417245}
+      rotation: {x: 0.00000000741752, y: 0.00000055398436, z: -0.038648847, w: 0.9992529}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtRingDRt
+      parentName: JtRingCRt
+      position: {x: 0.020505495, y: 0.000000019387414, z: -0.000000010563342}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtMiddleARt
+      parentName: JtWristRt
+      position: {x: 0.09746729, y: -0.000031211155, z: -0.00032404662}
+      rotation: {x: 0.7046366, y: 0.0590016, z: -0.059055742, w: 0.7046407}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtMiddleBRt
+      parentName: JtMiddleARt
+      position: {x: 0.04514779, y: -0.00000001763518, z: 0.000000011483128}
+      rotation: {x: -0, y: -0.0000007823105, z: -0.03422388, w: 0.99941427}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtMiddleCRt
+      parentName: JtMiddleBRt
+      position: {x: 0.026899729, y: 0.000000015761518, z: -0.000000009288327}
+      rotation: {x: 0.0000004391513, y: 0.0000029891585, z: -0.03201922, w: 0.9994873}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtMiddleDRt
+      parentName: JtMiddleCRt
+      position: {x: 0.023340482, y: -0.00000001945157, z: 0.000000011230387}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLittleARt
+      parentName: JtWristRt
+      position: {x: 0.08359579, y: 0.043931942, z: -0.009020438}
+      rotation: {x: 0.7181209, y: 0.07502518, z: 0.0008465154, w: 0.69186205}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLittleBRt
+      parentName: JtLittleARt
+      position: {x: 0.03894602, y: -0.0000000048292623, z: 0.0000000027602198}
+      rotation: {x: -0.000000029802294, y: -0.000001713632, z: -0.03462903, w: 0.99940026}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLittleCRt
+      parentName: JtLittleBRt
+      position: {x: 0.022089247, y: 0.000000008861751, z: -0.0000000047430007}
+      rotation: {x: 0.000000073402035, y: -0.0000021594446, z: -0.035601087, w: 0.99936604}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtLittleDRt
+      parentName: JtLittleCRt
+      position: {x: 0.016747886, y: -0.000000022857629, z: 0.000000011677782}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtIndexARt
+      parentName: JtWristRt
+      position: {x: 0.10392234, y: -0.023359444, z: -0.0024883428}
+      rotation: {x: 0.6870347, y: 0.030363493, z: -0.06530418, w: 0.72304684}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtIndexBRt
+      parentName: JtIndexARt
+      position: {x: 0.038494963, y: 0.000000023522837, z: -0.000000015219838}
+      rotation: {x: -0.00000023841838, y: 0.0000026319153, z: -0.033642884, w: 0.999434}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtIndexCRt
+      parentName: JtIndexBRt
+      position: {x: 0.024999995, y: -0.000000028795581, z: 0.000000017743005}
+      rotation: {x: 0.000000074112705, y: -0.00000012998895, z: 0.041381277, w: 0.9991435}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtIndexDRt
+      parentName: JtIndexCRt
+      position: {x: 0.020024579, y: -0.000000033631203, z: 0.000000020722368}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtThumbARt
+      parentName: JtWristRt
+      position: {x: 0.01528007, y: -0.015104699, z: -0.011734039}
+      rotation: {x: 0.79145765, y: -0.34806904, z: 0.12712556, w: 0.48608845}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtThumbBRt
+      parentName: JtThumbARt
+      position: {x: 0.030523831, y: 3.6761377e-10, z: 0.0000000118838}
+      rotation: {x: 0.0005874034, y: -0.00036808822, z: -0.031596135, w: 0.99950045}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtThumbCRt
+      parentName: JtThumbBRt
+      position: {x: 0.047460716, y: -3.033326e-10, z: -0.000000007590688}
+      rotation: {x: -0.00046487164, y: 0.00025532904, z: -0.028587112, w: 0.99959123}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtThumbDRt
+      parentName: JtThumbCRt
+      position: {x: 0.03436732, y: 1.7003302e-10, z: 0.0000000019498383}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtForearmTwistARt
+      parentName: JtElbowRt
+      position: {x: 0.12573014, y: 0.000000001894437, z: 0.0000000026791414}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: JtUpperArmTwistARt
+      parentName: JtShoulderRt
+      position: {x: 0.12573017, y: -3.5527136e-17, z: -4.885706e-11}
+      rotation: {x: 0.11861258, y: -0, z: -0, w: 0.9929406}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Mesh
+      parentName: CharacterRoot
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SkinnedMesh
+      parentName: Mesh
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MshRef
+      parentName: SkinnedMesh
+      position: {x: -0, y: 0.87724566, z: 0.084185064}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: MorphTargets
+      parentName: Mesh
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
