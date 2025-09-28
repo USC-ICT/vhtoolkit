@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_M_13" ref="LipSync_M_13" type="application/ssml+xml">
+      <mark name="T0" />Please
+	<mark name="T1" /><mark name="T2" />bring
+	<mark name="T3" /><mark name="T4" />the
+	<mark name="T5" /><mark name="T6" />chocolate
+	<mark name="T7" /><mark name="T8" />chip
+	<mark name="T9" /><mark name="T10" />cookies
+	<mark name="T11" /><mark name="T12" />quickly.
+	<mark name="T13" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Please " stroke="LipSync_M_13:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Please bring " stroke="LipSync_M_13:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Please bring the " stroke="LipSync_M_13:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Please bring the chocolate " stroke="LipSync_M_13:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Please bring the chocolate chip " stroke="LipSync_M_13:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Please bring the chocolate chip cookies " stroke="LipSync_M_13:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Please bring the chocolate chip cookies quickly. " stroke="LipSync_M_13:T13" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Please bring the chocolate chip cookies quickly.  " stroke="LipSync_M_13:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--Interjection-->
+    <head type="NOD" amount="0.2" repeats="1.0" relax="LipSync_M_13:T1" priority="1" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_13:T5" priority="5" />
+  </bml>
+</act>

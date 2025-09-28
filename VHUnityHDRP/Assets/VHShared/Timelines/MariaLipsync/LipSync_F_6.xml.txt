@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_F_6" ref="LipSync_F_6" type="application/ssml+xml">
+      <mark name="T0" />The
+	<mark name="T1" /><mark name="T2" />wizard
+	<mark name="T3" /><mark name="T4" />quickly
+	<mark name="T5" /><mark name="T6" />jinxed
+	<mark name="T7" /><mark name="T8" />the
+	<mark name="T9" /><mark name="T10" />gnomes
+	<mark name="T11" /><mark name="T12" />before
+	<mark name="T13" /><mark name="T14" />they
+	<mark name="T15" /><mark name="T16" />vaporized.
+	<mark name="T17" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 The " stroke="LipSync_F_6:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 The wizard " stroke="LipSync_F_6:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 The wizard quickly " stroke="LipSync_F_6:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 The wizard quickly jinxed " stroke="LipSync_F_6:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 The wizard quickly jinxed the " stroke="LipSync_F_6:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 The wizard quickly jinxed the gnomes " stroke="LipSync_F_6:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 The wizard quickly jinxed the gnomes before " stroke="LipSync_F_6:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 The wizard quickly jinxed the gnomes before they " stroke="LipSync_F_6:T15" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T17 The wizard quickly jinxed the gnomes before they vaporized. " stroke="LipSync_F_6:T17" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 The wizard quickly jinxed the gnomes before they vaporized.  " stroke="LipSync_F_6:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_6:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_6:T9" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_6:T15" priority="5" />
+  </bml>
+</act>

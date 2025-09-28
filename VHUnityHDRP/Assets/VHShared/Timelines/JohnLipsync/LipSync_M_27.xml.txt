@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_M_27" ref="LipSync_M_27" type="application/ssml+xml">
+      <mark name="T0" />Quiet
+	<mark name="T1" /><mark name="T2" />owls
+	<mark name="T3" /><mark name="T4" />hoot
+	<mark name="T5" /><mark name="T6" />under
+	<mark name="T7" /><mark name="T8" />the
+	<mark name="T9" /><mark name="T10" />starry
+	<mark name="T11" /><mark name="T12" />night
+	<mark name="T13" /><mark name="T14" />sky.
+	<mark name="T15" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Quiet " stroke="LipSync_M_27:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Quiet owls " stroke="LipSync_M_27:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Quiet owls hoot " stroke="LipSync_M_27:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Quiet owls hoot under " stroke="LipSync_M_27:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Quiet owls hoot under the " stroke="LipSync_M_27:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Quiet owls hoot under the starry " stroke="LipSync_M_27:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Quiet owls hoot under the starry night " stroke="LipSync_M_27:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 Quiet owls hoot under the starry night sky. " stroke="LipSync_M_27:T15" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Quiet owls hoot under the starry night sky.  " stroke="LipSync_M_27:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_27:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_27:T9" priority="5" />
+  </bml>
+</act>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_M_12" ref="LipSync_M_12" type="application/ssml+xml">
+      <mark name="T0" />A
+	<mark name="T1" /><mark name="T2" />joyful
+	<mark name="T3" /><mark name="T4" />zebra
+	<mark name="T5" /><mark name="T6" />jumps
+	<mark name="T7" /><mark name="T8" />high
+	<mark name="T9" /><mark name="T10" />above
+	<mark name="T11" /><mark name="T12" />a
+	<mark name="T13" /><mark name="T14" />quacking
+	<mark name="T15" /><mark name="T16" />duck.
+	<mark name="T17" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 A " stroke="LipSync_M_12:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 A joyful " stroke="LipSync_M_12:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 A joyful zebra " stroke="LipSync_M_12:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 A joyful zebra jumps " stroke="LipSync_M_12:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 A joyful zebra jumps high " stroke="LipSync_M_12:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 A joyful zebra jumps high above " stroke="LipSync_M_12:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 A joyful zebra jumps high above a " stroke="LipSync_M_12:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 A joyful zebra jumps high above a quacking " stroke="LipSync_M_12:T15" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T17 A joyful zebra jumps high above a quacking duck. " stroke="LipSync_M_12:T17" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 A joyful zebra jumps high above a quacking duck.  " stroke="LipSync_M_12:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_12:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_12:T13" priority="5" />
+  </bml>
+</act>

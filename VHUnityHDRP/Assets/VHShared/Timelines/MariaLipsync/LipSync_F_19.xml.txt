@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_F_19" ref="LipSync_F_19" type="application/ssml+xml">
+      <mark name="T0" />Fluffy
+	<mark name="T1" /><mark name="T2" />kittens
+	<mark name="T3" /><mark name="T4" />happily
+	<mark name="T5" /><mark name="T6" />nibble
+	<mark name="T7" /><mark name="T8" />on
+	<mark name="T9" /><mark name="T10" />tiny
+	<mark name="T11" /><mark name="T12" />bits
+	<mark name="T13" /><mark name="T14" />of
+	<mark name="T15" /><mark name="T16" />cheese.
+	<mark name="T17" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Fluffy " stroke="LipSync_F_19:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Fluffy kittens " stroke="LipSync_F_19:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Fluffy kittens happily " stroke="LipSync_F_19:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Fluffy kittens happily nibble " stroke="LipSync_F_19:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Fluffy kittens happily nibble on " stroke="LipSync_F_19:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Fluffy kittens happily nibble on tiny " stroke="LipSync_F_19:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Fluffy kittens happily nibble on tiny bits " stroke="LipSync_F_19:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 Fluffy kittens happily nibble on tiny bits of " stroke="LipSync_F_19:T15" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T17 Fluffy kittens happily nibble on tiny bits of cheese. " stroke="LipSync_F_19:T17" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Fluffy kittens happily nibble on tiny bits of cheese.  " stroke="LipSync_F_19:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_19:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_19:T11" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_19:T11" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_19:T17" priority="5" />
+  </bml>
+</act>

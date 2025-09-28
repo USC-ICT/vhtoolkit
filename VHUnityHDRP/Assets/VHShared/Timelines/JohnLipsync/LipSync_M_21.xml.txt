@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_M_21" ref="LipSync_M_21" type="application/ssml+xml">
+      <mark name="T0" />Victor
+	<mark name="T1" /><mark name="T2" />viewed
+	<mark name="T3" /><mark name="T4" />vibrant
+	<mark name="T5" /><mark name="T6" />violets
+	<mark name="T7" /><mark name="T8" />through
+	<mark name="T9" /><mark name="T10" />a
+	<mark name="T11" /><mark name="T12" />frosted
+	<mark name="T13" /><mark name="T14" />window.
+	<mark name="T15" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Victor " stroke="LipSync_M_21:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Victor viewed " stroke="LipSync_M_21:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Victor viewed vibrant " stroke="LipSync_M_21:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Victor viewed vibrant violets " stroke="LipSync_M_21:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Victor viewed vibrant violets through " stroke="LipSync_M_21:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Victor viewed vibrant violets through a " stroke="LipSync_M_21:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Victor viewed vibrant violets through a frosted " stroke="LipSync_M_21:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 Victor viewed vibrant violets through a frosted window. " stroke="LipSync_M_21:T15" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Victor viewed vibrant violets through a frosted window.  " stroke="LipSync_M_21:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_21:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_21:T5" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_21:T11" priority="5" />
+  </bml>
+</act>

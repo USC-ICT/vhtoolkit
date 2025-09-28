@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_M_3" ref="LipSync_M_3" type="application/ssml+xml">
+      <mark name="T0" />How
+	<mark name="T1" /><mark name="T2" />razorback-jumping
+	<mark name="T3" /><mark name="T4" />frogs
+	<mark name="T5" /><mark name="T6" />can
+	<mark name="T7" /><mark name="T8" />level
+	<mark name="T9" /><mark name="T10" />six
+	<mark name="T11" /><mark name="T12" />piqued
+	<mark name="T13" /><mark name="T14" />gymnasts.
+	<mark name="T15" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 How " stroke="LipSync_M_3:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 How razorback-jumping " stroke="LipSync_M_3:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 How razorback-jumping frogs " stroke="LipSync_M_3:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 How razorback-jumping frogs can " stroke="LipSync_M_3:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 How razorback-jumping frogs can level " stroke="LipSync_M_3:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 How razorback-jumping frogs can level six " stroke="LipSync_M_3:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 How razorback-jumping frogs can level six piqued " stroke="LipSync_M_3:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 How razorback-jumping frogs can level six piqued gymnasts. " stroke="LipSync_M_3:T15" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 How razorback-jumping frogs can level six piqued gymnasts.  " stroke="LipSync_M_3:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--Question Animation-->
+    <animation stroke="LipSync_M_3:T3" priority="3" name="IdleStandingUpright01_Shrug01" />
+    <face type="facs" au="2" amount="1.0" relax="LipSync_M_3:T0+0.5" priority="3" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_3:T5" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_3:T11" priority="5" />
+  </bml>
+</act>

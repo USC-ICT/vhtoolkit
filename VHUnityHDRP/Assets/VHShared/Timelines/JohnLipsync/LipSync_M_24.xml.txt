@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_M_24" ref="LipSync_M_24" type="application/ssml+xml">
+      <mark name="T0" />Three
+	<mark name="T1" /><mark name="T2" />cheerful
+	<mark name="T3" /><mark name="T4" />children
+	<mark name="T5" /><mark name="T6" />chase
+	<mark name="T7" /><mark name="T8" />the
+	<mark name="T9" /><mark name="T10" />blue
+	<mark name="T11" /><mark name="T12" />butterflies.
+	<mark name="T13" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Three " stroke="LipSync_M_24:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Three cheerful " stroke="LipSync_M_24:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Three cheerful children " stroke="LipSync_M_24:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Three cheerful children chase " stroke="LipSync_M_24:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Three cheerful children chase the " stroke="LipSync_M_24:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Three cheerful children chase the blue " stroke="LipSync_M_24:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Three cheerful children chase the blue butterflies. " stroke="LipSync_M_24:T13" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Three cheerful children chase the blue butterflies.  " stroke="LipSync_M_24:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_24:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_24:T9" priority="5" />
+  </bml>
+</act>
