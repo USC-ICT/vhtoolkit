@@ -1,0 +1,5 @@
+root = true
+
+[Library/PackageCache/com.unity.*/**.cs]
+dotnet_diagnostic.CS0618.severity = none   # '' is obsolete: ''
+dotnet_diagnostic.UNT0006.severity = none  # The Unity message '' has an incorrect signature.
