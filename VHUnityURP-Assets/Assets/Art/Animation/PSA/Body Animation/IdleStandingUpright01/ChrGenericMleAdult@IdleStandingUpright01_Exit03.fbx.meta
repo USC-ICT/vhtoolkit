@@ -1,0 +1,325 @@
+fileFormatVersion: 2
+guid: b44e5abc77e7c1f409d536a6a00aacf5
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      74: -578002363170730972
+    second: IdleStandingUpright01_Exit03
+  externalObjects: {}
+  materials:
+    materialImportMode: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: Skl:CharacterRoot
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\n\t'Skl:JtRoot' has scale animation that will
+      be discarded.\n\t'Skl:JtHead' has scale animation that will be discarded.\n\t'Skl:JtWristRt'
+      has scale animation that will be discarded.\n\t'Skl:JtMiddleARt' has translation
+      animation that will be discarded.\n\t'Skl:JtIndexARt' has translation animation
+      that will be discarded.\n\t'Skl:JtThumbBRt' has translation animation that
+      will be discarded.\n\t'Skl:JtLittleARt' has translation animation that will
+      be discarded.\n\t'Skl:JtRingARt' has translation animation that will be discarded.\n\t'Skl:JtMiddleALf'
+      has translation animation that will be discarded.\n\t'Skl:JtMiddleBLf' has
+      translation animation that will be discarded.\n\t'Skl:JtMiddleCLf' has translation
+      animation that will be discarded.\n\t'Skl:JtLittleALf' has translation animation
+      that will be discarded.\n\t'Skl:JtLittleBLf' has translation animation that
+      will be discarded.\n\t'Skl:JtLittleCLf' has translation animation that will
+      be discarded.\n\t'Skl:JtIndexALf' has translation animation that will be discarded.\n\t'Skl:JtIndexBLf'
+      has translation animation that will be discarded.\n\t'Skl:JtIndexCLf' has translation
+      animation that will be discarded.\n\t'Skl:JtThumbBLf' has translation animation
+      that will be discarded.\n\t'Skl:JtRingALf' has translation animation that will
+      be discarded.\n\t'Skl:JtRingBLf' has translation animation that will be discarded.\n\t'Skl:JtRingCLf'
+      has translation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: IdleStandingUpright01_Exit03
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 800
+      lastFrame: 950
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Skl:CharacterRoot
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtHipLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtHipLf/Skl:JtKneeLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtHipLf/Skl:JtKneeLf/Skl:JtAnkleLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtHipLf/Skl:JtKneeLf/Skl:JtAnkleLf/Skl:JtBallLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtHipLf/Skl:JtKneeLf/Skl:JtAnkleLf/Skl:JtBallLf/Skl:JtToeLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtHipLf/Skl:JtKneeLf/Skl:JtAnkleLf/Skl:JtBallLf/Skl:JtToeLf/Skl:JtHeelLf
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtHipRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtHipRt/Skl:JtKneeRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtHipRt/Skl:JtKneeRt/Skl:JtAnkleRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtHipRt/Skl:JtKneeRt/Skl:JtAnkleRt/Skl:JtBallRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtHipRt/Skl:JtKneeRt/Skl:JtAnkleRt/Skl:JtBallRt/Skl:JtToeRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtHipRt/Skl:JtKneeRt/Skl:JtAnkleRt/Skl:JtBallRt/Skl:JtToeRt/Skl:JtHeelRt
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtForeArmTwistALf
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtForeArmTwistALf/Skl:JtForeArmTwistBLf
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtIndexALf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtIndexALf/Skl:JtIndexBLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtIndexALf/Skl:JtIndexBLf/Skl:JtIndexCLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtIndexALf/Skl:JtIndexBLf/Skl:JtIndexCLf/Skl:JtIndexDLf
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtLittleALf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtLittleALf/Skl:JtLittleBLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtLittleALf/Skl:JtLittleBLf/Skl:JtLittleCLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtLittleALf/Skl:JtLittleBLf/Skl:JtLittleCLf/Skl:JtLittleDLf
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtMiddleALf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtMiddleALf/Skl:JtMiddleBLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtMiddleALf/Skl:JtMiddleBLf/Skl:JtMiddleCLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtMiddleALf/Skl:JtMiddleBLf/Skl:JtMiddleCLf/Skl:JtMiddleDLf
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtRingALf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtRingALf/Skl:JtRingBLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtRingALf/Skl:JtRingBLf/Skl:JtRingCLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtRingALf/Skl:JtRingBLf/Skl:JtRingCLf/Skl:JtRingDLf
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtThumbALf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtThumbALf/Skl:JtThumbBLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtThumbALf/Skl:JtThumbBLf/Skl:JtThumbCLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtElbowLf/Skl:JtWristLf/Skl:JtThumbALf/Skl:JtThumbBLf/Skl:JtThumbCLf/Skl:JtThumbDLf
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtUpperArmTwistALf
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtUpperArmTwistALf/Skl:JtUpperArmTwistBLf
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleLf/Skl:JtShoulderLf/Skl:JtUpperArmTwistALf/Skl:JtUpperArmTwistBLf/Skl:JtUpperArmTwistCLf
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtForeArmTwistARt
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtForeArmTwistARt/Skl:JtForeArmTwistBRt
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtIndexARt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtIndexARt/Skl:JtIndexBRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtIndexARt/Skl:JtIndexBRt/Skl:JtIndexCRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtIndexARt/Skl:JtIndexBRt/Skl:JtIndexCRt/Skl:JtIndexDRt
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtLittleARt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtLittleARt/Skl:JtLittleBRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtLittleARt/Skl:JtLittleBRt/Skl:JtLittleCRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtLittleARt/Skl:JtLittleBRt/Skl:JtLittleCRt/Skl:JtLittleDRt
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtMiddleARt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtMiddleARt/Skl:JtMiddleBRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtMiddleARt/Skl:JtMiddleBRt/Skl:JtMiddleCRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtMiddleARt/Skl:JtMiddleBRt/Skl:JtMiddleCRt/Skl:JtMiddleDRt
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtRingARt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtRingARt/Skl:JtRingBRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtRingARt/Skl:JtRingBRt/Skl:JtRingCRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtRingARt/Skl:JtRingBRt/Skl:JtRingCRt/Skl:JtRingDRt
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtThumbARt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtThumbARt/Skl:JtThumbBRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtThumbARt/Skl:JtThumbBRt/Skl:JtThumbCRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtElbowRt/Skl:JtWristRt/Skl:JtThumbARt/Skl:JtThumbBRt/Skl:JtThumbCRt/Skl:JtThumbDRt
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtUpperArmTwistARt
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtUpperArmTwistARt/Skl:JtUpperArmTwistBRt
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtClavicleRt/Skl:JtShoulderRt/Skl:JtUpperArmTwistARt/Skl:JtUpperArmTwistBRt/Skl:JtUpperArmTwistCRt
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtNeck
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtNeck/Skl:JtHead
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtNeck/Skl:JtHead/Skl:JtEyeLf
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtNeck/Skl:JtHead/Skl:JtEyeLf/Skl:JtEyeLeafLf
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtNeck/Skl:JtHead/Skl:JtEyeRt
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtNeck/Skl:JtHead/Skl:JtEyeRt/Skl:JtEyeLeafRt
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtNeck/Skl:JtHead/Skl:JtHeadLeaf
+        weight: 0
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtNeck/Skl:JtHead/Skl:JtJaw
+        weight: 1
+      - path: Skl:CharacterRoot/Skl:JtRoot/Skl:JtSpine/Skl:JtChest/Skl:JtNeck/Skl:JtHead/Skl:JtJaw/Skl:JtJawLeaf
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 1
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
