@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_M_4" ref="LipSync_M_4" type="application/ssml+xml">
+      <mark name="T0" />Jack
+	<mark name="T1" /><mark name="T2" />quickly
+	<mark name="T3" /><mark name="T4" />amazed
+	<mark name="T5" /><mark name="T6" />the
+	<mark name="T7" /><mark name="T8" />big
+	<mark name="T9" /><mark name="T10" />zebra
+	<mark name="T11" /><mark name="T12" />over
+	<mark name="T13" /><mark name="T14" />five
+	<mark name="T15" /><mark name="T16" />jumping
+	<mark name="T17" /><mark name="T18" />dogs.
+	<mark name="T19" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Jack " stroke="LipSync_M_4:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Jack quickly " stroke="LipSync_M_4:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Jack quickly amazed " stroke="LipSync_M_4:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Jack quickly amazed the " stroke="LipSync_M_4:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Jack quickly amazed the big " stroke="LipSync_M_4:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Jack quickly amazed the big zebra " stroke="LipSync_M_4:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Jack quickly amazed the big zebra over " stroke="LipSync_M_4:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 Jack quickly amazed the big zebra over five " stroke="LipSync_M_4:T15" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T17 Jack quickly amazed the big zebra over five jumping " stroke="LipSync_M_4:T17" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T19 Jack quickly amazed the big zebra over five jumping dogs. " stroke="LipSync_M_4:T19" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Jack quickly amazed the big zebra over five jumping dogs.  " stroke="LipSync_M_4:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_4:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_4:T7" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_4:T7" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_4:T15" priority="5" />
+  </bml>
+</act>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_F_0" ref="LipSync_F_0" type="application/ssml+xml">
+      <mark name="T0" />The
+	<mark name="T1" /><mark name="T2" />quick
+	<mark name="T3" /><mark name="T4" />brown
+	<mark name="T5" /><mark name="T6" />fox
+	<mark name="T7" /><mark name="T8" />jumps
+	<mark name="T9" /><mark name="T10" />over
+	<mark name="T11" /><mark name="T12" />the
+	<mark name="T13" /><mark name="T14" />lazy
+	<mark name="T15" /><mark name="T16" />dog.
+	<mark name="T17" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 The " stroke="LipSync_F_0:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 The quick " stroke="LipSync_F_0:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 The quick brown " stroke="LipSync_F_0:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 The quick brown fox " stroke="LipSync_F_0:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 The quick brown fox jumps " stroke="LipSync_F_0:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 The quick brown fox jumps over " stroke="LipSync_F_0:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 The quick brown fox jumps over the " stroke="LipSync_F_0:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 The quick brown fox jumps over the lazy " stroke="LipSync_F_0:T15" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T17 The quick brown fox jumps over the lazy dog. " stroke="LipSync_F_0:T17" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 The quick brown fox jumps over the lazy dog.  " stroke="LipSync_F_0:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_0:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_0:T13" priority="5" />
+  </bml>
+</act>
