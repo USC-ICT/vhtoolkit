@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using VHAssets;
@@ -36,6 +38,10 @@ namespace Ride.Examples
         [NonSerialized] public GUIStyle m_guiButtonLeftJustify;
         [NonSerialized] public GUIStyle m_guiToggleLeftJustify;
         bool m_settingsToggle = false;
+        Vector2 m_settingsScroll;
+        int m_selectedLightingIndex = -1;
+        List<GameObject> m_lightingChoices;
+        const string lightingPrefix = "LightingConfig-";
         DebugOnScreenLogVHAssets m_onScreenLog;
         Vector2 m_dialogScroll;
         Vector2 m_scroll;
@@ -43,6 +49,7 @@ namespace Ride.Examples
         bool m_characterSelectionToggle = true;
         bool m_characterToggle_Ride = false;
         bool m_characterToggle_Rocketbox = false;
+        bool m_characterToggle_CC = false;
         bool m_asrToggle = true;
         bool m_ttsToggle = true;
         bool m_lipsyncToggle = true;
@@ -54,8 +61,8 @@ namespace Ride.Examples
         bool m_toggleUI_chatHistory = true;
         string m_nlpInput = "Hello, how are you?";
         string m_nlpResult = "I'm fine, how are you?";
-        Vector3 m_cameraInitialPosition;
-        Quaternion m_cameraInitialRotation;
+        [NonSerialized] public Vector3 m_cameraInitialPosition;
+        [NonSerialized] public Quaternion m_cameraInitialRotation;
         #endregion
 
 
@@ -79,7 +86,7 @@ namespace Ride.Examples
             m_debugMenu.InsertMenu(3, "Face", m_face.OnGUIFace);
             m_debugMenu.InsertMenu(4, "Gaze", m_gaze.OnGUIGaze);
             m_debugMenu.InsertMenu(5, "Sensing", m_sensing.OnGUISensing);
-            m_debugMenu.InsertMenu(6, "Timeline", m_timeline.OnGUITimeline);
+            //m_debugMenu.InsertMenu(6, "Timeline", m_timeline.OnGUITimeline);
             //m_debugMenu.InsertMenu(7, "CC Animation", m_ccAnimation.OnGUICCAnimation);
             //m_debugMenu.InsertDebugMenu(9, "OVR Lipsync", m_ovr.OnGuiOvrLipsync);
             //m_debugMenu.InsertDebugMenu(9, "OVR Lipsync", m_ovr.OnGuiOvrLipsync);
@@ -95,6 +102,15 @@ namespace Ride.Examples
 
             m_cameraInitialPosition = m_camera.transform.localPosition;
             m_cameraInitialRotation = m_camera.transform.localRotation;
+
+            var allGameobjects = FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            m_lightingChoices = allGameobjects
+                        .Select(t => t.gameObject)
+                        .Where(go => go.name.StartsWith(lightingPrefix, StringComparison.Ordinal))
+                        .Distinct()
+                        .ToList();
+            int activeIndex = m_lightingChoices.FindIndex(g => g.activeSelf);
+            m_selectedLightingIndex = activeIndex >= 0 ? activeIndex : 0;
         }
 
         protected override void Update()
@@ -140,27 +156,62 @@ namespace Ride.Examples
             m_settingsToggle = GUILayout.Toggle(m_settingsToggle, m_settingsToggle ? $"- Settings" : $"+ Settings", m_guiToggleLeftJustify);
             if (m_settingsToggle)
             {
-                var onScreenLog = m_debugMenu.Toggle(m_onScreenLog.m_log.IsShowing, m_onScreenLog.m_log.IsShowing ? "OnScreenDebugLog ON" : "OnScreenDebugLog OFF");
-                if (onScreenLog != m_onScreenLog.m_log.IsShowing)
-                    m_onScreenLog.m_log.ShowLog(!m_onScreenLog.m_log.IsShowing);
+                using (var settingsScroll = new GUILayout.ScrollViewScope(m_settingsScroll))
+                {
+                    m_settingsScroll = settingsScroll.scrollPosition;
 
-                // Toggle UI elements.
-                m_toggleUI_webcam = m_debugMenu.Toggle(m_toggleUI_webcam, m_toggleUI_webcam ? "Webcam UI ON" : "Webcam UI OFF");
-                m_uiWebcam.gameObject.SetActive(m_toggleUI_webcam);
+                    var onScreenLog = m_debugMenu.Toggle(m_onScreenLog.m_log.IsShowing, m_onScreenLog.m_log.IsShowing ? "OnScreenDebugLog ON" : "OnScreenDebugLog OFF");
+                    if (onScreenLog != m_onScreenLog.m_log.IsShowing)
+                        m_onScreenLog.m_log.ShowLog(!m_onScreenLog.m_log.IsShowing);
 
-                m_toggleUI_inputField = m_debugMenu.Toggle(m_toggleUI_inputField, m_toggleUI_inputField ? "Input Field UI ON" : "Input Field UI OFF");
-                m_uiInputField.gameObject.SetActive(m_toggleUI_inputField);
+                    // Toggle UI elements.
+                    m_toggleUI_webcam = m_debugMenu.Toggle(m_toggleUI_webcam, m_toggleUI_webcam ? "Webcam UI ON" : "Webcam UI OFF");
+                    m_uiWebcam.gameObject.SetActive(m_toggleUI_webcam);
 
-                m_toggleUI_chatHistory = m_debugMenu.Toggle(m_toggleUI_chatHistory, m_toggleUI_chatHistory ? "Chat History UI ON" : "Chat History OFF");
-                m_uiChatHistory.gameObject.SetActive(m_toggleUI_chatHistory);
+                    m_toggleUI_inputField = m_debugMenu.Toggle(m_toggleUI_inputField, m_toggleUI_inputField ? "Input Field UI ON" : "Input Field UI OFF");
+                    m_uiInputField.gameObject.SetActive(m_toggleUI_inputField);
 
-                // Toggle FPS lock.
-                m_fps60LockToggle = m_debugMenu.Toggle(m_fps60LockToggle, Application.targetFrameRate == 60 ? "Locked at 60fps" : "Unlocked frame rate");
-                Application.targetFrameRate = m_fps60LockToggle ? 60 : -1;
+                    m_toggleUI_chatHistory = m_debugMenu.Toggle(m_toggleUI_chatHistory, m_toggleUI_chatHistory ? "Chat History UI ON" : "Chat History OFF");
+                    m_uiChatHistory.gameObject.SetActive(m_toggleUI_chatHistory);
 
-                // Reset camera button.
-                if (m_debugMenu.Button("Reset Camera"))
-                    m_camera.transform.SetLocalPositionAndRotation(m_cameraInitialPosition, m_cameraInitialRotation);
+                    // Toggle FPS lock.
+                    m_fps60LockToggle = m_debugMenu.Toggle(m_fps60LockToggle, Application.targetFrameRate == 60 ? "Locked at 60fps" : "Unlocked frame rate");
+                    Application.targetFrameRate = m_fps60LockToggle ? 60 : -1;
+
+                    // Reset camera button.
+                    if (m_debugMenu.Button("Reset Camera"))
+                        m_camera.transform.SetLocalPositionAndRotation(m_cameraInitialPosition, m_cameraInitialRotation);
+
+                    // Lighting
+                    m_debugMenu.Space();
+                    m_debugMenu.Label("<b>Lighting</b>");
+
+                    if (m_lightingChoices.Count == 0)
+                    {
+                        m_debugMenu.Label("No LightingConfig- objects found in scene.");
+                    }
+                    else
+                    {
+                        for (int i = 0; i < m_lightingChoices.Count; i++)
+                        {
+                            var go = m_lightingChoices[i];
+
+                            string display = go.name.Length > lightingPrefix.Length ? go.name.Substring(lightingPrefix.Length) : go.name;
+                            bool isSelected = m_selectedLightingIndex == i;
+                            bool toggled = m_debugMenu.Toggle(isSelected, display);
+                            if (toggled && !isSelected)
+                            {
+                                m_selectedLightingIndex = i;
+
+                                // Disable all, enable only the selected
+                                foreach (var g in m_lightingChoices)
+                                    g.SetActive(false);
+
+                                go.SetActive(true);
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -177,6 +228,12 @@ namespace Ride.Examples
             {
                 m_dialogScroll = dialogScrollView.scrollPosition;
 
+                using (m_debugMenu.Horizontal())
+                {
+                    if (m_debugMenu.Button("Collapse")) { m_characterSelectionToggle = false; m_sensingToggle = false; m_asrToggle = false; m_llmToggle = false; m_ttsToggle = false; m_lipsyncToggle = false; m_inputoutputToggle = false; }
+                    if (m_debugMenu.Button("Expand")) { m_characterSelectionToggle = true; m_sensingToggle = true; m_asrToggle = true; m_llmToggle = true; m_ttsToggle = true; m_lipsyncToggle = true; m_inputoutputToggle = false; }
+                }
+
                 OnGUICharacterConfig();
                 m_sensingToggle = GUILayout.Toggle(m_sensingToggle, m_sensingToggle ? $"- <b>Sensing</b>" : $"+ <b>Sensing</b>", m_guiToggleLeftJustify);
                 if (m_sensingToggle) { m_sensing.OnGUISelectSensingMode(); }
@@ -190,7 +247,7 @@ namespace Ride.Examples
                 m_ttsToggle = GUILayout.Toggle(m_ttsToggle, m_ttsToggle ? $"- <b>Text-To-Speech (TTS)</b>" : $"+ <b>TTS</b>", m_guiToggleLeftJustify);
                 if (m_ttsToggle) { m_tts.OnGUISystemSelection(); m_tts.OnGUIVoiceSelection(); }
 
-                m_lipsyncToggle = GUILayout.Toggle(m_lipsyncToggle, m_lipsyncToggle ? $"- <b>Lipsync</b>" : $"+ <b>Lipsync</b>", m_guiToggleLeftJustify);
+                m_lipsyncToggle = GUILayout.Toggle(m_lipsyncToggle, m_lipsyncToggle ? $"- <b>Lipsync / NVBG</b>" : $"+ <b>Lipsync / NVBG</b>", m_guiToggleLeftJustify);
                 if (m_lipsyncToggle) m_lipsync.OnGUISystemSelection();
 
                 m_inputoutputToggle = GUILayout.Toggle(m_inputoutputToggle, m_inputoutputToggle ? $"- <b>Input / Output</b>" : $"+ <b>Input / Output</b>", m_guiToggleLeftJustify);
@@ -224,14 +281,25 @@ namespace Ride.Examples
 
             var ictCharacters = m_controller.CharactersParent.Find("ICT").GetComponentsInChildren<MecanimCharacter>(true);
             var rbCharacters = m_controller.CharactersParent.Find("Rocketbox").GetComponentsInChildren<MecanimCharacter>(true);
+            var ccCharacters = m_controller.CharactersParent.Find("CC").GetComponentsInChildren<MecanimCharacter>(true);
 
-            m_characterToggle_Ride = GUILayout.Toggle(m_characterToggle_Ride, m_characterToggle_Ride ? $"- <b>ICT</b>" : $"+ <b>ICT</b>", m_guiToggleLeftJustify);
-            if (m_characterToggle_Ride) { DrawCharacterGroup("ICT", ictCharacters); }
+            if (ictCharacters.Length > 0)
+            {
+                m_characterToggle_Ride = GUILayout.Toggle(m_characterToggle_Ride, m_characterToggle_Ride ? $"- <b>ICT</b>" : $"+ <b>ICT</b>", m_guiToggleLeftJustify);
+                if (m_characterToggle_Ride) { DrawCharacterGroup("ICT", ictCharacters); }
+            }
 
-            m_characterToggle_Rocketbox = GUILayout.Toggle(m_characterToggle_Rocketbox, m_characterToggle_Rocketbox ? $"- <b>Rocketbox</b>" : $"+ <b>Rocketbox</b>", m_guiToggleLeftJustify);
-            if (m_characterToggle_Rocketbox) { DrawCharacterGroup("Rocketbox", rbCharacters); }
+            if (rbCharacters.Length > 0)
+            {
+                m_characterToggle_Rocketbox = GUILayout.Toggle(m_characterToggle_Rocketbox, m_characterToggle_Rocketbox ? $"- <b>Rocketbox</b>" : $"+ <b>Rocketbox</b>", m_guiToggleLeftJustify);
+                if (m_characterToggle_Rocketbox) { DrawCharacterGroup("Rocketbox", rbCharacters); }
+            }
 
-
+            if (ccCharacters.Length > 0)
+            {
+                m_characterToggle_CC = GUILayout.Toggle(m_characterToggle_CC, m_characterToggle_CC ? $"- <b>CC</b>" : $"+ <b>CC</b>", m_guiToggleLeftJustify);
+                if (m_characterToggle_CC) { DrawCharacterGroup("CC", ccCharacters); }
+            }
 
 
             if (m_controller.CurrentCharacter != null && m_controller.CurrentCharacter.Voice.isPlaying)
@@ -252,7 +320,7 @@ namespace Ride.Examples
         {
             if (group.Length == 0) return;
 
-            m_debugMenu.Label(label);
+            //m_debugMenu.Label(label);
 
             string[] names = group.Select(c => c.name).ToArray();
             int currentIndex = Array.FindIndex(names, name =>
@@ -260,10 +328,7 @@ namespace Ride.Examples
 
             int selectedIndex = m_debugMenu.SelectionGrid(currentIndex, names, 2);
             if (selectedIndex != currentIndex && selectedIndex >= 0)
-            {
                 m_controller.SelectCharacter(names[selectedIndex]);
-                m_animation.SetAnimationList();
-            }
 
             m_debugMenu.Space();
         }

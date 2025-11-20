@@ -9,7 +9,7 @@ using VHAssets;
 
 namespace Ride.Examples
 {
-    public abstract class DemoControllerBase : RideBaseMinimal
+    public abstract class DemoControllerBase : RideMonoBehaviour
     {
         [Header("Debug Menus")]
         [SerializeField] protected DebugMenuGaze m_gaze;
@@ -48,6 +48,12 @@ namespace Ride.Examples
 
         public MecanimCharacter CurrentCharacter => m_currentCharacter;
         public IReadOnlyList<MecanimCharacter> Characters => m_characters;
+
+        protected void Awake()
+        {
+            // https://discussions.unity.com/t/on-play-dont-destroy-on-load-with-a-debug-updater-object-is-created-automatically/824863/12
+            UnityEngine.Rendering.DebugManager.instance.enableRuntimeUI = false;
+        }
 
         protected override void Start()
         {
@@ -214,8 +220,11 @@ namespace Ride.Examples
         /// </summary>
         public virtual void StopUtterance()
         {
-            CurrentCharacter?.StopLipSyncPerformance();
-            CurrentCharacter?.StopAudio();
+            if (CurrentCharacter != null)
+            {
+                CurrentCharacter.StopLipSyncPerformance();
+                CurrentCharacter.StopAudio();
+            }
         }
 
         /// <summary>
@@ -321,8 +330,10 @@ namespace Ride.Examples
             if (!string.IsNullOrEmpty(prompt)) profile.llmPrompt = prompt;
 
             m_llm.SetUIPrompt(profile.llmPrompt);
-            m_chatGPTSystem?.SetSystemPrompt(profile.llmPrompt);
-            m_anthropicSystem?.SetSystemPrompt(profile.llmPrompt);
+            if (m_chatGPTSystem != null)
+                m_chatGPTSystem.SetSystemPrompt(profile.llmPrompt);
+            if (m_anthropicSystem != null)
+                m_anthropicSystem.SetSystemPrompt(profile.llmPrompt);
         }
 
         /// <summary>
@@ -349,5 +360,8 @@ namespace Ride.Examples
         }
 
         protected abstract void UpdateAsrButtonColorInternal();
+
+        public enum LipsyncOptions { VH = 0, OVR = 1, }
+        public virtual void SetLipsyncMethod(LipsyncOptions method) { }
     }
 }

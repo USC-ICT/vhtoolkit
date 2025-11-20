@@ -9,24 +9,9 @@ namespace Ride.Examples
     /// </summary>
     public class DebugMenuLipsync : RideMonoBehaviour
     {
-        /// <summary>
-        /// Available lipsync options.
-        /// </summary>
-        public enum LipsyncOptions
-        {
-            FaceFX = 0,
-            OVR = 1,   
-        }
-
-
-        #region Debug Menu Variables
-
-        private DebugMenu m_debugMenu;       // Reference to the Debug Menu system.
-        private DemoController m_controller; // Reference to the Demo Controller for character management.
-        private LipsyncOptions m_currentLipsync; // Tracks the currently selected lipsync system.
-        private int m_lipsyncMode;           // Stores the selected lipsync mode index.
-
-        #endregion
+        private DebugMenu m_debugMenu;        // Reference to the Debug Menu system.
+        private DemoController m_controller;  // Reference to the Demo Controller for character management.
+        private DemoControllerBase.LipsyncOptions m_lipsyncMode; // Stores the selected lipsync mode index.
 
 
         /// <summary>
@@ -36,11 +21,9 @@ namespace Ride.Examples
         {
             base.Start();
 
-            m_debugMenu = Globals.api.GetSystem<DebugMenu>();
-
+            m_debugMenu = Systems.Get<DebugMenu>();
             m_controller = FindAnyObjectByType<DemoController>();
         }
-
 
         /// <summary>
         /// Handles the GUI layout for Lipsync settings in the Debug Menu.
@@ -53,37 +36,34 @@ namespace Ride.Examples
             OnGUISystemSelection();
         }
 
-
         /// <summary>
         /// Displays a selection grid for choosing the active lipsync system.
         /// </summary>
         public void OnGUISystemSelection()
         {
-            var character = m_controller.CurrentCharacter;
-
-            int lipsync = m_debugMenu.SelectionGrid(m_lipsyncMode, new string[] { "FaceFX", "OVR" /*, "Timeline" */ }, 2);
-
-            if (m_lipsyncMode == lipsync)
-                return;
-
-            m_lipsyncMode = lipsync;
-            if (m_lipsyncMode == 0)
+            int lipsync = m_debugMenu.SelectionGrid((int)m_lipsyncMode, new string[] { "VH", "OVR" /*, "Timeline" */ }, 2);
+            if ((int)m_lipsyncMode != lipsync)
             {
-                m_currentLipsync = LipsyncOptions.FaceFX;
-            }
-            else if (m_lipsyncMode == 1)
-            {
-                m_currentLipsync = LipsyncOptions.OVR;
-            }
-            else
-            {
-                Debug.LogWarning("DebugMenuLipsync::OnGUISystemSelection() - Failed to parse lipsync selection.");
+                m_lipsyncMode = (DemoControllerBase.LipsyncOptions)lipsync;
+                m_controller.SetLipsyncMethod(m_lipsyncMode);
             }
 
             m_debugMenu.Space();
+
+            m_debugMenu.Label($"<b>NVBG</b>");
+            var curCharacter = m_controller.CurrentCharacter;
+            if (curCharacter != null)
+            {
+                var profile = m_controller.CurrentCharacter.GetComponent<VHCharacterProfile>();
+                if (profile != null)
+                {
+                    m_debugMenu.Label(profile.NVBG.CharacterId);
+                    m_debugMenu.Label(profile.NVBG.IdlePostureId);
+                }
+            }
         }
 
-
+#if false
         /// <summary>
         /// Plays audio using the selected lipsync system.
         /// </summary>
@@ -105,5 +85,6 @@ namespace Ride.Examples
                 audioSource.Play();
             }
         }
+#endif
     }
 }

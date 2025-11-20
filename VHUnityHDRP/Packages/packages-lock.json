@@ -1,13 +1,13 @@
 {
   "dependencies": {
     "com.soupday.cc3_unity_tools": {
-      "version": "https://github.com/soupday/cc_unity_tools_HDRP.git",
+      "version": "https://github.com/soupday/CCiC-Unity-Tools.git#2.1.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.unity.render-pipelines.high-definition": "10.5.0"
+        "com.unity.collab-proxy": "1.14.12"
       },
-      "hash": "d634382c4bfd293b3bd9f0a9f1a6beb1654c4d57"
+      "hash": "2a7288afe99fa14148d54fe5f6ca40c2aef41b0a"
     },
     "com.unity.addressables": {
       "version": "2.5.0",
@@ -310,102 +310,102 @@
       "url": "https://packages.unity.com"
     },
     "edu.usc.ict.ride.abstract": {
-      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.abstract#main",
+      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.abstract#fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "ecedc86076f798c93926e14559f764816c6f4210"
+      "hash": "fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d"
     },
     "edu.usc.ict.ride.cognition": {
-      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.cognition#main",
+      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.cognition#fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "edu.usc.ict.ride.vendor.aws": "0.0.8290",
-        "edu.usc.ict.ride.vendor.cognition": "0.0.8290",
-        "edu.usc.ict.ride.vendor.vhassets": "0.0.8310",
-        "edu.usc.ict.ride.core": "0.0.8310",
-        "edu.usc.ict.ride.core.ui": "0.0.8310"
+        "edu.usc.ict.ride.vendor.aws": "0.0.8411",
+        "edu.usc.ict.ride.vendor.cognition": "0.0.8440",
+        "edu.usc.ict.ride.vendor.vhassets": "0.0.8436",
+        "edu.usc.ict.ride.core": "0.0.8524",
+        "edu.usc.ict.ride.core.ui": "0.0.8524"
       },
-      "hash": "ecedc86076f798c93926e14559f764816c6f4210"
+      "hash": "fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d"
     },
     "edu.usc.ict.ride.core": {
-      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.core#main",
+      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.core#fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.addressables": "1.21.8",
         "com.unity.ai.navigation": "2.0.0",
         "com.unity.inputsystem": "1.7.0",
-        "edu.usc.ict.ride.vendor.crc32net": "0.0.8290",
-        "edu.usc.ict.ride.vendor.milsymbol": "0.0.8290",
-        "edu.usc.ict.ride.vendor.vhassets": "0.0.8310",
-        "edu.usc.ict.ride.abstract": "0.0.8290"
+        "edu.usc.ict.ride.vendor.crc32net": "0.0.8411",
+        "edu.usc.ict.ride.vendor.milsymbol": "0.0.8411",
+        "edu.usc.ict.ride.vendor.vhassets": "0.0.8436",
+        "edu.usc.ict.ride.abstract": "0.0.8436"
       },
-      "hash": "ecedc86076f798c93926e14559f764816c6f4210"
+      "hash": "fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d"
     },
     "edu.usc.ict.ride.core.ui": {
-      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.core.ui#main",
+      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.core.ui#fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "edu.usc.ict.ride.core": "0.0.8310"
+        "edu.usc.ict.ride.core": "0.0.8524"
       },
-      "hash": "ecedc86076f798c93926e14559f764816c6f4210"
+      "hash": "fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d"
     },
     "edu.usc.ict.ride.vendor.aws": {
-      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.vendor.aws#main",
+      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.vendor.aws#fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "ecedc86076f798c93926e14559f764816c6f4210"
+      "hash": "fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d"
     },
     "edu.usc.ict.ride.vendor.cognition": {
-      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.vendor.cognition#main",
+      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.vendor.cognition#fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "ecedc86076f798c93926e14559f764816c6f4210"
+      "hash": "fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d"
     },
     "edu.usc.ict.ride.vendor.crc32net": {
-      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.vendor.crc32net#main",
+      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.vendor.crc32net#fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "ecedc86076f798c93926e14559f764816c6f4210"
+      "hash": "fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d"
     },
     "edu.usc.ict.ride.vendor.milsymbol": {
-      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.vendor.milsymbol#main",
+      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.vendor.milsymbol#fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "ecedc86076f798c93926e14559f764816c6f4210"
+      "hash": "fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d"
     },
     "edu.usc.ict.ride.vendor.vh": {
-      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.vendor.vh#main",
+      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.vendor.vh#fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "ecedc86076f798c93926e14559f764816c6f4210"
+      "hash": "fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d"
     },
     "edu.usc.ict.ride.vendor.vhassets": {
-      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.vendor.vhassets#main",
+      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.vendor.vhassets#fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "ecedc86076f798c93926e14559f764816c6f4210"
+      "hash": "fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d"
     },
     "edu.usc.ict.ride.vh": {
-      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.vh#main",
+      "version": "https://github.com/USC-ICT/ride.git?path=/Ride/RideUnity/Packages/edu.usc.ict.ride.vh#fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "edu.usc.ict.ride.vendor.vh": "0.0.8290",
-        "edu.usc.ict.ride.cognition": "0.0.8322"
+        "edu.usc.ict.ride.vendor.vh": "0.0.8411",
+        "edu.usc.ict.ride.cognition": "0.0.8602"
       },
-      "hash": "ecedc86076f798c93926e14559f764816c6f4210"
+      "hash": "fd9f4844369d4e1c1705b0ba4cb59608a19e2c3d"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

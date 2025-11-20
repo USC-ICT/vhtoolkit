@@ -61,7 +61,16 @@ namespace Ride.Examples
                     else
                     {
                         m_currentCharacter = character;
+
                         character.gameObject.SetActive(true);
+
+                        var profile = character.GetComponent<VHCharacterProfile>();
+                        if (profile != null)
+                        {
+                            if (profile.NVBG != null)
+                                m_nvbgSystem = profile.NVBG;
+                        }
+
                         m_nvbgSystem.StartProcess(character.CharacterName);
                         m_gaze.GazeAt(character, "GazeTargetUser");
                         SetPrompt(m_currentCharacter);
@@ -72,7 +81,9 @@ namespace Ride.Examples
                     }
                 }
                 else
+                {
                     character.gameObject.SetActive(false);
+                }
             }
         }
 
@@ -111,6 +122,28 @@ namespace Ride.Examples
                 VHUtils.ApplicationQuit();
 
             base.Update();
+        }
+
+        public override void SetLipsyncMethod(LipsyncOptions method)
+        {
+            base.SetLipsyncMethod(method);
+
+            // this version of script doesn't have support for OVR since it's non-distributable
+            // always use VH version
+            var character = CurrentCharacter;
+            var animator = character.GetComponentInChildren<Animator>(true);
+
+            if (animator != null)
+                SetMouthLayer(animator, true);
+        }
+
+        protected static void SetMouthLayer(Animator animator, bool enabled)
+        {
+            int mouthLayerIndex = animator.GetLayerIndex("Mouth Layer");
+            if (mouthLayerIndex >= 0)
+                animator.SetLayerWeight(mouthLayerIndex, enabled ? 1 : 0);
+            else
+                Debug.LogWarning("Animator layer 'Mouth Layer' not found.");
         }
     }
 }
