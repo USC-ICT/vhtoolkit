@@ -29,7 +29,6 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
-  - _MATERIAL_FEATURE_SPECULAR_COLOR
   - _NORMALMAP_TANGENT_SPACE
   m_InvalidKeywords: []
   m_LightmapFlags: 1
@@ -252,7 +251,7 @@ Material:
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 0
-    - _MaterialID: 4
+    - _MaterialID: 1
     - _Metallic: 0
     - _MetallicRemapMax: 0
     - _MetallicRemapMin: 0
@@ -276,7 +275,7 @@ Material:
     - _ReflectionFalloff: 0.5
     - _ReflectionStr: 0.5
     - _RefractionModel: 0
-    - _Smoothness: 0
+    - _Smoothness: 0.2
     - _SmoothnessRemapMax: 0
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0

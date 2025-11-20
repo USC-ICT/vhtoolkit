@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2380565047534476767
+--- !u!1 &3370076630045187427
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7049827276230701600}
-  - component: {fileID: 3877209545048670410}
+  - component: {fileID: 6169477398336355940}
+  - component: {fileID: 2357744202773592557}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -17,28 +17,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7049827276230701600
+--- !u!4 &6169477398336355940
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2380565047534476767}
+  m_GameObject: {fileID: 3370076630045187427}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1232420204509779407}
+  m_Father: {fileID: 4925676596826193314}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &3877209545048670410
+--- !u!82 &2357744202773592557
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2380565047534476767}
+  m_GameObject: {fileID: 3370076630045187427}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -129,7 +129,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &1626035688840147492
+--- !u!1001 &4886754935569046089
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -196,19 +196,20 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: c2415d20d0c4bf845aa498df96ec6fb0, type: 2}
+      objectReference: {fileID: 22100000, guid: 6e1be34a31657a84296f8dc29008e262,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8802e1ad60cb43c40a4b659d14064f87,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7049827276230701600}
+      addedObject: {fileID: 6169477398336355940}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8802e1ad60cb43c40a4b659d14064f87, type: 3}
---- !u!4 &1232420204509779407 stripped
+--- !u!4 &4925676596826193314 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8802e1ad60cb43c40a4b659d14064f87,
     type: 3}
-  m_PrefabInstance: {fileID: 1626035688840147492}
+  m_PrefabInstance: {fileID: 4886754935569046089}
   m_PrefabAsset: {fileID: 0}

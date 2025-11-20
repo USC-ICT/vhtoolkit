@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 7ad7552a7acf17e4c8fe4d1ed7c51a82
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 19300
   internalIDToNameTable:
   - first:
       1: 100000
@@ -992,8 +992,9 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -1068,9 +1069,361 @@ ModelImporter:
         floatParameter: 0
         intParameter: 2
         messageOptions: 1
-      transformMask: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: _IctSettings_
+        weight: 0
+      - path: _IctSettings_/ChrDefSettings
+        weight: 0
+      - path: CharacterRoot
+        weight: 1
+      - path: CharacterRoot/JtRoot
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtHipLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtHipLf/JtKneeLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtHipLf/JtKneeLf/JtAnkleLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtHipLf/JtKneeLf/JtAnkleLf/JtBallLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtHipLf/JtKneeLf/JtAnkleLf/JtBallLf/JtToeLf
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtHipLf/JtKneeLf/JtAnkleLf/JtBallLf/JtToeLf/JtHeelLf
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtHipRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtHipRt/JtKneeRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtHipRt/JtKneeRt/JtAnkleRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtHipRt/JtKneeRt/JtAnkleRt/JtBallRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtHipRt/JtKneeRt/JtAnkleRt/JtBallRt/JtToeRt
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtHipRt/JtKneeRt/JtAnkleRt/JtBallRt/JtToeRt/JtHeelRt
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtForeArmTwistALf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtForeArmTwistALf/JtForeArmTwistBLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtIndexALf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtIndexALf/JtIndexBLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtIndexALf/JtIndexBLf/JtIndexCLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtIndexALf/JtIndexBLf/JtIndexCLf/JtIndexDLf
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtLittleALf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtLittleALf/JtLittleBLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtLittleALf/JtLittleBLf/JtLittleCLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtLittleALf/JtLittleBLf/JtLittleCLf/JtLittleDLf
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtMiddleALf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtMiddleALf/JtMiddleBLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtMiddleALf/JtMiddleBLf/JtMiddleCLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtMiddleALf/JtMiddleBLf/JtMiddleCLf/JtMiddleDLf
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtRingALf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtRingALf/JtRingBLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtRingALf/JtRingBLf/JtRingCLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtRingALf/JtRingBLf/JtRingCLf/JtRingDLf
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtThumbALf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtThumbALf/JtThumbBLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtThumbALf/JtThumbBLf/JtThumbCLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtElbowLf/JtWristLf/JtThumbALf/JtThumbBLf/JtThumbCLf/JtThumbDLf
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtUpperArmTwistALf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtUpperArmTwistALf/JtUpperArmTwistBLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleLf/JtShoulderLf/JtUpperArmTwistALf/JtUpperArmTwistBLf/JtUpperArmTwistCLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtForeArmTwistARt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtForeArmTwistARt/JtForeArmTwistBRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtIndexARt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtIndexARt/JtIndexBRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtIndexARt/JtIndexBRt/JtIndexCRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtIndexARt/JtIndexBRt/JtIndexCRt/JtIndexDRt
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtLittleARt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtLittleARt/JtLittleBRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtLittleARt/JtLittleBRt/JtLittleCRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtLittleARt/JtLittleBRt/JtLittleCRt/JtLittleDRt
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtMiddleARt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtMiddleARt/JtMiddleBRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtMiddleARt/JtMiddleBRt/JtMiddleCRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtMiddleARt/JtMiddleBRt/JtMiddleCRt/JtMiddleDRt
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtRingARt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtRingARt/JtRingBRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtRingARt/JtRingBRt/JtRingCRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtRingARt/JtRingBRt/JtRingCRt/JtRingDRt
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtThumbARt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtThumbARt/JtThumbBRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtThumbARt/JtThumbBRt/JtThumbCRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtElbowRt/JtWristRt/JtThumbARt/JtThumbBRt/JtThumbCRt/JtThumbDRt
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtUpperArmTwistARt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtUpperArmTwistARt/JtUpperArmTwistBRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtClavicleRt/JtShoulderRt/JtUpperArmTwistARt/JtUpperArmTwistBRt/JtUpperArmTwistCRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtCheekLowerJawRotLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtCheekLowerJawRotLf/JtCheekLowerLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtCheekLowerJawRotRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtCheekLowerJawRotRt/JtCheekLowerRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtCheekUpperLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtCheekUpperRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEarLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEarRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyebrowParentLf
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyebrowParentLf/JtEyebrow01Lf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyebrowParentLf/JtEyebrow02Lf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyebrowParentLf/JtEyebrow03Lf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyebrowParentLf/JtEyebrow04Lf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyebrowParentRt
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyebrowParentRt/JtEyebrow01Rt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyebrowParentRt/JtEyebrow02Rt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyebrowParentRt/JtEyebrow03Rt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyebrowParentRt/JtEyebrow04Rt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyeLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyeLf/JtEyeLeafLf
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyelidLowerSoftLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyelidLowerSoftLf/JtEyelidLowerLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyelidLowerSoftLf/JtEyelidLowerSecondaryLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyelidLowerSoftRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyelidLowerSoftRt/JtEyelidLowerRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyelidLowerSoftRt/JtEyelidLowerSecondaryRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyelidUpperSoftLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyelidUpperSoftLf/JtEyelidUpperLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyelidUpperSoftLf/JtEyelidUpperSecondaryLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyelidUpperSoftRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyelidUpperSoftRt/JtEyelidUpperRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyelidUpperSoftRt/JtEyelidUpperSecondaryRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyeRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtEyeRt/JtEyeLeafRt
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtHeadLeaf
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtJaw
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtJaw/JtJawLeaf
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtJaw/JtTongueA
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtJaw/JtTongueA/JtTongueB
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtJaw/JtTongueA/JtTongueB/JtTongueC
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot
+        weight: 0
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipCornerJawRotLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipCornerJawRotLf/JtLipCornerLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipCornerJawRotRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipCornerJawRotRt/JtLipCornerRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipLower01JawRotLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipLower01JawRotLf/JtLipLower01Lf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipLower01JawRotRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipLower01JawRotRt/JtLipLower01Rt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipLower02JawRotLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipLower02JawRotLf/JtLipLower02Lf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipLower02JawRotRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipLower02JawRotRt/JtLipLower02Rt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipLower03JawRotLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipLower03JawRotLf/JtLipLower03Lf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipLower03JawRotRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipLower03JawRotRt/JtLipLower03Rt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipLowerMidJawRot
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipLowerMidJawRot/JtLipLowerMid
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipUpper01JawRotLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipUpper01JawRotLf/JtLipUpper01Lf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipUpper01JawRotRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipUpper01JawRotRt/JtLipUpper01Rt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipUpper02JawRotLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipUpper02JawRotLf/JtLipUpper02Lf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipUpper02JawRotRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipUpper02JawRotRt/JtLipUpper02Rt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipUpper03JawRotLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipUpper03JawRotLf/JtLipUpper03Lf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipUpper03JawRotRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipUpper03JawRotRt/JtLipUpper03Rt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipUpperMidJawRot
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtLipRoot/JtLipUpperMidJawRot/JtLipUpperMid
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtNoseLowerLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtNoseLowerRt
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtNoseUpperLf
+        weight: 1
+      - path: CharacterRoot/JtRoot/JtSpine/JtChest/JtNeck/JtHead/JtNoseUpperRt
+        weight: 1
+      - path: CharacterRoot/Mesh
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/Arms
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/HeadGrp
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/HeadGrp/EyeballLf
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/HeadGrp/EyeballRt
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/HeadGrp/EyeShadow
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/HeadGrp/EyeShellLf
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/HeadGrp/EyeShellRt
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/HeadGrp/Hair
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/HeadGrp/Hairbun
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/HeadGrp/Head
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/HeadGrp/Lower_Teeth
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/HeadGrp/LowerEyelashes
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/HeadGrp/Tongue
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/HeadGrp/Upper_Teeth
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/HeadGrp/UpperEyelashes
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/Lowerbody
+        weight: 0
+      - path: CharacterRoot/Mesh/SkinnedMesh/MshRef/Upperbody
+        weight: 0
       maskType: 1
-      maskSource: {instanceID: 0}
+      maskSource: {fileID: 101100000, guid: e532bc5fe195e7c48b109888b826264d, type: 2}
       additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
@@ -1080,35 +1433,26 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importPhysicalCameras: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
-    nodeNameCollisionStrategy: 0
-    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
-    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 0
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -2440,9 +2784,6 @@ ModelImporter:
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 2
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
-  importBlendShapeDeformPercent: 0
-  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
