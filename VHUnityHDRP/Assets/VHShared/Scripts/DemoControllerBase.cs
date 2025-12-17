@@ -78,7 +78,7 @@ namespace Ride.Examples
             if (m_azureSpeechRecognitionSystem != null)
                 m_azureSpeechRecognitionSystem.SpeechRecognized += OnSpeechRecognized;
 
-            ChangeASR(m_windowsSpeechRecognitionSystem ? 0 : 1);
+            ChangeASR(0);
             m_currentLLM = m_chatGPTSystem ? m_chatGPTSystem : m_anthropicSystem;
             m_currentScripted = m_lexSystem;
             ChangeLlm(0);
@@ -101,12 +101,12 @@ namespace Ride.Examples
         /// <summary>
         /// Changes the active Automatic Speech Recognition (ASR) system.
         /// </summary>
-        /// <param name="mode">ASR mode index: 0 = Windows, 1 = Azure, 2 = Mobile (if enabled).</param>
+        /// <param name="mode">ASR mode index: 0 = Azure, 1 = Windows, 2 = Mobile (if enabled).</param>
         public void ChangeASR(int mode)
         {
             m_asrMode = mode;
-            if (mode == 0) m_currentASR = m_windowsSpeechRecognitionSystem;
-            else if (mode == 1) m_currentASR = m_azureSpeechRecognitionSystem;
+            if (mode == 0) m_currentASR = m_azureSpeechRecognitionSystem;
+            else if (mode == 1) m_currentASR = m_windowsSpeechRecognitionSystem;
 #if RIDEVH_URP || RIDEVH_XR
             // else if (mode == 2) m_currentASR = m_mobileSpeechRecognitionSystem;
 #endif

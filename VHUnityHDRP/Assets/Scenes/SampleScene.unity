@@ -1781,6 +1781,41 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1111999605054857591, guid: 19044927269b37740b54b8f433874a45,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111999605054857591, guid: 19044927269b37740b54b8f433874a45,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111999605054857591, guid: 19044927269b37740b54b8f433874a45,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1094352837}
+    - target: {fileID: 1111999605054857591, guid: 19044927269b37740b54b8f433874a45,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111999605054857591, guid: 19044927269b37740b54b8f433874a45,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StopUtterance
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111999605054857591, guid: 19044927269b37740b54b8f433874a45,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Ride.Examples.DemoController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111999605054857591, guid: 19044927269b37740b54b8f433874a45,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1614701318938766340, guid: 19044927269b37740b54b8f433874a45,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1984,13 +2019,28 @@ PrefabInstance:
     - target: {fileID: 6397015684743457159, guid: 19044927269b37740b54b8f433874a45,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000061035156
+      value: -0.00091552734
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696568272658068140, guid: 19044927269b37740b54b8f433874a45,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696568272658068140, guid: 19044927269b37740b54b8f433874a45,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6696568272658068140, guid: 19044927269b37740b54b8f433874a45,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1094352838}
+    - target: {fileID: 6696568272658068140, guid: 19044927269b37740b54b8f433874a45,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6696568272658068140, guid: 19044927269b37740b54b8f433874a45,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2000,6 +2050,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DemoController_UI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696568272658068140, guid: 19044927269b37740b54b8f433874a45,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7088073719957383367, guid: 19044927269b37740b54b8f433874a45,
         type: 3}
@@ -4678,7 +4733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c0d1eb4d2be39b418b074f796e46ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_gazeHeadSpeed: 50
 --- !u!1 &1464958234
 GameObject:
   m_ObjectHideFlags: 0

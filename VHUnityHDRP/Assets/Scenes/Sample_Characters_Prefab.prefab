@@ -15,11 +15,12 @@ GameObject:
   - component: {fileID: 7300854666944806301}
   - component: {fileID: 2060045003916114234}
   - component: {fileID: 6648346242851546670}
-  - component: {fileID: 6828669064368429470}
+  - component: {fileID: 8176212466836067608}
   - component: {fileID: 5710226949146823608}
   - component: {fileID: 434602118572364005}
   - component: {fileID: 4129222737736163625}
-  - component: {fileID: 1717645799437407142}
+  - component: {fileID: 8692414435900085780}
+  - component: {fileID: 3807255840712918484}
   - component: {fileID: 6620894338368386478}
   - component: {fileID: 8703843518578559628}
   - component: {fileID: 8934130402523007056}
@@ -174,6 +175,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -202,7 +207,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &6828669064368429470
+--- !u!114 &8176212466836067608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,11 +216,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 101428145280120910}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -230,11 +237,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 2768914940321170327}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &5710226949146823608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +328,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1717645799437407142
+--- !u!114 &8692414435900085780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,7 +337,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 101428145280120910}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -313,6 +356,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &3807255840712918484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101428145280120910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 8692414435900085780}
+  m_gazeProvider: {fileID: 2060045003916114234}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &6620894338368386478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,7 +577,8 @@ GameObject:
   - component: {fileID: 2765294334994068202}
   - component: {fileID: 5929202255293279543}
   - component: {fileID: 5806110990270571572}
-  - component: {fileID: 7592340019275688908}
+  - component: {fileID: 3947820477639354378}
+  - component: {fileID: 2329761521688429364}
   - component: {fileID: 5596270354674311097}
   - component: {fileID: 4611154202667329256}
   - component: {fileID: 8949517876357767103}
@@ -660,6 +734,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.2
   m_EyeGazeWeight: 1
@@ -702,6 +780,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EasingEquation: 2
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -771,7 +851,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7592340019275688908
+--- !u!114 &3947820477639354378
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -780,7 +860,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 330048727890397234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -799,6 +879,32 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &2329761521688429364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330048727890397234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22985f1c5c150343a0bf79818aa3cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 3947820477639354378}
+  m_gazeProvider: {fileID: 7382103494204609550}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_animator: {fileID: 0}
+  m_eyelidParams:
+  - 045_blink_lf
+  - 045_blink_rt
+  m_lidBlendMax: 1
 --- !u!114 &5596270354674311097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1336,11 +1442,12 @@ GameObject:
   - component: {fileID: 3843098621363673650}
   - component: {fileID: 4513961254753111370}
   - component: {fileID: 4704705490338367462}
-  - component: {fileID: 2067155251539397054}
+  - component: {fileID: 560013284415479502}
   - component: {fileID: 3245847642249641611}
   - component: {fileID: 2588855260655091934}
   - component: {fileID: 6578737520265302895}
-  - component: {fileID: 965619303058098593}
+  - component: {fileID: 9028390215426873437}
+  - component: {fileID: 1706803365985848350}
   - component: {fileID: 7100891477402972664}
   - component: {fileID: 748043613978493336}
   - component: {fileID: 2809110664208674386}
@@ -1495,6 +1602,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -1523,7 +1634,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &2067155251539397054
+--- !u!114 &560013284415479502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1532,11 +1643,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1103537266216042111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -1551,11 +1664,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 1401125928881858473}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &3245847642249641611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1606,7 +1755,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &965619303058098593
+--- !u!114 &9028390215426873437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1615,7 +1764,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1103537266216042111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -1634,6 +1783,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &1706803365985848350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103537266216042111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 9028390215426873437}
+  m_gazeProvider: {fileID: 4513961254753111370}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &7100891477402972664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1711,11 +1890,12 @@ GameObject:
   - component: {fileID: 5166987243694075425}
   - component: {fileID: 2440481579802213022}
   - component: {fileID: 7905902566612430542}
-  - component: {fileID: 7813115312215080866}
+  - component: {fileID: 1180801363573035319}
   - component: {fileID: 4872008567883719001}
   - component: {fileID: 4442262631893827050}
   - component: {fileID: 8679488412654984775}
-  - component: {fileID: 4139602004998259326}
+  - component: {fileID: 3401418781144771058}
+  - component: {fileID: 4641632570201416539}
   - component: {fileID: 3357831402621932332}
   - component: {fileID: 8008248191378331044}
   - component: {fileID: 1546781875357664154}
@@ -1870,6 +2050,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -1898,7 +2082,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &7813115312215080866
+--- !u!114 &1180801363573035319
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1907,11 +2091,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1123966118718783071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -1926,11 +2112,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 6375211576726615634}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &4872008567883719001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1981,7 +2203,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4139602004998259326
+--- !u!114 &3401418781144771058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1990,7 +2212,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1123966118718783071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -2009,6 +2231,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &4641632570201416539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123966118718783071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 3401418781144771058}
+  m_gazeProvider: {fileID: 2440481579802213022}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &3357831402621932332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2196,11 +2448,12 @@ GameObject:
   - component: {fileID: 666896201742833994}
   - component: {fileID: 1691654216429343713}
   - component: {fileID: 1010554533213374333}
-  - component: {fileID: 3624642525585724319}
+  - component: {fileID: 3806481057080788347}
   - component: {fileID: 61282713651393732}
   - component: {fileID: 8218177183095333486}
   - component: {fileID: 9099786383724466841}
-  - component: {fileID: 4713558742911036325}
+  - component: {fileID: 6935096536152274790}
+  - component: {fileID: 3487759661631421394}
   - component: {fileID: 4227737308647210232}
   - component: {fileID: 5410904195012105590}
   - component: {fileID: 2059750814641760741}
@@ -2355,6 +2608,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -2383,7 +2640,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &3624642525585724319
+--- !u!114 &3806481057080788347
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2392,11 +2649,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1408942246999077425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -2411,11 +2670,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 4892690213091091478}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &61282713651393732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2466,7 +2761,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4713558742911036325
+--- !u!114 &6935096536152274790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2475,7 +2770,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1408942246999077425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -2494,6 +2789,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &3487759661631421394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408942246999077425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 6935096536152274790}
+  m_gazeProvider: {fileID: 1691654216429343713}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &4227737308647210232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2571,11 +2896,12 @@ GameObject:
   - component: {fileID: 887229249105925537}
   - component: {fileID: 8172607793408900627}
   - component: {fileID: 5978350329378253969}
-  - component: {fileID: 853774419397511489}
+  - component: {fileID: 5204671765837336036}
   - component: {fileID: 8246591363784075100}
   - component: {fileID: 7783995424966150488}
   - component: {fileID: 210298414009924557}
-  - component: {fileID: 5318545720026337295}
+  - component: {fileID: 5097558046973335151}
+  - component: {fileID: 4080298683103844782}
   - component: {fileID: 1180648190413991252}
   - component: {fileID: 2990659827703988243}
   - component: {fileID: 2755936538347039728}
@@ -2730,6 +3056,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -2758,7 +3088,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &853774419397511489
+--- !u!114 &5204671765837336036
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2767,11 +3097,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1434326368746524309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -2786,11 +3118,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 61437656644549553}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &8246591363784075100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2841,7 +3209,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5318545720026337295
+--- !u!114 &5097558046973335151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2850,7 +3218,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1434326368746524309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -2869,6 +3237,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &4080298683103844782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434326368746524309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 5097558046973335151}
+  m_gazeProvider: {fileID: 8172607793408900627}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &1180648190413991252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2946,11 +3344,12 @@ GameObject:
   - component: {fileID: 647313994879594384}
   - component: {fileID: 8378657071973258290}
   - component: {fileID: 5777100881708352606}
-  - component: {fileID: 9121571086793406775}
+  - component: {fileID: 7953433591851300198}
   - component: {fileID: 8521103415505883274}
   - component: {fileID: 1397933540640470204}
   - component: {fileID: 8329105359479320329}
-  - component: {fileID: 5223815443608316575}
+  - component: {fileID: 2542181286293582390}
+  - component: {fileID: 4537028486751082913}
   - component: {fileID: 6107640600445204018}
   - component: {fileID: 633588747178216399}
   - component: {fileID: 1165262143754639407}
@@ -3105,6 +3504,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -3133,7 +3536,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &9121571086793406775
+--- !u!114 &7953433591851300198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3142,11 +3545,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1525722623421036792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -3161,11 +3566,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 3790441682859080399}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &8521103415505883274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3216,7 +3657,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5223815443608316575
+--- !u!114 &2542181286293582390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3225,7 +3666,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1525722623421036792}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -3244,6 +3685,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &4537028486751082913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525722623421036792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 2542181286293582390}
+  m_gazeProvider: {fileID: 8378657071973258290}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &6107640600445204018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3671,11 +4142,12 @@ GameObject:
   - component: {fileID: 1454990648129074908}
   - component: {fileID: 8066625398608893123}
   - component: {fileID: 3549962884378118605}
-  - component: {fileID: 3308853758364745092}
+  - component: {fileID: 3931175622901127514}
   - component: {fileID: 4674112659396825797}
   - component: {fileID: 674265728369709673}
   - component: {fileID: 2955630696076720810}
-  - component: {fileID: 875250615210588475}
+  - component: {fileID: 8297648866096523141}
+  - component: {fileID: 5694000673421885221}
   - component: {fileID: 1480425641261223575}
   - component: {fileID: 5754064582449966049}
   - component: {fileID: 1436409010495387518}
@@ -3830,6 +4302,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -3858,7 +4334,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &3308853758364745092
+--- !u!114 &3931175622901127514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3867,11 +4343,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2203050120029308268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -3886,11 +4364,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 7557985307691656153}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &4674112659396825797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3941,7 +4455,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &875250615210588475
+--- !u!114 &8297648866096523141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3950,7 +4464,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2203050120029308268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -3969,6 +4483,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &5694000673421885221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2203050120029308268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 8297648866096523141}
+  m_gazeProvider: {fileID: 8066625398608893123}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &1480425641261223575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4156,11 +4700,12 @@ GameObject:
   - component: {fileID: 79502222425147228}
   - component: {fileID: 4552347279568207684}
   - component: {fileID: 7980042894357680023}
-  - component: {fileID: 3177121902778300304}
+  - component: {fileID: 5340127682813569415}
   - component: {fileID: 1145454564309005255}
   - component: {fileID: 7836536160672827425}
   - component: {fileID: 7705591443230914246}
-  - component: {fileID: 2124133397161777884}
+  - component: {fileID: 2724628909708236835}
+  - component: {fileID: 7324758998652397012}
   - component: {fileID: 373967108040190012}
   - component: {fileID: 3917707003928909870}
   - component: {fileID: 6829606144215288566}
@@ -4315,6 +4860,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -4343,7 +4892,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &3177121902778300304
+--- !u!114 &5340127682813569415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4352,11 +4901,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2400366383144861282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -4371,11 +4922,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 9114158378275443091}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &1145454564309005255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4426,7 +5013,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2124133397161777884
+--- !u!114 &2724628909708236835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4435,7 +5022,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2400366383144861282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -4454,6 +5041,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &7324758998652397012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400366383144861282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 2724628909708236835}
+  m_gazeProvider: {fileID: 4552347279568207684}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &373967108040190012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4751,11 +5368,12 @@ GameObject:
   - component: {fileID: 6864669327150850901}
   - component: {fileID: 4869368868403924347}
   - component: {fileID: 3392912664399728811}
-  - component: {fileID: 6591611698395869675}
+  - component: {fileID: 1960236198454424042}
   - component: {fileID: 7735000315701019910}
   - component: {fileID: 2398781410758311312}
   - component: {fileID: 8076041903156751011}
-  - component: {fileID: 909214978599186826}
+  - component: {fileID: 1899129656593853475}
+  - component: {fileID: 4855964598808149647}
   - component: {fileID: 4740549256378362886}
   - component: {fileID: 6899191273990693301}
   - component: {fileID: 933735020378331657}
@@ -4910,6 +5528,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -4938,7 +5560,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &6591611698395869675
+--- !u!114 &1960236198454424042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4947,11 +5569,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3043702952620048393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -4966,11 +5590,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 4472811617194246788}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &7735000315701019910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5021,7 +5681,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &909214978599186826
+--- !u!114 &1899129656593853475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5030,7 +5690,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3043702952620048393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -5049,6 +5709,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &4855964598808149647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043702952620048393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 1899129656593853475}
+  m_gazeProvider: {fileID: 4869368868403924347}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &4740549256378362886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5236,11 +5926,12 @@ GameObject:
   - component: {fileID: 285622369829295268}
   - component: {fileID: 7866308517110805088}
   - component: {fileID: 1018974138884463424}
-  - component: {fileID: 2880518971624376787}
+  - component: {fileID: 2951796471909960151}
   - component: {fileID: 1623453067626311421}
   - component: {fileID: 5130901487865428435}
   - component: {fileID: 6511701533790682683}
-  - component: {fileID: 567273463353597564}
+  - component: {fileID: 2415299399257116848}
+  - component: {fileID: 7060590834156576524}
   - component: {fileID: 3636600827947956540}
   - component: {fileID: 502569765805720471}
   - component: {fileID: 117420951368106986}
@@ -5395,6 +6086,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -5423,7 +6118,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &2880518971624376787
+--- !u!114 &2951796471909960151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5432,11 +6127,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3115751670376490140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -5451,11 +6148,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 516763543336882567}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &1623453067626311421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5506,7 +6239,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &567273463353597564
+--- !u!114 &2415299399257116848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5515,7 +6248,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3115751670376490140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -5534,6 +6267,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &7060590834156576524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3115751670376490140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 2415299399257116848}
+  m_gazeProvider: {fileID: 7866308517110805088}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &3636600827947956540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5741,11 +6504,12 @@ GameObject:
   - component: {fileID: 7637372759350217563}
   - component: {fileID: 1377575746276023187}
   - component: {fileID: 3293852603587903939}
-  - component: {fileID: 2965851143758717459}
+  - component: {fileID: 5847568797602634180}
   - component: {fileID: 6173330725473948857}
   - component: {fileID: 2569685264221342078}
   - component: {fileID: 4286753413703468174}
-  - component: {fileID: 1649496175920408659}
+  - component: {fileID: 6508444152252572583}
+  - component: {fileID: 2995236764102112953}
   - component: {fileID: 1112381888533742968}
   - component: {fileID: 3419026051420843225}
   - component: {fileID: 5254238555847678016}
@@ -5900,6 +6664,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -5928,7 +6696,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &2965851143758717459
+--- !u!114 &5847568797602634180
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5937,11 +6705,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3868808191784170442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -5956,11 +6726,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 9129326268091962132}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &6173330725473948857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6011,7 +6817,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1649496175920408659
+--- !u!114 &6508444152252572583
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6020,7 +6826,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3868808191784170442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -6039,6 +6845,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &2995236764102112953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3868808191784170442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 6508444152252572583}
+  m_gazeProvider: {fileID: 1377575746276023187}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &1112381888533742968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6666,11 +7502,12 @@ GameObject:
   - component: {fileID: 8151967368540335020}
   - component: {fileID: 2070982833623165977}
   - component: {fileID: 6597495734208656124}
-  - component: {fileID: 4340293875955665778}
+  - component: {fileID: 2034593785762682588}
   - component: {fileID: 7679716466302280787}
   - component: {fileID: 1108239810502833977}
   - component: {fileID: 1349723252671207645}
-  - component: {fileID: 2988314081127934907}
+  - component: {fileID: 4583498402620890339}
+  - component: {fileID: 2401944438849831183}
   - component: {fileID: 4173844845965706645}
   - component: {fileID: 1299873039913439789}
   - component: {fileID: 6295381493353269838}
@@ -6825,6 +7662,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -6853,7 +7694,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &4340293875955665778
+--- !u!114 &2034593785762682588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6862,11 +7703,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4337456612682205054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -6881,11 +7724,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 5843268294651777309}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &7679716466302280787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6936,7 +7815,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2988314081127934907
+--- !u!114 &4583498402620890339
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6945,7 +7824,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4337456612682205054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -6964,6 +7843,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &2401944438849831183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4337456612682205054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 4583498402620890339}
+  m_gazeProvider: {fileID: 2070982833623165977}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &4173844845965706645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7041,11 +7950,12 @@ GameObject:
   - component: {fileID: 4858678866525041997}
   - component: {fileID: 4839912708203588460}
   - component: {fileID: 4354760173131414483}
-  - component: {fileID: 300877504049127772}
+  - component: {fileID: 2823334287727280396}
   - component: {fileID: 2941324364995056263}
   - component: {fileID: 8901101814177862941}
   - component: {fileID: 4227585667087344763}
-  - component: {fileID: 4252993522906055059}
+  - component: {fileID: 8614199544264170486}
+  - component: {fileID: 8779602648264156142}
   - component: {fileID: 371176115148568470}
   - component: {fileID: 6503549877109212197}
   - component: {fileID: 6647889272507049611}
@@ -7200,6 +8110,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -7228,7 +8142,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &300877504049127772
+--- !u!114 &2823334287727280396
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7237,11 +8151,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4412242943709171515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -7256,11 +8172,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 2807211037286153133}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &2941324364995056263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7311,7 +8263,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4252993522906055059
+--- !u!114 &8614199544264170486
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7320,7 +8272,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4412242943709171515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -7339,6 +8291,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &8779602648264156142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412242943709171515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 8614199544264170486}
+  m_gazeProvider: {fileID: 4839912708203588460}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &371176115148568470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7450,11 +8432,12 @@ GameObject:
   - component: {fileID: 5049357180364856790}
   - component: {fileID: 2317181016883724957}
   - component: {fileID: 5637773121404246388}
-  - component: {fileID: 4899639323231928329}
+  - component: {fileID: 1119867049868976393}
   - component: {fileID: 7599954650779161119}
   - component: {fileID: 3396210592855951471}
   - component: {fileID: 8896957542913140517}
-  - component: {fileID: 7353606192587794176}
+  - component: {fileID: 5729785333296078620}
+  - component: {fileID: 4833305090841447837}
   - component: {fileID: 5058266932031159765}
   - component: {fileID: 206565661997227996}
   - component: {fileID: 6364889451469296433}
@@ -7609,6 +8592,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -7637,7 +8624,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &4899639323231928329
+--- !u!114 &1119867049868976393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7646,11 +8633,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4597406839003370550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -7665,11 +8654,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 2515999551888084023}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &7599954650779161119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7720,7 +8745,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7353606192587794176
+--- !u!114 &5729785333296078620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7729,7 +8754,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4597406839003370550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -7748,6 +8773,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &4833305090841447837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4597406839003370550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 5729785333296078620}
+  m_gazeProvider: {fileID: 2317181016883724957}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &5058266932031159765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7825,11 +8880,12 @@ GameObject:
   - component: {fileID: 8707695835572603197}
   - component: {fileID: 3829922900685674656}
   - component: {fileID: 6596003420098224516}
-  - component: {fileID: 6477449751015653502}
+  - component: {fileID: 445835891906670575}
   - component: {fileID: 6167080312884805289}
   - component: {fileID: 5468824723117206254}
   - component: {fileID: 3124984767993210402}
-  - component: {fileID: 1324778345758496602}
+  - component: {fileID: 4538466352538296914}
+  - component: {fileID: 6785880937246947086}
   - component: {fileID: 3169446665714097496}
   - component: {fileID: 3674040823636503531}
   - component: {fileID: 937419726370994979}
@@ -7984,6 +9040,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -8012,7 +9072,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &6477449751015653502
+--- !u!114 &445835891906670575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8021,11 +9081,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4606809032563943471}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -8040,11 +9102,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 8393661950306101085}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &6167080312884805289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8095,7 +9193,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1324778345758496602
+--- !u!114 &4538466352538296914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8104,7 +9202,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4606809032563943471}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -8123,6 +9221,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &6785880937246947086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4606809032563943471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 4538466352538296914}
+  m_gazeProvider: {fileID: 3829922900685674656}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &3169446665714097496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8644,7 +9772,8 @@ GameObject:
   - component: {fileID: 1759636794188848051}
   - component: {fileID: 7597944592421092886}
   - component: {fileID: 2707137602394321036}
-  - component: {fileID: 1103527959987380327}
+  - component: {fileID: 1222430073096505308}
+  - component: {fileID: 9103602511512133905}
   - component: {fileID: 2162099657759430130}
   - component: {fileID: 9098346279140280139}
   - component: {fileID: 5702681049489990432}
@@ -8799,6 +9928,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.2
   m_EyeGazeWeight: 0.25
@@ -8841,6 +9974,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EasingEquation: 2
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -8910,7 +10045,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1103527959987380327
+--- !u!114 &1222430073096505308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8919,7 +10054,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5009537412377590256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -8938,6 +10073,32 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &9103602511512133905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5009537412377590256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22985f1c5c150343a0bf79818aa3cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 1222430073096505308}
+  m_gazeProvider: {fileID: 2005110391296061295}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_animator: {fileID: 0}
+  m_eyelidParams:
+  - 045_blink_lf
+  - 045_blink_rt
+  m_lidBlendMax: 1
 --- !u!114 &2162099657759430130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9015,11 +10176,12 @@ GameObject:
   - component: {fileID: 5288736504739798167}
   - component: {fileID: 755377865557731427}
   - component: {fileID: 4623659914863409668}
-  - component: {fileID: 6100359542831165352}
+  - component: {fileID: 3914695107430178706}
   - component: {fileID: 8391000586093327171}
   - component: {fileID: 5634093071594248013}
   - component: {fileID: 2439248883206830460}
-  - component: {fileID: 5637704952864536445}
+  - component: {fileID: 6905606156548864273}
+  - component: {fileID: 2663659637290745200}
   - component: {fileID: 710344879298865913}
   - component: {fileID: 5840053277944235072}
   - component: {fileID: 8755177576957405685}
@@ -9174,6 +10336,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -9202,7 +10368,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &6100359542831165352
+--- !u!114 &3914695107430178706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9211,11 +10377,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5048882775233453868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -9230,11 +10398,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 8417125152038229451}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &8391000586093327171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9285,7 +10489,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5637704952864536445
+--- !u!114 &6905606156548864273
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9294,7 +10498,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5048882775233453868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -9313,6 +10517,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &2663659637290745200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5048882775233453868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 6905606156548864273}
+  m_gazeProvider: {fileID: 755377865557731427}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &710344879298865913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9390,11 +10624,12 @@ GameObject:
   - component: {fileID: 5186262241038571110}
   - component: {fileID: 5632553191056418440}
   - component: {fileID: 7993262154503646473}
-  - component: {fileID: 5456989047665474617}
+  - component: {fileID: 2853336613391681617}
   - component: {fileID: 6993409493315749612}
   - component: {fileID: 4229798622173990388}
   - component: {fileID: 3979260995850311079}
-  - component: {fileID: 5670343318212107963}
+  - component: {fileID: 632895347016635849}
+  - component: {fileID: 8568009388293529102}
   - component: {fileID: 8803391152383187923}
   - component: {fileID: 2212115483230894372}
   - component: {fileID: 7600996684113983369}
@@ -9549,6 +10784,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -9577,7 +10816,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &5456989047665474617
+--- !u!114 &2853336613391681617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9586,11 +10825,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5081746519467397619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -9605,11 +10846,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 8408494469433450637}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &6993409493315749612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9660,7 +10937,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5670343318212107963
+--- !u!114 &632895347016635849
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9669,7 +10946,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5081746519467397619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -9688,6 +10965,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &8568009388293529102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5081746519467397619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 632895347016635849}
+  m_gazeProvider: {fileID: 5632553191056418440}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &8803391152383187923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9985,11 +11292,12 @@ GameObject:
   - component: {fileID: 2215529227500088025}
   - component: {fileID: 6764727319305039443}
   - component: {fileID: 177550368355028523}
-  - component: {fileID: 6891203312554522999}
+  - component: {fileID: 6906738437719359090}
   - component: {fileID: 8918437507010434348}
   - component: {fileID: 7550773090829383025}
   - component: {fileID: 887694531652748330}
-  - component: {fileID: 663266093364577685}
+  - component: {fileID: 2699541988686277742}
+  - component: {fileID: 7606658322749061298}
   - component: {fileID: 8040441887865189312}
   - component: {fileID: 3015649025754998348}
   - component: {fileID: 8622911625597710185}
@@ -10144,6 +11452,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -10172,7 +11484,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &6891203312554522999
+--- !u!114 &6906738437719359090
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10181,11 +11493,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5705143012803911195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -10200,11 +11514,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 1926035327023810953}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &8918437507010434348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10255,7 +11605,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &663266093364577685
+--- !u!114 &2699541988686277742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10264,7 +11614,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5705143012803911195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -10283,6 +11633,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &7606658322749061298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5705143012803911195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 2699541988686277742}
+  m_gazeProvider: {fileID: 6764727319305039443}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &8040441887865189312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10360,11 +11740,12 @@ GameObject:
   - component: {fileID: 6851949940193837695}
   - component: {fileID: 794258334209725876}
   - component: {fileID: 5271377621525008869}
-  - component: {fileID: 3097374391449660935}
+  - component: {fileID: 3713800744086380208}
   - component: {fileID: 5079090362401014485}
   - component: {fileID: 801438087520395075}
   - component: {fileID: 7399318234070244817}
-  - component: {fileID: 8646965803873848529}
+  - component: {fileID: 8140217138900842344}
+  - component: {fileID: 8872086986772693493}
   - component: {fileID: 6856816749845822944}
   - component: {fileID: 3600383796463193175}
   - component: {fileID: 2775275068429145589}
@@ -10519,6 +11900,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -10547,7 +11932,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &3097374391449660935
+--- !u!114 &3713800744086380208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10556,11 +11941,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5733337903345392954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -10575,11 +11962,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 2231855829654382380}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &5079090362401014485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10630,7 +12053,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8646965803873848529
+--- !u!114 &8140217138900842344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10639,7 +12062,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5733337903345392954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -10658,6 +12081,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &8872086986772693493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5733337903345392954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 8140217138900842344}
+  m_gazeProvider: {fileID: 794258334209725876}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &6856816749845822944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10735,11 +12188,12 @@ GameObject:
   - component: {fileID: 8997480755183196870}
   - component: {fileID: 3327235643212921722}
   - component: {fileID: 8231317051903638036}
-  - component: {fileID: 1984488856179087545}
+  - component: {fileID: 3766778425815462731}
   - component: {fileID: 1966620949188516466}
   - component: {fileID: 2696133862754893874}
   - component: {fileID: 7590214183440594503}
-  - component: {fileID: 4376190098357942208}
+  - component: {fileID: 7756435360580726576}
+  - component: {fileID: 6925969346614423888}
   - component: {fileID: 2124017186023617030}
   - component: {fileID: 7769735176172913847}
   - component: {fileID: 6602427711772676981}
@@ -10894,6 +12348,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -10922,7 +12380,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &1984488856179087545
+--- !u!114 &3766778425815462731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10931,11 +12389,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6008595155930084370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -10950,11 +12410,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 3912719262671886232}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &1966620949188516466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11005,7 +12501,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4376190098357942208
+--- !u!114 &7756435360580726576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11014,7 +12510,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6008595155930084370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -11033,6 +12529,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &6925969346614423888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6008595155930084370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 7756435360580726576}
+  m_gazeProvider: {fileID: 3327235643212921722}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &2124017186023617030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11550,11 +13076,12 @@ GameObject:
   - component: {fileID: 8640816347198699394}
   - component: {fileID: 8635696524360324597}
   - component: {fileID: 1087794304326025198}
-  - component: {fileID: 4369880714760939527}
+  - component: {fileID: 4969218937097850756}
   - component: {fileID: 5300110815535228068}
   - component: {fileID: 426467631842834791}
   - component: {fileID: 2246839588012997686}
-  - component: {fileID: 3101537120654045459}
+  - component: {fileID: 6444959935271706040}
+  - component: {fileID: 6184359699511904839}
   - component: {fileID: 8251264742186573562}
   - component: {fileID: 2069345918662552714}
   - component: {fileID: 5631265430643317410}
@@ -11709,6 +13236,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -11737,7 +13268,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &4369880714760939527
+--- !u!114 &4969218937097850756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11746,11 +13277,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6339440385793356119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -11765,11 +13298,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 4004272825802621958}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &5300110815535228068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11820,7 +13389,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3101537120654045459
+--- !u!114 &6444959935271706040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11829,7 +13398,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6339440385793356119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -11848,6 +13417,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &6184359699511904839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6339440385793356119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 6444959935271706040}
+  m_gazeProvider: {fileID: 8635696524360324597}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &8251264742186573562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11925,11 +13524,12 @@ GameObject:
   - component: {fileID: 2185865462526709487}
   - component: {fileID: 4671830317930532591}
   - component: {fileID: 5137407284640683716}
-  - component: {fileID: 2800194070918998697}
+  - component: {fileID: 6564426199340869895}
   - component: {fileID: 8754017360775121077}
   - component: {fileID: 7984632948755296078}
   - component: {fileID: 5887028711828691151}
-  - component: {fileID: 4116507266489112569}
+  - component: {fileID: 7836738364645392545}
+  - component: {fileID: 1110327705539549312}
   - component: {fileID: 3493260402770849396}
   - component: {fileID: 4047477941857764701}
   - component: {fileID: 349434354871866832}
@@ -12084,6 +13684,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -12112,7 +13716,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &2800194070918998697
+--- !u!114 &6564426199340869895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12121,11 +13725,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6507055254979553411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -12140,11 +13746,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 6964397429805362864}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &8754017360775121077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12195,7 +13837,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4116507266489112569
+--- !u!114 &7836738364645392545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12204,7 +13846,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6507055254979553411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -12223,6 +13865,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &1110327705539549312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6507055254979553411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 7836738364645392545}
+  m_gazeProvider: {fileID: 4671830317930532591}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &3493260402770849396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12300,11 +13972,12 @@ GameObject:
   - component: {fileID: 2631603044825681835}
   - component: {fileID: 3888645221847882230}
   - component: {fileID: 9178353280129712509}
-  - component: {fileID: 7612962536597570876}
+  - component: {fileID: 8515457997746067333}
   - component: {fileID: 9017103374071611086}
   - component: {fileID: 2743090869227856839}
   - component: {fileID: 5353433571356411185}
-  - component: {fileID: 49908536334691270}
+  - component: {fileID: 986377386260379560}
+  - component: {fileID: 4647282071464770552}
   - component: {fileID: 3503299297360696073}
   - component: {fileID: 6613742258764220463}
   - component: {fileID: 5818612465352792880}
@@ -12459,6 +14132,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -12487,7 +14164,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &7612962536597570876
+--- !u!114 &8515457997746067333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12496,11 +14173,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6582878181218445655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -12515,11 +14194,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 814971501357797856}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &9017103374071611086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12570,7 +14285,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &49908536334691270
+--- !u!114 &986377386260379560
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12579,7 +14294,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6582878181218445655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -12598,6 +14313,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &4647282071464770552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582878181218445655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 986377386260379560}
+  m_gazeProvider: {fileID: 3888645221847882230}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &3503299297360696073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12816,11 +14561,12 @@ GameObject:
   - component: {fileID: 3209924571411274486}
   - component: {fileID: 1924460768031140479}
   - component: {fileID: 4420338145495866536}
-  - component: {fileID: 2851617687832561074}
+  - component: {fileID: 4861396340525186409}
   - component: {fileID: 5390546693341188805}
   - component: {fileID: 8194794590524477267}
   - component: {fileID: 3274432879718065163}
-  - component: {fileID: 4854891515099246260}
+  - component: {fileID: 4840709143991320129}
+  - component: {fileID: 6264681127250251020}
   - component: {fileID: 8152114216554808995}
   - component: {fileID: 7879779343312134977}
   - component: {fileID: 4238783365805468324}
@@ -12975,6 +14721,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -13003,7 +14753,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &2851617687832561074
+--- !u!114 &4861396340525186409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13012,11 +14762,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6723707197680531246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -13031,11 +14783,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 3172676836587234763}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &5390546693341188805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13086,7 +14874,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4854891515099246260
+--- !u!114 &4840709143991320129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13095,7 +14883,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6723707197680531246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -13114,6 +14902,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &6264681127250251020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6723707197680531246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 4840709143991320129}
+  m_gazeProvider: {fileID: 1924460768031140479}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &8152114216554808995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13191,11 +15009,12 @@ GameObject:
   - component: {fileID: 4722252877489072418}
   - component: {fileID: 7445004102793247103}
   - component: {fileID: 4981484499397815357}
-  - component: {fileID: 3512798210960571125}
+  - component: {fileID: 7483535731783290306}
   - component: {fileID: 3479597592748132579}
   - component: {fileID: 7080959376956307622}
   - component: {fileID: 920273781288972491}
-  - component: {fileID: 1382536569640512996}
+  - component: {fileID: 8361887664074451242}
+  - component: {fileID: 8094708039439006715}
   - component: {fileID: 5029287070487559787}
   - component: {fileID: 5778033390901883629}
   - component: {fileID: 7831845137291355443}
@@ -13350,6 +15169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -13378,7 +15201,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &3512798210960571125
+--- !u!114 &7483535731783290306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13387,11 +15210,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6868802908001344513}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -13406,11 +15231,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 3613141649621270459}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &3479597592748132579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13461,7 +15322,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1382536569640512996
+--- !u!114 &8361887664074451242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13470,7 +15331,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6868802908001344513}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -13489,6 +15350,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &8094708039439006715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6868802908001344513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 8361887664074451242}
+  m_gazeProvider: {fileID: 7445004102793247103}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &5029287070487559787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13566,11 +15457,12 @@ GameObject:
   - component: {fileID: 5184829815048537852}
   - component: {fileID: 8397542918933323165}
   - component: {fileID: 807695529681489970}
-  - component: {fileID: 3025958334551379781}
+  - component: {fileID: 750140589190414655}
   - component: {fileID: 1375155873629850923}
   - component: {fileID: 8444833396662145471}
   - component: {fileID: 8361524763630016327}
-  - component: {fileID: 4720585146986391624}
+  - component: {fileID: 6994038363749398167}
+  - component: {fileID: 2552321268643368983}
   - component: {fileID: 1650267627178702493}
   - component: {fileID: 44232160615974169}
   - component: {fileID: 5513504012876436835}
@@ -13725,6 +15617,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -13753,7 +15649,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &3025958334551379781
+--- !u!114 &750140589190414655
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13762,11 +15658,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6984310602123879045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -13781,11 +15679,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 462773753479126616}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &1375155873629850923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13836,7 +15770,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4720585146986391624
+--- !u!114 &6994038363749398167
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13845,7 +15779,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6984310602123879045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -13864,6 +15798,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &2552321268643368983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6984310602123879045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 6994038363749398167}
+  m_gazeProvider: {fileID: 8397542918933323165}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &1650267627178702493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14181,11 +16145,12 @@ GameObject:
   - component: {fileID: 5037526039283753213}
   - component: {fileID: 8165751169639619885}
   - component: {fileID: 4353407248833001899}
-  - component: {fileID: 3486095749775858249}
+  - component: {fileID: 3315662763331172113}
   - component: {fileID: 3287713653391669848}
   - component: {fileID: 2957145351072940733}
   - component: {fileID: 6383891062819261480}
-  - component: {fileID: 5363220319464942829}
+  - component: {fileID: 6378467637879757876}
+  - component: {fileID: 6864032054843667544}
   - component: {fileID: 1172068555453827912}
   - component: {fileID: 689267333554273063}
   - component: {fileID: 6596987699211011118}
@@ -14340,6 +16305,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -14368,7 +16337,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &3486095749775858249
+--- !u!114 &3315662763331172113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14377,11 +16346,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7246426151233312737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -14396,11 +16367,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 7950862579363445871}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &3287713653391669848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14451,7 +16458,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5363220319464942829
+--- !u!114 &6378467637879757876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14460,7 +16467,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7246426151233312737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -14479,6 +16486,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &6864032054843667544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7246426151233312737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 6378467637879757876}
+  m_gazeProvider: {fileID: 8165751169639619885}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &1172068555453827912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14556,11 +16593,12 @@ GameObject:
   - component: {fileID: 8606541954503327825}
   - component: {fileID: 4286114053738764947}
   - component: {fileID: 1461893910527820372}
-  - component: {fileID: 5006863302473864603}
+  - component: {fileID: 4893979903988878102}
   - component: {fileID: 4607892785203195995}
   - component: {fileID: 856544873848458220}
   - component: {fileID: 6918266372736149295}
-  - component: {fileID: 2017421423439175328}
+  - component: {fileID: 2574247268146534612}
+  - component: {fileID: 1956004384499704963}
   - component: {fileID: 9140133551111506274}
   - component: {fileID: 2931682678201387447}
   - component: {fileID: 5224448495971177169}
@@ -14715,6 +16753,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -14743,7 +16785,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &5006863302473864603
+--- !u!114 &4893979903988878102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14752,11 +16794,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7527191910795444386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -14771,11 +16815,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 4106365900736457853}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &4607892785203195995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14826,7 +16906,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2017421423439175328
+--- !u!114 &2574247268146534612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14835,7 +16915,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7527191910795444386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -14854,6 +16934,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &1956004384499704963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7527191910795444386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 2574247268146534612}
+  m_gazeProvider: {fileID: 4286114053738764947}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &9140133551111506274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15151,11 +17261,12 @@ GameObject:
   - component: {fileID: 1957175467110852022}
   - component: {fileID: 872419371275401103}
   - component: {fileID: 1276686698777479580}
-  - component: {fileID: 392800772029709142}
+  - component: {fileID: 4702671656317876032}
   - component: {fileID: 4094260167713882241}
   - component: {fileID: 4279867327221888601}
   - component: {fileID: 4136453899729975106}
-  - component: {fileID: 8790198450562847027}
+  - component: {fileID: 4024674701807372312}
+  - component: {fileID: 619698622148974932}
   - component: {fileID: 1335380586605283749}
   - component: {fileID: 1266713303930993473}
   - component: {fileID: 3604729369529476871}
@@ -15310,6 +17421,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -15338,7 +17453,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &392800772029709142
+--- !u!114 &4702671656317876032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15347,11 +17462,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7817623645147716033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -15366,11 +17483,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 5377516671829761880}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &4094260167713882241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15421,7 +17574,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8790198450562847027
+--- !u!114 &4024674701807372312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15430,7 +17583,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7817623645147716033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -15449,6 +17602,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &619698622148974932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817623645147716033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 4024674701807372312}
+  m_gazeProvider: {fileID: 872419371275401103}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &1335380586605283749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15526,11 +17709,12 @@ GameObject:
   - component: {fileID: 4818183191726452221}
   - component: {fileID: 7885875538478817924}
   - component: {fileID: 5335141744727803039}
-  - component: {fileID: 528262471016447303}
+  - component: {fileID: 1467507983429653719}
   - component: {fileID: 4526717724924831152}
   - component: {fileID: 3022237315141665903}
   - component: {fileID: 8394914977531656180}
-  - component: {fileID: 258403886652830870}
+  - component: {fileID: 8580044190873246086}
+  - component: {fileID: 6643871476229244879}
   - component: {fileID: 3540351597036422146}
   - component: {fileID: 3077548917256717995}
   - component: {fileID: 8700818838023780451}
@@ -15685,6 +17869,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -15713,7 +17901,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &528262471016447303
+--- !u!114 &1467507983429653719
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15722,11 +17910,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7867434786996859669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -15741,11 +17931,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 7050723558223789314}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &4526717724924831152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15796,7 +18022,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &258403886652830870
+--- !u!114 &8580044190873246086
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15805,7 +18031,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7867434786996859669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -15824,6 +18050,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &6643871476229244879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867434786996859669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 8580044190873246086}
+  m_gazeProvider: {fileID: 7885875538478817924}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &3540351597036422146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16121,11 +18377,12 @@ GameObject:
   - component: {fileID: 4396464983349521823}
   - component: {fileID: 8721352093832669033}
   - component: {fileID: 3218033087703761172}
-  - component: {fileID: 2776373854870485209}
+  - component: {fileID: 6520485616516674279}
   - component: {fileID: 5620101654459803111}
   - component: {fileID: 35863925082288298}
   - component: {fileID: 8927550268085879661}
-  - component: {fileID: 5829877959256181515}
+  - component: {fileID: 5035615236726449100}
+  - component: {fileID: 2919519091843378392}
   - component: {fileID: 9102787861313131864}
   - component: {fileID: 2656692942478196708}
   - component: {fileID: 3154919696362582731}
@@ -16280,6 +18537,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -16308,7 +18569,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &2776373854870485209
+--- !u!114 &6520485616516674279
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16317,11 +18578,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8029833074081482070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -16336,11 +18599,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 3819732220278711592}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &5620101654459803111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16391,7 +18690,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5829877959256181515
+--- !u!114 &5035615236726449100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16400,7 +18699,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8029833074081482070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -16419,6 +18718,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &2919519091843378392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029833074081482070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 5035615236726449100}
+  m_gazeProvider: {fileID: 8721352093832669033}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &9102787861313131864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16496,11 +18825,12 @@ GameObject:
   - component: {fileID: 2616841217909350488}
   - component: {fileID: 7803539762913423337}
   - component: {fileID: 7241037343031950702}
-  - component: {fileID: 9064472615780706790}
+  - component: {fileID: 1723427101751020426}
   - component: {fileID: 938491559260686170}
   - component: {fileID: 7551528009408621585}
   - component: {fileID: 4324823396335734394}
-  - component: {fileID: 392240618573854296}
+  - component: {fileID: 2600867589311077801}
+  - component: {fileID: 4843139297709694610}
   - component: {fileID: 3085907881163477984}
   - component: {fileID: 3714660407270055914}
   - component: {fileID: 2607496281304050619}
@@ -16655,6 +18985,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -16683,7 +19017,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &9064472615780706790
+--- !u!114 &1723427101751020426
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16692,11 +19026,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8350651075493644112}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -16711,11 +19047,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 8291293337364441994}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &938491559260686170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16766,7 +19138,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &392240618573854296
+--- !u!114 &2600867589311077801
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16775,7 +19147,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8350651075493644112}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -16794,6 +19166,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &4843139297709694610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8350651075493644112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 2600867589311077801}
+  m_gazeProvider: {fileID: 7803539762913423337}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &3085907881163477984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17091,11 +19493,12 @@ GameObject:
   - component: {fileID: 4273905370107652004}
   - component: {fileID: 2850156919499539787}
   - component: {fileID: 5826844536257600003}
-  - component: {fileID: 1161825925946897363}
+  - component: {fileID: 7658837284247685489}
   - component: {fileID: 2225780904987398509}
   - component: {fileID: 5798841686442182653}
   - component: {fileID: 5729596465942296901}
-  - component: {fileID: 1642037165729673169}
+  - component: {fileID: 6903911510161724896}
+  - component: {fileID: 3748098880190169994}
   - component: {fileID: 6950059784216663830}
   - component: {fileID: 2766443627395985960}
   - component: {fileID: 1877908225354764580}
@@ -17250,6 +19653,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -17278,7 +19685,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &1161825925946897363
+--- !u!114 &7658837284247685489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17287,11 +19694,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8469336084984166215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -17306,11 +19715,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 1162344577903978853}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &2225780904987398509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17361,7 +19806,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1642037165729673169
+--- !u!114 &6903911510161724896
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17370,7 +19815,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8469336084984166215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -17389,6 +19834,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &3748098880190169994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8469336084984166215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 6903911510161724896}
+  m_gazeProvider: {fileID: 2850156919499539787}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &6950059784216663830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17580,7 +20055,8 @@ GameObject:
   - component: {fileID: 7459951403858276533}
   - component: {fileID: 1467859133138234269}
   - component: {fileID: 2075671905693662253}
-  - component: {fileID: 3606708344505849726}
+  - component: {fileID: 4458801299693141691}
+  - component: {fileID: 5952095225912417127}
   - component: {fileID: 4337313053241927938}
   - component: {fileID: 3757192816511587752}
   - component: {fileID: 8759421958467661718}
@@ -17735,6 +20211,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.2
   m_EyeGazeWeight: 0.25
@@ -17777,6 +20257,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EasingEquation: 2
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -17846,7 +20328,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3606708344505849726
+--- !u!114 &4458801299693141691
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17855,7 +20337,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8914343331509397701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -17874,6 +20356,32 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &5952095225912417127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8914343331509397701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22985f1c5c150343a0bf79818aa3cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 4458801299693141691}
+  m_gazeProvider: {fileID: 3700059118479229266}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_animator: {fileID: 0}
+  m_eyelidParams:
+  - 045_blink_lf
+  - 045_blink_rt
+  m_lidBlendMax: 1
 --- !u!114 &4337313053241927938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18273,11 +20781,12 @@ GameObject:
   - component: {fileID: 6767464733809461400}
   - component: {fileID: 5215098927533547159}
   - component: {fileID: 1126756525137159410}
-  - component: {fileID: 5460652541690909062}
+  - component: {fileID: 5703705072961714071}
   - component: {fileID: 1891037410082994112}
   - component: {fileID: 6209956477825566689}
   - component: {fileID: 2575843848628525397}
-  - component: {fileID: 2160969917116633121}
+  - component: {fileID: 2606133307417491338}
+  - component: {fileID: 799590612585495430}
   - component: {fileID: 7065319753679358340}
   - component: {fileID: 3018700557406814956}
   - component: {fileID: 5580425011558519096}
@@ -18432,6 +20941,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GazeTarget: {fileID: 0}
+  m_GazeOffset: {x: 0, y: 0, z: 0}
+  m_GazeOrigin: {fileID: 0}
+  m_MaxUpGazeAngle: 30
+  m_MaxDownGazeAngle: 40
   m_HeadGazeWeight: 0.5
   m_BodyGazeWeight: 0.05
   m_EyeGazeWeight: 0.25
@@ -18460,7 +20973,7 @@ MonoBehaviour:
   m_SaccadeMode: 1
   m_EyeForwardAxis: 0
   m_Eyes: []
---- !u!114 &5460652541690909062
+--- !u!114 &5703705072961714071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18469,11 +20982,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9133598291972842513}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a78171822e15f3041a0a64c5f65bd1cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788fead83115eb4f9863faf3a3907ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_EasingEquation: 0
   m_UseCurveSmoothing: 1
+  m_EnableCoarticulation: 0
+  m_CoarticulationStrength: 0.15
   m_FacialVisemeMultiplier: 1
   m_VisemeModifiers:
   - m_Name: FV
@@ -18488,11 +21003,47 @@ MonoBehaviour:
     m_WeightMultiplier: 1
   - m_Name: tRoof
     m_WeightMultiplier: 1
+  - m_Name: tTeeth
+    m_WeightMultiplier: 1
   - m_Name: W
     m_WeightMultiplier: 1
   - m_Name: wide
     m_WeightMultiplier: 1
-  m_Animator: {fileID: 7424722229601823976}
+  m_visemeToBlendShapeMapping:
+  - Viseme: FV
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: open
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_10_aa
+      WeightMultiplier: 1
+  - Viseme: PBM
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_01_PP
+      WeightMultiplier: 1
+  - Viseme: ShCh
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_06_CH
+      WeightMultiplier: 1
+  - Viseme: tBack
+    BlendShapes: []
+  - Viseme: tRoof
+    BlendShapes: []
+  - Viseme: tTeeth
+    BlendShapes: []
+  - Viseme: W
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_02_FF
+      WeightMultiplier: 1
+  - Viseme: wide
+    BlendShapes:
+    - BlendShapeName: blendShape1.AA_VI_11_E
+      WeightMultiplier: 1
+  - Viseme: face_neutral
+    BlendShapes:
+    - BlendShapeName: blendShape1._Neutral
+      WeightMultiplier: 1
 --- !u!114 &1891037410082994112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18543,7 +21094,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2160969917116633121
+--- !u!114 &2606133307417491338
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18552,7 +21103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9133598291972842513}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5408f711325afd54cb799fedc774d01f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b9abf53bb45b24fa198892cb486320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MinBlinkInterval: 4
@@ -18571,6 +21122,36 @@ MonoBehaviour:
   m_BlendShapeSkinnedMeshName: 
   skinnedMeshRenderer: {fileID: 0}
   m_debugBlink: 0
+--- !u!114 &799590612585495430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9133598291972842513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 139b0ad1169da7c449767df604ab4eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_blinkController: {fileID: 2606133307417491338}
+  m_gazeProvider: {fileID: 5215098927533547159}
+  m_enableSoftEyes: 1
+  m_downwardLidAmount: 0.35
+  m_straightLidAmount: 0.05
+  m_upwardLidAmount: 0
+  m_enableBlink: 1
+  m_blinkStrength: 1
+  m_smoothingTime: 0.02
+  m_eyelidBlendShapeMapping:
+  - Name: 045_blink_lf
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_09_EyeBlinkLeft
+      WeightMultiplier: 1
+  - Name: 045_blink_rt
+    BlendShapes:
+    - BlendShapeName: blendShape1.AK_10_EyeBlinkRight
+      WeightMultiplier: 1
 --- !u!114 &7065319753679358340
 MonoBehaviour:
   m_ObjectHideFlags: 0

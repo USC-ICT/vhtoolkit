@@ -208,6 +208,43 @@ namespace Ride.Examples
 
             m_debugMenu.Label($"Controller: {controllerName}");
 
+            var animator = m_controller.CurrentCharacter != null ? m_controller.CurrentCharacter.GetComponent<Animator>() : null;
+            if (animator != null)
+            {
+                try
+                {
+                    int layer = 0;
+
+                    var st = animator.GetCurrentAnimatorStateInfo(layer);
+                    string stateName = "(unknown)";
+
+                    // Look up the state by hash (Animator stores only hash)
+                    foreach (var kvp in m_controllerNameToStates)
+                    {
+                        foreach (var s in kvp.Value)
+                        {
+                            if (Animator.StringToHash(s) == st.shortNameHash)
+                            {
+                                stateName = s;
+                                break;
+                            }
+                        }
+                    }
+
+                    m_debugMenu.Label($"Current: {stateName}");
+                    m_debugMenu.Label($"Time: {(st.normalizedTime % 1f):0.00}");
+                    string transitionLabel = "";
+                    if (animator.IsInTransition(layer))
+                    {
+                        var ts = animator.GetAnimatorTransitionInfo(layer);
+                        transitionLabel = $"Transition t: {ts.duration:0.00}";
+                    }
+
+                    m_debugMenu.Label(transitionLabel);
+                }
+                catch { }  // Defensive: do nothing if animator not ready
+            }
+
             using (var scrollViewScope = new GUILayout.ScrollViewScope(scroll))
             {
                 scroll = scrollViewScope.scrollPosition;

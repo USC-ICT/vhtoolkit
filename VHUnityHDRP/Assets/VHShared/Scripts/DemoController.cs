@@ -72,7 +72,7 @@ namespace Ride.Examples
                         }
 
                         m_nvbgSystem.StartProcess(character.CharacterName);
-                        m_gaze.GazeAt(character, "GazeTargetUser");
+                        m_gaze.GazeAt("GazeTargetUser");
                         SetPrompt(m_currentCharacter);
                         m_currentTTS = (m_ttsMode == 1)
                             ? m_elevenTextToSpeechSystem

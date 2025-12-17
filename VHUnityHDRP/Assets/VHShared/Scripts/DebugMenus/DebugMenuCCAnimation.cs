@@ -124,8 +124,7 @@ namespace Ride.Examples
             }
             else
             {
-                DebugMenuGaze gazeMenu = FindAnyObjectByType<DebugMenuGaze>();
-                gazeMenu.GazeAt(character, "GazeTargetUser");
+                FindAnyObjectByType<DebugMenuGaze>().GazeAt("GazeTargetUser");
             }
 
             character.PlayAnim(animation);
