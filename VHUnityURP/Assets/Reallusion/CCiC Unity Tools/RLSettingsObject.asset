@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa89a4491701a14d84219c16beed8e4, type: 3}
+  m_Name: RLSettingsObject
+  m_EditorClassIdentifier: 
+  showOnStartup: 1
+  ignoreAllErrors: 0
+  checkForUpdates: 1
+  updateWindowShownOnce: 0
+  postInstallShowUpdateWindow: 0
+  postInstallShowPopupNotWindow: 0
+  criticalUpdateRequired: 0
+  pendingShaderUninstall: 0
+  pendingRuntimeUninstall: 0
+  pendingShaderInstall: 0
+  pendingRuntimeInstall: 0
+  performPostInstallationCheck: 0
+  performPostInstallationRuntimeCheck: 0
+  updateMessage: 
+  updateAvailable: 0
+  lastUpdateCheck: 638989671079254375
+  jsonTagName: 2.1.0
+  jsonHtmlUrl: https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.1.0
+  jsonPublishedAt: 2025-09-26T13:07:41Z
+  jsonBodyLines:
+  - '**[:arrow_down_small:Download CC/iC Unity Tools 2.1.0 - for Unity 2020.3 - 6000.2](https://github.com/soupday/CCiC-Unity-Tools/archive/refs/tags/2.1.0.zip)**'
+  - '**[:arrow_down_small:Download CC/iC Unity Pipeline Plugin 2.1.0 - for Character
+    Creator / iClone](https://github.com/soupday/CCiC-Unity-Pipeline-Plugin/archive/refs/tags/2.1.0.zip)**'
+  - ---
+  - 
+  - '**Note: This is a work in progress beta release.**'
+  - 
+  - '### 2.1.0'
+  - '- Shader update for CC5 HD characters.'
+  - '    - Eye shader updates'
+  - '    - Skin shader updates:'
+  - '        - Cavity maps.'
+  - '        - Displacement maps.'
+  - '        - Wrinkle displacement maps.'
+  - '        - Wrinkle system update.'
+  - '- DataLink'
+  - '    - Uses the ''CCIC Unity Pipeline Plugin'' (https://github.com/soupday/CCIC-Unity-Pipeline-Plugin)
+    for both Character Creator (versions 4 & 5) and iClone.'
+  - '    - Allows the direct import of Characters, props cameras, lights and full
+    iClone scenes into a Unity project with a single button click.'
+  - '    - All exports can automatically be placed directly into a Unity scene and
+    added to a Unity Timeline to allow direct replication of an iClone scene in Unity.'
+  - '    - Animated cameras (positions, camera tracking and switching [using the
+    switcher track], depth of field, focus distance) and lights (positions, color,
+    intensity, ranges, angles and activation state) can also be automatically set
+    up in a Unity Timeline.'
+  - '    - Datalink is not limited to a local machine, a remote host using iClone/Character
+    Creator can be connected to (Unity 2021 and above).'
+  - '- TBD:'
+  - '    - URP Anisotropic hair.'
+  - '    - Tessellation shaders for URP (Skin only for now)'
+  - '    - Retarget expressions to/from CC5 HD profile.'
+  - '    - Simultaneous datalink connection to Character Creator and iClone.'
+  - '    - Sending meshes from the Unity scene to iClone to aid scene specific animation. '
+  fullJsonFragment: '[{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/250302395","assets_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/250302395/assets","upload_url":"https://uploads.github.com/repos/soupday/CCiC-Unity-Tools/releases/250302395/assets{?name,label}","html_url":"https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.1.0","id":250302395,"author":{"login":"soupday","id":79094830,"node_id":"MDQ6VXNlcjc5MDk0ODMw","avatar_url":"https://avatars.githubusercontent.com/u/79094830?v=4","gravatar_id":"","url":"https://api.github.com/users/soupday","html_url":"https://github.com/soupday","followers_url":"https://api.github.com/users/soupday/followers","following_url":"https://api.github.com/users/soupday/following{/other_user}","gists_url":"https://api.github.com/users/soupday/gists{/gist_id}","starred_url":"https://api.github.com/users/soupday/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/soupday/subscriptions","organizations_url":"https://api.github.com/users/soupday/orgs","repos_url":"https://api.github.com/users/soupday/repos","events_url":"https://api.github.com/users/soupday/events{/privacy}","received_events_url":"https://api.github.com/users/soupday/received_events","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOL2lAh84O60-7","tag_name":"2.1.0","target_commitish":"main","name":"CC/iC
+    Unity Tools 2.1.0","draft":false,"immutable":false,"prerelease":false,"created_at":"2025-09-26T13:07:05Z","updated_at":"2025-11-06T07:23:12Z","published_at":"2025-09-26T13:07:41Z","assets":[],"tarball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/tarball/2.1.0","zipball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/zipball/2.1.0","body":"**[:arrow_down_small:Download
+    CC/iC Unity Tools 2.1.0 - for Unity 2020.3 - 6000.2](https://github.com/soupday/CCiC-Unity-Tools/archive/refs/tags/2.1.0.zip)**\r\n**[:arrow_down_small:Download
+    CC/iC Unity Pipeline Plugin 2.1.0 - for Character Creator / iClone](https://github.com/soupday/CCiC-Unity-Pipeline-Plugin/archive/refs/tags/2.1.0.zip)**\r\n---\r\n\r\n**Note:
+    This is a work in progress beta release.**\r\n\r\n### 2.1.0\r\n- Shader update
+    for CC5 HD characters.\r\n    - Eye shader updates\r\n    - Skin shader updates:\r\n       
+    - Cavity maps.\r\n        - Displacement maps.\r\n        - Wrinkle displacement
+    maps.\r\n        - Wrinkle system update.\r\n- DataLink\r\n    - Uses the ''CCIC
+    Unity Pipeline Plugin'' (https://github.com/soupday/CCIC-Unity-Pipeline-Plugin)
+    for both Character Creator (versions 4 & 5) and iClone.\r\n    - Allows the direct
+    import of Characters, props cameras, lights and full iClone scenes into a Unity
+    project with a single button click.\r\n    - All exports can automatically be
+    placed directly into a Unity scene and added to a Unity Timeline to allow direct
+    replication of an iClone scene in Unity.\r\n    - Animated cameras (positions,
+    camera tracking and switching [using the switcher track], depth of field, focus
+    distance) and lights (positions, color, intensity, ranges, angles and activation
+    state) can also be automatically set up in a Unity Timeline.\r\n    - Datalink
+    is not limited to a local machine, a remote host using iClone/Character Creator
+    can be connected to (Unity 2021 and above).\r\n- TBD:\r\n    - URP Anisotropic
+    hair.\r\n    - Tessellation shaders for URP (Skin only for now)\r\n    - Retarget
+    expressions to/from CC5 HD profile.\r\n    - Simultaneous datalink connection
+    to Character Creator and iClone.\r\n    - Sending meshes from the Unity scene
+    to iClone to aid scene specific animation. ","reactions":{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/250302395/reactions","total_count":4,"+1":4,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0}},{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/227393413","assets_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/227393413/assets","upload_url":"https://uploads.github.com/repos/soupday/CCiC-Unity-Tools/releases/227393413/assets{?name,label}","html_url":"https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.0.2","id":227393413,"author":{"login":"soupday","id":79094830,"node_id":"MDQ6VXNlcjc5MDk0ODMw","avatar_url":"https://avatars.githubusercontent.com/u/79094830?v=4","gravatar_id":"","url":"https://api.github.com/users/soupday","html_url":"https://github.com/soupday","followers_url":"https://api.github.com/users/soupday/followers","following_url":"https://api.github.com/users/soupday/following{/other_user}","gists_url":"https://api.github.com/users/soupday/gists{/gist_id}","starred_url":"https://api.github.com/users/soupday/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/soupday/subscriptions","organizations_url":"https://api.github.com/users/soupday/orgs","repos_url":"https://api.github.com/users/soupday/repos","events_url":"https://api.github.com/users/soupday/events{/privacy}","received_events_url":"https://api.github.com/users/soupday/received_events","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOL2lAh84Njb-F","tag_name":"2.0.2","target_commitish":"main","name":"CC/iC
+    Unity Tools 2.0.2","draft":false,"immutable":false,"prerelease":false,"created_at":"2025-06-24T14:41:40Z","updated_at":"2025-06-24T20:23:31Z","published_at":"2025-06-24T14:43:03Z","assets":[],"tarball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/tarball/2.0.2","zipball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/zipball/2.0.2","body":"[Download
+    CC/iC Unity Tools 2.0.2](https://github.com/soupday/ccic_unity_tools_all/archive/refs/tags/2.0.2.zip)\r\n-------\r\n\r\n###
+    2.0.2\r\n- Fix to Magica Cloth hair only collider generation.\r\n- Fix to spring
+    bone build generation.\r\n- Fix to additional motion processing with differing
+    Avatar''s.\r\n- Unity 6000.1 (HDRP/URP-17.1) shader support added.\r\n\r\n###
+    2.0.1\r\n- Fix to combined mesh & morph eye depth.\r\n- Fix to strand hair compilation
+    errors.","reactions":{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/227393413/reactions","total_count":5,"+1":5,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0}},{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/191491308","assets_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/191491308/assets","upload_url":"https://uploads.github.com/repos/soupday/CCiC-Unity-Tools/releases/191491308/assets{?name,label}","html_url":"https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.0.0","id":191491308,"author":{"login":"soupday","id":79094830,"node_id":"MDQ6VXNlcjc5MDk0ODMw","avatar_url":"https://avatars.githubusercontent.com/u/79094830?v=4","gravatar_id":"","url":"https://api.github.com/users/soupday","html_url":"https://github.com/soupday","followers_url":"https://api.github.com/users/soupday/followers","following_url":"https://api.github.com/users/soupday/following{/other_user}","gists_url":"https://api.github.com/users/soupday/gists{/gist_id}","starred_url":"https://api.github.com/users/soupday/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/soupday/subscriptions","organizations_url":"https://api.github.com/users/soupday/orgs","repos_url":"https://api.github.com/users/soupday/repos","events_url":"https://api.github.com/users/soupday/events{/privacy}","received_events_url":"https://api.github.com/users/soupday/received_events","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOL2lAh84Laezs","tag_name":"2.0.0","target_commitish":"main","name":"CC/iC
+    Unity Tools 2.0.0","draft":false,"immutable":false,"prerelease":false,"created_at":"2024-12-18T15:15:46Z","updated_at":"2024-12-19T13:33:02Z","published_at":"2024-12-18T16:58:57Z","assets":[],"tarball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/tarball/2.0.0","zipball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/zipball/2.0.0","body":"[Download
+    CC/iC Unity Tools 2.0.0](https://github.com/soupday/ccic_unity_tools_all/archive/refs/tags/2.0.0.zip)\r\n-------\r\n\r\n###
+    2.0.0\r\n- Unified version, for all versions of Unity and pipelines.\r\n    -
+    Automatically installs and updates run time shaders and scripts.\r\n    - Checks
+    for missing shaders and runtimes.\r\n- Fixes for:\r\n    - HDRP shader recompiling.\r\n   
+    - Wrinkle masks not being detected when installed in Assets.\r\n\r\n## Notes\r\nVersion
+    2.0.0 for all versions of Unity 2020.3 to 6000.0 and all pipelines (HDRP / URP
+    / 3D).\r\n\r\nTo upgrade, remove the old CC/iC Unity Tools entirely and install
+    this with the package manager. It should also work if just dropped into Assets.\r\n\r\nThis
+    package will install the shaders, template materials and run-time scripts into:
+    **Assets/Reallusion/CCiC Unity Tools**.\r\n\r\nIt should also detect when the
+    _wrong_ shader package is installed, or if any of the shaders are missing, for
+    the version of Unity and pipeline and present options to fix this.\r\n\r\nThere
+    are also functions to remove and install different shader packages if required."}]'
+  lastPath: Assets/Reallusion/CCiC Unity Tools/RLSettingsObject.asset
+  toolVersion: 2.1.0
+  shaderToolVersion: 
+  runtimeToolVersion: 
+  showProps: 1
+  lastExportPath: 
+  isClientLocal: 1
+  lastSuccessfulHost: 
+  lastTriedHosts: []
+  simpleMode: 1
+  importDestinationFolder: 
+  importIntoScene: 1
+  useCurrentScene: 0
+  addToTimeline: 1
+  lockTimelineToLast: 1
+  sceneReference: 
+  recentSceneRefs: []
+  lastSaveFolder: 
+  activeTimeLines: []
+  showPlayerAfterPlayMode: 0
+  showRetargetAfterPlayMode: 0
