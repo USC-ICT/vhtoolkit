@@ -1,0 +1,55 @@
+{
+    "name": "soupday.cc3_unity_tools.project_runtime",
+    "rootNamespace": "Reallusion.Runtime",
+    "references": [
+        "GUID:457756d89b35d2941b3e7b37b4ece6f1",
+        "GUID:df380645f10b7bc4b97d4f5eb6303d95",
+        "GUID:3eae0364be2026648bf74846acb8a731",
+        "GUID:c579267770062bf448e75eb160330b7f",
+        "GUID:15fc0a57446b3144c949da3e2b9737a9",
+        "GUID:d60799ab2a985554ea1a39cd38695018",
+        "GUID:17b36165d09634a48bf5a0e4bb27f4bd"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [
+        ""
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.high-definition",
+            "expression": "10.0.0",
+            "define": "HDRP_RUNTIME"
+        },
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "10.0.0",
+            "define": "URP_RUNTIME"
+        },
+        {
+            "name": "com.unity.postprocessing",
+            "expression": "3.1.1",
+            "define": "POST_PROCESSING"
+        },
+        {
+            "name": "com.unity.render-pipelines.high-definition",
+            "expression": "17.0.0",
+            "define": "HDRP_17_RUNTIME"
+        },
+        {
+            "name": "com.unity.collab-proxy",
+            "expression": "1.14.12",
+            "define": "PLASTIC_NEWTONSOFT_AVAILABLE"
+        },
+        {
+            "name": "com.unity.render-pipelines.high-definition",
+            "expression": "12.0.0",
+            "define": "HDRP_12_RUNTIME"
+        }
+    ],
+    "noEngineReferences": false
+}
