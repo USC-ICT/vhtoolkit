@@ -55,8 +55,12 @@ namespace Ride.Examples
         /// </summary>
         public void OnGUISystemSelection()
         {
+            var llmModes = new string[] { "ChatGPT", "Claude", "AWS Lex", "Rasa" };
+            if (RideUtils.IsAndroid() || RideUtils.IsWebGL())
+                llmModes = new string[] { "ChatGPT", "Claude" };
+
             // Draw a selection grid for LLM modes and get the user's selection.
-            int llmMode = m_debugMenu.SelectionGrid(m_controller.m_llmMode, new string[] { "ChatGPT", "Claude", "AWS Lex", "Rasa" }, 2);
+            int llmMode = m_debugMenu.SelectionGrid(m_controller.m_llmMode, llmModes, 2);
 
             // If the selected LLM mode has changed, update it in the DemoController.
             if (m_controller.m_llmMode != llmMode)

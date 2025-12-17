@@ -65,8 +65,8 @@ namespace Ride.Sensing
                                                   "Dlib",
                                                   "SFace",
                                                   "GhostFaceNet"};
-        private static readonly int port = 5005;
-        private static readonly string serverIP = "100.64.99.7";
+        private static readonly int port = 5000;
+        private static readonly string serverIP = "127.0.0.1";
         private static readonly string serverUri = "http://" + serverIP + ":" + port + "/analyze"; //Local server with poert 5100
         private Queue<DeepFaceSensingServiceRequest> m_requestQueue = new Queue<DeepFaceSensingServiceRequest>();
         public DeepfaceModels modelName;

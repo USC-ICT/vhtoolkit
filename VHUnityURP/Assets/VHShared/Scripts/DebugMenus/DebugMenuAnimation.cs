@@ -1,5 +1,9 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using VHAssets;
 
 namespace Ride.Examples
 {
@@ -9,33 +13,125 @@ namespace Ride.Examples
     /// </summary>
     public class DebugMenuAnimation : RideMonoBehaviour
     {
-        private Vector2 m_animationPostureScroll;  
-        private Vector2 m_animationListScroll; 
-        private Vector2 m_animationSittingScroll;  
-        private Vector2 m_animationScroll;         
-
-        //private bool m_animationPostureToggle = true;
-        //private bool m_animationStandingToggle = false;
-        //private bool m_animationSittingToggle = false; 
-
-        private DebugMenu m_debugMenu;       
-        private DemoController m_controller; 
+        private DebugMenu m_debugMenu;
+        private DemoController m_controller;
         private DebugMenus m_debugMenusBase;
 
-        private List<string> m_animations = new();
-        //private List<string> m_animations_standing = new();
-        //private List<string> m_animations_seated = new();
+        private MecanimCharacter m_currentCharacterCached;
 
-        private string m_currentPosture = string.Empty;
-        private string[] m_postures = new string[]
+        private string m_ccMaleControllerName = "CCMaleAnimatorController";
+        private string m_ccFemaleControllerName = "CCFemaleAnimatorController";
+        private string m_ictMaleControllerName = "IctMaleAnimatorController";
+        private string m_ictFemaleControllerName = "IctFemaleAnimatorController";
+        private string m_rocketboxMaleControllerName = "RocketboxMaleAnimatorController";
+        private string m_rocketboxFemaleControllerName = "RocketboxFemaleAnimatorController";
+
+        [Header("Idle hubs (hard-coded tokens; gestures discovered at runtime)")]
+        private string[] m_ccMaleIdleTokens = new[]
         {
+            // Hub tokens; idle state names inferred as Token unless overridden below.
+            // These match your library naming; adjust if you rename hubs.
+            "CC_IdleStandingUpright01",
             "IdleStandingUpright01",
-            "IdleStandingLeanRtHandsOnHips01",
             "IdleStandingLeanRt01",
-            "IdleSeatedUpright02",
-            "IdleSeatedForward01",
+            "IdleStandingLeanRtHandsOnHips01",
             "IdleSeatedBack01",
+            "IdleSeatedBack02",
+            "IdleSeatedForward01",
+            "IdleSeatedUpright02",
+            "PSA_IdleStandingUpright01",
+            "MCU_af_StandConvB",
+            "MCU_am_StandConvA",
+            "CC_Fml_IdleStandingUpright01",
+            "CC_Fml_IdleStandingLeanRt01",
+            "CC_Fml_IdleSeatedUpright01",
+            "CC_Fml_IdleSeatedForward01",
+            "CC_Fml_IdleSeatedBack01",
         };
+
+        [Tooltip("Optional explicit idle state names for hubs that do NOT use Token_Idle naming.")]
+        private Dictionary<string,string> m_ccMaleIdleOverrides = new()
+        {
+            // Format: Token, IdleStateName
+            // e.g. "Standing01, Standing01_Idle" (_Idle suffix in your project)
+            { "Standing01", "Standing01_Idle" },
+            { "MCU_af_StandConvB", "MCU_af_StandConvB_Idle_01" },
+            { "MCU_am_StandConvA", "MCU_am_StandConvA_Idle_01" },
+        };
+
+        private string[] m_ccFemaleIdleTokens = new[]
+        {
+            "CC_Fml_IdleStandingUpright01",
+            "CC_Fml_IdleStandingLeanRt01",
+            "CC_Fml_IdleSeatedUpright01",
+            "CC_Fml_IdleSeatedForward01",
+            "CC_Fml_IdleSeatedBack01",
+            "IdleStandingUpright01",
+            "IdleStandingLeanRt01",
+            "IdleStandingLeanRtHandsInBack01",
+            "IdleStandingLeanRtHandsInFront01",
+            "IdleStandingLeanRtHandsOnHips01",
+            "IdleSeatedBack01",
+            "IdleSeatedForward01",
+            "IdleSeatedUpright01",
+            "MCU_af_StandConvB",
+            "MCU_am_StandConvA",
+            "CC_IdleStandingUpright01",
+        };
+
+        private Dictionary<string, string> m_ccFemaleIdleOverrides = new()
+        {
+            { "MCU_af_StandConvB", "MCU_af_StandConvB_Idle_01" },
+            { "MCU_am_StandConvA", "MCU_am_StandConvA_Idle_01" },
+        };
+
+        [Header("Idle hubs (hard-coded tokens; gestures discovered at runtime)")]
+        private string[] m_ictMaleIdleTokens = new[]
+        {
+            // Hub tokens; idle state names inferred as Token unless overridden below.
+            // These match your library naming; adjust if you rename hubs.
+            "OG_IdleStandingUpright01",
+            "IdleStandingUpright01",
+            "Standing01",
+            "IdleStandingLeanRt01",
+            "IdleStandingLeanRtHandsOnHips01",
+            "IdleSeatedBack01",
+            "IdleSeatedBack02",
+            "IdleSeatedForward01",
+            "IdleSeatedUpright02",
+        };
+
+        [Tooltip("Optional explicit idle state names for hubs that do NOT use Token_Idle naming.")]
+        private Dictionary<string, string> m_ictMaleIdleOverrides = new()
+        {
+            // Format: Token=IdleStateName
+            // e.g. "Standing01=Standing01_Idle" (_Idle suffix in your project)
+            { "Standing01", "Standing01_Idle" },
+        };
+
+        private string[] m_ictFemaleIdleTokens = new[]
+        {
+            "OG_IdleStandingUpright01",
+            "IdleStandingUpright01",
+            "IdleStandingLeanRt01",
+            "IdleStandingLeanRtHandsInBack01",
+            "IdleStandingLeanRtHandsInFront01",
+            "IdleStandingLeanRtHandsOnHips01",
+            "IdleSeatedBack01",
+            "IdleSeatedForward01",
+            "IdleSeatedUpright01",
+        };
+
+        private Dictionary<string, string> m_ictFemaleIdleOverrides = new();
+
+
+        // Controller -> animators (all found in scene)
+        private readonly Dictionary<string, List<Animator>> m_controllerNameToAnimators = new();
+        // Controller -> sorted unique state names on layer 0 (union of clips)
+        private readonly Dictionary<string, List<string>> m_controllerNameToStates = new();
+
+        private readonly Dictionary<string, bool> m_expanded = new();
+        private Vector2 m_scroll;
 
 
         /// <summary>
@@ -45,16 +141,9 @@ namespace Ride.Examples
         {
             base.Start();
 
-            // Retrieve the Debug Menu system.
-            m_debugMenu = Globals.api.GetSystem<DebugMenu>();
-
-            // Find the DemoController instance in the scene.
+            m_debugMenu = Systems.Get<DebugMenu>();
             m_controller = FindAnyObjectByType<DemoController>();
-
-            // Find the DebugMenus base instance in the scene.
             m_debugMenusBase = FindAnyObjectByType<DebugMenus>();
-
-            m_currentPosture = m_postures[0];
         }
 
 
@@ -64,70 +153,251 @@ namespace Ride.Examples
         /// </summary>
         public void OnGUIAnimation()
         {
-            // Set up custom GUI styles.
             m_debugMenusBase.OnGUICustomStylesSetup();
-            if(m_animations.Count <= 0) { SetAnimationList(); }
 
-            using (var animationScrollView = new GUILayout.ScrollViewScope(m_animationScroll))
+            if (m_controller.CurrentCharacter != m_currentCharacterCached)
+                RebuildControllerMaps();
+
+            m_debugMenusBase.OnGUICharacterConfig();
+
+            if (m_controller.CurrentCharacter != null)
             {
-                m_animationScroll = animationScrollView.scrollPosition;
-
-                // Display character selection UI.
-                m_debugMenusBase.OnGUICharacterConfig();
-
-                m_debugMenu.Label($"<b>Postures</b>");
-                foreach (var posture in m_postures)
+                var animator = m_controller.CurrentCharacter.GetComponent<Animator>();
+                if (animator != null &&
+                    animator.runtimeAnimatorController != null)
                 {
-                    if (GUILayout.Button(posture, m_debugMenusBase.m_guiButtonLeftJustify))
+                    var baseCtrl = GetBaseController(animator.runtimeAnimatorController);
+                    var name = baseCtrl != null ? baseCtrl.name : animator.runtimeAnimatorController.name;
+                    switch (name)
                     {
-                        SetPosture(posture);
-                        m_currentPosture = posture;
+                        case "IctMaleAnimatorController": RenderAnimationPanel(idleTokens: m_ictMaleIdleTokens, idleOverride: m_ictMaleIdleOverrides, expanded: m_expanded, requiredControllerName: m_ictMaleControllerName, ref m_scroll); break;
+                        case "IctFemaleAnimatorController": RenderAnimationPanel(idleTokens: m_ictFemaleIdleTokens, idleOverride: m_ictFemaleIdleOverrides, expanded: m_expanded, requiredControllerName: m_ictFemaleControllerName, ref m_scroll); break;
+                        case "CCMaleAnimatorController": RenderAnimationPanel(idleTokens: m_ccMaleIdleTokens, idleOverride: m_ccMaleIdleOverrides, expanded: m_expanded, requiredControllerName: m_ccMaleControllerName, ref m_scroll); break;
+                        case "CCFemaleAnimatorController": RenderAnimationPanel(idleTokens: m_ccFemaleIdleTokens, idleOverride: m_ccFemaleIdleOverrides, expanded: m_expanded, requiredControllerName: m_ccFemaleControllerName, ref m_scroll); break;
+                        case "RocketboxMaleAnimatorController": RenderAnimationPanel(idleTokens: m_ictMaleIdleTokens, idleOverride: m_ictMaleIdleOverrides, expanded: m_expanded, requiredControllerName: m_rocketboxMaleControllerName, ref m_scroll); break;
+                        case "RocketboxFemaleAnimatorController": RenderAnimationPanel(idleTokens: m_ictFemaleIdleTokens, idleOverride: m_ictFemaleIdleOverrides, expanded: m_expanded, requiredControllerName: m_rocketboxFemaleControllerName, ref m_scroll); break;
+                        default: break;
                     }
                 }
-                m_debugMenu.Space();
+            }
+        }
 
-                m_debugMenu.Label($"<b>Animations</b>");
-                using (var animationScrollPosition = new GUILayout.ScrollViewScope(m_animationListScroll, GUILayout.MaxHeight(600)))
+        private void RenderAnimationPanel(
+            string[] idleTokens,
+            Dictionary<string, string> idleOverride,
+            Dictionary<string, bool> expanded,
+            string requiredControllerName,
+            ref Vector2 scroll)
+        {
+            if (idleTokens == null || idleTokens.Length == 0)
+            {
+                m_debugMenu.Label("No idle hubs configured for this tab.");
+                return;
+            }
+
+            // Determine which controller name to show on this tab
+            var controllerName = requiredControllerName;
+            if (string.IsNullOrWhiteSpace(controllerName))
+                controllerName = InferControllerNameForRoots();
+
+            if (string.IsNullOrWhiteSpace(controllerName))
+            {
+                m_debugMenu.Label("No matching controller found under these roots.");
+                return;
+            }
+
+            m_debugMenu.Label($"Controller: {controllerName}");
+
+            var animator = m_controller.CurrentCharacter != null ? m_controller.CurrentCharacter.GetComponent<Animator>() : null;
+            if (animator != null)
+            {
+                try
                 {
-                    m_animationListScroll = animationScrollPosition.scrollPosition;
+                    int layer = 0;
 
-                    foreach (var animation in m_animations)
+                    var st = animator.GetCurrentAnimatorStateInfo(layer);
+                    string stateName = "(unknown)";
+
+                    // Look up the state by hash (Animator stores only hash)
+                    foreach (var kvp in m_controllerNameToStates)
                     {
-                        if(animation.Contains(m_currentPosture) == false) { continue; }
-
-                        if (GUILayout.Button(animation, m_debugMenusBase.m_guiButtonLeftJustify))
+                        foreach (var s in kvp.Value)
                         {
-                            m_controller.CurrentCharacter.PlayAnim(animation);
+                            if (Animator.StringToHash(s) == st.shortNameHash)
+                            {
+                                stateName = s;
+                                break;
+                            }
                         }
                     }
+
+                    m_debugMenu.Label($"Current: {stateName}");
+                    m_debugMenu.Label($"Time: {(st.normalizedTime % 1f):0.00}");
+                    string transitionLabel = "";
+                    if (animator.IsInTransition(layer))
+                    {
+                        var ts = animator.GetAnimatorTransitionInfo(layer);
+                        transitionLabel = $"Transition t: {ts.duration:0.00}";
+                    }
+
+                    m_debugMenu.Label(transitionLabel);
+                }
+                catch { }  // Defensive: do nothing if animator not ready
+            }
+
+            using (var scrollViewScope = new GUILayout.ScrollViewScope(scroll))
+            {
+                scroll = scrollViewScope.scrollPosition;
+
+                // Only iterate controllers that match the required name
+                foreach (var kvp in m_controllerNameToAnimators)
+                {
+                    var kvpControllerName = kvp.Key;
+
+                    if (!string.Equals(kvpControllerName, controllerName, StringComparison.Ordinal))
+                        continue;
+
+                    var animators = kvp.Value;
+                    if (!m_controllerNameToStates.TryGetValue(kvpControllerName, out var stateNames))
+                        continue;
+
+                    foreach (var token in idleTokens)
+                    {
+                        var idleState = ResolveIdleStateName(token, idleOverride);
+                        var hasIdle = stateNames.Contains(idleState);
+
+                        var gestures = stateNames
+                            .Where(n => n.StartsWith(token + "_", StringComparison.Ordinal))
+                            .Where(n => n != idleState)
+                            .ToList();
+
+                        var key = kvpControllerName + "::" + token;
+                        if (!expanded.ContainsKey(key)) expanded[key] = false;
+
+                        using (m_debugMenu.Horizontal())
+                        {
+                            expanded[key] = m_debugMenu.Toggle(expanded[key], token + (hasIdle ? "" : " (idle missing)"));
+                            if (m_debugMenu.Button("Set", 60))
+                                m_controller.CurrentCharacter.PlayPosture(idleState); //PlayOnAnimators(animators, idleState, 0.5f);
+                        }
+
+                        if (expanded[key])
+                        {
+                            if (gestures.Count == 0)
+                            {
+                                m_debugMenu.Label("(no gestures found for this hub)");
+                            }
+                            else
+                            {
+                                foreach (var g in gestures)
+                                {
+                                    if (GUILayout.Button(g, m_debugMenusBase.m_guiButtonLeftJustify))
+                                        m_controller.CurrentCharacter.PlayAnim(g); //PlayOnAnimators(animators, g, 0.1f);
+                                }
+                            }
+                        }
+                    }
+
+                    m_debugMenu.Space();
                 }
             }
         }
 
-
-        /// <summary>
-        /// Sets the posture of the current character.
-        /// </summary>
-        /// <param name="posture">The posture to be set.</param>
-        private void SetPosture(string posture)
+        private static string ResolveIdleStateName(string token, Dictionary<string, string> overrides)
         {
-            m_controller.CurrentCharacter.PlayPosture(posture);
+            if (overrides != null && overrides.TryGetValue(token, out var idle))
+                return idle;
+            return token; // default convention
         }
 
-
-        public void SetAnimationList()
+        private void RebuildControllerMaps()
         {
-            var animator = m_controller.CurrentCharacter.GetComponent<Animator>();
-            var clips = animator.runtimeAnimatorController.animationClips;
+            m_currentCharacterCached = m_controller.CurrentCharacter;
 
-            m_animations.Clear();
+            m_controllerNameToAnimators.Clear();
+            m_controllerNameToStates.Clear();
 
-            foreach (var clip in clips)
+            //foreach (var a in m_characters)
+            var a = m_controller.CurrentCharacter.GetComponent<Animator>();
             {
-                if (clip == null) { continue; }
-                m_animations.Add(clip.name);
+                if (a == null)
+                    return;
+
+                var ctrl = a.runtimeAnimatorController;
+                if (ctrl == null)
+                    return;
+
+                var baseCtrl = GetBaseController(ctrl);
+                if (baseCtrl == null)
+                    return;
+
+                string keyName = baseCtrl.name;
+
+                Debug.Log($"RebuildControllerMaps() - animator '{a.name}' uses controller '{ctrl.name}' (base: '{keyName}')");
+
+                if (!m_controllerNameToAnimators.TryGetValue(keyName, out var list))
+                {
+                    list = new List<Animator>();
+                    m_controllerNameToAnimators[keyName] = list;
+                }
+
+                if (!list.Contains(a))
+                    list.Add(a);
+
+                // States (names) per controller
+                if (!m_controllerNameToStates.ContainsKey(keyName))
+                {
+                    var names = new HashSet<string>(StringComparer.Ordinal);
+                    foreach (var clip in baseCtrl.animationClips)
+                    {
+                        if (clip == null)
+                            continue;
+
+                        //Debug.Log($"RebuildControllerMaps() -   controller '{ctrl.name}', adding anim '{clip.name}'");
+
+                        names.Add(clip.name);
+                    }
+
+                    var sorted = names.ToList();
+                    sorted.Sort(StringComparer.Ordinal);
+                    m_controllerNameToStates[keyName] = sorted;
+                }
             }
-            m_animations.Sort();
+        }
+
+        private string InferControllerNameForRoots()
+        {
+            var counts = new Dictionary<string, int>(StringComparer.Ordinal);
+            foreach (var kvp in m_controllerNameToAnimators)
+            {
+                var name = kvp.Key;
+                if (!counts.ContainsKey(name))
+                    counts[name] = 0;
+
+                counts[name] += kvp.Value?.Count ?? 0;
+            }
+
+            // pick the controller with the most animators under these roots
+            string best = null;
+            int bestCount = -1;
+            foreach (var p in counts)
+            {
+                if (p.Value > bestCount)
+                {
+                    best = p.Key;
+                    bestCount = p.Value;
+                }
+            }
+            return best;
+        }
+
+        private static RuntimeAnimatorController GetBaseController(RuntimeAnimatorController controller)
+        {
+            if (controller == null)
+                return null;
+
+            var overrideController = controller as AnimatorOverrideController;
+            return overrideController != null ? overrideController.runtimeAnimatorController : controller;
         }
     }
 }

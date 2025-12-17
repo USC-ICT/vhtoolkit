@@ -1,3 +1,4 @@
+using Ride;
 using Ride.Examples;
 using TMPro;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Manages the UI for the desktop demo, including input fields, scrollable response display, and ASR button interaction.
 /// </summary>
-public class DemoController_UI : RideBaseMinimal, IDemoControllerUI
+public class DemoController_UI : RideMonoBehaviour, IDemoControllerUI
 {
     [Header("Controller")]
     [SerializeField] private DemoControllerBase m_controller;

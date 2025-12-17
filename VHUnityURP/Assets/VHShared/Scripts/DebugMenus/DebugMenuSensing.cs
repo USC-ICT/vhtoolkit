@@ -58,7 +58,12 @@ namespace Ride.Examples
         public void OnGUISelectSensingMode()
         {
             m_debugMenu.Label("Sensing Selection");
-            int sensingMode = m_debugMenu.SelectionGrid(m_sensingMode, new string[] { "AWS", "DeepFace" }, 2);
+
+            var sensingModes = new string[] { "AWS", "DeepFace" };
+            if (RideUtils.IsAndroid() || RideUtils.IsWebGL())
+                sensingModes = new string[] { "AWS" };
+
+            int sensingMode = m_debugMenu.SelectionGrid(m_sensingMode, sensingModes, 2);
             if (sensingMode != m_sensingMode)
             {
                 m_sensingMode = sensingMode;

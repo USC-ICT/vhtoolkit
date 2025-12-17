@@ -10,11 +10,21 @@ namespace Ride.Examples
     /// </summary>
     public class DebugMenuGaze : RideMonoBehaviour
     {
-        [SerializeField] private float m_gazeHeadSpeed = 50f; // Speed of the gaze movement.
+        private DebugMenu m_debugMenu;
+        private DemoController m_controller;
+        private DebugMenus m_debugMenusBase;
 
-        private DebugMenu m_debugMenu;       
-        private DemoController m_controller; 
-        private DebugMenus m_debugMenusBase; 
+        private bool m_useHead = true;
+        private bool m_useEyes = true;
+        private bool m_useBody = true;
+
+        private float m_headWeight = 1f;
+        private float m_eyeWeight = 1f;
+        private float m_bodyWeight = 0.5f;
+
+        private float m_headSpeed = 50f;
+        private float m_eyeSpeed = 70f;
+        private float m_bodySpeed = 20f;
 
 
         /// <summary>
@@ -24,7 +34,7 @@ namespace Ride.Examples
         {
             base.Start();
 
-            m_debugMenu = Globals.api.GetSystem<DebugMenu>();
+            m_debugMenu = Systems.Get<DebugMenu>();
 
             m_controller = FindAnyObjectByType<DemoController>();
 
@@ -40,39 +50,126 @@ namespace Ride.Examples
         {
             m_debugMenusBase.OnGUICharacterConfig();
 
-            using (new GUILayout.HorizontalScope())
-            {
-                m_debugMenu.Label("Speed", 100);
-                m_gazeHeadSpeed = m_debugMenu.HorizontalSlider(m_gazeHeadSpeed, 10, 100);
-                m_debugMenu.Label($"{m_gazeHeadSpeed:f1}", 80);
-            }
+            OnGUIGazeInternal();
+            OnGUIBlink();
+            OnGUIHead();
+        }
 
-            var character = m_controller.CurrentCharacter;
-
-            using (new GUILayout.HorizontalScope())
+        public void OnGUIGazeInternal()
+        {
+            using (m_debugMenu.Horizontal())
             {
-                if (m_debugMenu.Button("UpLeft")) { GazeAt(character, "GazeTargetUpLeft"); }
-                if (m_debugMenu.Button("Up")) { GazeAt(character, "GazeTargetUp"); }
-                if (m_debugMenu.Button("UpRight")) { GazeAt(character, "GazeTargetUpRight"); }
-            }
-
-            using (new GUILayout.HorizontalScope())
-            {
-                if (m_debugMenu.Button("Left")) { GazeAt(character, "GazeTargetLeft"); }
-                if (m_debugMenu.Button("Center")) { GazeAt(character, "GazeTargetUser"); }
-                if (m_debugMenu.Button("Right")) { GazeAt(character, "GazeTargetRight"); }
-            }
-
-            using (new GUILayout.HorizontalScope())
-            {
-                if (m_debugMenu.Button("DownLeft")) { GazeAt(character, "GazeTargetDownLeft"); }
-                if (m_debugMenu.Button("Down")) { GazeAt(character, "GazeTargetDown"); }
-                if (m_debugMenu.Button("DownRight")) { GazeAt(character, "GazeTargetDownRight"); }
+                m_debugMenu.Label("Parts:", 80);
+                m_useHead = m_debugMenu.Toggle(m_useHead, "Head");
+                m_useEyes = m_debugMenu.Toggle(m_useEyes, "Eyes");
+                m_useBody = m_debugMenu.Toggle(m_useBody, "Body");
             }
 
             m_debugMenu.Space();
 
-            if (m_debugMenu.Button("Off")) { StopGaze(character); }
+            m_debugMenu.Label("Gaze Weights (0..1):");
+            using (m_debugMenu.Horizontal())
+            {
+                m_debugMenu.Label("Head", 60);
+                m_headWeight = m_debugMenu.HorizontalSlider(m_headWeight, 0f, 1f);
+                m_debugMenu.Label($"{m_headWeight:F2}", 50);
+            }
+            using (m_debugMenu.Horizontal())
+            {
+                m_debugMenu.Label("Eyes", 50);
+                m_eyeWeight = m_debugMenu.HorizontalSlider(m_eyeWeight, 0f, 1f);
+                m_debugMenu.Label($"{m_eyeWeight:F2}", 50);
+            }
+            using (m_debugMenu.Horizontal())
+            {
+                m_debugMenu.Label("Body", 50);
+                m_bodyWeight = m_debugMenu.HorizontalSlider(m_bodyWeight, 0f, 1f);
+                m_debugMenu.Label($"{m_bodyWeight:F2}", 50);
+            }
+
+            m_debugMenu.Space();
+
+            m_debugMenu.Label("Fade-in Speeds:");
+            using (m_debugMenu.Horizontal())
+            {
+                m_debugMenu.Label("Head", 60);
+                m_headSpeed = m_debugMenu.HorizontalSlider(m_headSpeed, 0f, 100f);
+                m_debugMenu.Label($"{m_headSpeed:F1}", 50);
+            }
+            using (m_debugMenu.Horizontal())
+            {
+                m_debugMenu.Label("Eyes", 50);
+                m_eyeSpeed = m_debugMenu.HorizontalSlider(m_eyeSpeed, 0f, 100f);
+                m_debugMenu.Label($"{m_eyeSpeed:F1}", 50);
+            }
+            using (m_debugMenu.Horizontal())
+            {
+                m_debugMenu.Label("Body", 50);
+                m_bodySpeed = m_debugMenu.HorizontalSlider(m_bodySpeed, 0f, 100f);
+                m_debugMenu.Label($"{m_bodySpeed:F1}", 50);
+            }
+
+            m_debugMenu.Space();
+
+            m_debugMenu.Label("Gaze at (offset from camera):");
+            using (m_debugMenu.Horizontal())
+            {
+                if (m_debugMenu.Button("Center")) { GazeAt("GazeTargetUser"); }
+                if (m_debugMenu.Button("Up"))     { GazeAt("GazeTargetUp"); }
+                if (m_debugMenu.Button("Down"))   { GazeAt("GazeTargetDown"); }
+                if (m_debugMenu.Button("Left"))   { GazeAt("GazeTargetLeft"); }
+                if (m_debugMenu.Button("Right"))  { GazeAt("GazeTargetRight"); }
+            }
+
+            using (m_debugMenu.Horizontal())
+            {
+                if (m_debugMenu.Button("UpLeft"))    { GazeAt("GazeTargetUpLeft"); }
+                if (m_debugMenu.Button("UpRight"))   { GazeAt("GazeTargetUpRight"); }
+                if (m_debugMenu.Button("DownLeft"))  { GazeAt("GazeTargetDownLeft"); }
+                if (m_debugMenu.Button("DownRight")) { GazeAt("GazeTargetDownRight"); }
+            }
+
+            m_debugMenu.Space();
+
+            if (m_debugMenu.Button("Off")) { m_controller.CurrentCharacter.StopGaze(); }
+        }
+
+        /// <summary>
+        /// Draw debug menu for triggering a blink on the character.
+        /// </summary>
+        private void OnGUIBlink()
+        {
+            using (m_debugMenu.Horizontal()) //Todo: Investigate soft look
+            {
+                m_debugMenu.Label("Blink", 150);
+                if (m_debugMenu.Button("Blink")) { m_controller.CurrentCharacter.GetComponent<BlinkController>().Blink(); }
+            }
+        }
+
+
+        /// <summary>
+        /// Draw debug menu for nodding and shaking the character's head.
+        /// </summary>
+        private void OnGUIHead()
+        {
+            using (m_debugMenu.Horizontal())
+            {
+                m_debugMenu.Label("Head Control", 150);
+                if (m_debugMenu.Button("Nod"))
+                {
+                    float amount = 0.5f;
+                    float numTimes = 2.0f;
+                    float duration = 2.0f;
+                    m_controller.CurrentCharacter.Nod(amount, numTimes, duration);
+                }
+                if (m_debugMenu.Button("Shake"))
+                {
+                    float amount = 0.5f;
+                    float numTimes = 2.0f;
+                    float duration = 1.0f;
+                    m_controller.CurrentCharacter.Shake(amount, numTimes, duration);
+                }
+            }
         }
 
 
@@ -81,9 +178,9 @@ namespace Ride.Examples
         /// </summary>
         /// <param name="character">The character that will gaze.</param>
         /// <param name="gazeTargetString">The name of the gaze target object.</param>
-        public void GazeAt(MecanimCharacter character, string gazeTargetString)
+        public void GazeAt(string gazeTargetString)
         {
-            StartCoroutine(GazeSequence(character, gazeTargetString));
+            StartCoroutine(GazeSequence(m_controller.CurrentCharacter, gazeTargetString));
         }
 
 
@@ -102,17 +199,23 @@ namespace Ride.Examples
             yield return new WaitForEndOfFrame();
 
             // Set gaze target with specified speed.
-            character.SetGazeTargetWithSpeed(gazeTarget, m_gazeHeadSpeed, m_gazeHeadSpeed, m_gazeHeadSpeed);
-        }
+            if (gazeTarget == null)
+                yield break;
 
+            // First apply weights (participation).
+            // If a part is toggled off, force its weight to 0.
+            float headWeight = m_useHead ? m_headWeight : 0f;
+            float eyeWeight  = m_useEyes ? m_eyeWeight  : 0f;
+            float bodyWeight = m_useBody ? m_bodyWeight : 0f;
 
-        /// <summary>
-        /// Stops the gaze movement of the character.
-        /// </summary>
-        /// <param name="character">The character whose gaze will be stopped.</param>
-        public void StopGaze(MecanimCharacter character)
-        {
-            character.StopGaze();
+            character.SetGazeWeights(headWeight, eyeWeight, bodyWeight);
+
+            // Then compute speeds. If a part is toggled off, speed 0 will cause fade-out.
+            float headSpeed = m_useHead ? m_headSpeed : 0f;
+            float eyeSpeed  = m_useEyes ? m_eyeSpeed  : 0f;
+            float bodySpeed = m_useBody ? m_bodySpeed : 0f;
+
+            character.SetGazeTargetWithSpeed(gazeTarget, headSpeed, eyeSpeed, bodySpeed);
         }
     }
 }
