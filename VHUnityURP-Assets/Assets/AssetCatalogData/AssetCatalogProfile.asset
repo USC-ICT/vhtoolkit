@@ -45,7 +45,7 @@ MonoBehaviour:
   groups:
   - groupName: Kevin
     localPrefixPath: C:/RIDE/Content/AssetCatalogs/VH/Kevin
-    remotePrefixPath: bucketname/AssetCatalogs/VH/Kevin
+    remotePrefixPath: ride-content-e22e17c3/AssetCatalogs/VH/Kevin
     assets:
     - asset: {fileID: 1377460951968152, guid: 910b7e12d495d664b958de5a342de1cc, type: 3}
       labels:
@@ -56,15 +56,15 @@ MonoBehaviour:
     includeInBuild: 1
   - groupName: Ellie
     localPrefixPath: C:/RIDE/Content/AssetCatalogs/VH/Ellie
-    remotePrefixPath: bucketname/AssetCatalogs/VH/Ellie
+    remotePrefixPath: ride-content-e22e17c3/AssetCatalogs/VH/Ellie
     assets:
     - asset: {fileID: 100000, guid: 037bb62f09814934f954a2439cb43ca6, type: 3}
       labels:
       - Ellie
-    includeInBuild: 0
+    includeInBuild: 1
   - groupName: Rocketbox
     localPrefixPath: C:/RIDE/Content/AssetCatalogs/VH/Rocketbox
-    remotePrefixPath: bucketname/AssetCatalogs/VH/Rocketbox
+    remotePrefixPath: ride-content-e22e17c3/AssetCatalogs/VH/Rocketbox
     assets:
     - asset: {fileID: 6872515048886752127, guid: 00bfcd14aabf19f4380cae292c7f6a35,
         type: 3}
@@ -170,4 +170,4 @@ MonoBehaviour:
         type: 3}
       labels:
       - rb_Business_Male_01
-    includeInBuild: 0
+    includeInBuild: 1

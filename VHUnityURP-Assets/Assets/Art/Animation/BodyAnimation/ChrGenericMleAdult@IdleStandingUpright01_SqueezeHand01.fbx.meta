@@ -1112,7 +1112,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 0
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -1124,14 +1124,14 @@ ModelImporter:
       name: IdleStandingUpright01_SqueezeHand01
       takeName: Take 001
       internalID: -6351310536321713847
-      firstFrame: 1
+      firstFrame: 2
       lastFrame: 151
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      hasAdditiveReferencePose: 0
+      hasAdditiveReferencePose: 1
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -1675,13 +1675,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: ChrGenericMleAdult@IdleStandingUpright01_SqueezeHand01(Clone)
+    - name: ChrGenericMleAdult@IdleStandingUpright01(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: _IctSettings_
-      parentName: ChrGenericMleAdult@IdleStandingUpright01_SqueezeHand01(Clone)
+      parentName: ChrGenericMleAdult@IdleStandingUpright01(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -1695,13 +1695,13 @@ ModelImporter:
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: AnmDef_IdleStandingUpright01_SqueezeHand01
+    - name: AnmDef_IdleStandingUpright01
       parentName: _IctSettings_
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: CharacterRoot
-      parentName: ChrGenericMleAdult@IdleStandingUpright01_SqueezeHand01(Clone)
+      parentName: ChrGenericMleAdult@IdleStandingUpright01(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -1793,17 +1793,17 @@ ModelImporter:
     - name: JtNeckA
       parentName: JtSpineC
       position: {x: -0.15430191, y: -1.0658141e-16, z: -7.216449e-18}
-      rotation: {x: -4.434807e-16, y: 1.4705633e-16, z: -0.1068825, w: 0.99427164}
+      rotation: {x: -0.0004945741, y: 0.000048488866, z: -0.06010983, w: 0.99819165}
       scale: {x: 1, y: 1, z: 1}
     - name: JtNeckB
       parentName: JtNeckA
-      position: {x: -0.05016784, y: 2.1316282e-16, z: -2.2204459e-17}
-      rotation: {x: 5.2603515e-17, y: -6.3824045e-17, z: -0.015774595, w: 0.9998756}
+      position: {x: -0.05016784, y: 1.4210854e-16, z: -2.2204459e-17}
+      rotation: {x: 5.079661e-17, y: -6.52713e-17, z: 0.012215935, w: 0.9999254}
       scale: {x: 1, y: 1, z: 1}
     - name: JtSkullA
       parentName: JtNeckB
-      position: {x: -0.04657698, y: -7.105427e-17, z: 3.330669e-18}
-      rotation: {x: -1.7804499e-17, y: -1.7949909e-16, z: 0.14713573, w: 0.9891163}
+      position: {x: -0.04657698, y: -7.105427e-17, z: 3.8857806e-18}
+      rotation: {x: -0.000034029774, y: -0.0000029144364, z: 0.08593382, w: 0.9963009}
       scale: {x: 1, y: 1, z: 1}
     - name: JtSkullB
       parentName: JtSkullA
@@ -1822,7 +1822,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtLipUpperMid
       parentName: JtLowerFaceParent
-      position: {x: -1.4543921e-16, y: -0.06413391, z: 0.14492817}
+      position: {x: -1.8429702e-16, y: -0.06413391, z: 0.14492817}
       rotation: {x: 0.14623371, y: 0.69182056, z: 0.14623371, w: 0.69182056}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLipCornerLf
@@ -1857,7 +1857,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtJaw
       parentName: JtLowerFaceParent
-      position: {x: -4.8849813e-17, y: -0.046417013, z: 0.054261453}
+      position: {x: -5.995204e-17, y: -0.046417013, z: 0.054261453}
       rotation: {x: 0.41309437, y: 0.5738929, z: 0.41309437, w: 0.5738929}
       scale: {x: 1, y: 1, z: 1}
     - name: JtJawBack
@@ -1872,7 +1872,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtLipLowerMid
       parentName: JtJawFront
-      position: {x: -0.034203168, y: 4.2632563e-16, z: -5.5511148e-18}
+      position: {x: -0.034203168, y: -4.263256e-15, z: -3.1641356e-17}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLipLowerRt
@@ -1887,18 +1887,18 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtTongueA
       parentName: JtJaw
-      position: {x: -0.03522989, y: 0.03110095, z: -1.2267965e-16}
+      position: {x: -0.03522989, y: 0.03110095, z: -1.304512e-16}
       rotation: {x: 2.9756164e-15, y: 3.9518767e-15, z: -0.5845402, w: 0.81136477}
       scale: {x: 1, y: 1, z: 1}
     - name: JtTongueB
       parentName: JtTongueA
-      position: {x: -0.01713779, y: 0, z: 2.7755574e-18}
+      position: {x: -0.01713779, y: -1.0516033e-14, z: -3.330669e-18}
       rotation: {x: -2.363324e-16, y: -4.4356654e-16, z: 0.026204573, w: 0.9996566}
       scale: {x: 1, y: 1, z: 1}
     - name: JtTongueC
       parentName: JtTongueB
-      position: {x: -0.0151850395, y: -5.684342e-16, z: 2.220446e-18}
-      rotation: {x: 0, y: -0, z: -3.694961e-16, w: 1}
+      position: {x: -0.0151850395, y: -1.0231815e-14, z: -2.7755574e-18}
+      rotation: {x: 0, y: 0, z: 3.2051445e-13, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLipCornerRt
       parentName: JtLowerFaceParent
@@ -1947,7 +1947,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtLowerNoseRt
       parentName: JtUpperNoseRt
-      position: {x: 0.022921328, y: -9.97427e-10, z: 1.2943245e-10}
+      position: {x: 0.022921328, y: -9.973996e-10, z: 1.2941609e-10}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: JtEyelidUpperRt
@@ -1958,7 +1958,7 @@ ModelImporter:
     - name: JtEyeRt
       parentName: JtUpperFaceParent
       position: {x: 0.03300019, y: -0.026852433, z: 0.09222872}
-      rotation: {x: 0.99999994, y: 0.00030934808, z: 0.0000000019360327, w: 0.000006258428}
+      rotation: {x: 1, y: -0.000084348954, z: 1.3478091e-10, w: -0.0000015978967}
       scale: {x: 1, y: 1, z: 1}
     - name: JtUpperNoseLf
       parentName: JtUpperFaceParent
@@ -1967,7 +1967,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtLowerNoseLf
       parentName: JtUpperNoseLf
-      position: {x: -0.022921328, y: 1.4210854e-16, z: 7.9936054e-17}
+      position: {x: -0.022921328, y: -2.7569057e-14, z: 1.6395773e-14}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: JtBrowParentLf
@@ -2018,7 +2018,7 @@ ModelImporter:
     - name: JtEyeLf
       parentName: JtUpperFaceParent
       position: {x: -0.03300019, y: -0.026852433, z: 0.09222872}
-      rotation: {x: -0.0000062085637, y: 0.0000000019206075, z: -0.00030934808, w: 0.99999994}
+      rotation: {x: -0.0000033954861, y: 5.7446076e-10, z: -0.00016918358, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: JtClavicleRt
       parentName: JtSpineC
@@ -2077,12 +2077,12 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtThumbBRt
       parentName: JtThumbARt
-      position: {x: 0.030523831, y: 3.6761433e-10, z: 0.0000000118838}
+      position: {x: 0.030523831, y: 3.6761405e-10, z: 0.0000000118838}
       rotation: {x: 0.0005327164, y: -0.00041526547, z: -0.032554485, w: 0.99946976}
       scale: {x: 1, y: 1, z: 1}
     - name: JtThumbCRt
       parentName: JtThumbBRt
-      position: {x: 0.047460716, y: -3.0333286e-10, z: -0.000000007590689}
+      position: {x: 0.047460716, y: -3.0333283e-10, z: -0.000000007590689}
       rotation: {x: -0.0002823532, y: 0.00037048367, z: -0.031981174, w: 0.9994884}
       scale: {x: 1, y: 1, z: 1}
     - name: JtThumbDRt
@@ -2332,11 +2332,12 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 0
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d8ee909a60b0d1a4ca1c0b22d4093b8f,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   importBlendShapeDeformPercent: 0
   remapMaterialsIfMaterialImportModeIsNone: 1

@@ -1260,7 +1260,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ChrMaria_AnimatorController
+  m_Name: ChrMaria_AnimatorController_old
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: face_neutral
@@ -6031,11 +6031,11 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 1107000010864184528}
-    second: []
   - first: {fileID: 1107000011542040834}
     second: []
   - first: {fileID: 1107000013206875612}
+    second: []
+  - first: {fileID: 1107000010864184528}
     second: []
   - first: {fileID: 1107000013699632826}
     second: []

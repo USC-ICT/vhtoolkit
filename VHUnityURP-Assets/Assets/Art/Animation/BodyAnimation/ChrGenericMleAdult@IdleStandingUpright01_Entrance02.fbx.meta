@@ -1006,7 +1006,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 0
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -1018,14 +1018,14 @@ ModelImporter:
       name: IdleStandingUpright01_Entrance02
       takeName: Take 001
       internalID: -8006895916308772763
-      firstFrame: 1
+      firstFrame: 2
       lastFrame: 275
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      hasAdditiveReferencePose: 0
+      hasAdditiveReferencePose: 1
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -1569,18 +1569,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: ChrGenericMleAdult@IdleStandingUpright01_Entrance02(Clone)
+    - name: ChrGenericMleAdult@IdleStandingUpright01(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: _IctSettings_
-      parentName: ChrGenericMleAdult@IdleStandingUpright01_Entrance02(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: ChrDefSettings
-      parentName: _IctSettings_
+      parentName: ChrGenericMleAdult@IdleStandingUpright01(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
@@ -1589,19 +1584,24 @@ ModelImporter:
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: AnmDef_IdleStandingUpright01_Entrance02
+    - name: ChrDefSettings
+      parentName: _IctSettings_
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AnmDef_IdleStandingUpright01
       parentName: _IctSettings_
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: CharacterRoot
-      parentName: ChrGenericMleAdult@IdleStandingUpright01_Entrance02(Clone)
+      parentName: ChrGenericMleAdult@IdleStandingUpright01(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: JtRoot
       parentName: CharacterRoot
-      position: {x: 0, y: 1.0547359, z: 0.0049703717}
+      position: {x: -0.0032470718, y: 1.0621451, z: -0.04740293}
       rotation: {x: -0.011359306, y: 0, z: -0, w: 0.9999355}
       scale: {x: 1, y: 1, z: 1}
     - name: JtPelvis
@@ -1612,27 +1612,27 @@ ModelImporter:
     - name: JtHipRt
       parentName: JtPelvis
       position: {x: 0.098242335, y: -0.058648262, z: -0.006304294}
-      rotation: {x: -0.55086875, y: 0.5677859, z: -0.4572696, w: 0.4062848}
+      rotation: {x: 0.54673, y: -0.5258587, z: 0.45905694, w: -0.46241292}
       scale: {x: 1, y: 1, z: 1}
     - name: JtKneeRt
       parentName: JtHipRt
-      position: {x: 0.4491095, y: 3.5075567e-11, z: 0.0000000024969258}
-      rotation: {x: 7.1603745e-10, y: -0.000000011071131, z: 0.12347041, w: 0.99234825}
+      position: {x: 0.4491095, y: 3.5075533e-11, z: 0.0000000024969256}
+      rotation: {x: 0.0000000010798076, y: -0.000000011041588, z: 0.09076275, w: 0.99587256}
       scale: {x: 1, y: 1, z: 1}
     - name: JtAnkleRt
       parentName: JtKneeRt
-      position: {x: 0.4492002, y: 5.7259832e-11, z: -0.0000000031879444}
-      rotation: {x: 0.061288923, y: -0.013141578, z: -0.6053417, w: 0.7934938}
+      position: {x: 0.4492002, y: 5.7259794e-11, z: -0.0000000031879437}
+      rotation: {x: -0.0056848596, y: 0.00797055, z: -0.5837921, w: 0.8118442}
       scale: {x: 1, y: 1, z: 1}
     - name: JtBallRt
       parentName: JtAnkleRt
-      position: {x: 0.18054976, y: 1.7763568e-17, z: 4.913065e-10}
-      rotation: {x: -0.0000000014480122, y: 4.8813037e-10, z: -0.22989011, w: 0.9732166}
+      position: {x: 0.18054976, y: 5.7731595e-17, z: 4.913068e-10}
+      rotation: {x: -0.0000000060931007, y: 0.000000020034951, z: -0.22989048, w: 0.97321653}
       scale: {x: 1, y: 1, z: 1}
     - name: JtToeRt
       parentName: JtBallRt
-      position: {x: 0.06392462, y: 5.1217634e-17, z: 1.737402e-10}
-      rotation: {x: -2.3552538e-10, y: 0.000000008370941, z: 1, w: 6.320391e-17}
+      position: {x: 0.06392462, y: 5.0531765e-17, z: 1.7374016e-10}
+      rotation: {x: -2.3552538e-10, y: 0.000000006397044, z: 1, w: 6.273901e-17}
       scale: {x: 1, y: 1, z: 1}
     - name: JtHeelRt
       parentName: JtToeRt
@@ -1642,27 +1642,27 @@ ModelImporter:
     - name: JtHipLf
       parentName: JtPelvis
       position: {x: -0.098242335, y: -0.058648262, z: -0.006304294}
-      rotation: {x: 0.45979646, y: 0.43874577, z: 0.5089181, w: 0.580596}
+      rotation: {x: 0.42764682, y: 0.42728674, z: 0.55683345, w: 0.5696322}
       scale: {x: 1, y: 1, z: 1}
     - name: JtKneeLf
       parentName: JtHipLf
-      position: {x: -0.4491095, y: 1.4210854e-16, z: -5.684342e-16}
-      rotation: {x: 6.1501226e-10, y: -0.000000011077203, z: 0.13251789, w: 0.99118066}
+      position: {x: -0.4491095, y: 2.0428103e-16, z: -3.375078e-16}
+      rotation: {x: 0.0000000010893817, y: -0.0000000110406475, z: 0.089899145, w: 0.9959509}
       scale: {x: 1, y: 1, z: 1}
     - name: JtAnkleLf
       parentName: JtKneeLf
-      position: {x: -0.4492002, y: 1.4210854e-16, z: 7.105427e-16}
-      rotation: {x: -0.023378806, y: 0.034734983, z: -0.60083556, w: 0.79827535}
+      position: {x: -0.4492002, y: 1.4210854e-16, z: 7.105427e-17}
+      rotation: {x: 0.027883347, y: 0.017516091, z: -0.5852201, w: 0.81020564}
       scale: {x: 1, y: 1, z: 1}
     - name: JtBallLf
       parentName: JtAnkleLf
-      position: {x: -0.18054976, y: 5.063114e-11, z: -4.9130705e-10}
-      rotation: {x: -0.00000007655481, y: 0.0000003326282, z: -0.2298917, w: 0.97321624}
+      position: {x: -0.18054976, y: 5.0631097e-11, z: -4.9130705e-10}
+      rotation: {x: -0.000000001668508, y: -8.5612917e-10, z: -0.22989056, w: 0.97321653}
       scale: {x: 1, y: 1, z: 1}
     - name: JtToeLf
       parentName: JtBallLf
-      position: {x: -0.06392462, y: -4.144417e-17, z: 1.4210854e-16}
-      rotation: {x: -2.3552535e-10, y: 0.0000000020264843, z: 1, w: 6.1709626e-17}
+      position: {x: -0.06392462, y: -1.3014746e-17, z: 0}
+      rotation: {x: -2.3552535e-10, y: 0.000000004252574, z: 1, w: 6.2233926e-17}
       scale: {x: 1, y: 1, z: 1}
     - name: JtHeelLf
       parentName: JtToeLf
@@ -1676,27 +1676,27 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtSpineB
       parentName: JtSpineA
-      position: {x: -0.12750632, y: 7.105427e-17, z: 0}
+      position: {x: -0.12750632, y: 1.7763568e-17, z: -1.3877788e-17}
       rotation: {x: -2.5009667e-16, y: 1.1060158e-16, z: 0.0027075643, w: 0.99999636}
       scale: {x: 1, y: 1, z: 1}
     - name: JtSpineC
       parentName: JtSpineB
-      position: {x: -0.123722844, y: 7.105427e-17, z: 0}
+      position: {x: -0.123722844, y: 8.881784e-18, z: -2.7755576e-17}
       rotation: {x: -3.6449664e-17, y: 1.3552289e-16, z: -0.090704165, w: 0.9958779}
       scale: {x: 1, y: 1, z: 1}
     - name: JtNeckA
       parentName: JtSpineC
-      position: {x: -0.15430191, y: -1.4210854e-16, z: 2.842171e-16}
+      position: {x: -0.15430191, y: -1.0658141e-16, z: -7.216449e-18}
       rotation: {x: -0.0004945741, y: 0.000048488866, z: -0.06010983, w: 0.99819165}
       scale: {x: 1, y: 1, z: 1}
     - name: JtNeckB
       parentName: JtNeckA
-      position: {x: -0.05016784, y: 1.4210854e-16, z: -5.684342e-16}
+      position: {x: -0.05016784, y: 1.4210854e-16, z: -2.2204459e-17}
       rotation: {x: 5.079661e-17, y: -6.52713e-17, z: 0.012215935, w: 0.9999254}
       scale: {x: 1, y: 1, z: 1}
     - name: JtSkullA
       parentName: JtNeckB
-      position: {x: -0.04657698, y: -1.4210854e-16, z: 2.842171e-16}
+      position: {x: -0.04657698, y: -7.105427e-17, z: 3.8857806e-18}
       rotation: {x: -0.000034029774, y: -0.0000029144364, z: 0.08593382, w: 0.9963009}
       scale: {x: 1, y: 1, z: 1}
     - name: JtSkullB
@@ -1712,27 +1712,27 @@ ModelImporter:
     - name: JtCheekLowerRt
       parentName: JtLowerFaceParent
       position: {x: 0.059337128, y: -0.05089846, z: 0.10328545}
-      rotation: {x: 0.84790736, y: -0.17356451, z: 0.49075162, w: -0.10045563}
+      rotation: {x: 0.84790736, y: -0.17356452, z: 0.49075162, w: -0.10045561}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLipUpperMid
       parentName: JtLowerFaceParent
-      position: {x: -1.4242443e-16, y: -0.06413391, z: 0.14492817}
-      rotation: {x: 0.14623372, y: 0.69182056, z: 0.14623372, w: 0.69182056}
+      position: {x: -1.8429702e-16, y: -0.06413391, z: 0.14492817}
+      rotation: {x: 0.14623371, y: 0.69182056, z: 0.14623371, w: 0.69182056}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLipCornerLf
       parentName: JtLowerFaceParent
       position: {x: -0.028761774, y: -0.06926184, z: 0.12780355}
-      rotation: {x: 0.15041512, y: 0.60629815, z: 0.18802747, w: 0.75790733}
+      rotation: {x: 0.15041512, y: 0.60629815, z: 0.18802749, w: 0.75790733}
       scale: {x: 1, y: 1, z: 1}
     - name: JtCheekLowerLf
       parentName: JtLowerFaceParent
       position: {x: -0.059337128, y: -0.05089846, z: 0.10328545}
-      rotation: {x: 0.10045563, y: 0.49075162, z: 0.17356451, w: 0.84790736}
+      rotation: {x: 0.10045561, y: 0.49075162, z: 0.17356452, w: 0.84790736}
       scale: {x: 1, y: 1, z: 1}
     - name: JtCheekUpperRt
       parentName: JtLowerFaceParent
       position: {x: 0.03469019, y: -0.026997171, z: 0.12898007}
-      rotation: {x: 0.78969675, y: -0.07901157, z: 0.6053657, w: -0.06056868}
+      rotation: {x: 0.78969675, y: -0.07901159, z: 0.6053657, w: -0.06056863}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLipUpperRt
       parentName: JtLowerFaceParent
@@ -1742,7 +1742,7 @@ ModelImporter:
     - name: JtCheekUpperLf
       parentName: JtLowerFaceParent
       position: {x: -0.03469019, y: -0.026997171, z: 0.12898007}
-      rotation: {x: 0.06056868, y: 0.6053657, z: 0.07901157, w: 0.78969675}
+      rotation: {x: 0.060568657, y: 0.6053657, z: 0.079011574, w: 0.78969675}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLipUpperLf
       parentName: JtLowerFaceParent
@@ -1751,7 +1751,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtJaw
       parentName: JtLowerFaceParent
-      position: {x: -4.9988156e-17, y: -0.046417013, z: 0.054261453}
+      position: {x: -5.995204e-17, y: -0.046417013, z: 0.054261453}
       rotation: {x: 0.41309437, y: 0.5738929, z: 0.41309437, w: 0.5738929}
       scale: {x: 1, y: 1, z: 1}
     - name: JtJawBack
@@ -1766,38 +1766,38 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtLipLowerMid
       parentName: JtJawFront
-      position: {x: -0.034203168, y: 1.4210854e-16, z: -6.12558e-19}
+      position: {x: -0.034203168, y: -4.263256e-15, z: -3.1641356e-17}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLipLowerRt
       parentName: JtJawFront
       position: {x: -0.034240976, y: 0.0020972383, z: 0.013042311}
-      rotation: {x: 0.17791595, y: 0.38018847, z: 0.90661216, w: -0.043093886}
+      rotation: {x: 0.17791596, y: 0.38018847, z: 0.90661216, w: -0.04309383}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLipLowerLf
       parentName: JtJawFront
       position: {x: -0.034240976, y: 0.0020972383, z: -0.013042311}
-      rotation: {x: 0.38018847, y: -0.17791595, z: 0.043093886, w: 0.90661216}
+      rotation: {x: 0.38018847, y: -0.17791593, z: 0.043093886, w: 0.90661216}
       scale: {x: 1, y: 1, z: 1}
     - name: JtTongueA
       parentName: JtJaw
-      position: {x: -0.03522989, y: 0.03110095, z: -1.17807e-16}
-      rotation: {x: 2.9756162e-15, y: 3.9518767e-15, z: -0.5845401, w: 0.81136477}
+      position: {x: -0.03522989, y: 0.03110095, z: -1.304512e-16}
+      rotation: {x: 2.9756164e-15, y: 3.9518767e-15, z: -0.5845402, w: 0.81136477}
       scale: {x: 1, y: 1, z: 1}
     - name: JtTongueB
       parentName: JtTongueA
-      position: {x: -0.01713779, y: 2.842171e-16, z: 2.2160222e-18}
-      rotation: {x: -2.363324e-16, y: -4.4356656e-16, z: 0.026204573, w: 0.9996566}
+      position: {x: -0.01713779, y: -1.0516033e-14, z: -3.330669e-18}
+      rotation: {x: -2.363324e-16, y: -4.4356654e-16, z: 0.026204573, w: 0.9996566}
       scale: {x: 1, y: 1, z: 1}
     - name: JtTongueC
       parentName: JtTongueB
-      position: {x: -0.0151850395, y: -5.684342e-16, z: 3.0679831e-18}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
+      position: {x: -0.0151850395, y: -1.0231815e-14, z: -2.7755574e-18}
+      rotation: {x: 0, y: 0, z: 3.2051445e-13, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLipCornerRt
       parentName: JtLowerFaceParent
       position: {x: 0.028761774, y: -0.06926184, z: 0.12780355}
-      rotation: {x: 0.75790733, y: -0.18802747, z: 0.60629815, w: -0.15041512}
+      rotation: {x: 0.75790733, y: -0.18802749, z: 0.60629815, w: -0.15041512}
       scale: {x: 1, y: 1, z: 1}
     - name: JtUpperFaceParent
       parentName: JtSkullA
@@ -1812,47 +1812,47 @@ ModelImporter:
     - name: JtEyebrow01Rt
       parentName: JtBrowParentRt
       position: {x: -0.020131763, y: 0.0058275275, z: -0.050348762}
-      rotation: {x: 0.04430314, y: 0.82684404, z: 0.029998971, w: 0.5598806}
+      rotation: {x: 0.044303123, y: 0.82684404, z: 0.029998982, w: 0.55988055}
       scale: {x: 1, y: 1, z: 1}
     - name: JtEyebrow04Rt
       parentName: JtBrowParentRt
       position: {x: 0.020303864, y: 0.007000808, z: -0.034346726}
-      rotation: {x: 0.042982213, y: 0.4936729, z: 0.075339355, w: 0.8653113}
+      rotation: {x: 0.042982217, y: 0.49367288, z: 0.075339355, w: 0.8653113}
       scale: {x: 1, y: 1, z: 1}
     - name: JtEyebrow02Rt
       parentName: JtBrowParentRt
       position: {x: -0.004677547, y: 0.0030059745, z: -0.04691148}
-      rotation: {x: 0.023599021, y: 0.7409805, z: 0.021362983, w: 0.67077166}
+      rotation: {x: 0.023599057, y: 0.7409805, z: 0.02136296, w: 0.67077166}
       scale: {x: 1, y: 1, z: 1}
     - name: JtEyebrow03Rt
       parentName: JtBrowParentRt
       position: {x: 0.0090554245, y: 0.0038456866, z: -0.041890647}
-      rotation: {x: 0.028089726, y: 0.6273492, z: 0.034810636, w: 0.77745235}
+      rotation: {x: 0.028089738, y: 0.62734914, z: 0.034810644, w: 0.7774524}
       scale: {x: 1, y: 1, z: 1}
     - name: JtEyelidLowerLf
       parentName: JtUpperFaceParent
       position: {x: -0.03300019, y: -0.030982481, z: 0.11050637}
-      rotation: {x: 0.07840841, y: 0.70274615, z: 0.07840841, w: 0.70274615}
+      rotation: {x: 0.078408405, y: 0.70274615, z: 0.078408405, w: 0.70274615}
       scale: {x: 1, y: 1, z: 1}
     - name: JtUpperNoseRt
       parentName: JtUpperFaceParent
       position: {x: 0.008907122, y: -0.040360432, z: 0.12067765}
-      rotation: {x: 0.84027445, y: -0.5389777, z: 0.049382176, w: -0.031675234}
+      rotation: {x: 0.84027445, y: -0.5389777, z: 0.049382146, w: -0.031675186}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLowerNoseRt
       parentName: JtUpperNoseRt
-      position: {x: 0.022921328, y: -9.974268e-10, z: 1.2943253e-10}
+      position: {x: 0.022921328, y: -9.973996e-10, z: 1.2941609e-10}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: JtEyelidUpperRt
       parentName: JtUpperFaceParent
       position: {x: 0.03300019, y: -0.024329172, z: 0.111542836}
-      rotation: {x: 0.7056157, y: 0.045896996, z: 0.7056157, w: 0.045896996}
+      rotation: {x: 0.7056157, y: 0.04589701, z: 0.7056157, w: 0.04589701}
       scale: {x: 1, y: 1, z: 1}
     - name: JtEyeRt
       parentName: JtUpperFaceParent
       position: {x: 0.03300019, y: -0.026852433, z: 0.09222872}
-      rotation: {x: 1, y: -0, z: 0, w: 6.123234e-17}
+      rotation: {x: 1, y: -0.000084348954, z: 1.3478091e-10, w: -0.0000015978967}
       scale: {x: 1, y: 1, z: 1}
     - name: JtUpperNoseLf
       parentName: JtUpperFaceParent
@@ -1861,7 +1861,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtLowerNoseLf
       parentName: JtUpperNoseLf
-      position: {x: -0.022921328, y: -1.4210854e-16, z: -3.5527136e-17}
+      position: {x: -0.022921328, y: -2.7569057e-14, z: 1.6395773e-14}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: JtBrowParentLf
@@ -1872,32 +1872,32 @@ ModelImporter:
     - name: JtEyebrow04Lf
       parentName: JtBrowParentLf
       position: {x: -0.020303864, y: -0.007000808, z: 0.034346726}
-      rotation: {x: 0.042982213, y: 0.4936729, z: 0.075339355, w: 0.8653113}
+      rotation: {x: 0.042982217, y: 0.49367288, z: 0.075339355, w: 0.8653113}
       scale: {x: 1, y: 1, z: 1}
     - name: JtEyebrow01Lf
       parentName: JtBrowParentLf
       position: {x: 0.020131761, y: -0.0058275275, z: 0.050348762}
-      rotation: {x: 0.04430314, y: 0.82684404, z: 0.029998971, w: 0.5598806}
+      rotation: {x: 0.044303123, y: 0.82684404, z: 0.029998982, w: 0.55988055}
       scale: {x: 1, y: 1, z: 1}
     - name: JtEyebrow02Lf
       parentName: JtBrowParentLf
       position: {x: 0.0046775457, y: -0.0030059745, z: 0.04691148}
-      rotation: {x: 0.023599021, y: 0.7409805, z: 0.021362983, w: 0.67077166}
+      rotation: {x: 0.023599057, y: 0.7409805, z: 0.02136296, w: 0.67077166}
       scale: {x: 1, y: 1, z: 1}
     - name: JtEyebrow03Lf
       parentName: JtBrowParentLf
       position: {x: -0.009055426, y: -0.0038456866, z: 0.041890647}
-      rotation: {x: 0.028089726, y: 0.6273492, z: 0.034810636, w: 0.77745235}
+      rotation: {x: 0.028089738, y: 0.62734914, z: 0.034810644, w: 0.7774524}
       scale: {x: 1, y: 1, z: 1}
     - name: JtEyelidLowerRt
       parentName: JtUpperFaceParent
       position: {x: 0.03300019, y: -0.030982481, z: 0.11050637}
-      rotation: {x: 0.70274615, y: -0.07840841, z: 0.70274615, w: -0.07840841}
+      rotation: {x: 0.70274615, y: -0.078408405, z: 0.70274615, w: -0.078408405}
       scale: {x: 1, y: 1, z: 1}
     - name: JtEyelidUpperLf
       parentName: JtUpperFaceParent
       position: {x: -0.03300019, y: -0.024329172, z: 0.111542836}
-      rotation: {x: -0.045896996, y: 0.7056157, z: -0.045896996, w: 0.7056157}
+      rotation: {x: -0.04589701, y: 0.7056157, z: -0.04589701, w: 0.7056157}
       scale: {x: 1, y: 1, z: 1}
     - name: JtEarLf
       parentName: JtUpperFaceParent
@@ -1907,12 +1907,12 @@ ModelImporter:
     - name: JtEarRt
       parentName: JtUpperFaceParent
       position: {x: 0.07046923, y: -0.050435167, z: 0.03518719}
-      rotation: {x: 0.9341122, y: -0.27343825, z: 0.22024845, w: -0.06447228}
+      rotation: {x: 0.9341122, y: -0.27343825, z: 0.22024845, w: -0.064472266}
       scale: {x: 1, y: 1, z: 1}
     - name: JtEyeLf
       parentName: JtUpperFaceParent
       position: {x: -0.03300019, y: -0.026852433, z: 0.09222872}
-      rotation: {x: 0, y: 2.4492937e-16, z: -0, w: 1}
+      rotation: {x: -0.0000033954861, y: 5.7446076e-10, z: -0.00016918358, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: JtClavicleRt
       parentName: JtSpineC
@@ -1921,43 +1921,43 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtShoulderRt
       parentName: JtClavicleRt
-      position: {x: 0.1643538, y: 3.7976518e-11, z: -7.138058e-10}
-      rotation: {x: 0.006100397, y: -0.13336425, z: 0.011451448, w: 0.9909822}
+      position: {x: 0.1643538, y: 3.797645e-11, z: -7.138061e-10}
+      rotation: {x: -0.011788254, y: -0.13354953, z: 0.009042236, w: 0.9909308}
       scale: {x: 1, y: 1, z: 1}
     - name: JtUpperArmTwistBRt
       parentName: JtShoulderRt
-      position: {x: 0.25146034, y: 0, z: -9.7714975e-11}
-      rotation: {x: 0.23298654, y: -0, z: -0, w: 0.97248}
+      position: {x: 0.25146034, y: -3.5527136e-17, z: -9.7714545e-11}
+      rotation: {x: 0.25050247, y: -0, z: -0, w: 0.968116}
       scale: {x: 1, y: 1, z: 1}
     - name: JtElbowRt
       parentName: JtUpperArmTwistBRt
-      position: {x: -0, y: -2.842171e-16, z: 0}
-      rotation: {x: -0.001091465, y: -0.0069019184, z: -0.030589962, w: 0.9995076}
+      position: {x: 4.2632563e-16, y: -7.105427e-17, z: 0}
+      rotation: {x: -0.0010914501, y: -0.006901518, z: -0.030590195, w: 0.9995076}
       scale: {x: 1, y: 1, z: 1}
     - name: JtForearmTwistBRt
       parentName: JtElbowRt
-      position: {x: 0.25146028, y: 0.000000003788874, z: 0.000000005358283}
-      rotation: {x: -0.104419865, y: 0, z: -0, w: 0.9945333}
+      position: {x: 0.25146028, y: 0.0000000037888737, z: 0.0000000053582827}
+      rotation: {x: -0.21047176, y: 0, z: -0, w: 0.9776}
       scale: {x: 1, y: 1, z: 1}
     - name: JtWristRt
       parentName: JtForearmTwistBRt
-      position: {x: -1.4210854e-16, y: -1.4210854e-16, z: 0}
-      rotation: {x: 0.0006025506, y: -0.055011928, z: -0.00026263815, w: 0.9984855}
+      position: {x: 1.4210854e-16, y: 3.5527136e-17, z: -7.105427e-17}
+      rotation: {x: 0.10767699, y: -0.05466664, z: -0.006160661, w: 0.9926627}
       scale: {x: 1, y: 1, z: 1}
     - name: JtRingARt
       parentName: JtWristRt
       position: {x: 0.09034479, y: 0.023304816, z: -0.0011211957}
-      rotation: {x: 0.69137174, y: 0.04426289, z: -0.042943735, w: 0.7198624}
+      rotation: {x: 0.6913716, y: 0.04426454, z: -0.042945173, w: 0.7198622}
       scale: {x: 1, y: 1, z: 1}
     - name: JtRingBRt
       parentName: JtRingARt
       position: {x: 0.045978755, y: -0.000000035308652, z: 0.000000021693934}
-      rotation: {x: -0.00000026822067, y: 0.00000083818964, z: -0.01988997, w: 0.9998022}
+      rotation: {x: -0.00000026822073, y: -0.00000076368406, z: -0.019886503, w: 0.9998023}
       scale: {x: 1, y: 1, z: 1}
     - name: JtRingCRt
       parentName: JtRingBRt
-      position: {x: 0.02567204, y: 0.00000001329556, z: -0.000000007417245}
-      rotation: {x: -0.00000063406213, y: -0.00000014420947, z: -0.022565518, w: 0.9997454}
+      position: {x: 0.02567204, y: 0.000000013295559, z: -0.000000007417245}
+      rotation: {x: 0.0000002671384, y: 0.0000006855839, z: -0.022568556, w: 0.9997453}
       scale: {x: 1, y: 1, z: 1}
     - name: JtRingDRt
       parentName: JtRingCRt
@@ -1967,17 +1967,17 @@ ModelImporter:
     - name: JtThumbARt
       parentName: JtWristRt
       position: {x: 0.01528007, y: -0.015104699, z: -0.011734039}
-      rotation: {x: 0.8438457, y: -0.32285675, z: -0.07749124, w: 0.42152464}
+      rotation: {x: 0.8438462, y: -0.3228548, z: -0.077491246, w: 0.42152515}
       scale: {x: 1, y: 1, z: 1}
     - name: JtThumbBRt
       parentName: JtThumbARt
-      position: {x: 0.030523831, y: 3.676139e-10, z: 0.0000000118838}
-      rotation: {x: 0.00053313357, y: -0.0004112719, z: -0.032555122, w: 0.9994697}
+      position: {x: 0.030523831, y: 3.6761405e-10, z: 0.0000000118838}
+      rotation: {x: 0.0005327164, y: -0.00041526547, z: -0.032554485, w: 0.99946976}
       scale: {x: 1, y: 1, z: 1}
     - name: JtThumbCRt
       parentName: JtThumbBRt
-      position: {x: 0.047460716, y: -3.0333303e-10, z: -0.000000007590688}
-      rotation: {x: -0.00028233943, y: 0.0003675804, z: -0.031980958, w: 0.9994885}
+      position: {x: 0.047460716, y: -3.0333283e-10, z: -0.000000007590689}
+      rotation: {x: -0.0002823532, y: 0.00037048367, z: -0.031981174, w: 0.9994884}
       scale: {x: 1, y: 1, z: 1}
     - name: JtThumbDRt
       parentName: JtThumbCRt
@@ -1987,17 +1987,17 @@ ModelImporter:
     - name: JtMiddleARt
       parentName: JtWristRt
       position: {x: 0.09746729, y: -0.000031211155, z: -0.00032404662}
-      rotation: {x: 0.68657446, y: 0.041260634, z: -0.05400018, w: 0.7238764}
+      rotation: {x: 0.6865744, y: 0.041261364, z: -0.05400197, w: 0.72387624}
       scale: {x: 1, y: 1, z: 1}
     - name: JtMiddleBRt
       parentName: JtMiddleARt
-      position: {x: 0.04514779, y: -0.00000001763518, z: 0.000000011483128}
-      rotation: {x: 0.00000032782543, y: -0.0000016335392, z: -0.019736493, w: 0.9998052}
+      position: {x: 0.04514779, y: -0.000000017635179, z: 0.000000011483128}
+      rotation: {x: 0.00000044703467, y: -0.0000011250372, z: -0.019736124, w: 0.9998053}
       scale: {x: 1, y: 1, z: 1}
     - name: JtMiddleCRt
       parentName: JtMiddleBRt
-      position: {x: 0.026899729, y: 0.00000001576152, z: -0.000000009288328}
-      rotation: {x: 0.00000008262144, y: 0.0000027368014, z: -0.025896864, w: 0.9996646}
+      position: {x: 0.026899729, y: 0.00000001576152, z: -0.000000009288327}
+      rotation: {x: 0.00000015810356, y: 0.0000010922007, z: -0.025899144, w: 0.99966455}
       scale: {x: 1, y: 1, z: 1}
     - name: JtMiddleDRt
       parentName: JtMiddleCRt
@@ -2007,17 +2007,17 @@ ModelImporter:
     - name: JtLittleARt
       parentName: JtWristRt
       position: {x: 0.08359579, y: 0.043931942, z: -0.009020438}
-      rotation: {x: 0.64902556, y: 0.040675797, z: -0.045800127, w: 0.7582966}
+      rotation: {x: 0.6490257, y: 0.04067428, z: -0.045798466, w: 0.75829667}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLittleBRt
       parentName: JtLittleARt
-      position: {x: 0.03894602, y: -0.0000000048292628, z: 0.0000000027602198}
-      rotation: {x: 0.00000041723231, y: -0.0000004507599, z: -0.0145937605, w: 0.99989355}
+      position: {x: 0.03894602, y: -0.0000000048292628, z: 0.00000000276022}
+      rotation: {x: -0.0000006258485, y: -0.00000037252886, z: -0.014593615, w: 0.9998935}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLittleCRt
       parentName: JtLittleBRt
-      position: {x: 0.022089247, y: 0.0000000088617504, z: -0.000000004743}
-      rotation: {x: -0.0000009634364, y: 0.0000001257309, z: -0.017501421, w: 0.9998469}
+      position: {x: 0.022089247, y: 0.0000000088617504, z: -0.0000000047430007}
+      rotation: {x: -0.0000006246368, y: 0.000001501366, z: -0.017496236, w: 0.999847}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLittleDRt
       parentName: JtLittleCRt
@@ -2027,17 +2027,17 @@ ModelImporter:
     - name: JtIndexARt
       parentName: JtWristRt
       position: {x: 0.10392234, y: -0.023359444, z: -0.0024883428}
-      rotation: {x: 0.7065314, y: 0.043526784, z: -0.05221358, w: 0.70440936}
+      rotation: {x: 0.7065315, y: 0.04352653, z: -0.05221303, w: 0.7044093}
       scale: {x: 1, y: 1, z: 1}
     - name: JtIndexBRt
       parentName: JtIndexARt
       position: {x: 0.038494963, y: 0.000000023522837, z: -0.000000015219838}
-      rotation: {x: -0.00000044703472, y: 0.0000025760376, z: -0.027626287, w: 0.9996184}
+      rotation: {x: -0.00000017881388, y: 0.0000004898755, z: -0.027629144, w: 0.9996183}
       scale: {x: 1, y: 1, z: 1}
     - name: JtIndexCRt
       parentName: JtIndexBRt
-      position: {x: 0.024999995, y: -0.000000028795585, z: 0.000000017743004}
-      rotation: {x: 0.000000047204434, y: -0.000004175899, z: -0.031464916, w: 0.9995049}
+      position: {x: 0.024999995, y: -0.000000028795585, z: 0.000000017743005}
+      rotation: {x: 0.00000020893836, y: -0.0000016113363, z: -0.03146874, w: 0.9995048}
       scale: {x: 1, y: 1, z: 1}
     - name: JtIndexDRt
       parentName: JtIndexCRt
@@ -2046,13 +2046,13 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtForearmTwistARt
       parentName: JtElbowRt
-      position: {x: 0.12573014, y: 0.000000001894437, z: 0.0000000026791411}
-      rotation: {x: -0.052281436, y: 0, z: -0, w: 0.99863243}
+      position: {x: 0.12573014, y: 0.0000000018944368, z: 0.0000000026791411}
+      rotation: {x: -0.10583019, y: 0, z: -0, w: 0.9943842}
       scale: {x: 1, y: 1, z: 1}
     - name: JtUpperArmTwistARt
       parentName: JtShoulderRt
-      position: {x: 0.12573017, y: 0, z: -4.8857488e-11}
-      rotation: {x: 0.1173031, y: -0, z: -0, w: 0.9930962}
+      position: {x: 0.12573017, y: 0, z: -4.885692e-11}
+      rotation: {x: 0.12626171, y: -0, z: -0, w: 0.99199694}
       scale: {x: 1, y: 1, z: 1}
     - name: JtClavicleLf
       parentName: JtSpineC
@@ -2061,48 +2061,48 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtShoulderLf
       parentName: JtClavicleLf
-      position: {x: -0.1643538, y: -2.842171e-16, z: 2.842171e-16}
-      rotation: {x: 0.0056423163, y: -0.135363, z: 0.011478398, w: 0.99071354}
+      position: {x: -0.1643538, y: -7.105427e-17, z: 2.842171e-16}
+      rotation: {x: -0.0124638, y: -0.13555, z: 0.009002846, w: 0.9906512}
       scale: {x: 1, y: 1, z: 1}
     - name: JtUpperArmTwistBLf
       parentName: JtShoulderLf
-      position: {x: -0.25146034, y: 1.4210854e-16, z: 0}
-      rotation: {x: 0.32325813, y: -0, z: -0, w: 0.9463108}
+      position: {x: -0.25146034, y: 3.5527136e-17, z: 1.4210854e-16}
+      rotation: {x: 0.34049782, y: -0, z: -0, w: 0.94024533}
       scale: {x: 1, y: 1, z: 1}
     - name: JtElbowLf
       parentName: JtUpperArmTwistBLf
-      position: {x: 2.842171e-16, y: -1.9539925e-16, z: -2.842171e-16}
-      rotation: {x: -0.0013050732, y: -0.006987027, z: -0.026918452, w: 0.99961233}
+      position: {x: -0, y: 0, z: 1.0658141e-16}
+      rotation: {x: -0.0013049841, y: -0.006987078, z: -0.026918504, w: 0.9996124}
       scale: {x: 1, y: 1, z: 1}
     - name: JtForearmTwistALf
       parentName: JtElbowLf
-      position: {x: -0.12573014, y: 4.2632563e-16, z: 0}
-      rotation: {x: -0.08897501, y: 0, z: -0, w: 0.99603385}
+      position: {x: -0.12573014, y: 1.2434498e-16, z: -2.1316282e-16}
+      rotation: {x: -0.16805927, y: 0, z: -0, w: 0.9857769}
       scale: {x: 1, y: 1, z: 1}
     - name: JtForearmTwistBLf
       parentName: JtElbowLf
-      position: {x: -0.25146028, y: 1.4210854e-16, z: 2.842171e-16}
-      rotation: {x: -0.17724425, y: 0, z: -0, w: 0.9841669}
+      position: {x: -0.25146028, y: -2.1316282e-16, z: -1.0658141e-16}
+      rotation: {x: -0.33133793, y: 0, z: -0, w: 0.9435122}
       scale: {x: 1, y: 1, z: 1}
     - name: JtWristLf
       parentName: JtForearmTwistBLf
-      position: {x: -0, y: -1.4210854e-16, z: 2.842171e-16}
-      rotation: {x: -0.001534834, y: -0.11000429, z: -0.054270618, w: 0.9924472}
+      position: {x: -1.4210854e-16, y: 8.8817837e-17, z: 3.1974422e-16}
+      rotation: {x: 0.15614453, y: -0.09998596, z: -0.0710567, w: 0.9800881}
       scale: {x: 1, y: 1, z: 1}
     - name: JtThumbALf
       parentName: JtWristLf
       position: {x: -0.015280069, y: 0.015104699, z: 0.011734039}
-      rotation: {x: 0.9201981, y: -0.35243413, z: 0.016506836, w: 0.16956769}
+      rotation: {x: 0.92019767, y: -0.35243517, z: 0.016507663, w: 0.16956821}
       scale: {x: 1, y: 1, z: 1}
     - name: JtThumbBLf
       parentName: JtThumbALf
-      position: {x: -0.03052383, y: 1.4210854e-16, z: 0}
-      rotation: {x: 0.00052471436, y: -0.00042161325, z: -0.03270133, w: 0.999465}
+      position: {x: -0.03052383, y: 0, z: -7.105427e-17}
+      rotation: {x: 0.0005248631, y: -0.00042030547, z: -0.032701373, w: 0.9994649}
       scale: {x: 1, y: 1, z: 1}
     - name: JtThumbCLf
       parentName: JtThumbBLf
-      position: {x: -0.047460716, y: 2.842171e-16, z: 2.842171e-16}
-      rotation: {x: -0.00026640214, y: 0.00037982297, z: -0.032275286, w: 0.99947894}
+      position: {x: -0.047460716, y: 2.4868996e-16, z: -4.4408918e-17}
+      rotation: {x: -0.00026671213, y: 0.00038056102, z: -0.032276053, w: 0.9994789}
       scale: {x: 1, y: 1, z: 1}
     - name: JtThumbDLf
       parentName: JtThumbCLf
@@ -2112,17 +2112,17 @@ ModelImporter:
     - name: JtLittleALf
       parentName: JtWristLf
       position: {x: -0.08359578, y: -0.04393193, z: 0.0090204505}
-      rotation: {x: 0.69265944, y: 0.045200486, z: -0.038142305, w: 0.7188358}
+      rotation: {x: 0.692659, y: 0.04519962, z: -0.038141917, w: 0.7188363}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLittleBLf
       parentName: JtLittleALf
-      position: {x: -0.03894602, y: -2.842171e-16, z: -1.0658141e-16}
-      rotation: {x: 0.0000005364417, y: -0.000000052154054, z: -0.014330216, w: 0.9998973}
+      position: {x: -0.03894602, y: -2.842171e-16, z: 1.9539925e-16}
+      rotation: {x: 0.00000035762767, y: -0.0000016130498, z: -0.014332139, w: 0.99989736}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLittleCLf
       parentName: JtLittleBLf
-      position: {x: -0.022089245, y: -6.128431e-16, z: 2.1316282e-16}
-      rotation: {x: -0.000000105632665, y: -0.0000010146877, z: -0.020423066, w: 0.9997915}
+      position: {x: -0.022089245, y: -4.2632563e-16, z: -4.440892e-18}
+      rotation: {x: -0.00000034702248, y: 0.000001123717, z: -0.020416643, w: 0.9997916}
       scale: {x: 1, y: 1, z: 1}
     - name: JtLittleDLf
       parentName: JtLittleCLf
@@ -2132,17 +2132,17 @@ ModelImporter:
     - name: JtIndexALf
       parentName: JtWristLf
       position: {x: -0.103922345, y: 0.023359435, z: 0.002488328}
-      rotation: {x: 0.70833457, y: 0.043766495, z: -0.05094494, w: 0.7026744}
+      rotation: {x: 0.70833457, y: 0.043766152, z: -0.050946217, w: 0.7026743}
       scale: {x: 1, y: 1, z: 1}
     - name: JtIndexBLf
       parentName: JtIndexALf
-      position: {x: -0.038494956, y: -5.684342e-16, z: 3.5527136e-17}
-      rotation: {x: 0.00000041723243, y: -0.000002799555, z: -0.026214885, w: 0.9996563}
+      position: {x: -0.038494956, y: -1.0658141e-16, z: -7.105427e-17}
+      rotation: {x: 0.00000020861613, y: -0.000002276151, z: -0.026215347, w: 0.9996564}
       scale: {x: 1, y: 1, z: 1}
     - name: JtIndexCLf
       parentName: JtIndexBLf
-      position: {x: -0.024999999, y: 7.105427e-16, z: -3.5527136e-17}
-      rotation: {x: 0.00000037281788, y: 0.000003907567, z: -0.032626584, w: 0.9994677}
+      position: {x: -0.024999999, y: 1.4210854e-16, z: 1.0658141e-16}
+      rotation: {x: 0.0000000037870898, y: 0.00000043740343, z: -0.03262765, w: 0.99946755}
       scale: {x: 1, y: 1, z: 1}
     - name: JtIndexDLf
       parentName: JtIndexCLf
@@ -2152,17 +2152,17 @@ ModelImporter:
     - name: JtMiddleALf
       parentName: JtWristLf
       position: {x: -0.097467266, y: 0.00003122316, z: 0.00032406359}
-      rotation: {x: 0.7009188, y: 0.047635805, z: -0.0518306, w: 0.7097586}
+      rotation: {x: 0.70091885, y: 0.047634047, z: -0.05183134, w: 0.70975864}
       scale: {x: 1, y: 1, z: 1}
     - name: JtMiddleBLf
       parentName: JtMiddleALf
-      position: {x: -0.0451478, y: -1.1368684e-15, z: 2.842171e-16}
-      rotation: {x: -0.000000029802319, y: -0.000001505017, z: -0.01377579, w: 0.9999051}
+      position: {x: -0.0451478, y: -3.907985e-16, z: 2.664535e-16}
+      rotation: {x: 0.00000032782535, y: 0.000001318752, z: -0.013777423, w: 0.9999051}
       scale: {x: 1, y: 1, z: 1}
     - name: JtMiddleCLf
       parentName: JtMiddleBLf
-      position: {x: -0.026899725, y: 7.105427e-16, z: 7.105427e-17}
-      rotation: {x: 0.00000032820057, y: 0.0000012752142, z: -0.027695457, w: 0.99961644}
+      position: {x: -0.026899725, y: 4.2632563e-16, z: 3.5527136e-17}
+      rotation: {x: 0.00000036496323, y: -0.000000033349554, z: -0.027691396, w: 0.99961656}
       scale: {x: 1, y: 1, z: 1}
     - name: JtMiddleDLf
       parentName: JtMiddleCLf
@@ -2172,17 +2172,17 @@ ModelImporter:
     - name: JtRingALf
       parentName: JtWristLf
       position: {x: -0.09034478, y: -0.023304803, z: 0.0011212158}
-      rotation: {x: 0.719794, y: 0.046571616, z: -0.037494045, w: 0.6916083}
+      rotation: {x: 0.7197935, y: 0.046571475, z: -0.037495147, w: 0.6916086}
       scale: {x: 1, y: 1, z: 1}
     - name: JtRingBLf
       parentName: JtRingALf
-      position: {x: -0.045978773, y: 2.842171e-16, z: 1.7763567e-16}
-      rotation: {x: -0.0000010132784, y: -0.00000033155064, z: -0.01897138, w: 0.99982}
+      position: {x: -0.045978773, y: 4.2632563e-16, z: 1.9984014e-16}
+      rotation: {x: -0.00000041723226, y: -0.0000010393554, z: -0.018972866, w: 0.99982005}
       scale: {x: 1, y: 1, z: 1}
     - name: JtRingCLf
       parentName: JtRingBLf
-      position: {x: -0.025672037, y: -2.1316282e-16, z: -4.6185276e-16}
-      rotation: {x: -0.00000066691746, y: 0.0000032517191, z: -0.026276194, w: 0.9996547}
+      position: {x: -0.025672037, y: -4.2632563e-16, z: -1.7319479e-16}
+      rotation: {x: -0.00000017270055, y: 0.0000013710277, z: -0.026270065, w: 0.99965495}
       scale: {x: 1, y: 1, z: 1}
     - name: JtRingDLf
       parentName: JtRingCLf
@@ -2191,8 +2191,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: JtUpperArmTwistALf
       parentName: JtShoulderLf
-      position: {x: -0.12573017, y: 1.4210854e-16, z: 1.4210854e-16}
-      rotation: {x: 0.16384318, y: -0, z: -0, w: 0.98648643}
+      position: {x: -0.12573017, y: 3.5527136e-17, z: 1.4210854e-16}
+      rotation: {x: 0.17285065, y: -0, z: -0, w: 0.98494804}
       scale: {x: 1, y: 1, z: 1}
     - name: Mesh
       parentName: CharacterRoot
@@ -2226,11 +2226,12 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 0
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d8ee909a60b0d1a4ca1c0b22d4093b8f,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   importBlendShapeDeformPercent: 0
   remapMaterialsIfMaterialImportModeIsNone: 1
