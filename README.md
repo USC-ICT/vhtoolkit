@@ -10,7 +10,7 @@ The VHToolkit has the following features:
 * Integrated framework; the VHToolkit combines audio-visual sensing and speech recognition with natural language processing, text-to-speech synthesis, and nonverbal behavior generation within a single framework.
 * Flexible architecture; select from multiple technology vendors or open source solutions as well as cloud services or local technologies (e.g., OpenAI ChatGPT, Anthropic Claude, AWS Lex V2, or RASA).
 * Extendable API; add your own technology by implementing the principled API.
-* Multi-platform support; the VHToolkit supports Windows, MacOS, Linux, Android, iOS, and AR/VR.
+* Multi-platform support; the VHToolkit supports Windows, MacOS, Linux, WebGL, Android, iOS, and AR/VR.
 * Custom character creation; create your own character with [Character Creator](https://www.reallusion.com/character-creator) and import into the VHToolkit to make it interactive. Requires a separate license.
 * Personalized avatar creation; use Reallusion’s Character Creator and [Headshot](https://www.reallusion.com/character-creator/headshot) to create avatars based on real people. Optionally clone their voice with [ElevenLabs](https://elevenlabs.io). Requires separate licenses.
 

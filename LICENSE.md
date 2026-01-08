@@ -1,6 +1,6 @@
 USC-RL v3.0
  
-Copyright 2025 or © 2025, University of Southern California. All Rights Reserved.
+Copyright 2025 or © 2026, University of Southern California. All Rights Reserved.
  
 Permission to use, copy, modify, and distribute this software, database, and/or dataset and its documentation for educational, research and non-profit purposes, without fee, is hereby granted, provided that the above copyright notice, this paragraph and the following three paragraphs appear in all copies.
  
