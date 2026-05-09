@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using VHAssets;
 
@@ -21,7 +22,7 @@ namespace Ride.Examples
         [SerializeField] DebugMenuGaze m_gaze;
         [SerializeField] DebugMenuLipsync m_lipsync;
         [SerializeField] DebugMenuSensing m_sensing;
-        [SerializeField] DebugMenuLLM m_llm;
+        [SerializeField] DebugMenuNLP m_nlp;
         [SerializeField] DebugMenuTimeline m_timeline;
         [SerializeField] DebugMenuTTS m_tts;
         [SerializeField] Camera m_camera;
@@ -30,6 +31,7 @@ namespace Ride.Examples
         [SerializeField] Transform m_uiWebcam;
         [SerializeField] Transform m_uiInputField;
         [SerializeField] Transform m_uiChatHistory;
+        [SerializeField] private GameObject m_startScreenCanvasRoot;
 
 
         #region Debug menu variables
@@ -37,6 +39,9 @@ namespace Ride.Examples
         DemoControllerBase m_controller;
         [NonSerialized] public GUIStyle m_guiButtonLeftJustify;
         [NonSerialized] public GUIStyle m_guiToggleLeftJustify;
+        private Texture2D m_guiToggleLeftJustifyTransparentTexture = null;
+
+        bool m_menuToggle = false;
         bool m_settingsToggle = false;
         Vector2 m_settingsScroll;
         int m_selectedLightingIndex = -1;
@@ -53,9 +58,10 @@ namespace Ride.Examples
         bool m_asrToggle = true;
         bool m_ttsToggle = true;
         bool m_lipsyncToggle = true;
-        bool m_llmToggle = true;
+        bool m_nlpToggle = true;
         bool m_sensingToggle = true;
         bool m_inputoutputToggle = true;
+        bool m_miscToggle = true;
         bool m_toggleUI_webcam = true;
         bool m_toggleUI_inputField = true;
         bool m_toggleUI_chatHistory = true;
@@ -64,6 +70,8 @@ namespace Ride.Examples
         [NonSerialized] public Vector3 m_cameraInitialPosition;
         [NonSerialized] public Quaternion m_cameraInitialRotation;
         #endregion
+
+        bool DisableWebcamUiForPlatform => RideUtils.IsWebGL();
 
 
         /// <summary>
@@ -78,9 +86,10 @@ namespace Ride.Examples
             m_controller = FindAnyObjectByType<DemoControllerBase>();
             m_onScreenLog = Globals.api.GetSystem<DebugOnScreenLogVHAssets>();
 
-            // Insert various debug menu categories.
+            // Insert various debug menu categories for non XR projects
+#if !RIDEVH_XR
             m_debugMenu.InsertMenu(0, "Overview", OnGUIVHDemo);
-            m_debugMenu.InsertMenu(1, "Main", OnGUIDialog);
+            m_debugMenu.InsertMenu(1, "Main", OnGUIMain);
             //m_debugMenu.InsertMenu(2, "NLP", OnGUINLP);
             m_debugMenu.InsertMenu(2, "Animation", m_animation.OnGUIAnimation);
             m_debugMenu.InsertMenu(3, "Face", m_face.OnGUIFace);
@@ -88,13 +97,21 @@ namespace Ride.Examples
             m_debugMenu.InsertMenu(5, "Sensing", m_sensing.OnGUISensing);
             //m_debugMenu.InsertMenu(6, "Timeline", m_timeline.OnGUITimeline);
             //m_debugMenu.InsertMenu(7, "CC Animation", m_ccAnimation.OnGUICCAnimation);
-            //m_debugMenu.InsertDebugMenu(9, "OVR Lipsync", m_ovr.OnGuiOvrLipsync);
-            //m_debugMenu.InsertDebugMenu(9, "OVR Lipsync", m_ovr.OnGuiOvrLipsync);
 
             m_debugMenu.SetMenu(0);
             m_debugMenu.ShowMenu(true);
-            m_debugMenu.SetMenuSize(0, 0, 0.3f, 1f);
-            m_debugMenu.SetWideMenuSize(0, 0, 0.4f, 1f);
+
+            if (RideUtils.IsAndroid() || RideUtils.IsIOS())
+            {
+                m_debugMenu.SetMenuSize(0, 0, 0.3f, .90f);
+                m_debugMenu.SetWideMenuSize(0, 0, 0.4f, 1f);
+            }
+            else
+            {
+                m_debugMenu.SetMenuSize(0, 0, 0.3f, 1f);
+                m_debugMenu.SetWideMenuSize(0, 0, 0.4f, 1f);
+            }
+#endif
 
             // Initialize the main camera if not assigned.
             if (m_camera == null)
@@ -102,7 +119,17 @@ namespace Ride.Examples
 
             m_cameraInitialPosition = m_camera.transform.localPosition;
             m_cameraInitialRotation = m_camera.transform.localRotation;
+            m_toggleUI_webcam = m_uiWebcam != null && m_uiWebcam.gameObject.activeSelf;
+            m_toggleUI_inputField = m_uiInputField != null && m_uiInputField.gameObject.activeSelf;
+            m_toggleUI_chatHistory = m_uiChatHistory != null && m_uiChatHistory.gameObject.activeSelf;
+            m_fps60LockToggle = Application.targetFrameRate == 60;
+            if (DisableWebcamUiForPlatform && m_uiWebcam != null)
+            {
+                m_toggleUI_webcam = false;
+                m_uiWebcam.gameObject.SetActive(false);
+            }
 
+            // Find all lighting configurations
             var allGameobjects = FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None);
             m_lightingChoices = allGameobjects
                         .Select(t => t.gameObject)
@@ -111,15 +138,23 @@ namespace Ride.Examples
                         .ToList();
             int activeIndex = m_lightingChoices.FindIndex(g => g.activeSelf);
             m_selectedLightingIndex = activeIndex >= 0 ? activeIndex : 0;
+
+            // Show start screen on WebGL builds
+            if (RideUtils.IsWebGL())
+                EnableStartScreen();
+            else
+                DisableStartScreen();
         }
 
         protected override void Update()
         {
             base.Update();
-            //if (Input.GetKeyDown(KeyCode.F11))
-            //    m_debugMenu.ShowMenu(!m_debugMenu.IsShowing());
-        }
 
+#if !UNITY_ANDROID && !UNITY_IOS
+            if (Input.GetKeyDown(KeyCode.F11))
+                m_debugMenu.ShowMenu(!m_debugMenu.IsShowing());
+#endif
+        }
 
         /// <summary>
         /// Handles GUI layout for the Virtual Human demo tab in the debug menu.
@@ -129,98 +164,136 @@ namespace Ride.Examples
         {
             OnGUICustomStylesSetup();
 
-            m_debugMenu.Label($"<b>Virtual Human Toolkit Demo</b>");
-            m_debugMenu.Space();
-            m_debugMenu.Label($"Interaction:");
-            m_debugMenu.Label($"• Type in text below and hit Enter or click Send");
-            m_debugMenu.Label($"• Alternatively, click Use Mic to toggle speech recognition");
-            m_debugMenu.Label($"• Click Toggle Webcam to turn sensing on/off");
-            m_debugMenu.Label($"• Click Stop to halt all character behaviors");
-            m_debugMenu.Space();
-            m_debugMenu.Label($"Debug functionality:");
-            m_debugMenu.Label($"• Click '<' and '>' above to cycle through debug menus");
-            m_debugMenu.Label($"• In the Main debug menu, select the Character and its");
-            m_debugMenu.Label($"  Sensing, ASR, NLP, TTS, and lipsync technologies");
-            m_debugMenu.Label($"• Click '<>' to toggle debug menu width");
-            m_debugMenu.Label($"• Click '>>' to toggle debug log");
-            m_debugMenu.Label($"• Press F11 to toggle this debug menu on/off");
-            m_debugMenu.Label($"• Press J to toggle mouse look on/off; move the camera");
-            m_debugMenu.Label($"  with the arrow keys");
-            m_debugMenu.Space();
-            m_debugMenu.Space();
+            m_menuToggle = GUILayout.Toggle(m_menuToggle, m_menuToggle ? $"- <b>VHToolkit Demo Instructions</b>" : $"+ <b>VHToolkit Demo Instructions</b>", m_guiToggleLeftJustify);
 
-            if (m_debugMenu.Button("Hide Window"))
-                m_debugMenu.ToggleMenu();
-
-            // Settings toggle button.
-            m_settingsToggle = GUILayout.Toggle(m_settingsToggle, m_settingsToggle ? $"- Settings" : $"+ Settings", m_guiToggleLeftJustify);
-            if (m_settingsToggle)
+            if (m_menuToggle)
             {
-                using (var settingsScroll = new GUILayout.ScrollViewScope(m_settingsScroll))
+                m_debugMenu.Space();
+                m_debugMenu.Label($"Interaction:");
+                m_debugMenu.Label($"\u2022 Type text below and hit Enter / Return or click Send");
+                m_debugMenu.Label($"\u2022 Click Use Mic to toggle speech recognition");
+                m_debugMenu.Label($"\u2022 Click Next Character to cycle through characters");
+                m_debugMenu.Label($"\u2022 Click Toggle Webcam to turn sensing on/off");
+                m_debugMenu.Label($"\u2022 Click Stop to halt character behaviors");
+                m_debugMenu.Space();
+                m_debugMenu.Label($"Debug functionality:");
+                m_debugMenu.Label($"\u2022 Click < and > above to cycle through debug menus");
+                m_debugMenu.Label($"\u2022 In the Main debug menu, select a character and its");
+                m_debugMenu.Label($"  Sensing, ASR, NLP, and TTS technologies");
+                m_debugMenu.Label($"\u2022 Click <> to toggle debug menu width");
+                m_debugMenu.Label($"\u2022 Click >> to toggle debug log");
+                m_debugMenu.Label($"\u2022 Press F11 to toggle this debug menu on/off");
+                m_debugMenu.Label($"\u2022 Press J to toggle mouse look on/off; move the");
+                m_debugMenu.Label($"  camera with the arrow or W, A, S, D keys");
+                m_debugMenu.Space();
+                m_debugMenu.Space();
+
+                if (m_debugMenu.Button("Hide Window"))
+                    m_debugMenu.ToggleMenu();
+
+                if (m_miscToggle)
+                    OnGUIIntroduceToggle();
+
+                // Settings toggle button.
+                m_settingsToggle = GUILayout.Toggle(m_settingsToggle, m_settingsToggle ? $"- Settings" : $"+ Settings", m_guiToggleLeftJustify);
+                if (m_settingsToggle)
                 {
-                    m_settingsScroll = settingsScroll.scrollPosition;
-
-                    var onScreenLog = m_debugMenu.Toggle(m_onScreenLog.m_log.IsShowing, m_onScreenLog.m_log.IsShowing ? "OnScreenDebugLog ON" : "OnScreenDebugLog OFF");
-                    if (onScreenLog != m_onScreenLog.m_log.IsShowing)
-                        m_onScreenLog.m_log.ShowLog(!m_onScreenLog.m_log.IsShowing);
-
-                    // Toggle UI elements.
-                    m_toggleUI_webcam = m_debugMenu.Toggle(m_toggleUI_webcam, m_toggleUI_webcam ? "Webcam UI ON" : "Webcam UI OFF");
-                    m_uiWebcam.gameObject.SetActive(m_toggleUI_webcam);
-
-                    m_toggleUI_inputField = m_debugMenu.Toggle(m_toggleUI_inputField, m_toggleUI_inputField ? "Input Field UI ON" : "Input Field UI OFF");
-                    m_uiInputField.gameObject.SetActive(m_toggleUI_inputField);
-
-                    m_toggleUI_chatHistory = m_debugMenu.Toggle(m_toggleUI_chatHistory, m_toggleUI_chatHistory ? "Chat History UI ON" : "Chat History OFF");
-                    m_uiChatHistory.gameObject.SetActive(m_toggleUI_chatHistory);
-
-                    // Toggle FPS lock.
-                    m_fps60LockToggle = m_debugMenu.Toggle(m_fps60LockToggle, Application.targetFrameRate == 60 ? "Locked at 60fps" : "Unlocked frame rate");
-                    Application.targetFrameRate = m_fps60LockToggle ? 60 : -1;
-
-                    // Reset camera button.
-                    if (m_debugMenu.Button("Reset Camera"))
-                        m_camera.transform.SetLocalPositionAndRotation(m_cameraInitialPosition, m_cameraInitialRotation);
-
-                    // Lighting
-                    m_debugMenu.Space();
-                    m_debugMenu.Label("<b>Lighting</b>");
-
-                    if (m_lightingChoices.Count == 0)
+                    using (var settingsScroll = new GUILayout.ScrollViewScope(m_settingsScroll))
                     {
-                        m_debugMenu.Label("No LightingConfig- objects found in scene.");
-                    }
-                    else
-                    {
-                        for (int i = 0; i < m_lightingChoices.Count; i++)
+                        m_settingsScroll = settingsScroll.scrollPosition;
+
+                        var onScreenLog = m_debugMenu.Toggle(m_onScreenLog.m_log.IsShowing, m_onScreenLog.m_log.IsShowing ? "OnScreenDebugLog ON" : "OnScreenDebugLog OFF");
+                        if (onScreenLog != m_onScreenLog.m_log.IsShowing)
+                            m_onScreenLog.m_log.ShowLog(!m_onScreenLog.m_log.IsShowing);
+
+                        // Toggle UI elements.
+                        bool oldGuiEnabled = GUI.enabled;
+                        if (DisableWebcamUiForPlatform)
+                            GUI.enabled = false;
+
+                        var webcamEnabled = m_debugMenu.Toggle(m_toggleUI_webcam, m_toggleUI_webcam ? "Webcam UI ON" : "Webcam UI OFF");
+                        if (webcamEnabled != m_toggleUI_webcam)
                         {
-                            var go = m_lightingChoices[i];
+                            m_toggleUI_webcam = webcamEnabled;
+                            m_uiWebcam.gameObject.SetActive(m_toggleUI_webcam);
+                        }
 
-                            string display = go.name.Length > lightingPrefix.Length ? go.name.Substring(lightingPrefix.Length) : go.name;
-                            bool isSelected = m_selectedLightingIndex == i;
-                            bool toggled = m_debugMenu.Toggle(isSelected, display);
-                            if (toggled && !isSelected)
+                        GUI.enabled = oldGuiEnabled;
+
+                        var inputFieldEnabled = m_debugMenu.Toggle(m_toggleUI_inputField, m_toggleUI_inputField ? "Input Field UI ON" : "Input Field UI OFF");
+                        if (inputFieldEnabled != m_toggleUI_inputField)
+                        {
+                            m_toggleUI_inputField = inputFieldEnabled;
+                            m_uiInputField.gameObject.SetActive(m_toggleUI_inputField);
+                        }
+
+                        var chatHistoryEnabled = m_debugMenu.Toggle(m_toggleUI_chatHistory, m_toggleUI_chatHistory ? "Chat History UI ON" : "Chat History OFF");
+                        if (chatHistoryEnabled != m_toggleUI_chatHistory)
+                        {
+                            m_toggleUI_chatHistory = chatHistoryEnabled;
+                            m_uiChatHistory.gameObject.SetActive(m_toggleUI_chatHistory);
+                        }
+
+                        // Toggle FPS lock.
+                        var fps60LockEnabled = m_debugMenu.Toggle(m_fps60LockToggle, m_fps60LockToggle ? "Locked at 60fps" : "Unlocked frame rate");
+                        if (fps60LockEnabled != m_fps60LockToggle)
+                        {
+                            m_fps60LockToggle = fps60LockEnabled;
+                            Application.targetFrameRate = m_fps60LockToggle ? 60 : -1;
+                        }
+
+                        // Reset camera button.
+                        if (m_debugMenu.Button("Reset Camera"))
+                            m_camera.transform.SetLocalPositionAndRotation(m_cameraInitialPosition, m_cameraInitialRotation);
+
+                        // Lighting. Note that if the parent of a lighting configuration is inactive, enabling that lighting configuration will have no effect
+                        m_debugMenu.Space();
+                        m_debugMenu.Label("<b>Lighting</b>");
+                        m_debugMenu.Label("These lighting configurations are found in the scene dynamically. " +
+                            "If not part of the active environment, selecting them will have no effect. ");
+
+                        if (m_lightingChoices.Count == 0)
+                        {
+                            m_debugMenu.Label("No LightingConfig- objects found in scene.");
+                        }
+                        else
+                        {
+                            for (int i = 0; i < m_lightingChoices.Count; i++)
                             {
-                                m_selectedLightingIndex = i;
+                                var go = m_lightingChoices[i];
 
-                                // Disable all, enable only the selected
-                                foreach (var g in m_lightingChoices)
-                                    g.SetActive(false);
+                                string display = go.name.Length > lightingPrefix.Length ? go.name.Substring(lightingPrefix.Length) : go.name;
+                                bool isSelected = m_selectedLightingIndex == i;
+                                bool toggled = m_debugMenu.Toggle(isSelected, display);
+                                if (toggled && !isSelected)
+                                {
+                                    m_selectedLightingIndex = i;
 
-                                go.SetActive(true);
+                                    // Disable all, enable only the selected
+                                    foreach (var g in m_lightingChoices)
+                                        g.SetActive(false);
+
+                                    go.SetActive(true);
+                                }
                             }
                         }
                     }
                 }
             }
+
+            using (new GUILayout.HorizontalScope())
+            {
+                m_debugMenu.Label("Quality:", 110);
+                if (m_debugMenu.Button($"{QualitySettings.names[QualitySettings.GetQualityLevel()]}"))
+                    QualitySettings.SetQualityLevel((QualitySettings.GetQualityLevel() + 1) % QualitySettings.names.Length, true);
+            }
         }
 
-
         /// <summary>
-        /// Handles GUI layout for the dialog management tab in the debug menu.
+        /// Handles GUI layout for the main VH configuration tab in the debug menu.
         /// Includes ASR, TTS, sensing, and input/output settings.
         /// </summary>
-        void OnGUIDialog()
+        void OnGUIMain()
         {
             OnGUICustomStylesSetup();
 
@@ -230,19 +303,26 @@ namespace Ride.Examples
 
                 using (m_debugMenu.Horizontal())
                 {
-                    if (m_debugMenu.Button("Collapse")) { m_characterSelectionToggle = false; m_sensingToggle = false; m_asrToggle = false; m_llmToggle = false; m_ttsToggle = false; m_lipsyncToggle = false; m_inputoutputToggle = false; }
-                    if (m_debugMenu.Button("Expand")) { m_characterSelectionToggle = true; m_sensingToggle = true; m_asrToggle = true; m_llmToggle = true; m_ttsToggle = true; m_lipsyncToggle = true; m_inputoutputToggle = false; }
+                    if (m_debugMenu.Button("Collapse")) { m_characterSelectionToggle = false; m_sensingToggle = false; m_asrToggle = false; m_nlpToggle = false; m_ttsToggle = false; m_lipsyncToggle = false; m_inputoutputToggle = false; m_miscToggle = false; }
+                    if (m_debugMenu.Button("Expand")) { m_characterSelectionToggle = true; m_sensingToggle = true; m_asrToggle = true; m_nlpToggle = true; m_ttsToggle = true; m_lipsyncToggle = true; m_inputoutputToggle = true; m_miscToggle = true; }
                 }
 
                 OnGUICharacterConfig();
+
+                bool oldGuiEnabled = GUI.enabled;
+                if (DisableWebcamUiForPlatform)
+                    GUI.enabled = false;
+
                 m_sensingToggle = GUILayout.Toggle(m_sensingToggle, m_sensingToggle ? $"- <b>Sensing</b>" : $"+ <b>Sensing</b>", m_guiToggleLeftJustify);
                 if (m_sensingToggle) { m_sensing.OnGUISelectSensingMode(); }
+
+                GUI.enabled = oldGuiEnabled;
 
                 m_asrToggle = GUILayout.Toggle(m_asrToggle, m_asrToggle ? $"- <b>Automated Speech Recognition (ASR)</b>" : $"+ <b>ASR</b>", m_guiToggleLeftJustify);
                 if (m_asrToggle) m_asr.OnGUISystemSelection();
 
-                m_llmToggle = GUILayout.Toggle(m_llmToggle, m_llmToggle ? $"- <b>Natural Language Processing (NLP)</b>" : $"+ <b>NLP</b>", m_guiToggleLeftJustify);
-                if (m_llmToggle) { m_llm.OnGUISystemSelection(); m_llm.OnGUIPrompt(); }
+                m_nlpToggle = GUILayout.Toggle(m_nlpToggle, m_nlpToggle ? $"- <b>Natural Language Processing (NLP)</b>" : $"+ <b>NLP</b>", m_guiToggleLeftJustify);
+                if (m_nlpToggle) { m_nlp.OnGUISystemSelection(); m_nlp.OnGUIPrompt(); }
 
                 m_ttsToggle = GUILayout.Toggle(m_ttsToggle, m_ttsToggle ? $"- <b>Text-To-Speech (TTS)</b>" : $"+ <b>TTS</b>", m_guiToggleLeftJustify);
                 if (m_ttsToggle) { m_tts.OnGUISystemSelection(); m_tts.OnGUIVoiceSelection(); }
@@ -252,9 +332,19 @@ namespace Ride.Examples
 
                 m_inputoutputToggle = GUILayout.Toggle(m_inputoutputToggle, m_inputoutputToggle ? $"- <b>Input / Output</b>" : $"+ <b>Input / Output</b>", m_guiToggleLeftJustify);
                 if (m_inputoutputToggle) { OnGUIInput(); OnGUIStopUtterance(); OnGUIOutput(); }
+
+                m_miscToggle = GUILayout.Toggle(m_miscToggle, m_miscToggle ? $"- <b>Miscellaneous</b>" : $"+ <b>Miscellaneous</b>", m_guiToggleLeftJustify);
+                if (m_miscToggle) { OnGUIIntroduceToggle(); }
             }
         }
 
+        /// <summary>
+        /// Toggles whether characters introduce themselves when first loaded
+        /// </summary>
+        public void OnGUIIntroduceToggle()
+        {
+            m_controller.IntroduceOnLoad = m_debugMenu.Toggle(m_controller.IntroduceOnLoad, m_controller.IntroduceOnLoad ? "VH Introduction on Load ON" : "VH Introduction on Load OFF");
+        }
 
         /// <summary>
         /// Stops the current utterance being spoken.
@@ -265,7 +355,6 @@ namespace Ride.Examples
                 m_controller.StopUtterance();
         }
 
-
         /// <summary>
         /// Displays the character selection menu in the debug interface.
         /// </summary>
@@ -275,9 +364,8 @@ namespace Ride.Examples
             if (!m_characterSelectionToggle)
                 return;
 
-            if (m_controller.CurrentCharacter != null && m_controller.CurrentCharacter.Voice.isPlaying)
+            if (!m_controller.m_characterConfigUIEnabled)
                 GUI.enabled = false;
-
 
             var ictCharacters = m_controller.CharactersParent.Find("ICT").GetComponentsInChildren<MecanimCharacter>(true);
             var rbCharacters = m_controller.CharactersParent.Find("Rocketbox").GetComponentsInChildren<MecanimCharacter>(true);
@@ -301,9 +389,27 @@ namespace Ride.Examples
                 if (m_characterToggle_CC) { DrawCharacterGroup("CC", ccCharacters); }
             }
 
+            GUI.enabled = true;
 
-            if (m_controller.CurrentCharacter != null && m_controller.CurrentCharacter.Voice.isPlaying)
-                GUI.enabled = true;
+            DemoController demoController = m_controller as DemoController;
+            if (demoController != null && demoController.CharacterLoadPending)
+            {
+                m_debugMenu.Space();
+                m_debugMenu.Label("<b>Character Load Status</b>");
+
+                if (!string.IsNullOrEmpty(demoController.PendingCharacterName))
+                    m_debugMenu.Label($"Loading: {demoController.PendingCharacterName}");
+
+                string status = demoController.PendingCharacterStatus;
+                if (!string.IsNullOrEmpty(status))
+                    m_debugMenu.Label(status);
+
+                int percent = Mathf.Clamp(Mathf.RoundToInt(demoController.PendingCharacterProgress * 100f), 0, 100);
+                m_debugMenu.Label($"Progress: {percent}%");
+
+                if (m_debugMenu.Button("Cancel Character Load"))
+                    demoController.CancelCharacterLoad();
+            }
 
             //Draw line
             m_debugMenu.Space();
@@ -311,7 +417,6 @@ namespace Ride.Examples
             GUI.DrawTexture(rect, Texture2D.whiteTexture);
             m_debugMenu.Space();
         }
-
 
         /// <summary>
         /// Displays a selection grid for choosing a character from the available list.
@@ -333,7 +438,6 @@ namespace Ride.Examples
             m_debugMenu.Space();
         }
 
-
         /// <summary>
         /// Handles GUI elements related to user input (microphone and text input).
         /// </summary>
@@ -347,12 +451,14 @@ namespace Ride.Examples
             }
             else
             {
+                var voice = m_controller.CurrentCharacter != null ? m_controller.CurrentCharacter.Voice : null;
+
                 if (m_controller.m_currentASR.IsRecognizing)
                 {
                     if (m_debugMenu.Button("<color=red>Stop</color>"))
-                        m_controller.m_currentASR.StopRecognizing();
+                        m_controller.SetASR(false);
                 }
-                else if (m_controller.CurrentCharacter != null && m_controller.CurrentCharacter.Voice.isPlaying)
+                else if (voice != null && voice.isPlaying)
                 {
                     // Don't allow user to use asr if VH is talking
                     GUI.enabled = false;
@@ -362,16 +468,15 @@ namespace Ride.Examples
                 else
                 {
                     if (m_debugMenu.Button("Speak with Microphone"))
-                        m_controller.m_currentASR.StartRecognizing();
+                        m_controller.SetASR(true);
                 }
             }
 
             GUI.SetNextControlName("NLPInput");
             m_nlpInput = m_debugMenu.TextField(m_nlpInput);
             if (m_debugMenu.Button("Send"))
-                m_controller.AskLLMQuestion(m_nlpInput);
+                m_controller.AskNLPQuestion(m_nlpInput);
         }
-
 
         /// <summary>
         /// Displays the output of NLP responses and allows repeating them.
@@ -385,7 +490,6 @@ namespace Ride.Examples
                 m_controller.SendResponse(m_nlpResult);
         }
 
-
         /// <summary>
         /// Displays GUI elements for NLP-related functions.
         /// </summary>
@@ -395,13 +499,12 @@ namespace Ride.Examples
             {
                 m_scroll = vhScrollView.scrollPosition;
 
-                m_llm.OnGUILlm();
+                m_nlp.OnGUILlm();
                 m_tts.OnGUITts();
                 m_asr.OnGUIAsr();
                 m_lipsync.OnGUILipsync();
             }
         }
-
 
         /// <summary>
         /// Sets up custom GUI styles for buttons and toggles.
@@ -415,24 +518,31 @@ namespace Ride.Examples
                 m_guiButtonLeftJustify.alignment = TextAnchor.MiddleLeft;
             }
 
-            int fontSize = (int)(22.0f * ((float)Screen.height / (float)1080));
+            int fontSize = (int)(22.0f * ((float)Screen.height / 1080f));
             m_guiButtonLeftJustify.fontSize = fontSize;
-
 
             if (m_guiToggleLeftJustify == null)
             {
                 m_guiToggleLeftJustify = new GUIStyle(GUI.skin.button);
                 m_guiToggleLeftJustify.alignment = TextAnchor.MiddleLeft;
 
-                Texture2D transparentTexture = new Texture2D(1, 1);
-                transparentTexture.SetPixel(0, 0, new Color(0, 0, 0, 0));
-                transparentTexture.Apply();
+                m_guiToggleLeftJustifyTransparentTexture = new Texture2D(1, 1);
+                m_guiToggleLeftJustifyTransparentTexture.SetPixel(0, 0, new Color(0, 0, 0, 0));
+                m_guiToggleLeftJustifyTransparentTexture.Apply();
 
-                m_guiToggleLeftJustify.normal.background = transparentTexture;      // Remove the background for the normal state
-                m_guiToggleLeftJustify.onNormal.background = transparentTexture;    // Remove the background for the toggled (on) state
+                m_guiToggleLeftJustify.normal.background = m_guiToggleLeftJustifyTransparentTexture;      // Remove the background for the normal state
+                m_guiToggleLeftJustify.onNormal.background = m_guiToggleLeftJustifyTransparentTexture;    // Remove the background for the toggled (on) state
             }
 
             m_guiToggleLeftJustify.fontSize = fontSize;
+
+#if UNITY_ANDROID || UNITY_IOS
+            GUI.skin.verticalScrollbar.fixedWidth = 30f;
+            GUI.skin.verticalScrollbarThumb.fixedWidth = 30f;
+
+            GUI.skin.horizontalScrollbar.fixedWidth = 30f;
+            GUI.skin.horizontalScrollbarThumb.fixedWidth = 30f;
+#endif
         }
 
         public void SetNlpInput(string input)
@@ -444,5 +554,25 @@ namespace Ride.Examples
         {
             m_nlpResult = response;
         }
+
+        void EnableStartScreen()
+        {
+            m_controller.m_startButtonPressed = false;
+            m_debugMenu.ShowMenu(false);
+
+            if (m_startScreenCanvasRoot != null)
+                m_startScreenCanvasRoot.SetActive(true);
+        }
+
+        void DisableStartScreen()
+        {
+            m_controller.m_startButtonPressed = true;
+            m_debugMenu.ShowMenu(true);
+
+            if (m_startScreenCanvasRoot != null)
+                m_startScreenCanvasRoot.SetActive(false);
+        }
+
+        public void OnClickStart() => DisableStartScreen();
     }
 }

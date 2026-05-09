@@ -21,6 +21,7 @@ namespace Ride.Examples
 
         private string m_ccMaleControllerName = "CCMaleAnimatorController";
         private string m_ccFemaleControllerName = "CCFemaleAnimatorController";
+        private string m_ccJohnControllerName = "CCJohnAnimatorController";
         private string m_ictMaleControllerName = "IctMaleAnimatorController";
         private string m_ictFemaleControllerName = "IctFemaleAnimatorController";
         private string m_rocketboxMaleControllerName = "RocketboxMaleAnimatorController";
@@ -31,6 +32,8 @@ namespace Ride.Examples
         {
             // Hub tokens; idle state names inferred as Token unless overridden below.
             // These match your library naming; adjust if you rename hubs.
+            "CC_ART_M_IdleStandingUpright01",
+            "CC_ART_M_Alt_IdleStandingUpright01",
             "CC_IdleStandingUpright01",
             "IdleStandingUpright01",
             "IdleStandingLeanRt01",
@@ -61,6 +64,7 @@ namespace Ride.Examples
 
         private string[] m_ccFemaleIdleTokens = new[]
         {
+            "CC_ART_F_IdleStandingUpright01",
             "CC_Fml_IdleStandingUpright01",
             "CC_Fml_IdleStandingLeanRt01",
             "CC_Fml_IdleSeatedUpright01",
@@ -174,6 +178,7 @@ namespace Ride.Examples
                         case "IctFemaleAnimatorController": RenderAnimationPanel(idleTokens: m_ictFemaleIdleTokens, idleOverride: m_ictFemaleIdleOverrides, expanded: m_expanded, requiredControllerName: m_ictFemaleControllerName, ref m_scroll); break;
                         case "CCMaleAnimatorController": RenderAnimationPanel(idleTokens: m_ccMaleIdleTokens, idleOverride: m_ccMaleIdleOverrides, expanded: m_expanded, requiredControllerName: m_ccMaleControllerName, ref m_scroll); break;
                         case "CCFemaleAnimatorController": RenderAnimationPanel(idleTokens: m_ccFemaleIdleTokens, idleOverride: m_ccFemaleIdleOverrides, expanded: m_expanded, requiredControllerName: m_ccFemaleControllerName, ref m_scroll); break;
+                        case "CCJohnAnimatorController": RenderAnimationPanel(idleTokens: m_ccMaleIdleTokens, idleOverride: m_ccMaleIdleOverrides, expanded: m_expanded, requiredControllerName: m_ccJohnControllerName, ref m_scroll); break;
                         case "RocketboxMaleAnimatorController": RenderAnimationPanel(idleTokens: m_ictMaleIdleTokens, idleOverride: m_ictMaleIdleOverrides, expanded: m_expanded, requiredControllerName: m_rocketboxMaleControllerName, ref m_scroll); break;
                         case "RocketboxFemaleAnimatorController": RenderAnimationPanel(idleTokens: m_ictFemaleIdleTokens, idleOverride: m_ictFemaleIdleOverrides, expanded: m_expanded, requiredControllerName: m_rocketboxFemaleControllerName, ref m_scroll); break;
                         default: break;

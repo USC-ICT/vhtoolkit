@@ -1,23 +1,27 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Ride.Examples
 {
     /// <summary>
-    /// Handles the Debug Menu interface for configuring and interacting with the LLM (Large Language Model).
-    /// Provides options for selecting an LLM system, setting parameters, and modifying prompts.
+    /// Handles the Debug Menu interface for configuring and interacting with the Natural Language Processing (NLP) 
+    /// systems, including LLMs (Large Language Models).
+    /// Provides options for selecting an NLP system, setting parameters, and modifying LLM prompts.
     /// </summary>
-    public class DebugMenuLLM : RideMonoBehaviour
+    public class DebugMenuNLP : RideMonoBehaviour
     {
         #region Debug Menu Variables
 
-        private DebugMenu m_debugMenu;        
-        private DemoController m_controller;  
-        private DebugMenus m_debugMenusBase;  
-        private RideVector2 m_promptScroll;   
+        private DebugMenu m_debugMenu;
+        private DemoController m_controller;
+        private DebugMenus m_debugMenusBase;
+        private List<(DemoControllerBase.NlpMode mode, string label)> m_llmOptions;
+        private string[] m_llmOptionsText;
+        private RideVector2 m_promptScroll;
         private float m_LLMTemperature = 0.3f;
-        private int m_LLMMaxToken = 200;      
-        private bool m_promptToggle = false;  
-        private string m_prompt;              
+        private int m_LLMMaxToken = 200;
+        private bool m_promptToggle = false;
+        private string m_prompt;
 
         #endregion
 
@@ -29,11 +33,33 @@ namespace Ride.Examples
         {
             base.Start();
 
-            m_debugMenu = Globals.api.GetSystem<DebugMenu>();
+            m_debugMenu = Systems.Get<DebugMenu>();
             m_controller = FindAnyObjectByType<DemoController>();
             m_debugMenusBase = FindAnyObjectByType<DebugMenus>();
-        }
 
+            if (RideUtils.IsAndroid() || RideUtils.IsWebGL())
+            {
+                m_llmOptions = new()
+                {
+                    (DemoControllerBase.NlpMode.ChatGPT, "ChatGPT"),
+                    (DemoControllerBase.NlpMode.Claude, "Claude"),
+                };
+            }
+            else
+            {
+                m_llmOptions = new()
+                {
+                    (DemoControllerBase.NlpMode.ChatGPT, "ChatGPT"),
+                    (DemoControllerBase.NlpMode.Claude, "Claude"),
+                    (DemoControllerBase.NlpMode.AwsLex, "AWS Lex"),
+                    (DemoControllerBase.NlpMode.Rasa, "Rasa"),
+                };
+            }
+
+            m_llmOptionsText = new string[m_llmOptions.Count];
+            for (int i = 0; i < m_llmOptions.Count; i++)
+                m_llmOptionsText[i] = m_llmOptions[i].label;
+        }
 
         /// <summary>
         /// Handles the GUI layout for LLM settings in the Debug Menu.
@@ -48,28 +74,24 @@ namespace Ride.Examples
             OnGUIPrompt();
         }
 
-
         /// <summary>
         /// Displays a selection grid for choosing the active LLM system.
         /// Also provides sliders for adjusting temperature and max tokens.
         /// </summary>
         public void OnGUISystemSelection()
         {
-            // Draw a selection grid for LLM modes and get the user's selection.
-            int llmMode = m_debugMenu.SelectionGrid(m_controller.m_llmMode, new string[] { "ChatGPT", "Claude", "AWS Lex", "Rasa" }, 2);
+            int currentUiIndex = GetUiIndexFromLlmMode(m_controller.m_nlpMode);
+            int newUiIndex = m_debugMenu.SelectionGrid(currentUiIndex, m_llmOptionsText, 2);
 
-            // If the selected LLM mode has changed, update it in the DemoController.
-            if (m_controller.m_llmMode != llmMode)
-                m_controller.ChangeLlm(llmMode);
+            if (newUiIndex != currentUiIndex)
+                m_controller.ChangeNlp(GetLlmModeFromUiIndex(newUiIndex));
 
-            // Draw temperature slider.
             using (new GUILayout.HorizontalScope())
             {
-                m_debugMenu.Label($"Temperature: {string.Format("{0:f1}", m_LLMTemperature)}", 200f);
+                m_debugMenu.Label($"Temperature: {m_LLMTemperature:F1}", 200f);
                 m_LLMTemperature = m_debugMenu.HorizontalSlider(m_LLMTemperature, 0f, 1f);
             }
 
-            // Draw max token slider.
             using (new GUILayout.HorizontalScope())
             {
                 m_debugMenu.Label($"Max Tokens: {m_LLMMaxToken}", 200f);
@@ -77,14 +99,13 @@ namespace Ride.Examples
             }
         }
 
-
         /// <summary>
         /// Displays a prompt input field and allows setting a custom prompt for the LLM.
         /// </summary>
         public void OnGUIPrompt()
         {
             // Only display the prompt UI if the selected LLM mode is not "Lex".
-            if (m_controller.m_llmMode != 2)
+            if (m_controller.m_nlpMode != DemoControllerBase.NlpMode.AwsLex)
             {
                 m_promptToggle = GUILayout.Toggle(m_promptToggle, m_promptToggle ? $"- <b>Prompt:</b>" : $"+ <b>Prompt</b>", m_debugMenusBase.m_guiToggleLeftJustify);
 
@@ -107,7 +128,6 @@ namespace Ride.Examples
             m_debugMenu.Space();
         }
 
-
         /// <summary>
         /// Sets the LLM prompt input field with a predefined value.
         /// </summary>
@@ -115,6 +135,31 @@ namespace Ride.Examples
         public void SetUIPrompt(string prompt)
         {
             m_prompt = prompt;
+        }
+
+        private DemoControllerBase.NlpMode GetLlmModeFromUiIndex(int uiIndex)
+        {
+            if (m_llmOptions == null || m_llmOptions.Count == 0)
+                return DemoControllerBase.NlpMode.ChatGPT;
+
+            if (uiIndex < 0) uiIndex = 0;
+            if (uiIndex >= m_llmOptions.Count) uiIndex = m_llmOptions.Count - 1;
+
+            return m_llmOptions[uiIndex].mode;
+        }
+
+        private int GetUiIndexFromLlmMode(DemoControllerBase.NlpMode mode)
+        {
+            if (m_llmOptions != null)
+            {
+                for (int i = 0; i < m_llmOptions.Count; i++)
+                {
+                    if (m_llmOptions[i].mode == mode)
+                        return i;
+                }
+            }
+
+            return 0;
         }
     }
 }

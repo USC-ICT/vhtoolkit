@@ -74,7 +74,7 @@ namespace Ride.Examples
 
                     if (m_debugMenu.Button("Head"))
                     {
-                        var facePos = m_debugMenusBase.m_cameraInitialPosition; facePos.x += 0.1f; facePos.y += 0.1f; facePos.z -= 1;
+                        var facePos = m_debugMenusBase.m_cameraInitialPosition; facePos.x -= 0.1f; facePos.y += 0.1f; facePos.z -= 1;
                         m_camera.transform.SetPositionAndRotation(facePos, m_debugMenusBase.m_cameraInitialRotation);
                     }
 
@@ -177,22 +177,7 @@ namespace Ride.Examples
         void Viseme(MecanimCharacter character, string name, float amount)
         {
             m_visemeValues[name] = amount;
-            float neutralAmount = ComputeNeutralAmountFromVisemes();
-
             character.PlayViseme(name, amount); 
-            character.PlayViseme("face_neutral", neutralAmount);
-        }
-
-        private float ComputeNeutralAmountFromVisemes()
-        {
-            // Assumption: we treat all viseme weights as sharing the 0–1 budget,
-            // so neutral = 1 - sum(visemeValues), clamped to [0,1].
-            float total = 0f;
-
-            foreach (var kvp in m_visemeValues)
-                total += Mathf.Clamp01(kvp.Value);
-
-            return Mathf.Clamp01(1f - total);
         }
     }
 }

@@ -1,6 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using VHAssets;
 
 namespace Ride.Examples
 {
@@ -12,10 +12,8 @@ namespace Ride.Examples
     {
         private DebugMenu m_debugMenu;
         private DemoControllerBase m_controller;
-        private string[] m_asrOptions;
-
-        private bool m_micEnabled = false;
-        private Coroutine m_waitForSpeechEndCoroutine;
+        private List<(DemoControllerBase.AsrMode mode, string label)> m_asrOptions;
+        private string[] m_asrOptionsText;
 
 
         /// <summary>
@@ -26,34 +24,39 @@ namespace Ride.Examples
         {
             base.Start();
 
-            m_debugMenu = Globals.api.GetSystem<DebugMenu>();
-
+            m_debugMenu = Systems.Get<DebugMenu>();
             m_controller = FindAnyObjectByType<DemoControllerBase>();
 
-            if (VHUtils.IsIOS() || VHUtils.IsAndroid())
-                m_asrOptions = new string[] { "Azure", "Windows", "Mobile" };
-            else
-                m_asrOptions = new string[] { "Azure", "Windows" };
-        }
-
-
-        /// <summary>
-        /// Updates the ASR system and stops recognition if the character is speaking.
-        /// Ensures ASR does not interfere with voice playback.
-        /// </summary>
-        protected override void Update()
-        {
-            base.Update();
-
-            if (m_controller.CurrentCharacter != null && m_controller.CurrentCharacter.Voice.isPlaying)
+            if (RideUtils.IsIOS() || RideUtils.IsAndroid())
             {
-                m_controller.m_currentASR.StopRecognizing();
-
-                if (m_micEnabled && m_waitForSpeechEndCoroutine == null)
-                    m_waitForSpeechEndCoroutine = StartCoroutine(WaitForSpeechEnd());
-
-                return;
+                m_asrOptions = new()
+                {
+                    (DemoControllerBase.AsrMode.Azure, "Azure"),
+                    (DemoControllerBase.AsrMode.Windows, "Windows"),
+                    (DemoControllerBase.AsrMode.Mobile, "Mobile"),
+                    (DemoControllerBase.AsrMode.OpenAI, "OpenAI"),
+                };
             }
+            else if (RideUtils.IsWebGL())
+            {
+                m_asrOptions = new()
+                {
+                    (DemoControllerBase.AsrMode.AzureWebGL, "AzureWebGL"),
+                };
+            }
+            else
+            {
+                m_asrOptions = new()
+                {
+                    (DemoControllerBase.AsrMode.Azure, "Azure"),
+                    (DemoControllerBase.AsrMode.Windows, "Windows"),
+                    (DemoControllerBase.AsrMode.OpenAI, "OpenAI"),
+                };
+            }
+
+            m_asrOptionsText = new string[m_asrOptions.Count];
+            for (int i = 0; i < m_asrOptions.Count; i++)
+                m_asrOptionsText[i] = m_asrOptions[i].label;
         }
 
 
@@ -73,10 +76,11 @@ namespace Ride.Examples
         /// </summary>
         public void OnGUISystemSelection()
         {
-            int asrMode = m_debugMenu.SelectionGrid(m_controller.m_asrMode, m_asrOptions, 2);
+            int currentUiIndex = GetUiIndexFromAsrMode(m_controller.m_asrMode);
+            int newUiIndex = m_debugMenu.SelectionGrid(currentUiIndex, m_asrOptionsText, 2);
 
-            if (m_controller.m_asrMode != asrMode)
-                m_controller.ChangeASR(asrMode);
+            if (newUiIndex != currentUiIndex)
+                m_controller.ChangeASR(GetAsrModeFromUiIndex(newUiIndex));
 
             m_debugMenu.Space();
         }
@@ -86,53 +90,34 @@ namespace Ride.Examples
         /// Toggles the activation of ASR.
         /// If the ASR system is currently recognizing speech, it stops.
         /// If the ASR system is off, it starts recognizing speech unless the character is speaking.
+        /// This is called via the gameobject Button_UseASR callback
         /// </summary>
-        public void AsrActivateToggle()
+        public void AsrActivateToggle() => m_controller.ToggleASR();
+
+
+        private DemoControllerBase.AsrMode GetAsrModeFromUiIndex(int uiIndex)
         {
-            if (m_controller.m_currentASR.IsRecognizing)
-            {
-                m_controller.m_currentASR.StopRecognizing();
-                m_micEnabled = false;
+            if (m_asrOptions == null || m_asrOptions.Count == 0)
+                return DemoControllerBase.AsrMode.Azure;
 
-                if (m_waitForSpeechEndCoroutine != null)
-                {
-                    StopCoroutine(m_waitForSpeechEndCoroutine);
-                    m_waitForSpeechEndCoroutine = null;
-                }
+            if (uiIndex < 0) uiIndex = 0;
+            if (uiIndex >= m_asrOptions.Count) uiIndex = m_asrOptions.Count - 1;
 
-                return;
-            }
-
-            if (m_controller.CurrentCharacter.Voice.isPlaying)
-            {
-                m_controller.m_currentASR.StopRecognizing();
-                return;
-            }
-            else
-            {
-                m_controller.m_currentASR.StartRecognizing();
-                m_micEnabled = true;
-
-                if (m_waitForSpeechEndCoroutine != null)
-                {
-                    StopCoroutine(m_waitForSpeechEndCoroutine);
-                    m_waitForSpeechEndCoroutine = null;
-                }
-            }
+            return m_asrOptions[uiIndex].mode;
         }
 
-
-        /// <summary>
-        /// Waits for the character's speech to end before re-enabling ASR.
-        /// Ensures that ASR does not interfere with voice playback.
-        /// </summary>
-        private IEnumerator WaitForSpeechEnd()
+        private int GetUiIndexFromAsrMode(DemoControllerBase.AsrMode mode)
         {
-            Debug.Log("Waiting for speech to end");
+            if (m_asrOptions != null)
+            {
+                for (int i = 0; i < m_asrOptions.Count; i++)
+                {
+                    if (m_asrOptions[i].mode == mode)
+                        return i;
+                }
+            }
 
-            yield return new WaitUntil(() => !m_controller.CurrentCharacter.Voice.isPlaying);
-
-            AsrActivateToggle();
+            return 0;
         }
     }
 }

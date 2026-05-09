@@ -5,7 +5,7 @@ using VHAssets;
 namespace Ride.Examples
 {
     /// <summary>
-    /// Handles the Debug Menu interface for controlling gaze behavior of virtual characters.
+    /// Handles the Debug Menu interface for controlling gaze behavior of virtual humans.
     /// Allows setting gaze direction and adjusting gaze speed.
     /// </summary>
     public class DebugMenuGaze : RideMonoBehaviour
@@ -14,18 +14,13 @@ namespace Ride.Examples
         private DemoController m_controller;
         private DebugMenus m_debugMenusBase;
 
-        private bool m_useHead = true;
         private bool m_useEyes = true;
+        private bool m_useHead = true;
         private bool m_useBody = true;
 
-        private float m_headWeight = 1f;
-        private float m_eyeWeight = 1f;
-        private float m_bodyWeight = 0.5f;
-
-        private float m_headSpeed = 50f;
         private float m_eyeSpeed = 70f;
+        private float m_headSpeed = 50f;
         private float m_bodySpeed = 20f;
-
 
         /// <summary>
         /// Initializes references to the necessary systems when the script starts.
@@ -35,12 +30,9 @@ namespace Ride.Examples
             base.Start();
 
             m_debugMenu = Systems.Get<DebugMenu>();
-
             m_controller = FindAnyObjectByType<DemoController>();
-
             m_debugMenusBase = FindAnyObjectByType<DebugMenus>();
         }
-
 
         /// <summary>
         /// Handles the GUI layout for gaze settings in the Debug Menu.
@@ -60,47 +52,58 @@ namespace Ride.Examples
             using (m_debugMenu.Horizontal())
             {
                 m_debugMenu.Label("Parts:", 80);
-                m_useHead = m_debugMenu.Toggle(m_useHead, "Head");
                 m_useEyes = m_debugMenu.Toggle(m_useEyes, "Eyes");
+                m_useHead = m_debugMenu.Toggle(m_useHead, "Head");
                 m_useBody = m_debugMenu.Toggle(m_useBody, "Body");
             }
 
             m_debugMenu.Space();
 
+
             m_debugMenu.Label("Gaze Weights (0..1):");
-            using (m_debugMenu.Horizontal())
-            {
-                m_debugMenu.Label("Head", 60);
-                m_headWeight = m_debugMenu.HorizontalSlider(m_headWeight, 0f, 1f);
-                m_debugMenu.Label($"{m_headWeight:F2}", 50);
-            }
+            var gazeController = m_controller.CurrentCharacter.GetComponent<GazeController>();
+            float eyeWeight  = gazeController.EyeGazeWeight;
+            float headWeight = gazeController.HeadGazeWeight;
+            float bodyWeight = gazeController.BodyGazeWeight;
+            float newEyeWeight;
+            float newHeadWeight;
+            float newBodyWeight;
             using (m_debugMenu.Horizontal())
             {
                 m_debugMenu.Label("Eyes", 50);
-                m_eyeWeight = m_debugMenu.HorizontalSlider(m_eyeWeight, 0f, 1f);
-                m_debugMenu.Label($"{m_eyeWeight:F2}", 50);
+                newEyeWeight = m_debugMenu.HorizontalSlider(eyeWeight, 0f, 1f);
+                m_debugMenu.Label($"{eyeWeight:F2}", 50);
+            }
+            using (m_debugMenu.Horizontal())
+            {
+                m_debugMenu.Label("Head", 60);
+                newHeadWeight = m_debugMenu.HorizontalSlider(headWeight, 0f, 1f);
+                m_debugMenu.Label($"{headWeight:F2}", 50);
             }
             using (m_debugMenu.Horizontal())
             {
                 m_debugMenu.Label("Body", 50);
-                m_bodyWeight = m_debugMenu.HorizontalSlider(m_bodyWeight, 0f, 1f);
-                m_debugMenu.Label($"{m_bodyWeight:F2}", 50);
+                newBodyWeight = m_debugMenu.HorizontalSlider(bodyWeight, 0f, 1f);
+                m_debugMenu.Label($"{bodyWeight:F2}", 50);
             }
+
+            if (newEyeWeight != eyeWeight || newHeadWeight != headWeight || newBodyWeight != bodyWeight)
+                m_controller.CurrentCharacter.SetGazeWeights(newHeadWeight, newEyeWeight, newBodyWeight);
 
             m_debugMenu.Space();
 
             m_debugMenu.Label("Fade-in Speeds:");
             using (m_debugMenu.Horizontal())
             {
-                m_debugMenu.Label("Head", 60);
-                m_headSpeed = m_debugMenu.HorizontalSlider(m_headSpeed, 0f, 100f);
-                m_debugMenu.Label($"{m_headSpeed:F1}", 50);
-            }
-            using (m_debugMenu.Horizontal())
-            {
                 m_debugMenu.Label("Eyes", 50);
                 m_eyeSpeed = m_debugMenu.HorizontalSlider(m_eyeSpeed, 0f, 100f);
                 m_debugMenu.Label($"{m_eyeSpeed:F1}", 50);
+            }
+            using (m_debugMenu.Horizontal())
+            {
+                m_debugMenu.Label("Head", 60);
+                m_headSpeed = m_debugMenu.HorizontalSlider(m_headSpeed, 0f, 100f);
+                m_debugMenu.Label($"{m_headSpeed:F1}", 50);
             }
             using (m_debugMenu.Horizontal())
             {
@@ -146,7 +149,6 @@ namespace Ride.Examples
             }
         }
 
-
         /// <summary>
         /// Draw debug menu for nodding and shaking the character's head.
         /// </summary>
@@ -172,17 +174,24 @@ namespace Ride.Examples
             }
         }
 
-
         /// <summary>
         /// Makes the character gaze at the specified target.
-        /// </summary>
-        /// <param name="character">The character that will gaze.</param>
+        /// </summary>        
         /// <param name="gazeTargetString">The name of the gaze target object.</param>
         public void GazeAt(string gazeTargetString)
         {
             StartCoroutine(GazeSequence(m_controller.CurrentCharacter, gazeTargetString));
         }
 
+        /// <summary>
+        /// Makes the character gaze at the specified target.
+        /// </summary>
+        /// <param name="character">The character that will gaze.</param>
+        /// <param name="gazeTargetString">The name of the gaze target object.</param>
+        public void GazeAt(MecanimCharacter character, string gazeTargetString)
+        {
+            StartCoroutine(GazeSequence(character, gazeTargetString));
+        }
 
         /// <summary>
         /// Coroutine to handle gaze direction changes with a small delay.
@@ -202,17 +211,9 @@ namespace Ride.Examples
             if (gazeTarget == null)
                 yield break;
 
-            // First apply weights (participation).
-            // If a part is toggled off, force its weight to 0.
-            float headWeight = m_useHead ? m_headWeight : 0f;
-            float eyeWeight  = m_useEyes ? m_eyeWeight  : 0f;
-            float bodyWeight = m_useBody ? m_bodyWeight : 0f;
-
-            character.SetGazeWeights(headWeight, eyeWeight, bodyWeight);
-
             // Then compute speeds. If a part is toggled off, speed 0 will cause fade-out.
-            float headSpeed = m_useHead ? m_headSpeed : 0f;
             float eyeSpeed  = m_useEyes ? m_eyeSpeed  : 0f;
+            float headSpeed = m_useHead ? m_headSpeed : 0f;
             float bodySpeed = m_useBody ? m_bodySpeed : 0f;
 
             character.SetGazeTargetWithSpeed(gazeTarget, headSpeed, eyeSpeed, bodySpeed);

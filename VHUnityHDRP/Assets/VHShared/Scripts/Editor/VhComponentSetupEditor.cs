@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using Ride;
 using VHAssets;
 
 public class VhComponentSetupEditor : EditorWindow
