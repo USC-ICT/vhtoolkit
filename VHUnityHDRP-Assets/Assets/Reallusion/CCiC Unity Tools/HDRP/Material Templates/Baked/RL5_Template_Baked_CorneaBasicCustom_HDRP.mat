@@ -94,6 +94,8 @@ Material:
     - _ExcludeFromTUAndAA: 0
     - _IOR: 1.4
     - _IrisDepth: 0.225
+    - _IrisScale: 1
+    - _IsLeftEye: 0
     - _MaterialID: 0
     - _MaterialTypeMask: 1
     - _OpaqueCullMode: 2
@@ -140,10 +142,9 @@ Material:
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LimbusColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &4556048134606289773
+--- !u!114 &1643208453949694741
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

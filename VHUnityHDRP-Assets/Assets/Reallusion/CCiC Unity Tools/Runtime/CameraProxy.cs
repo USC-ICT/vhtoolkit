@@ -27,11 +27,7 @@ using System;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.Rendering;
-#if PLASTIC_NEWTONSOFT_AVAILABLE
-using Unity.Plastic.Newtonsoft.Json;
-#else
-using Newtonsoft.Json;  // com.unity.collab-proxy (plastic scm) versions prior to 1.14.12
-#endif
+using Newtonsoft.Json;
 #endif
 
 using UnityEngine.Rendering;
@@ -105,7 +101,7 @@ namespace Reallusion.Runtime
         public bool MultiplySensorSize;
         public float MultiplySensorScale = 1f;
         public float Aperture = 16f;
-                
+
         public float fovOverrideValue = 27f;    // value to force fov to
 
         // build in user option
@@ -118,7 +114,7 @@ namespace Reallusion.Runtime
 
         #region Pipeline specific functions   
 
-// HDRP Spcific
+        // HDRP Spcific
 #if HDRP_17_RUNTIME
         // no additional camera data needed
 #elif HDRP_12_RUNTIME
@@ -425,7 +421,7 @@ namespace Reallusion.Runtime
             initialSetupComplete = true;
         }
 
-#endregion Pipeline specific functions
+        #endregion Pipeline specific functions
 
         #region Scaling and conversion factors
         // ...
@@ -482,7 +478,7 @@ namespace Reallusion.Runtime
             if (clip != null) { CachedAnimation = clip; }
         }
 #endif
-#endregion Initial Setup by Importer
+        #endregion Initial Setup by Importer
 
         #region Start and Update
         void Start()

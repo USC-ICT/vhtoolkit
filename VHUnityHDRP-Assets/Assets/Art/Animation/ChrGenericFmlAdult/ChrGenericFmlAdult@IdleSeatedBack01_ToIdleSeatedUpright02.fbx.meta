@@ -1109,7 +1109,12 @@ ModelImporter:
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'JtForearmTwistBRt'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'JtUpperArmTwistBLf'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'JtForearmTwistBLf'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\nEvent
+      emphasisTime has a time (2.514444) outside the clip's valid range (0.000000..2.433333).
+      It will never be firedEvent strokeTime has a time (4.785556) outside the clip's
+      valid range (0.000000..2.433333). It will never be firedEvent relaxTime has
+      a time (5.110000) outside the clip's valid range (0.000000..2.433333). It will
+      never be fired"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -1147,39 +1152,39 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.13513513
+      - time: 0.3
         functionName: readyTime
-        data: 
+        data: frame=10, localFrame=9, time=0.3s
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
+        floatParameter: 0.3
         intParameter: 10
         messageOptions: 1
-      - time: 0.24324325
+      - time: 0.56666666
         functionName: strokeStartTime
-        data: 
+        data: frame=18, localFrame=17, time=0.567s
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
+        floatParameter: 0.56666666
         intParameter: 18
         messageOptions: 1
-      - time: 0.43243244
+      - time: 1.0333333
         functionName: emphasisTime
-        data: 
+        data: frame=32, localFrame=31, time=1.033s
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
+        floatParameter: 1.0333333
         intParameter: 32
         messageOptions: 1
-      - time: 0.8108108
+      - time: 1.9666667
         functionName: strokeTime
-        data: 
+        data: frame=60, localFrame=59, time=1.967s
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
+        floatParameter: 1.9666667
         intParameter: 60
         messageOptions: 1
-      - time: 0.8648649
+      - time: 2.1
         functionName: relaxTime
-        data: 
+        data: frame=64, localFrame=63, time=2.1s
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
+        floatParameter: 2.1
         intParameter: 64
         messageOptions: 1
       transformMask: []

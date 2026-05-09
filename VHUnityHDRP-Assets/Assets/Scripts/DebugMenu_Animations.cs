@@ -105,6 +105,9 @@ namespace VH
         };
         #endregion
 
+        private bool m_showBlendShapes;
+        private readonly Dictionary<string, float> m_blendShapeValues = new();
+
         GUIStyle m_guiButtonLeftJustify;
 
         int m_selectedLightingIndex = -1;
@@ -334,13 +337,13 @@ namespace VH
 
         #region UI (tabs)
 
-        public void CameraMale() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(34, 1.6f, 2), Quaternion.Euler(8, 180, 0));
-        public void CameraFemale() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(10, 1.6f, 2), Quaternion.Euler(8, 180, 0));
-        public void CameraMaleHead() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(34, 1.6f, 0.5f), Quaternion.Euler(8, 180, 0));
-        public void CameraMaleHands() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(33.3f, 0.9f, 0), Quaternion.Euler(8, 90, 0));
-        public void CameraFemaleHead() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(10, 1.6f, 0.5f), Quaternion.Euler(8, 180, 0));
-        public void CameraFemaleHands() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(9.3f, 0.9f, 0), Quaternion.Euler(8, 90, 0));
-        public void CameraReset() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(34, 1.6f, 2), Quaternion.Euler(8, 180, 0));
+        public void CameraMale() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(0, 1.48f, 1.42f), Quaternion.Euler(8, 180, 0));
+        public void CameraFemale() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(-2, 1.48f, 1.42f), Quaternion.Euler(8, 180, 0));
+        public void CameraMaleHead() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(0, 1.6f, 0.5f), Quaternion.Euler(8, 180, 0));
+        public void CameraMaleHands() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(-.5f, 0.9f, 0), Quaternion.Euler(8, 90, 0));
+        public void CameraFemaleHead() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(-2, 1.6f, 0.5f), Quaternion.Euler(8, 180, 0));
+        public void CameraFemaleHands() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(-2.5f, 0.9f, 0), Quaternion.Euler(8, 90, 0));
+        public void CameraReset() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(0, 1.48f, 1.42f), Quaternion.Euler(8, 180, 0));
 
         private void OnGUIMain()
         {
@@ -484,6 +487,23 @@ namespace VH
                     DrawGUIFaceSlider(visemeName);
 
                 m_debugMenu.Space();
+
+                using (m_debugMenu.Horizontal())
+                {
+                    m_debugMenu.Label("<b>Blendshapes</b>", 120);
+
+                    if (m_debugMenu.Button(m_showBlendShapes ? "Hide" : "Show", 60))
+                        m_showBlendShapes = !m_showBlendShapes;
+
+                    if (m_debugMenu.Button("All 0", 60))
+                        SetAllBlendShapes(0f);
+                }
+
+                if (m_showBlendShapes)
+                {
+                    foreach (string shapeName in GetAllBlendShapeNames())
+                        DrawGUIBlendShapeSlider(shapeName);
+                }
 
                 //if (m_debugMenu.Button("Nod"))
                 //{
@@ -696,6 +716,61 @@ namespace VH
             }
         }
 
+        private void DrawGUIBlendShapeSlider(string shapeName)
+        {
+            using (m_debugMenu.Horizontal())
+            {
+                float currentValue = 0f;
+                if (m_blendShapeValues.TryGetValue(shapeName, out var existing))
+                    currentValue = existing;
+
+                float newValue = currentValue;
+                bool changed = false;
+
+                string label = shapeName;
+
+                if (label.StartsWith("blendShape1."))
+                    label = label.Substring("blendShape1.".Length);
+
+                // Keep the label length reasonable
+                if (label.Length > 28)
+                    label = label.Substring(0, 28);
+
+                if (!SelectedCharacterHasBlendShape(shapeName))
+                    label = $"<color=#666666>{label}</color>";
+
+                m_debugMenu.Label(label, 200);
+
+                if (m_debugMenu.Button("0", 30)) { newValue = 0f; changed = true; }
+                if (m_debugMenu.Button("100", 45)) { newValue = 100f; changed = true; }
+
+                float sliderValue = m_debugMenu.HorizontalSlider(newValue, 0f, 100f);
+                if (!Mathf.Approximately(sliderValue, newValue))
+                {
+                    newValue = sliderValue;
+                    changed = true;
+                }
+
+                string textValue = newValue.ToString("0.0");
+                string newTextValue = m_debugMenu.TextField(textValue, 70);
+
+                if (!string.Equals(newTextValue, textValue, StringComparison.Ordinal))
+                {
+                    if (float.TryParse(newTextValue, out var parsed))
+                    {
+                        newValue = Mathf.Clamp(parsed, 0f, 100f);
+                        changed = true;
+                    }
+                }
+
+                if (changed && !Mathf.Approximately(newValue, currentValue))
+                {
+                    m_blendShapeValues[shapeName] = newValue;
+                    ApplyBlendShapeToAllCharacters(shapeName, newValue);
+                }
+            }
+        }
+
         //void Nod(float amount, float numTimes, float duration)
         //{
         //    foreach (var c in m_characters)
@@ -825,6 +900,113 @@ namespace VH
                 total += Mathf.Clamp01(kvp.Value);
 
             return Mathf.Clamp01(1f - total);
+        }
+
+        private void SetAllBlendShapes(float value)
+        {
+            foreach (string shapeName in GetAllBlendShapeNames())
+            {
+                m_blendShapeValues[shapeName] = value;
+                ApplyBlendShapeToAllCharacters(shapeName, value);
+            }
+        }
+
+        private IEnumerable<string> GetAllBlendShapeNames()
+        {
+            // Debug-only: recompute each draw; no caching.
+            HashSet<string> names = new(StringComparer.Ordinal);
+
+            foreach (var anim in m_characters)
+            {
+                if (anim == null)
+                    continue;
+
+                foreach (var smr in anim.GetComponentsInChildren<SkinnedMeshRenderer>())
+                {
+                    if (smr == null)
+                        continue;
+
+                    Mesh mesh = smr.sharedMesh;
+                    if (mesh == null)
+                        continue;
+
+                    int count = mesh.blendShapeCount;
+                    for (int i = 0; i < count; i++)
+                    {
+                        string n = mesh.GetBlendShapeName(i);
+                        if (!string.IsNullOrEmpty(n))
+                            names.Add(n);
+                    }
+                }
+            }
+
+            List<string> sorted = names.ToList();
+            sorted.Sort(StringComparer.Ordinal);
+
+            // Ensure we have stable slider values for newly discovered shapes.
+            foreach (string n in sorted)
+            {
+                if (!m_blendShapeValues.ContainsKey(n))
+                    m_blendShapeValues[n] = 0f;
+            }
+
+            return sorted;
+        }
+
+        private bool SelectedCharacterHasBlendShape(string shapeName)
+        {
+            Animator anim = m_characters[m_currentCharacter];
+            return CharacterHasBlendShape(anim, shapeName);
+        }
+
+        private static bool CharacterHasBlendShape(Animator anim, string shapeName)
+        {
+            foreach (var smr in anim.GetComponentsInChildren<SkinnedMeshRenderer>())
+            {
+                if (smr == null)
+                    continue;
+
+                Mesh mesh = smr.sharedMesh;
+                if (mesh == null)
+                    continue;
+
+                int count = mesh.blendShapeCount;
+                for (int i = 0; i < count; i++)
+                {
+                    if (string.Equals(mesh.GetBlendShapeName(i), shapeName, StringComparison.Ordinal))
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
+        private void ApplyBlendShapeToAllCharacters(string shapeName, float value)
+        {
+            foreach (var anim in m_characters)
+            {
+                if (anim == null)
+                    continue;
+
+                foreach (var smr in anim.GetComponentsInChildren<SkinnedMeshRenderer>())
+                {
+                    if (smr == null)
+                        continue;
+
+                    Mesh mesh = smr.sharedMesh;
+                    if (mesh == null)
+                        continue;
+
+                    int count = mesh.blendShapeCount;
+                    for (int i = 0; i < count; i++)
+                    {
+                        if (!string.Equals(mesh.GetBlendShapeName(i), shapeName, StringComparison.Ordinal))
+                            continue;
+
+                        smr.SetBlendShapeWeight(i, value);
+                    }
+                }
+            }
         }
 
         void LeftJustifySetup()

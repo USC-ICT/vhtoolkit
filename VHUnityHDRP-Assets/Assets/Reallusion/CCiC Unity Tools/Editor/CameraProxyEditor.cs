@@ -34,10 +34,10 @@ namespace Reallusion.Runtime
             public GUIStyle sectionLabel;
 
             public Styles()
-            {                
+            {
                 sectionLabel = new GUIStyle(GUI.skin.label);
                 sectionLabel.fontSize = 14;
-                sectionLabel.fontStyle= FontStyle.BoldAndItalic;
+                sectionLabel.fontStyle = FontStyle.BoldAndItalic;
                 sectionLabel.normal.textColor = Color.white;
             }
         }
@@ -58,7 +58,7 @@ namespace Reallusion.Runtime
 
         public override void OnInspectorGUI()
         {
-            if (proxy != null)
+            if (proxy == null)
             {
                 proxy = target as CameraProxy;
                 return;
@@ -80,10 +80,10 @@ namespace Reallusion.Runtime
 
             InfoPaneGUI();
 
-            if(proxy.dof_delta) 
+            if (proxy.dof_delta)
                 DephthOfFieldGUI();
 
-            if(proxy.fov_delta)
+            if (proxy.fov_delta)
                 FieldOfViewGUI();
 
             GUILayout.EndVertical();

@@ -1,28 +1,31 @@
 root = true
 
 [Assets/**.cs]
+# Disable specific compiler warnings
 dotnet_diagnostic.IDE0017.severity = none  # Object initialization can be simplified
+#dotnet_diagnostic.IDE0018.severity = none  # Variable declaration can be inlined
 dotnet_diagnostic.IDE0044.severity = none  # Make field readonly
 dotnet_diagnostic.IDE0057.severity = none  # "" can be simplified
 dotnet_diagnostic.IDE0059.severity = none  # Unnecessary assignment of a value to ''
+#dotnet_diagnostic.IDE0060.severity = none  # Remove unused parameter '' if it is not part of a shipped public API
 dotnet_diagnostic.IDE0063.severity = none  # 'using' statement can be simplified
 dotnet_diagnostic.IDE0066.severity = none  # Use 'switch' expression
+dotnet_diagnostic.IDE0074.severity = none  # Use compound assignment
 dotnet_diagnostic.IDE0090.severity = none  # 'new' expression can be simplified
+#dotnet_diagnostic.IDE1006.severity = none  # Naming rule violation: These words must begin with upper case characters: 
 dotnet_diagnostic.UNT0026.severity = none  # GetComponent allocates even if no component is found.
 
 [Assets/Reallusion/**.cs]
-dotnet_diagnostic.IDE0017.severity = none  # Object initialization can be simplified
+dotnet_diagnostic.IDE0054.severity = none  # Use '++' operator / Use compound assignment
 dotnet_diagnostic.IDE0059.severity = none  # Unnecessary assignment of a value to ''
-dotnet_diagnostic.IDE0074.severity = none  # Use compound assignment
 dotnet_diagnostic.IDE0090.severity = none  # 'new' expression can be simplified
 dotnet_diagnostic.IDE1006.severity = none  # Naming rule violation: These words must begin with upper case characters: 
 dotnet_diagnostic.UNT0013.severity = none  # SerializeField attribute is invalid or redundant for property or field: 'profileGroupTypes'.
+dotnet_diagnostic.UNT0032.severity = none  # Assigning localPosition and localRotation sequentially could be optimized
 
 [Assets/TextMesh Pro/**.cs]
-dotnet_diagnostic.IDE0017.severity = none  # Object initialization can be simplified
 dotnet_diagnostic.IDE0018.severity = none  # Variable declaration can be inlined
 dotnet_diagnostic.IDE0031.severity = none  # Null check can be simplified
-dotnet_diagnostic.IDE0044.severity = none  # Make field readonly
 dotnet_diagnostic.IDE0059.severity = none  # Unnecessary assignment of a value to ''
 dotnet_diagnostic.IDE0060.severity = none  # Remove unused parameter '' if it is not part of a shipped public API
 dotnet_diagnostic.IDE0075.severity = none  # Conditional expression can be simplified
@@ -36,6 +39,7 @@ dotnet_diagnostic.UNT0022.severity = none  # Assigning position and rotation seq
 [Library/PackageCache/com.soupday.*/**.cs]
 dotnet_diagnostic.IDE0017.severity = none  # Object initialization can be simplified
 dotnet_diagnostic.IDE0018.severity = none  # Variable declaration can be inlined
+dotnet_diagnostic.IDE0019.severity = none  # Use pattern matching
 dotnet_diagnostic.IDE0028.severity = none  # Collection initialization can be simplified
 dotnet_diagnostic.IDE0031.severity = none  # Null check can be simplified
 dotnet_diagnostic.IDE0034.severity = none  # 'default' expression can be simplified
@@ -48,6 +52,7 @@ dotnet_diagnostic.IDE0059.severity = none  # Unnecessary assignment of a value t
 dotnet_diagnostic.IDE0060.severity = none  # Remove unused parameter '' if it is not part of a shipped public API
 dotnet_diagnostic.IDE0063.severity = none  # 'using' statement can be simplified
 dotnet_diagnostic.IDE0066.severity = none  # Use 'switch' expression
+dotnet_diagnostic.IDE0071.severity = none  # Interpolation can be simplified
 dotnet_diagnostic.IDE0074.severity = none  # Use compound assignment
 dotnet_diagnostic.IDE0075.severity = none  # Conditional expression can be simplified
 dotnet_diagnostic.IDE0090.severity = none  # 'new' expression can be simplified

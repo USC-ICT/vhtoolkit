@@ -1,974 +1,2866 @@
 fileFormatVersion: 2
 guid: bb1a6e03f8daf1d4297a5bdabc1f8045
-timeCreated: 1480728404
-licenseType: Pro
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Body
-    100002: CharacterRoot
-    100004: //RootNode
-    100006: EyelashLfBottom
-    100008: EyelashLfTop
-    100010: EyelashRtBottom
-    100012: EyelashRtTop
-    100014: Hair
-    100016: IctUnitySettings
-    100018: JtAnkleLf
-    100020: JtAnkleRt
-    100022: JtBallLf
-    100024: JtBallRt
-    100026: JtBrowParentLf
-    100028: JtBrowParentRt
-    100030: JtCheekLowerLf
-    100032: JtCheekLowerRt
-    100034: JtCheekUpperLf
-    100036: JtCheekUpperRt
-    100038: JtClavicleLf
-    100040: JtClavicleRt
-    100042: JtEarLf
-    100044: JtEarRt
-    100046: JtElbowLf
-    100048: JtElbowRt
-    100050: JtEyebrow01Lf
-    100052: JtEyebrow01Rt
-    100054: JtEyebrow02Lf
-    100056: JtEyebrow02Rt
-    100058: JtEyebrow03Lf
-    100060: JtEyebrow03Rt
-    100062: JtEyebrow04Lf
-    100064: JtEyebrow04Rt
-    100066: JtEyeLf
-    100068: JtEyelidLowerLf
-    100070: JtEyelidLowerRt
-    100072: JtEyelidUpperLf
-    100074: JtEyelidUpperRt
-    100076: JtEyeRt
-    100078: JtForearmTwistALf
-    100080: JtForearmTwistARt
-    100082: JtForearmTwistBLf
-    100084: JtForearmTwistBRt
-    100086: JtHeelLf
-    100088: JtHeelRt
-    100090: JtHipLf
-    100092: JtHipRt
-    100094: JtIndexALf
-    100096: JtIndexARt
-    100098: JtIndexBLf
-    100100: JtIndexBRt
-    100102: JtIndexCLf
-    100104: JtIndexCRt
-    100106: JtIndexDLf
-    100108: JtIndexDRt
-    100110: JtJaw
-    100112: JtJawBack
-    100114: JtJawFront
-    100116: JtKneeLf
-    100118: JtKneeRt
-    100120: JtLipCornerLf
-    100122: JtLipCornerRt
-    100124: JtLipLowerLf
-    100126: JtLipLowerMid
-    100128: JtLipLowerRt
-    100130: JtLipUpperLf
-    100132: JtLipUpperMid
-    100134: JtLipUpperRt
-    100136: JtLittleALf
-    100138: JtLittleARt
-    100140: JtLittleBLf
-    100142: JtLittleBRt
-    100144: JtLittleCLf
-    100146: JtLittleCRt
-    100148: JtLittleDLf
-    100150: JtLittleDRt
-    100152: JtLowerFaceParent
-    100154: JtLowerNoseLf
-    100156: JtLowerNoseRt
-    100158: JtMiddleALf
-    100160: JtMiddleARt
-    100162: JtMiddleBLf
-    100164: JtMiddleBRt
-    100166: JtMiddleCLf
-    100168: JtMiddleCRt
-    100170: JtMiddleDLf
-    100172: JtMiddleDRt
-    100174: JtNeckA
-    100176: JtNeckB
-    100178: JtPelvis
-    100180: JtRingALf
-    100182: JtRingARt
-    100184: JtRingBLf
-    100186: JtRingBRt
-    100188: JtRingCLf
-    100190: JtRingCRt
-    100192: JtRingDLf
-    100194: JtRingDRt
-    100196: JtRoot
-    100198: JtShoulderLf
-    100200: JtShoulderRt
-    100202: JtSkullA
-    100204: JtSkullB
-    100206: JtSpineA
-    100208: JtSpineB
-    100210: JtSpineC
-    100212: JtThumbALf
-    100214: JtThumbARt
-    100216: JtThumbBLf
-    100218: JtThumbBRt
-    100220: JtThumbCLf
-    100222: JtThumbCRt
-    100224: JtThumbDLf
-    100226: JtThumbDRt
-    100228: JtToeLf
-    100230: JtToeRt
-    100232: JtTongueA
-    100234: JtTongueB
-    100236: JtTongueC
-    100238: JtUpperArmTwistALf
-    100240: JtUpperArmTwistARt
-    100242: JtUpperArmTwistBLf
-    100244: JtUpperArmTwistBRt
-    100246: JtUpperFaceParent
-    100248: JtUpperNoseLf
-    100250: JtUpperNoseRt
-    100252: JtWristLf
-    100254: JtWristRt
-    100256: L_Eye
-    100258: L_EyeShell
-    100260: LowerTeeth
-    100262: Mesh
-    100264: MshRef
-    100266: polySurface1
-    100268: polySurface10
-    100270: polySurface11
-    100272: polySurface12
-    100274: polySurface13
-    100276: polySurface14
-    100278: polySurface15
-    100280: polySurface16
-    100282: polySurface17
-    100284: polySurface18
-    100286: polySurface19
-    100288: polySurface2
-    100290: polySurface20
-    100292: polySurface21
-    100294: polySurface22
-    100296: polySurface23
-    100298: polySurface24
-    100300: polySurface25
-    100302: polySurface26
-    100304: polySurface27
-    100306: polySurface28
-    100308: polySurface29
-    100310: polySurface3
-    100312: polySurface30
-    100314: polySurface31
-    100316: polySurface32
-    100318: polySurface33
-    100320: polySurface34
-    100322: polySurface35
-    100324: polySurface36
-    100326: polySurface37
-    100328: polySurface38
-    100330: polySurface39
-    100332: polySurface4
-    100334: polySurface40
-    100336: polySurface41
-    100338: polySurface42
-    100340: polySurface43
-    100342: polySurface44
-    100344: polySurface45
-    100346: polySurface46
-    100348: polySurface47
-    100350: polySurface48
-    100352: polySurface49
-    100354: polySurface5
-    100356: polySurface50
-    100358: polySurface51
-    100360: polySurface52
-    100362: polySurface53
-    100364: polySurface54
-    100366: polySurface55
-    100368: polySurface56
-    100370: polySurface57
-    100372: polySurface58
-    100374: polySurface59
-    100376: polySurface6
-    100378: polySurface60
-    100380: polySurface61
-    100382: polySurface62
-    100384: polySurface63
-    100386: polySurface64
-    100388: polySurface65
-    100390: polySurface66
-    100392: polySurface67
-    100394: polySurface68
-    100396: polySurface69
-    100398: polySurface7
-    100400: polySurface70
-    100402: polySurface71
-    100404: polySurface72
-    100406: polySurface73
-    100408: polySurface74
-    100410: polySurface75
-    100412: polySurface76
-    100414: polySurface77
-    100416: polySurface78
-    100418: polySurface79
-    100420: polySurface8
-    100422: polySurface80
-    100424: polySurface81
-    100426: polySurface82
-    100428: polySurface83
-    100430: polySurface84
-    100432: polySurface85
-    100434: polySurface86
-    100436: polySurface87
-    100438: polySurface88
-    100440: polySurface89
-    100442: polySurface9
-    100444: polySurface90
-    100446: polySurface91
-    100448: R_Eye
-    100450: R_EyeShell
-    100452: SkinnedMesh
-    100454: Tongue
-    100456: UpperTeeth
-    100458: _IctSettings_
-    100460: ChrDefSettings
-    100462: PndMorphTargetCollectorNode
-    100464: JtChest
-    100466: JtEyeLeafLf
-    100468: JtEyeLeafRt
-    100470: JtHead
-    100472: JtHeadLeaf
-    100474: JtJawLeaf
-    100476: JtNeck
-    100478: JtSpine
-    100480: Arms
-    100482: EyeballLf
-    100484: EyeballRt
-    100486: EyeShadowLf
-    100488: EyeShadowRt
-    100490: EyeShellLf
-    100492: EyeShellRt
-    100494: Head
-    100496: Lowerbody
-    100498: Upperbody
-    100500: JtCheekLowerJawRotLf
-    100502: JtCheekLowerJawRotRt
-    100504: JtEyebrowParentLf
-    100506: JtEyebrowParentRt
-    100508: JtEyelidLowerSecondaryLf
-    100510: JtEyelidLowerSecondaryRt
-    100512: JtEyelidLowerSoftLf
-    100514: JtEyelidLowerSoftRt
-    100516: JtEyelidUpperSecondaryLf
-    100518: JtEyelidUpperSecondaryRt
-    100520: JtEyelidUpperSoftLf
-    100522: JtEyelidUpperSoftRt
-    100524: JtForeArmTwistALf
-    100526: JtForeArmTwistARt
-    100528: JtForeArmTwistBLf
-    100530: JtForeArmTwistBRt
-    100532: JtLipCornerJawRotLf
-    100534: JtLipCornerJawRotRt
-    100536: JtLipLower01JawRotLf
-    100538: JtLipLower01JawRotRt
-    100540: JtLipLower01Lf
-    100542: JtLipLower01Rt
-    100544: JtLipLower02JawRotLf
-    100546: JtLipLower02JawRotRt
-    100548: JtLipLower02Lf
-    100550: JtLipLower02Rt
-    100552: JtLipLower03JawRotLf
-    100554: JtLipLower03JawRotRt
-    100556: JtLipLower03Lf
-    100558: JtLipLower03Rt
-    100560: JtLipLowerMidJawRot
-    100562: JtLipRoot
-    100564: JtLipUpper01JawRotLf
-    100566: JtLipUpper01JawRotRt
-    100568: JtLipUpper01Lf
-    100570: JtLipUpper01Rt
-    100572: JtLipUpper02JawRotLf
-    100574: JtLipUpper02JawRotRt
-    100576: JtLipUpper02Lf
-    100578: JtLipUpper02Rt
-    100580: JtLipUpper03JawRotLf
-    100582: JtLipUpper03JawRotRt
-    100584: JtLipUpper03Lf
-    100586: JtLipUpper03Rt
-    100588: JtLipUpperMidJawRot
-    100590: JtNoseLowerLf
-    100592: JtNoseLowerRt
-    100594: JtNoseUpperLf
-    100596: JtNoseUpperRt
-    100598: JtUpperArmTwistCLf
-    100600: JtUpperArmTwistCRt
-    100602: Eyelashes
-    100604: EyeShadows
-    100606: Mesh1
-    100608: Watch
-    400000: Body
-    400002: CharacterRoot
-    400004: //RootNode
-    400006: EyelashLfBottom
-    400008: EyelashLfTop
-    400010: EyelashRtBottom
-    400012: EyelashRtTop
-    400014: Hair
-    400016: IctUnitySettings
-    400018: JtAnkleLf
-    400020: JtAnkleRt
-    400022: JtBallLf
-    400024: JtBallRt
-    400026: JtBrowParentLf
-    400028: JtBrowParentRt
-    400030: JtCheekLowerLf
-    400032: JtCheekLowerRt
-    400034: JtCheekUpperLf
-    400036: JtCheekUpperRt
-    400038: JtClavicleLf
-    400040: JtClavicleRt
-    400042: JtEarLf
-    400044: JtEarRt
-    400046: JtElbowLf
-    400048: JtElbowRt
-    400050: JtEyebrow01Lf
-    400052: JtEyebrow01Rt
-    400054: JtEyebrow02Lf
-    400056: JtEyebrow02Rt
-    400058: JtEyebrow03Lf
-    400060: JtEyebrow03Rt
-    400062: JtEyebrow04Lf
-    400064: JtEyebrow04Rt
-    400066: JtEyeLf
-    400068: JtEyelidLowerLf
-    400070: JtEyelidLowerRt
-    400072: JtEyelidUpperLf
-    400074: JtEyelidUpperRt
-    400076: JtEyeRt
-    400078: JtForearmTwistALf
-    400080: JtForearmTwistARt
-    400082: JtForearmTwistBLf
-    400084: JtForearmTwistBRt
-    400086: JtHeelLf
-    400088: JtHeelRt
-    400090: JtHipLf
-    400092: JtHipRt
-    400094: JtIndexALf
-    400096: JtIndexARt
-    400098: JtIndexBLf
-    400100: JtIndexBRt
-    400102: JtIndexCLf
-    400104: JtIndexCRt
-    400106: JtIndexDLf
-    400108: JtIndexDRt
-    400110: JtJaw
-    400112: JtJawBack
-    400114: JtJawFront
-    400116: JtKneeLf
-    400118: JtKneeRt
-    400120: JtLipCornerLf
-    400122: JtLipCornerRt
-    400124: JtLipLowerLf
-    400126: JtLipLowerMid
-    400128: JtLipLowerRt
-    400130: JtLipUpperLf
-    400132: JtLipUpperMid
-    400134: JtLipUpperRt
-    400136: JtLittleALf
-    400138: JtLittleARt
-    400140: JtLittleBLf
-    400142: JtLittleBRt
-    400144: JtLittleCLf
-    400146: JtLittleCRt
-    400148: JtLittleDLf
-    400150: JtLittleDRt
-    400152: JtLowerFaceParent
-    400154: JtLowerNoseLf
-    400156: JtLowerNoseRt
-    400158: JtMiddleALf
-    400160: JtMiddleARt
-    400162: JtMiddleBLf
-    400164: JtMiddleBRt
-    400166: JtMiddleCLf
-    400168: JtMiddleCRt
-    400170: JtMiddleDLf
-    400172: JtMiddleDRt
-    400174: JtNeckA
-    400176: JtNeckB
-    400178: JtPelvis
-    400180: JtRingALf
-    400182: JtRingARt
-    400184: JtRingBLf
-    400186: JtRingBRt
-    400188: JtRingCLf
-    400190: JtRingCRt
-    400192: JtRingDLf
-    400194: JtRingDRt
-    400196: JtRoot
-    400198: JtShoulderLf
-    400200: JtShoulderRt
-    400202: JtSkullA
-    400204: JtSkullB
-    400206: JtSpineA
-    400208: JtSpineB
-    400210: JtSpineC
-    400212: JtThumbALf
-    400214: JtThumbARt
-    400216: JtThumbBLf
-    400218: JtThumbBRt
-    400220: JtThumbCLf
-    400222: JtThumbCRt
-    400224: JtThumbDLf
-    400226: JtThumbDRt
-    400228: JtToeLf
-    400230: JtToeRt
-    400232: JtTongueA
-    400234: JtTongueB
-    400236: JtTongueC
-    400238: JtUpperArmTwistALf
-    400240: JtUpperArmTwistARt
-    400242: JtUpperArmTwistBLf
-    400244: JtUpperArmTwistBRt
-    400246: JtUpperFaceParent
-    400248: JtUpperNoseLf
-    400250: JtUpperNoseRt
-    400252: JtWristLf
-    400254: JtWristRt
-    400256: L_Eye
-    400258: L_EyeShell
-    400260: LowerTeeth
-    400262: Mesh
-    400264: MshRef
-    400266: polySurface1
-    400268: polySurface10
-    400270: polySurface11
-    400272: polySurface12
-    400274: polySurface13
-    400276: polySurface14
-    400278: polySurface15
-    400280: polySurface16
-    400282: polySurface17
-    400284: polySurface18
-    400286: polySurface19
-    400288: polySurface2
-    400290: polySurface20
-    400292: polySurface21
-    400294: polySurface22
-    400296: polySurface23
-    400298: polySurface24
-    400300: polySurface25
-    400302: polySurface26
-    400304: polySurface27
-    400306: polySurface28
-    400308: polySurface29
-    400310: polySurface3
-    400312: polySurface30
-    400314: polySurface31
-    400316: polySurface32
-    400318: polySurface33
-    400320: polySurface34
-    400322: polySurface35
-    400324: polySurface36
-    400326: polySurface37
-    400328: polySurface38
-    400330: polySurface39
-    400332: polySurface4
-    400334: polySurface40
-    400336: polySurface41
-    400338: polySurface42
-    400340: polySurface43
-    400342: polySurface44
-    400344: polySurface45
-    400346: polySurface46
-    400348: polySurface47
-    400350: polySurface48
-    400352: polySurface49
-    400354: polySurface5
-    400356: polySurface50
-    400358: polySurface51
-    400360: polySurface52
-    400362: polySurface53
-    400364: polySurface54
-    400366: polySurface55
-    400368: polySurface56
-    400370: polySurface57
-    400372: polySurface58
-    400374: polySurface59
-    400376: polySurface6
-    400378: polySurface60
-    400380: polySurface61
-    400382: polySurface62
-    400384: polySurface63
-    400386: polySurface64
-    400388: polySurface65
-    400390: polySurface66
-    400392: polySurface67
-    400394: polySurface68
-    400396: polySurface69
-    400398: polySurface7
-    400400: polySurface70
-    400402: polySurface71
-    400404: polySurface72
-    400406: polySurface73
-    400408: polySurface74
-    400410: polySurface75
-    400412: polySurface76
-    400414: polySurface77
-    400416: polySurface78
-    400418: polySurface79
-    400420: polySurface8
-    400422: polySurface80
-    400424: polySurface81
-    400426: polySurface82
-    400428: polySurface83
-    400430: polySurface84
-    400432: polySurface85
-    400434: polySurface86
-    400436: polySurface87
-    400438: polySurface88
-    400440: polySurface89
-    400442: polySurface9
-    400444: polySurface90
-    400446: polySurface91
-    400448: R_Eye
-    400450: R_EyeShell
-    400452: SkinnedMesh
-    400454: Tongue
-    400456: UpperTeeth
-    400458: _IctSettings_
-    400460: ChrDefSettings
-    400462: PndMorphTargetCollectorNode
-    400464: JtChest
-    400466: JtEyeLeafLf
-    400468: JtEyeLeafRt
-    400470: JtHead
-    400472: JtHeadLeaf
-    400474: JtJawLeaf
-    400476: JtNeck
-    400478: JtSpine
-    400480: Arms
-    400482: EyeballLf
-    400484: EyeballRt
-    400486: EyeShadowLf
-    400488: EyeShadowRt
-    400490: EyeShellLf
-    400492: EyeShellRt
-    400494: Head
-    400496: Lowerbody
-    400498: Upperbody
-    400500: JtCheekLowerJawRotLf
-    400502: JtCheekLowerJawRotRt
-    400504: JtEyebrowParentLf
-    400506: JtEyebrowParentRt
-    400508: JtEyelidLowerSecondaryLf
-    400510: JtEyelidLowerSecondaryRt
-    400512: JtEyelidLowerSoftLf
-    400514: JtEyelidLowerSoftRt
-    400516: JtEyelidUpperSecondaryLf
-    400518: JtEyelidUpperSecondaryRt
-    400520: JtEyelidUpperSoftLf
-    400522: JtEyelidUpperSoftRt
-    400524: JtForeArmTwistALf
-    400526: JtForeArmTwistARt
-    400528: JtForeArmTwistBLf
-    400530: JtForeArmTwistBRt
-    400532: JtLipCornerJawRotLf
-    400534: JtLipCornerJawRotRt
-    400536: JtLipLower01JawRotLf
-    400538: JtLipLower01JawRotRt
-    400540: JtLipLower01Lf
-    400542: JtLipLower01Rt
-    400544: JtLipLower02JawRotLf
-    400546: JtLipLower02JawRotRt
-    400548: JtLipLower02Lf
-    400550: JtLipLower02Rt
-    400552: JtLipLower03JawRotLf
-    400554: JtLipLower03JawRotRt
-    400556: JtLipLower03Lf
-    400558: JtLipLower03Rt
-    400560: JtLipLowerMidJawRot
-    400562: JtLipRoot
-    400564: JtLipUpper01JawRotLf
-    400566: JtLipUpper01JawRotRt
-    400568: JtLipUpper01Lf
-    400570: JtLipUpper01Rt
-    400572: JtLipUpper02JawRotLf
-    400574: JtLipUpper02JawRotRt
-    400576: JtLipUpper02Lf
-    400578: JtLipUpper02Rt
-    400580: JtLipUpper03JawRotLf
-    400582: JtLipUpper03JawRotRt
-    400584: JtLipUpper03Lf
-    400586: JtLipUpper03Rt
-    400588: JtLipUpperMidJawRot
-    400590: JtNoseLowerLf
-    400592: JtNoseLowerRt
-    400594: JtNoseUpperLf
-    400596: JtNoseUpperRt
-    400598: JtUpperArmTwistCLf
-    400600: JtUpperArmTwistCRt
-    400602: Eyelashes
-    400604: EyeShadows
-    400606: Mesh1
-    400608: Watch
-    4300000: UpperTeeth
-    4300002: LowerTeeth
-    4300004: Tongue
-    4300006: L_Eye
-    4300008: R_Eye
-    4300010: L_EyeShell
-    4300012: R_EyeShell
-    4300014: Body
-    4300016: EyelashRtBottom
-    4300018: EyelashRtTop
-    4300020: EyelashLfBottom
-    4300022: EyelashLfTop
-    4300024: polySurface1
-    4300026: polySurface2
-    4300028: polySurface3
-    4300030: polySurface4
-    4300032: polySurface5
-    4300034: polySurface6
-    4300036: polySurface7
-    4300038: polySurface8
-    4300040: polySurface9
-    4300042: polySurface10
-    4300044: polySurface11
-    4300046: polySurface12
-    4300048: polySurface13
-    4300050: polySurface14
-    4300052: polySurface15
-    4300054: polySurface16
-    4300056: polySurface17
-    4300058: polySurface18
-    4300060: polySurface19
-    4300062: polySurface20
-    4300064: polySurface21
-    4300066: polySurface22
-    4300068: polySurface23
-    4300070: polySurface24
-    4300072: polySurface25
-    4300074: polySurface26
-    4300076: polySurface27
-    4300078: polySurface28
-    4300080: polySurface29
-    4300082: polySurface30
-    4300084: polySurface31
-    4300086: polySurface32
-    4300088: polySurface33
-    4300090: polySurface34
-    4300092: polySurface35
-    4300094: polySurface36
-    4300096: polySurface37
-    4300098: polySurface38
-    4300100: polySurface39
-    4300102: polySurface40
-    4300104: polySurface41
-    4300106: polySurface42
-    4300108: polySurface43
-    4300110: polySurface44
-    4300112: polySurface45
-    4300114: polySurface46
-    4300116: polySurface47
-    4300118: polySurface48
-    4300120: polySurface49
-    4300122: polySurface50
-    4300124: polySurface51
-    4300126: polySurface52
-    4300128: polySurface53
-    4300130: polySurface54
-    4300132: polySurface55
-    4300134: polySurface56
-    4300136: polySurface57
-    4300138: polySurface58
-    4300140: polySurface59
-    4300142: polySurface60
-    4300144: polySurface61
-    4300146: polySurface62
-    4300148: polySurface63
-    4300150: polySurface64
-    4300152: polySurface65
-    4300154: polySurface66
-    4300156: polySurface67
-    4300158: polySurface68
-    4300160: polySurface69
-    4300162: polySurface70
-    4300164: polySurface71
-    4300166: polySurface72
-    4300168: polySurface73
-    4300170: polySurface74
-    4300172: polySurface75
-    4300174: polySurface76
-    4300176: polySurface77
-    4300178: polySurface78
-    4300180: polySurface79
-    4300182: polySurface80
-    4300184: polySurface81
-    4300186: polySurface82
-    4300188: polySurface83
-    4300190: polySurface84
-    4300192: polySurface85
-    4300194: polySurface86
-    4300196: polySurface87
-    4300198: polySurface88
-    4300200: polySurface89
-    4300202: polySurface90
-    4300204: polySurface91
-    4300206: Arms
-    4300208: Lowerbody
-    4300210: Upperbody
-    4300212: Head
-    4300214: Hair
-    4300216: EyeShadowRt
-    4300218: EyeShadowLf
-    4300220: EyeballRt
-    4300222: EyeballLf
-    4300224: EyeShellRt
-    4300226: EyeShellLf
-    4300228: Eyelashes
-    4300230: EyeShadows
-    4300232: Watch
-    9500000: //RootNode
-    11400000: JtAnkleLf
-    11400002: JtAnkleRt
-    11400004: JtBallLf
-    11400006: JtBallRt
-    11400008: JtCheekLowerLf
-    11400010: JtCheekLowerRt
-    11400012: JtCheekUpperLf
-    11400014: JtCheekUpperRt
-    11400016: JtClavicleLf
-    11400018: JtClavicleRt
-    11400020: JtEarLf
-    11400022: JtEarRt
-    11400024: JtElbowLf
-    11400026: JtElbowRt
-    11400028: JtEyebrow01Lf
-    11400030: JtEyebrow01Rt
-    11400032: JtEyebrow02Lf
-    11400034: JtEyebrow02Rt
-    11400036: JtEyebrow03Lf
-    11400038: JtEyebrow03Rt
-    11400040: JtEyebrow04Lf
-    11400042: JtEyebrow04Rt
-    11400044: JtEyeLf
-    11400046: JtEyelidLowerLf
-    11400048: JtEyelidLowerRt
-    11400050: JtEyelidUpperLf
-    11400052: JtEyelidUpperRt
-    11400054: JtEyeRt
-    11400056: JtForearmTwistALf
-    11400058: JtForearmTwistARt
-    11400060: JtForearmTwistBLf
-    11400062: JtForearmTwistBRt
-    11400064: JtHipLf
-    11400066: JtHipRt
-    11400068: JtIndexALf
-    11400070: JtIndexARt
-    11400072: JtIndexBLf
-    11400074: JtIndexBRt
-    11400076: JtIndexCLf
-    11400078: JtIndexCRt
-    11400080: JtJaw
-    11400082: JtKneeLf
-    11400084: JtKneeRt
-    11400086: JtLipCornerLf
-    11400088: JtLipCornerRt
-    11400090: JtLipLowerLf
-    11400092: JtLipLowerMid
-    11400094: JtLipLowerRt
-    11400096: JtLipUpperLf
-    11400098: JtLipUpperMid
-    11400100: JtLipUpperRt
-    11400102: JtLittleALf
-    11400104: JtLittleARt
-    11400106: JtLittleBLf
-    11400108: JtLittleBRt
-    11400110: JtLittleCLf
-    11400112: JtLittleCRt
-    11400114: JtLowerNoseLf
-    11400116: JtLowerNoseRt
-    11400118: JtMiddleALf
-    11400120: JtMiddleARt
-    11400122: JtMiddleBLf
-    11400124: JtMiddleBRt
-    11400126: JtMiddleCLf
-    11400128: JtMiddleCRt
-    11400130: JtNeckA
-    11400132: JtNeckB
-    11400134: JtRingALf
-    11400136: JtRingARt
-    11400138: JtRingBLf
-    11400140: JtRingBRt
-    11400142: JtRingCLf
-    11400144: JtRingCRt
-    11400146: JtRoot
-    11400148: JtShoulderLf
-    11400150: JtShoulderRt
-    11400152: JtSkullA
-    11400154: JtSpineA
-    11400156: JtSpineB
-    11400158: JtSpineC
-    11400160: JtThumbALf
-    11400162: JtThumbARt
-    11400164: JtThumbBLf
-    11400166: JtThumbBRt
-    11400168: JtThumbCLf
-    11400170: JtThumbCRt
-    11400172: JtToeLf
-    11400174: JtToeRt
-    11400176: JtTongueA
-    11400178: JtTongueB
-    11400180: JtTongueC
-    11400182: JtUpperArmTwistALf
-    11400184: JtUpperArmTwistARt
-    11400186: JtUpperArmTwistBLf
-    11400188: JtUpperArmTwistBRt
-    11400190: JtUpperNoseLf
-    11400192: JtUpperNoseRt
-    11400194: JtWristLf
-    11400196: JtWristRt
-    13700000: Body
-    13700002: EyelashLfBottom
-    13700004: EyelashLfTop
-    13700006: EyelashRtBottom
-    13700008: EyelashRtTop
-    13700010: L_Eye
-    13700012: L_EyeShell
-    13700014: LowerTeeth
-    13700016: polySurface1
-    13700018: polySurface10
-    13700020: polySurface11
-    13700022: polySurface12
-    13700024: polySurface13
-    13700026: polySurface14
-    13700028: polySurface15
-    13700030: polySurface16
-    13700032: polySurface17
-    13700034: polySurface18
-    13700036: polySurface19
-    13700038: polySurface2
-    13700040: polySurface20
-    13700042: polySurface21
-    13700044: polySurface22
-    13700046: polySurface23
-    13700048: polySurface24
-    13700050: polySurface25
-    13700052: polySurface26
-    13700054: polySurface27
-    13700056: polySurface28
-    13700058: polySurface29
-    13700060: polySurface3
-    13700062: polySurface30
-    13700064: polySurface31
-    13700066: polySurface32
-    13700068: polySurface33
-    13700070: polySurface34
-    13700072: polySurface35
-    13700074: polySurface36
-    13700076: polySurface37
-    13700078: polySurface38
-    13700080: polySurface39
-    13700082: polySurface4
-    13700084: polySurface40
-    13700086: polySurface41
-    13700088: polySurface42
-    13700090: polySurface43
-    13700092: polySurface44
-    13700094: polySurface45
-    13700096: polySurface46
-    13700098: polySurface47
-    13700100: polySurface48
-    13700102: polySurface49
-    13700104: polySurface5
-    13700106: polySurface50
-    13700108: polySurface51
-    13700110: polySurface52
-    13700112: polySurface53
-    13700114: polySurface54
-    13700116: polySurface55
-    13700118: polySurface56
-    13700120: polySurface57
-    13700122: polySurface58
-    13700124: polySurface59
-    13700126: polySurface6
-    13700128: polySurface60
-    13700130: polySurface61
-    13700132: polySurface62
-    13700134: polySurface63
-    13700136: polySurface64
-    13700138: polySurface65
-    13700140: polySurface66
-    13700142: polySurface67
-    13700144: polySurface68
-    13700146: polySurface69
-    13700148: polySurface7
-    13700150: polySurface70
-    13700152: polySurface71
-    13700154: polySurface72
-    13700156: polySurface73
-    13700158: polySurface74
-    13700160: polySurface75
-    13700162: polySurface76
-    13700164: polySurface77
-    13700166: polySurface78
-    13700168: polySurface79
-    13700170: polySurface8
-    13700172: polySurface80
-    13700174: polySurface81
-    13700176: polySurface82
-    13700178: polySurface83
-    13700180: polySurface84
-    13700182: polySurface85
-    13700184: polySurface86
-    13700186: polySurface87
-    13700188: polySurface88
-    13700190: polySurface89
-    13700192: polySurface9
-    13700194: polySurface90
-    13700196: polySurface91
-    13700198: R_Eye
-    13700200: R_EyeShell
-    13700202: Tongue
-    13700204: UpperTeeth
-    13700206: Arms
-    13700208: EyeballLf
-    13700210: EyeballRt
-    13700212: EyeShadowLf
-    13700214: EyeShadowRt
-    13700216: EyeShellLf
-    13700218: EyeShellRt
-    13700220: Hair
-    13700222: Head
-    13700224: Lowerbody
-    13700226: Upperbody
-    13700228: Eyelashes
-    13700230: EyeShadows
-    13700232: Watch
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Body
+  - first:
+      1: 100002
+    second: CharacterRoot
+  - first:
+      1: 100004
+    second: //RootNode
+  - first:
+      1: 100006
+    second: EyelashLfBottom
+  - first:
+      1: 100008
+    second: EyelashLfTop
+  - first:
+      1: 100010
+    second: EyelashRtBottom
+  - first:
+      1: 100012
+    second: EyelashRtTop
+  - first:
+      1: 100014
+    second: Hair
+  - first:
+      1: 100016
+    second: IctUnitySettings
+  - first:
+      1: 100018
+    second: JtAnkleLf
+  - first:
+      1: 100020
+    second: JtAnkleRt
+  - first:
+      1: 100022
+    second: JtBallLf
+  - first:
+      1: 100024
+    second: JtBallRt
+  - first:
+      1: 100026
+    second: JtBrowParentLf
+  - first:
+      1: 100028
+    second: JtBrowParentRt
+  - first:
+      1: 100030
+    second: JtCheekLowerLf
+  - first:
+      1: 100032
+    second: JtCheekLowerRt
+  - first:
+      1: 100034
+    second: JtCheekUpperLf
+  - first:
+      1: 100036
+    second: JtCheekUpperRt
+  - first:
+      1: 100038
+    second: JtClavicleLf
+  - first:
+      1: 100040
+    second: JtClavicleRt
+  - first:
+      1: 100042
+    second: JtEarLf
+  - first:
+      1: 100044
+    second: JtEarRt
+  - first:
+      1: 100046
+    second: JtElbowLf
+  - first:
+      1: 100048
+    second: JtElbowRt
+  - first:
+      1: 100050
+    second: JtEyebrow01Lf
+  - first:
+      1: 100052
+    second: JtEyebrow01Rt
+  - first:
+      1: 100054
+    second: JtEyebrow02Lf
+  - first:
+      1: 100056
+    second: JtEyebrow02Rt
+  - first:
+      1: 100058
+    second: JtEyebrow03Lf
+  - first:
+      1: 100060
+    second: JtEyebrow03Rt
+  - first:
+      1: 100062
+    second: JtEyebrow04Lf
+  - first:
+      1: 100064
+    second: JtEyebrow04Rt
+  - first:
+      1: 100066
+    second: JtEyeLf
+  - first:
+      1: 100068
+    second: JtEyelidLowerLf
+  - first:
+      1: 100070
+    second: JtEyelidLowerRt
+  - first:
+      1: 100072
+    second: JtEyelidUpperLf
+  - first:
+      1: 100074
+    second: JtEyelidUpperRt
+  - first:
+      1: 100076
+    second: JtEyeRt
+  - first:
+      1: 100078
+    second: JtForearmTwistALf
+  - first:
+      1: 100080
+    second: JtForearmTwistARt
+  - first:
+      1: 100082
+    second: JtForearmTwistBLf
+  - first:
+      1: 100084
+    second: JtForearmTwistBRt
+  - first:
+      1: 100086
+    second: JtHeelLf
+  - first:
+      1: 100088
+    second: JtHeelRt
+  - first:
+      1: 100090
+    second: JtHipLf
+  - first:
+      1: 100092
+    second: JtHipRt
+  - first:
+      1: 100094
+    second: JtIndexALf
+  - first:
+      1: 100096
+    second: JtIndexARt
+  - first:
+      1: 100098
+    second: JtIndexBLf
+  - first:
+      1: 100100
+    second: JtIndexBRt
+  - first:
+      1: 100102
+    second: JtIndexCLf
+  - first:
+      1: 100104
+    second: JtIndexCRt
+  - first:
+      1: 100106
+    second: JtIndexDLf
+  - first:
+      1: 100108
+    second: JtIndexDRt
+  - first:
+      1: 100110
+    second: JtJaw
+  - first:
+      1: 100112
+    second: JtJawBack
+  - first:
+      1: 100114
+    second: JtJawFront
+  - first:
+      1: 100116
+    second: JtKneeLf
+  - first:
+      1: 100118
+    second: JtKneeRt
+  - first:
+      1: 100120
+    second: JtLipCornerLf
+  - first:
+      1: 100122
+    second: JtLipCornerRt
+  - first:
+      1: 100124
+    second: JtLipLowerLf
+  - first:
+      1: 100126
+    second: JtLipLowerMid
+  - first:
+      1: 100128
+    second: JtLipLowerRt
+  - first:
+      1: 100130
+    second: JtLipUpperLf
+  - first:
+      1: 100132
+    second: JtLipUpperMid
+  - first:
+      1: 100134
+    second: JtLipUpperRt
+  - first:
+      1: 100136
+    second: JtLittleALf
+  - first:
+      1: 100138
+    second: JtLittleARt
+  - first:
+      1: 100140
+    second: JtLittleBLf
+  - first:
+      1: 100142
+    second: JtLittleBRt
+  - first:
+      1: 100144
+    second: JtLittleCLf
+  - first:
+      1: 100146
+    second: JtLittleCRt
+  - first:
+      1: 100148
+    second: JtLittleDLf
+  - first:
+      1: 100150
+    second: JtLittleDRt
+  - first:
+      1: 100152
+    second: JtLowerFaceParent
+  - first:
+      1: 100154
+    second: JtLowerNoseLf
+  - first:
+      1: 100156
+    second: JtLowerNoseRt
+  - first:
+      1: 100158
+    second: JtMiddleALf
+  - first:
+      1: 100160
+    second: JtMiddleARt
+  - first:
+      1: 100162
+    second: JtMiddleBLf
+  - first:
+      1: 100164
+    second: JtMiddleBRt
+  - first:
+      1: 100166
+    second: JtMiddleCLf
+  - first:
+      1: 100168
+    second: JtMiddleCRt
+  - first:
+      1: 100170
+    second: JtMiddleDLf
+  - first:
+      1: 100172
+    second: JtMiddleDRt
+  - first:
+      1: 100174
+    second: JtNeckA
+  - first:
+      1: 100176
+    second: JtNeckB
+  - first:
+      1: 100178
+    second: JtPelvis
+  - first:
+      1: 100180
+    second: JtRingALf
+  - first:
+      1: 100182
+    second: JtRingARt
+  - first:
+      1: 100184
+    second: JtRingBLf
+  - first:
+      1: 100186
+    second: JtRingBRt
+  - first:
+      1: 100188
+    second: JtRingCLf
+  - first:
+      1: 100190
+    second: JtRingCRt
+  - first:
+      1: 100192
+    second: JtRingDLf
+  - first:
+      1: 100194
+    second: JtRingDRt
+  - first:
+      1: 100196
+    second: JtRoot
+  - first:
+      1: 100198
+    second: JtShoulderLf
+  - first:
+      1: 100200
+    second: JtShoulderRt
+  - first:
+      1: 100202
+    second: JtSkullA
+  - first:
+      1: 100204
+    second: JtSkullB
+  - first:
+      1: 100206
+    second: JtSpineA
+  - first:
+      1: 100208
+    second: JtSpineB
+  - first:
+      1: 100210
+    second: JtSpineC
+  - first:
+      1: 100212
+    second: JtThumbALf
+  - first:
+      1: 100214
+    second: JtThumbARt
+  - first:
+      1: 100216
+    second: JtThumbBLf
+  - first:
+      1: 100218
+    second: JtThumbBRt
+  - first:
+      1: 100220
+    second: JtThumbCLf
+  - first:
+      1: 100222
+    second: JtThumbCRt
+  - first:
+      1: 100224
+    second: JtThumbDLf
+  - first:
+      1: 100226
+    second: JtThumbDRt
+  - first:
+      1: 100228
+    second: JtToeLf
+  - first:
+      1: 100230
+    second: JtToeRt
+  - first:
+      1: 100232
+    second: JtTongueA
+  - first:
+      1: 100234
+    second: JtTongueB
+  - first:
+      1: 100236
+    second: JtTongueC
+  - first:
+      1: 100238
+    second: JtUpperArmTwistALf
+  - first:
+      1: 100240
+    second: JtUpperArmTwistARt
+  - first:
+      1: 100242
+    second: JtUpperArmTwistBLf
+  - first:
+      1: 100244
+    second: JtUpperArmTwistBRt
+  - first:
+      1: 100246
+    second: JtUpperFaceParent
+  - first:
+      1: 100248
+    second: JtUpperNoseLf
+  - first:
+      1: 100250
+    second: JtUpperNoseRt
+  - first:
+      1: 100252
+    second: JtWristLf
+  - first:
+      1: 100254
+    second: JtWristRt
+  - first:
+      1: 100256
+    second: L_Eye
+  - first:
+      1: 100258
+    second: L_EyeShell
+  - first:
+      1: 100260
+    second: LowerTeeth
+  - first:
+      1: 100262
+    second: Mesh
+  - first:
+      1: 100264
+    second: MshRef
+  - first:
+      1: 100266
+    second: polySurface1
+  - first:
+      1: 100268
+    second: polySurface10
+  - first:
+      1: 100270
+    second: polySurface11
+  - first:
+      1: 100272
+    second: polySurface12
+  - first:
+      1: 100274
+    second: polySurface13
+  - first:
+      1: 100276
+    second: polySurface14
+  - first:
+      1: 100278
+    second: polySurface15
+  - first:
+      1: 100280
+    second: polySurface16
+  - first:
+      1: 100282
+    second: polySurface17
+  - first:
+      1: 100284
+    second: polySurface18
+  - first:
+      1: 100286
+    second: polySurface19
+  - first:
+      1: 100288
+    second: polySurface2
+  - first:
+      1: 100290
+    second: polySurface20
+  - first:
+      1: 100292
+    second: polySurface21
+  - first:
+      1: 100294
+    second: polySurface22
+  - first:
+      1: 100296
+    second: polySurface23
+  - first:
+      1: 100298
+    second: polySurface24
+  - first:
+      1: 100300
+    second: polySurface25
+  - first:
+      1: 100302
+    second: polySurface26
+  - first:
+      1: 100304
+    second: polySurface27
+  - first:
+      1: 100306
+    second: polySurface28
+  - first:
+      1: 100308
+    second: polySurface29
+  - first:
+      1: 100310
+    second: polySurface3
+  - first:
+      1: 100312
+    second: polySurface30
+  - first:
+      1: 100314
+    second: polySurface31
+  - first:
+      1: 100316
+    second: polySurface32
+  - first:
+      1: 100318
+    second: polySurface33
+  - first:
+      1: 100320
+    second: polySurface34
+  - first:
+      1: 100322
+    second: polySurface35
+  - first:
+      1: 100324
+    second: polySurface36
+  - first:
+      1: 100326
+    second: polySurface37
+  - first:
+      1: 100328
+    second: polySurface38
+  - first:
+      1: 100330
+    second: polySurface39
+  - first:
+      1: 100332
+    second: polySurface4
+  - first:
+      1: 100334
+    second: polySurface40
+  - first:
+      1: 100336
+    second: polySurface41
+  - first:
+      1: 100338
+    second: polySurface42
+  - first:
+      1: 100340
+    second: polySurface43
+  - first:
+      1: 100342
+    second: polySurface44
+  - first:
+      1: 100344
+    second: polySurface45
+  - first:
+      1: 100346
+    second: polySurface46
+  - first:
+      1: 100348
+    second: polySurface47
+  - first:
+      1: 100350
+    second: polySurface48
+  - first:
+      1: 100352
+    second: polySurface49
+  - first:
+      1: 100354
+    second: polySurface5
+  - first:
+      1: 100356
+    second: polySurface50
+  - first:
+      1: 100358
+    second: polySurface51
+  - first:
+      1: 100360
+    second: polySurface52
+  - first:
+      1: 100362
+    second: polySurface53
+  - first:
+      1: 100364
+    second: polySurface54
+  - first:
+      1: 100366
+    second: polySurface55
+  - first:
+      1: 100368
+    second: polySurface56
+  - first:
+      1: 100370
+    second: polySurface57
+  - first:
+      1: 100372
+    second: polySurface58
+  - first:
+      1: 100374
+    second: polySurface59
+  - first:
+      1: 100376
+    second: polySurface6
+  - first:
+      1: 100378
+    second: polySurface60
+  - first:
+      1: 100380
+    second: polySurface61
+  - first:
+      1: 100382
+    second: polySurface62
+  - first:
+      1: 100384
+    second: polySurface63
+  - first:
+      1: 100386
+    second: polySurface64
+  - first:
+      1: 100388
+    second: polySurface65
+  - first:
+      1: 100390
+    second: polySurface66
+  - first:
+      1: 100392
+    second: polySurface67
+  - first:
+      1: 100394
+    second: polySurface68
+  - first:
+      1: 100396
+    second: polySurface69
+  - first:
+      1: 100398
+    second: polySurface7
+  - first:
+      1: 100400
+    second: polySurface70
+  - first:
+      1: 100402
+    second: polySurface71
+  - first:
+      1: 100404
+    second: polySurface72
+  - first:
+      1: 100406
+    second: polySurface73
+  - first:
+      1: 100408
+    second: polySurface74
+  - first:
+      1: 100410
+    second: polySurface75
+  - first:
+      1: 100412
+    second: polySurface76
+  - first:
+      1: 100414
+    second: polySurface77
+  - first:
+      1: 100416
+    second: polySurface78
+  - first:
+      1: 100418
+    second: polySurface79
+  - first:
+      1: 100420
+    second: polySurface8
+  - first:
+      1: 100422
+    second: polySurface80
+  - first:
+      1: 100424
+    second: polySurface81
+  - first:
+      1: 100426
+    second: polySurface82
+  - first:
+      1: 100428
+    second: polySurface83
+  - first:
+      1: 100430
+    second: polySurface84
+  - first:
+      1: 100432
+    second: polySurface85
+  - first:
+      1: 100434
+    second: polySurface86
+  - first:
+      1: 100436
+    second: polySurface87
+  - first:
+      1: 100438
+    second: polySurface88
+  - first:
+      1: 100440
+    second: polySurface89
+  - first:
+      1: 100442
+    second: polySurface9
+  - first:
+      1: 100444
+    second: polySurface90
+  - first:
+      1: 100446
+    second: polySurface91
+  - first:
+      1: 100448
+    second: R_Eye
+  - first:
+      1: 100450
+    second: R_EyeShell
+  - first:
+      1: 100452
+    second: SkinnedMesh
+  - first:
+      1: 100454
+    second: Tongue
+  - first:
+      1: 100456
+    second: UpperTeeth
+  - first:
+      1: 100458
+    second: _IctSettings_
+  - first:
+      1: 100460
+    second: ChrDefSettings
+  - first:
+      1: 100462
+    second: PndMorphTargetCollectorNode
+  - first:
+      1: 100464
+    second: JtChest
+  - first:
+      1: 100466
+    second: JtEyeLeafLf
+  - first:
+      1: 100468
+    second: JtEyeLeafRt
+  - first:
+      1: 100470
+    second: JtHead
+  - first:
+      1: 100472
+    second: JtHeadLeaf
+  - first:
+      1: 100474
+    second: JtJawLeaf
+  - first:
+      1: 100476
+    second: JtNeck
+  - first:
+      1: 100478
+    second: JtSpine
+  - first:
+      1: 100480
+    second: Arms
+  - first:
+      1: 100482
+    second: EyeballLf
+  - first:
+      1: 100484
+    second: EyeballRt
+  - first:
+      1: 100486
+    second: EyeShadowLf
+  - first:
+      1: 100488
+    second: EyeShadowRt
+  - first:
+      1: 100490
+    second: EyeShellLf
+  - first:
+      1: 100492
+    second: EyeShellRt
+  - first:
+      1: 100494
+    second: Head
+  - first:
+      1: 100496
+    second: Lowerbody
+  - first:
+      1: 100498
+    second: Upperbody
+  - first:
+      1: 100500
+    second: JtCheekLowerJawRotLf
+  - first:
+      1: 100502
+    second: JtCheekLowerJawRotRt
+  - first:
+      1: 100504
+    second: JtEyebrowParentLf
+  - first:
+      1: 100506
+    second: JtEyebrowParentRt
+  - first:
+      1: 100508
+    second: JtEyelidLowerSecondaryLf
+  - first:
+      1: 100510
+    second: JtEyelidLowerSecondaryRt
+  - first:
+      1: 100512
+    second: JtEyelidLowerSoftLf
+  - first:
+      1: 100514
+    second: JtEyelidLowerSoftRt
+  - first:
+      1: 100516
+    second: JtEyelidUpperSecondaryLf
+  - first:
+      1: 100518
+    second: JtEyelidUpperSecondaryRt
+  - first:
+      1: 100520
+    second: JtEyelidUpperSoftLf
+  - first:
+      1: 100522
+    second: JtEyelidUpperSoftRt
+  - first:
+      1: 100524
+    second: JtForeArmTwistALf
+  - first:
+      1: 100526
+    second: JtForeArmTwistARt
+  - first:
+      1: 100528
+    second: JtForeArmTwistBLf
+  - first:
+      1: 100530
+    second: JtForeArmTwistBRt
+  - first:
+      1: 100532
+    second: JtLipCornerJawRotLf
+  - first:
+      1: 100534
+    second: JtLipCornerJawRotRt
+  - first:
+      1: 100536
+    second: JtLipLower01JawRotLf
+  - first:
+      1: 100538
+    second: JtLipLower01JawRotRt
+  - first:
+      1: 100540
+    second: JtLipLower01Lf
+  - first:
+      1: 100542
+    second: JtLipLower01Rt
+  - first:
+      1: 100544
+    second: JtLipLower02JawRotLf
+  - first:
+      1: 100546
+    second: JtLipLower02JawRotRt
+  - first:
+      1: 100548
+    second: JtLipLower02Lf
+  - first:
+      1: 100550
+    second: JtLipLower02Rt
+  - first:
+      1: 100552
+    second: JtLipLower03JawRotLf
+  - first:
+      1: 100554
+    second: JtLipLower03JawRotRt
+  - first:
+      1: 100556
+    second: JtLipLower03Lf
+  - first:
+      1: 100558
+    second: JtLipLower03Rt
+  - first:
+      1: 100560
+    second: JtLipLowerMidJawRot
+  - first:
+      1: 100562
+    second: JtLipRoot
+  - first:
+      1: 100564
+    second: JtLipUpper01JawRotLf
+  - first:
+      1: 100566
+    second: JtLipUpper01JawRotRt
+  - first:
+      1: 100568
+    second: JtLipUpper01Lf
+  - first:
+      1: 100570
+    second: JtLipUpper01Rt
+  - first:
+      1: 100572
+    second: JtLipUpper02JawRotLf
+  - first:
+      1: 100574
+    second: JtLipUpper02JawRotRt
+  - first:
+      1: 100576
+    second: JtLipUpper02Lf
+  - first:
+      1: 100578
+    second: JtLipUpper02Rt
+  - first:
+      1: 100580
+    second: JtLipUpper03JawRotLf
+  - first:
+      1: 100582
+    second: JtLipUpper03JawRotRt
+  - first:
+      1: 100584
+    second: JtLipUpper03Lf
+  - first:
+      1: 100586
+    second: JtLipUpper03Rt
+  - first:
+      1: 100588
+    second: JtLipUpperMidJawRot
+  - first:
+      1: 100590
+    second: JtNoseLowerLf
+  - first:
+      1: 100592
+    second: JtNoseLowerRt
+  - first:
+      1: 100594
+    second: JtNoseUpperLf
+  - first:
+      1: 100596
+    second: JtNoseUpperRt
+  - first:
+      1: 100598
+    second: JtUpperArmTwistCLf
+  - first:
+      1: 100600
+    second: JtUpperArmTwistCRt
+  - first:
+      1: 100602
+    second: Eyelashes
+  - first:
+      1: 100604
+    second: EyeShadows
+  - first:
+      1: 100606
+    second: Mesh1
+  - first:
+      1: 100608
+    second: Watch
+  - first:
+      4: 400000
+    second: Body
+  - first:
+      4: 400002
+    second: CharacterRoot
+  - first:
+      4: 400004
+    second: //RootNode
+  - first:
+      4: 400006
+    second: EyelashLfBottom
+  - first:
+      4: 400008
+    second: EyelashLfTop
+  - first:
+      4: 400010
+    second: EyelashRtBottom
+  - first:
+      4: 400012
+    second: EyelashRtTop
+  - first:
+      4: 400014
+    second: Hair
+  - first:
+      4: 400016
+    second: IctUnitySettings
+  - first:
+      4: 400018
+    second: JtAnkleLf
+  - first:
+      4: 400020
+    second: JtAnkleRt
+  - first:
+      4: 400022
+    second: JtBallLf
+  - first:
+      4: 400024
+    second: JtBallRt
+  - first:
+      4: 400026
+    second: JtBrowParentLf
+  - first:
+      4: 400028
+    second: JtBrowParentRt
+  - first:
+      4: 400030
+    second: JtCheekLowerLf
+  - first:
+      4: 400032
+    second: JtCheekLowerRt
+  - first:
+      4: 400034
+    second: JtCheekUpperLf
+  - first:
+      4: 400036
+    second: JtCheekUpperRt
+  - first:
+      4: 400038
+    second: JtClavicleLf
+  - first:
+      4: 400040
+    second: JtClavicleRt
+  - first:
+      4: 400042
+    second: JtEarLf
+  - first:
+      4: 400044
+    second: JtEarRt
+  - first:
+      4: 400046
+    second: JtElbowLf
+  - first:
+      4: 400048
+    second: JtElbowRt
+  - first:
+      4: 400050
+    second: JtEyebrow01Lf
+  - first:
+      4: 400052
+    second: JtEyebrow01Rt
+  - first:
+      4: 400054
+    second: JtEyebrow02Lf
+  - first:
+      4: 400056
+    second: JtEyebrow02Rt
+  - first:
+      4: 400058
+    second: JtEyebrow03Lf
+  - first:
+      4: 400060
+    second: JtEyebrow03Rt
+  - first:
+      4: 400062
+    second: JtEyebrow04Lf
+  - first:
+      4: 400064
+    second: JtEyebrow04Rt
+  - first:
+      4: 400066
+    second: JtEyeLf
+  - first:
+      4: 400068
+    second: JtEyelidLowerLf
+  - first:
+      4: 400070
+    second: JtEyelidLowerRt
+  - first:
+      4: 400072
+    second: JtEyelidUpperLf
+  - first:
+      4: 400074
+    second: JtEyelidUpperRt
+  - first:
+      4: 400076
+    second: JtEyeRt
+  - first:
+      4: 400078
+    second: JtForearmTwistALf
+  - first:
+      4: 400080
+    second: JtForearmTwistARt
+  - first:
+      4: 400082
+    second: JtForearmTwistBLf
+  - first:
+      4: 400084
+    second: JtForearmTwistBRt
+  - first:
+      4: 400086
+    second: JtHeelLf
+  - first:
+      4: 400088
+    second: JtHeelRt
+  - first:
+      4: 400090
+    second: JtHipLf
+  - first:
+      4: 400092
+    second: JtHipRt
+  - first:
+      4: 400094
+    second: JtIndexALf
+  - first:
+      4: 400096
+    second: JtIndexARt
+  - first:
+      4: 400098
+    second: JtIndexBLf
+  - first:
+      4: 400100
+    second: JtIndexBRt
+  - first:
+      4: 400102
+    second: JtIndexCLf
+  - first:
+      4: 400104
+    second: JtIndexCRt
+  - first:
+      4: 400106
+    second: JtIndexDLf
+  - first:
+      4: 400108
+    second: JtIndexDRt
+  - first:
+      4: 400110
+    second: JtJaw
+  - first:
+      4: 400112
+    second: JtJawBack
+  - first:
+      4: 400114
+    second: JtJawFront
+  - first:
+      4: 400116
+    second: JtKneeLf
+  - first:
+      4: 400118
+    second: JtKneeRt
+  - first:
+      4: 400120
+    second: JtLipCornerLf
+  - first:
+      4: 400122
+    second: JtLipCornerRt
+  - first:
+      4: 400124
+    second: JtLipLowerLf
+  - first:
+      4: 400126
+    second: JtLipLowerMid
+  - first:
+      4: 400128
+    second: JtLipLowerRt
+  - first:
+      4: 400130
+    second: JtLipUpperLf
+  - first:
+      4: 400132
+    second: JtLipUpperMid
+  - first:
+      4: 400134
+    second: JtLipUpperRt
+  - first:
+      4: 400136
+    second: JtLittleALf
+  - first:
+      4: 400138
+    second: JtLittleARt
+  - first:
+      4: 400140
+    second: JtLittleBLf
+  - first:
+      4: 400142
+    second: JtLittleBRt
+  - first:
+      4: 400144
+    second: JtLittleCLf
+  - first:
+      4: 400146
+    second: JtLittleCRt
+  - first:
+      4: 400148
+    second: JtLittleDLf
+  - first:
+      4: 400150
+    second: JtLittleDRt
+  - first:
+      4: 400152
+    second: JtLowerFaceParent
+  - first:
+      4: 400154
+    second: JtLowerNoseLf
+  - first:
+      4: 400156
+    second: JtLowerNoseRt
+  - first:
+      4: 400158
+    second: JtMiddleALf
+  - first:
+      4: 400160
+    second: JtMiddleARt
+  - first:
+      4: 400162
+    second: JtMiddleBLf
+  - first:
+      4: 400164
+    second: JtMiddleBRt
+  - first:
+      4: 400166
+    second: JtMiddleCLf
+  - first:
+      4: 400168
+    second: JtMiddleCRt
+  - first:
+      4: 400170
+    second: JtMiddleDLf
+  - first:
+      4: 400172
+    second: JtMiddleDRt
+  - first:
+      4: 400174
+    second: JtNeckA
+  - first:
+      4: 400176
+    second: JtNeckB
+  - first:
+      4: 400178
+    second: JtPelvis
+  - first:
+      4: 400180
+    second: JtRingALf
+  - first:
+      4: 400182
+    second: JtRingARt
+  - first:
+      4: 400184
+    second: JtRingBLf
+  - first:
+      4: 400186
+    second: JtRingBRt
+  - first:
+      4: 400188
+    second: JtRingCLf
+  - first:
+      4: 400190
+    second: JtRingCRt
+  - first:
+      4: 400192
+    second: JtRingDLf
+  - first:
+      4: 400194
+    second: JtRingDRt
+  - first:
+      4: 400196
+    second: JtRoot
+  - first:
+      4: 400198
+    second: JtShoulderLf
+  - first:
+      4: 400200
+    second: JtShoulderRt
+  - first:
+      4: 400202
+    second: JtSkullA
+  - first:
+      4: 400204
+    second: JtSkullB
+  - first:
+      4: 400206
+    second: JtSpineA
+  - first:
+      4: 400208
+    second: JtSpineB
+  - first:
+      4: 400210
+    second: JtSpineC
+  - first:
+      4: 400212
+    second: JtThumbALf
+  - first:
+      4: 400214
+    second: JtThumbARt
+  - first:
+      4: 400216
+    second: JtThumbBLf
+  - first:
+      4: 400218
+    second: JtThumbBRt
+  - first:
+      4: 400220
+    second: JtThumbCLf
+  - first:
+      4: 400222
+    second: JtThumbCRt
+  - first:
+      4: 400224
+    second: JtThumbDLf
+  - first:
+      4: 400226
+    second: JtThumbDRt
+  - first:
+      4: 400228
+    second: JtToeLf
+  - first:
+      4: 400230
+    second: JtToeRt
+  - first:
+      4: 400232
+    second: JtTongueA
+  - first:
+      4: 400234
+    second: JtTongueB
+  - first:
+      4: 400236
+    second: JtTongueC
+  - first:
+      4: 400238
+    second: JtUpperArmTwistALf
+  - first:
+      4: 400240
+    second: JtUpperArmTwistARt
+  - first:
+      4: 400242
+    second: JtUpperArmTwistBLf
+  - first:
+      4: 400244
+    second: JtUpperArmTwistBRt
+  - first:
+      4: 400246
+    second: JtUpperFaceParent
+  - first:
+      4: 400248
+    second: JtUpperNoseLf
+  - first:
+      4: 400250
+    second: JtUpperNoseRt
+  - first:
+      4: 400252
+    second: JtWristLf
+  - first:
+      4: 400254
+    second: JtWristRt
+  - first:
+      4: 400256
+    second: L_Eye
+  - first:
+      4: 400258
+    second: L_EyeShell
+  - first:
+      4: 400260
+    second: LowerTeeth
+  - first:
+      4: 400262
+    second: Mesh
+  - first:
+      4: 400264
+    second: MshRef
+  - first:
+      4: 400266
+    second: polySurface1
+  - first:
+      4: 400268
+    second: polySurface10
+  - first:
+      4: 400270
+    second: polySurface11
+  - first:
+      4: 400272
+    second: polySurface12
+  - first:
+      4: 400274
+    second: polySurface13
+  - first:
+      4: 400276
+    second: polySurface14
+  - first:
+      4: 400278
+    second: polySurface15
+  - first:
+      4: 400280
+    second: polySurface16
+  - first:
+      4: 400282
+    second: polySurface17
+  - first:
+      4: 400284
+    second: polySurface18
+  - first:
+      4: 400286
+    second: polySurface19
+  - first:
+      4: 400288
+    second: polySurface2
+  - first:
+      4: 400290
+    second: polySurface20
+  - first:
+      4: 400292
+    second: polySurface21
+  - first:
+      4: 400294
+    second: polySurface22
+  - first:
+      4: 400296
+    second: polySurface23
+  - first:
+      4: 400298
+    second: polySurface24
+  - first:
+      4: 400300
+    second: polySurface25
+  - first:
+      4: 400302
+    second: polySurface26
+  - first:
+      4: 400304
+    second: polySurface27
+  - first:
+      4: 400306
+    second: polySurface28
+  - first:
+      4: 400308
+    second: polySurface29
+  - first:
+      4: 400310
+    second: polySurface3
+  - first:
+      4: 400312
+    second: polySurface30
+  - first:
+      4: 400314
+    second: polySurface31
+  - first:
+      4: 400316
+    second: polySurface32
+  - first:
+      4: 400318
+    second: polySurface33
+  - first:
+      4: 400320
+    second: polySurface34
+  - first:
+      4: 400322
+    second: polySurface35
+  - first:
+      4: 400324
+    second: polySurface36
+  - first:
+      4: 400326
+    second: polySurface37
+  - first:
+      4: 400328
+    second: polySurface38
+  - first:
+      4: 400330
+    second: polySurface39
+  - first:
+      4: 400332
+    second: polySurface4
+  - first:
+      4: 400334
+    second: polySurface40
+  - first:
+      4: 400336
+    second: polySurface41
+  - first:
+      4: 400338
+    second: polySurface42
+  - first:
+      4: 400340
+    second: polySurface43
+  - first:
+      4: 400342
+    second: polySurface44
+  - first:
+      4: 400344
+    second: polySurface45
+  - first:
+      4: 400346
+    second: polySurface46
+  - first:
+      4: 400348
+    second: polySurface47
+  - first:
+      4: 400350
+    second: polySurface48
+  - first:
+      4: 400352
+    second: polySurface49
+  - first:
+      4: 400354
+    second: polySurface5
+  - first:
+      4: 400356
+    second: polySurface50
+  - first:
+      4: 400358
+    second: polySurface51
+  - first:
+      4: 400360
+    second: polySurface52
+  - first:
+      4: 400362
+    second: polySurface53
+  - first:
+      4: 400364
+    second: polySurface54
+  - first:
+      4: 400366
+    second: polySurface55
+  - first:
+      4: 400368
+    second: polySurface56
+  - first:
+      4: 400370
+    second: polySurface57
+  - first:
+      4: 400372
+    second: polySurface58
+  - first:
+      4: 400374
+    second: polySurface59
+  - first:
+      4: 400376
+    second: polySurface6
+  - first:
+      4: 400378
+    second: polySurface60
+  - first:
+      4: 400380
+    second: polySurface61
+  - first:
+      4: 400382
+    second: polySurface62
+  - first:
+      4: 400384
+    second: polySurface63
+  - first:
+      4: 400386
+    second: polySurface64
+  - first:
+      4: 400388
+    second: polySurface65
+  - first:
+      4: 400390
+    second: polySurface66
+  - first:
+      4: 400392
+    second: polySurface67
+  - first:
+      4: 400394
+    second: polySurface68
+  - first:
+      4: 400396
+    second: polySurface69
+  - first:
+      4: 400398
+    second: polySurface7
+  - first:
+      4: 400400
+    second: polySurface70
+  - first:
+      4: 400402
+    second: polySurface71
+  - first:
+      4: 400404
+    second: polySurface72
+  - first:
+      4: 400406
+    second: polySurface73
+  - first:
+      4: 400408
+    second: polySurface74
+  - first:
+      4: 400410
+    second: polySurface75
+  - first:
+      4: 400412
+    second: polySurface76
+  - first:
+      4: 400414
+    second: polySurface77
+  - first:
+      4: 400416
+    second: polySurface78
+  - first:
+      4: 400418
+    second: polySurface79
+  - first:
+      4: 400420
+    second: polySurface8
+  - first:
+      4: 400422
+    second: polySurface80
+  - first:
+      4: 400424
+    second: polySurface81
+  - first:
+      4: 400426
+    second: polySurface82
+  - first:
+      4: 400428
+    second: polySurface83
+  - first:
+      4: 400430
+    second: polySurface84
+  - first:
+      4: 400432
+    second: polySurface85
+  - first:
+      4: 400434
+    second: polySurface86
+  - first:
+      4: 400436
+    second: polySurface87
+  - first:
+      4: 400438
+    second: polySurface88
+  - first:
+      4: 400440
+    second: polySurface89
+  - first:
+      4: 400442
+    second: polySurface9
+  - first:
+      4: 400444
+    second: polySurface90
+  - first:
+      4: 400446
+    second: polySurface91
+  - first:
+      4: 400448
+    second: R_Eye
+  - first:
+      4: 400450
+    second: R_EyeShell
+  - first:
+      4: 400452
+    second: SkinnedMesh
+  - first:
+      4: 400454
+    second: Tongue
+  - first:
+      4: 400456
+    second: UpperTeeth
+  - first:
+      4: 400458
+    second: _IctSettings_
+  - first:
+      4: 400460
+    second: ChrDefSettings
+  - first:
+      4: 400462
+    second: PndMorphTargetCollectorNode
+  - first:
+      4: 400464
+    second: JtChest
+  - first:
+      4: 400466
+    second: JtEyeLeafLf
+  - first:
+      4: 400468
+    second: JtEyeLeafRt
+  - first:
+      4: 400470
+    second: JtHead
+  - first:
+      4: 400472
+    second: JtHeadLeaf
+  - first:
+      4: 400474
+    second: JtJawLeaf
+  - first:
+      4: 400476
+    second: JtNeck
+  - first:
+      4: 400478
+    second: JtSpine
+  - first:
+      4: 400480
+    second: Arms
+  - first:
+      4: 400482
+    second: EyeballLf
+  - first:
+      4: 400484
+    second: EyeballRt
+  - first:
+      4: 400486
+    second: EyeShadowLf
+  - first:
+      4: 400488
+    second: EyeShadowRt
+  - first:
+      4: 400490
+    second: EyeShellLf
+  - first:
+      4: 400492
+    second: EyeShellRt
+  - first:
+      4: 400494
+    second: Head
+  - first:
+      4: 400496
+    second: Lowerbody
+  - first:
+      4: 400498
+    second: Upperbody
+  - first:
+      4: 400500
+    second: JtCheekLowerJawRotLf
+  - first:
+      4: 400502
+    second: JtCheekLowerJawRotRt
+  - first:
+      4: 400504
+    second: JtEyebrowParentLf
+  - first:
+      4: 400506
+    second: JtEyebrowParentRt
+  - first:
+      4: 400508
+    second: JtEyelidLowerSecondaryLf
+  - first:
+      4: 400510
+    second: JtEyelidLowerSecondaryRt
+  - first:
+      4: 400512
+    second: JtEyelidLowerSoftLf
+  - first:
+      4: 400514
+    second: JtEyelidLowerSoftRt
+  - first:
+      4: 400516
+    second: JtEyelidUpperSecondaryLf
+  - first:
+      4: 400518
+    second: JtEyelidUpperSecondaryRt
+  - first:
+      4: 400520
+    second: JtEyelidUpperSoftLf
+  - first:
+      4: 400522
+    second: JtEyelidUpperSoftRt
+  - first:
+      4: 400524
+    second: JtForeArmTwistALf
+  - first:
+      4: 400526
+    second: JtForeArmTwistARt
+  - first:
+      4: 400528
+    second: JtForeArmTwistBLf
+  - first:
+      4: 400530
+    second: JtForeArmTwistBRt
+  - first:
+      4: 400532
+    second: JtLipCornerJawRotLf
+  - first:
+      4: 400534
+    second: JtLipCornerJawRotRt
+  - first:
+      4: 400536
+    second: JtLipLower01JawRotLf
+  - first:
+      4: 400538
+    second: JtLipLower01JawRotRt
+  - first:
+      4: 400540
+    second: JtLipLower01Lf
+  - first:
+      4: 400542
+    second: JtLipLower01Rt
+  - first:
+      4: 400544
+    second: JtLipLower02JawRotLf
+  - first:
+      4: 400546
+    second: JtLipLower02JawRotRt
+  - first:
+      4: 400548
+    second: JtLipLower02Lf
+  - first:
+      4: 400550
+    second: JtLipLower02Rt
+  - first:
+      4: 400552
+    second: JtLipLower03JawRotLf
+  - first:
+      4: 400554
+    second: JtLipLower03JawRotRt
+  - first:
+      4: 400556
+    second: JtLipLower03Lf
+  - first:
+      4: 400558
+    second: JtLipLower03Rt
+  - first:
+      4: 400560
+    second: JtLipLowerMidJawRot
+  - first:
+      4: 400562
+    second: JtLipRoot
+  - first:
+      4: 400564
+    second: JtLipUpper01JawRotLf
+  - first:
+      4: 400566
+    second: JtLipUpper01JawRotRt
+  - first:
+      4: 400568
+    second: JtLipUpper01Lf
+  - first:
+      4: 400570
+    second: JtLipUpper01Rt
+  - first:
+      4: 400572
+    second: JtLipUpper02JawRotLf
+  - first:
+      4: 400574
+    second: JtLipUpper02JawRotRt
+  - first:
+      4: 400576
+    second: JtLipUpper02Lf
+  - first:
+      4: 400578
+    second: JtLipUpper02Rt
+  - first:
+      4: 400580
+    second: JtLipUpper03JawRotLf
+  - first:
+      4: 400582
+    second: JtLipUpper03JawRotRt
+  - first:
+      4: 400584
+    second: JtLipUpper03Lf
+  - first:
+      4: 400586
+    second: JtLipUpper03Rt
+  - first:
+      4: 400588
+    second: JtLipUpperMidJawRot
+  - first:
+      4: 400590
+    second: JtNoseLowerLf
+  - first:
+      4: 400592
+    second: JtNoseLowerRt
+  - first:
+      4: 400594
+    second: JtNoseUpperLf
+  - first:
+      4: 400596
+    second: JtNoseUpperRt
+  - first:
+      4: 400598
+    second: JtUpperArmTwistCLf
+  - first:
+      4: 400600
+    second: JtUpperArmTwistCRt
+  - first:
+      4: 400602
+    second: Eyelashes
+  - first:
+      4: 400604
+    second: EyeShadows
+  - first:
+      4: 400606
+    second: Mesh1
+  - first:
+      4: 400608
+    second: Watch
+  - first:
+      43: 4300000
+    second: UpperTeeth
+  - first:
+      43: 4300002
+    second: LowerTeeth
+  - first:
+      43: 4300004
+    second: Tongue
+  - first:
+      43: 4300006
+    second: L_Eye
+  - first:
+      43: 4300008
+    second: R_Eye
+  - first:
+      43: 4300010
+    second: L_EyeShell
+  - first:
+      43: 4300012
+    second: R_EyeShell
+  - first:
+      43: 4300014
+    second: Body
+  - first:
+      43: 4300016
+    second: EyelashRtBottom
+  - first:
+      43: 4300018
+    second: EyelashRtTop
+  - first:
+      43: 4300020
+    second: EyelashLfBottom
+  - first:
+      43: 4300022
+    second: EyelashLfTop
+  - first:
+      43: 4300024
+    second: polySurface1
+  - first:
+      43: 4300026
+    second: polySurface2
+  - first:
+      43: 4300028
+    second: polySurface3
+  - first:
+      43: 4300030
+    second: polySurface4
+  - first:
+      43: 4300032
+    second: polySurface5
+  - first:
+      43: 4300034
+    second: polySurface6
+  - first:
+      43: 4300036
+    second: polySurface7
+  - first:
+      43: 4300038
+    second: polySurface8
+  - first:
+      43: 4300040
+    second: polySurface9
+  - first:
+      43: 4300042
+    second: polySurface10
+  - first:
+      43: 4300044
+    second: polySurface11
+  - first:
+      43: 4300046
+    second: polySurface12
+  - first:
+      43: 4300048
+    second: polySurface13
+  - first:
+      43: 4300050
+    second: polySurface14
+  - first:
+      43: 4300052
+    second: polySurface15
+  - first:
+      43: 4300054
+    second: polySurface16
+  - first:
+      43: 4300056
+    second: polySurface17
+  - first:
+      43: 4300058
+    second: polySurface18
+  - first:
+      43: 4300060
+    second: polySurface19
+  - first:
+      43: 4300062
+    second: polySurface20
+  - first:
+      43: 4300064
+    second: polySurface21
+  - first:
+      43: 4300066
+    second: polySurface22
+  - first:
+      43: 4300068
+    second: polySurface23
+  - first:
+      43: 4300070
+    second: polySurface24
+  - first:
+      43: 4300072
+    second: polySurface25
+  - first:
+      43: 4300074
+    second: polySurface26
+  - first:
+      43: 4300076
+    second: polySurface27
+  - first:
+      43: 4300078
+    second: polySurface28
+  - first:
+      43: 4300080
+    second: polySurface29
+  - first:
+      43: 4300082
+    second: polySurface30
+  - first:
+      43: 4300084
+    second: polySurface31
+  - first:
+      43: 4300086
+    second: polySurface32
+  - first:
+      43: 4300088
+    second: polySurface33
+  - first:
+      43: 4300090
+    second: polySurface34
+  - first:
+      43: 4300092
+    second: polySurface35
+  - first:
+      43: 4300094
+    second: polySurface36
+  - first:
+      43: 4300096
+    second: polySurface37
+  - first:
+      43: 4300098
+    second: polySurface38
+  - first:
+      43: 4300100
+    second: polySurface39
+  - first:
+      43: 4300102
+    second: polySurface40
+  - first:
+      43: 4300104
+    second: polySurface41
+  - first:
+      43: 4300106
+    second: polySurface42
+  - first:
+      43: 4300108
+    second: polySurface43
+  - first:
+      43: 4300110
+    second: polySurface44
+  - first:
+      43: 4300112
+    second: polySurface45
+  - first:
+      43: 4300114
+    second: polySurface46
+  - first:
+      43: 4300116
+    second: polySurface47
+  - first:
+      43: 4300118
+    second: polySurface48
+  - first:
+      43: 4300120
+    second: polySurface49
+  - first:
+      43: 4300122
+    second: polySurface50
+  - first:
+      43: 4300124
+    second: polySurface51
+  - first:
+      43: 4300126
+    second: polySurface52
+  - first:
+      43: 4300128
+    second: polySurface53
+  - first:
+      43: 4300130
+    second: polySurface54
+  - first:
+      43: 4300132
+    second: polySurface55
+  - first:
+      43: 4300134
+    second: polySurface56
+  - first:
+      43: 4300136
+    second: polySurface57
+  - first:
+      43: 4300138
+    second: polySurface58
+  - first:
+      43: 4300140
+    second: polySurface59
+  - first:
+      43: 4300142
+    second: polySurface60
+  - first:
+      43: 4300144
+    second: polySurface61
+  - first:
+      43: 4300146
+    second: polySurface62
+  - first:
+      43: 4300148
+    second: polySurface63
+  - first:
+      43: 4300150
+    second: polySurface64
+  - first:
+      43: 4300152
+    second: polySurface65
+  - first:
+      43: 4300154
+    second: polySurface66
+  - first:
+      43: 4300156
+    second: polySurface67
+  - first:
+      43: 4300158
+    second: polySurface68
+  - first:
+      43: 4300160
+    second: polySurface69
+  - first:
+      43: 4300162
+    second: polySurface70
+  - first:
+      43: 4300164
+    second: polySurface71
+  - first:
+      43: 4300166
+    second: polySurface72
+  - first:
+      43: 4300168
+    second: polySurface73
+  - first:
+      43: 4300170
+    second: polySurface74
+  - first:
+      43: 4300172
+    second: polySurface75
+  - first:
+      43: 4300174
+    second: polySurface76
+  - first:
+      43: 4300176
+    second: polySurface77
+  - first:
+      43: 4300178
+    second: polySurface78
+  - first:
+      43: 4300180
+    second: polySurface79
+  - first:
+      43: 4300182
+    second: polySurface80
+  - first:
+      43: 4300184
+    second: polySurface81
+  - first:
+      43: 4300186
+    second: polySurface82
+  - first:
+      43: 4300188
+    second: polySurface83
+  - first:
+      43: 4300190
+    second: polySurface84
+  - first:
+      43: 4300192
+    second: polySurface85
+  - first:
+      43: 4300194
+    second: polySurface86
+  - first:
+      43: 4300196
+    second: polySurface87
+  - first:
+      43: 4300198
+    second: polySurface88
+  - first:
+      43: 4300200
+    second: polySurface89
+  - first:
+      43: 4300202
+    second: polySurface90
+  - first:
+      43: 4300204
+    second: polySurface91
+  - first:
+      43: 4300206
+    second: Arms
+  - first:
+      43: 4300208
+    second: Lowerbody
+  - first:
+      43: 4300210
+    second: Upperbody
+  - first:
+      43: 4300212
+    second: Head
+  - first:
+      43: 4300214
+    second: Hair
+  - first:
+      43: 4300216
+    second: EyeShadowRt
+  - first:
+      43: 4300218
+    second: EyeShadowLf
+  - first:
+      43: 4300220
+    second: EyeballRt
+  - first:
+      43: 4300222
+    second: EyeballLf
+  - first:
+      43: 4300224
+    second: EyeShellRt
+  - first:
+      43: 4300226
+    second: EyeShellLf
+  - first:
+      43: 4300228
+    second: Eyelashes
+  - first:
+      43: 4300230
+    second: EyeShadows
+  - first:
+      43: 4300232
+    second: Watch
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      114: 11400000
+    second: JtAnkleLf
+  - first:
+      114: 11400002
+    second: JtAnkleRt
+  - first:
+      114: 11400004
+    second: JtBallLf
+  - first:
+      114: 11400006
+    second: JtBallRt
+  - first:
+      114: 11400008
+    second: JtCheekLowerLf
+  - first:
+      114: 11400010
+    second: JtCheekLowerRt
+  - first:
+      114: 11400012
+    second: JtCheekUpperLf
+  - first:
+      114: 11400014
+    second: JtCheekUpperRt
+  - first:
+      114: 11400016
+    second: JtClavicleLf
+  - first:
+      114: 11400018
+    second: JtClavicleRt
+  - first:
+      114: 11400020
+    second: JtEarLf
+  - first:
+      114: 11400022
+    second: JtEarRt
+  - first:
+      114: 11400024
+    second: JtElbowLf
+  - first:
+      114: 11400026
+    second: JtElbowRt
+  - first:
+      114: 11400028
+    second: JtEyebrow01Lf
+  - first:
+      114: 11400030
+    second: JtEyebrow01Rt
+  - first:
+      114: 11400032
+    second: JtEyebrow02Lf
+  - first:
+      114: 11400034
+    second: JtEyebrow02Rt
+  - first:
+      114: 11400036
+    second: JtEyebrow03Lf
+  - first:
+      114: 11400038
+    second: JtEyebrow03Rt
+  - first:
+      114: 11400040
+    second: JtEyebrow04Lf
+  - first:
+      114: 11400042
+    second: JtEyebrow04Rt
+  - first:
+      114: 11400044
+    second: JtEyeLf
+  - first:
+      114: 11400046
+    second: JtEyelidLowerLf
+  - first:
+      114: 11400048
+    second: JtEyelidLowerRt
+  - first:
+      114: 11400050
+    second: JtEyelidUpperLf
+  - first:
+      114: 11400052
+    second: JtEyelidUpperRt
+  - first:
+      114: 11400054
+    second: JtEyeRt
+  - first:
+      114: 11400056
+    second: JtForearmTwistALf
+  - first:
+      114: 11400058
+    second: JtForearmTwistARt
+  - first:
+      114: 11400060
+    second: JtForearmTwistBLf
+  - first:
+      114: 11400062
+    second: JtForearmTwistBRt
+  - first:
+      114: 11400064
+    second: JtHipLf
+  - first:
+      114: 11400066
+    second: JtHipRt
+  - first:
+      114: 11400068
+    second: JtIndexALf
+  - first:
+      114: 11400070
+    second: JtIndexARt
+  - first:
+      114: 11400072
+    second: JtIndexBLf
+  - first:
+      114: 11400074
+    second: JtIndexBRt
+  - first:
+      114: 11400076
+    second: JtIndexCLf
+  - first:
+      114: 11400078
+    second: JtIndexCRt
+  - first:
+      114: 11400080
+    second: JtJaw
+  - first:
+      114: 11400082
+    second: JtKneeLf
+  - first:
+      114: 11400084
+    second: JtKneeRt
+  - first:
+      114: 11400086
+    second: JtLipCornerLf
+  - first:
+      114: 11400088
+    second: JtLipCornerRt
+  - first:
+      114: 11400090
+    second: JtLipLowerLf
+  - first:
+      114: 11400092
+    second: JtLipLowerMid
+  - first:
+      114: 11400094
+    second: JtLipLowerRt
+  - first:
+      114: 11400096
+    second: JtLipUpperLf
+  - first:
+      114: 11400098
+    second: JtLipUpperMid
+  - first:
+      114: 11400100
+    second: JtLipUpperRt
+  - first:
+      114: 11400102
+    second: JtLittleALf
+  - first:
+      114: 11400104
+    second: JtLittleARt
+  - first:
+      114: 11400106
+    second: JtLittleBLf
+  - first:
+      114: 11400108
+    second: JtLittleBRt
+  - first:
+      114: 11400110
+    second: JtLittleCLf
+  - first:
+      114: 11400112
+    second: JtLittleCRt
+  - first:
+      114: 11400114
+    second: JtLowerNoseLf
+  - first:
+      114: 11400116
+    second: JtLowerNoseRt
+  - first:
+      114: 11400118
+    second: JtMiddleALf
+  - first:
+      114: 11400120
+    second: JtMiddleARt
+  - first:
+      114: 11400122
+    second: JtMiddleBLf
+  - first:
+      114: 11400124
+    second: JtMiddleBRt
+  - first:
+      114: 11400126
+    second: JtMiddleCLf
+  - first:
+      114: 11400128
+    second: JtMiddleCRt
+  - first:
+      114: 11400130
+    second: JtNeckA
+  - first:
+      114: 11400132
+    second: JtNeckB
+  - first:
+      114: 11400134
+    second: JtRingALf
+  - first:
+      114: 11400136
+    second: JtRingARt
+  - first:
+      114: 11400138
+    second: JtRingBLf
+  - first:
+      114: 11400140
+    second: JtRingBRt
+  - first:
+      114: 11400142
+    second: JtRingCLf
+  - first:
+      114: 11400144
+    second: JtRingCRt
+  - first:
+      114: 11400146
+    second: JtRoot
+  - first:
+      114: 11400148
+    second: JtShoulderLf
+  - first:
+      114: 11400150
+    second: JtShoulderRt
+  - first:
+      114: 11400152
+    second: JtSkullA
+  - first:
+      114: 11400154
+    second: JtSpineA
+  - first:
+      114: 11400156
+    second: JtSpineB
+  - first:
+      114: 11400158
+    second: JtSpineC
+  - first:
+      114: 11400160
+    second: JtThumbALf
+  - first:
+      114: 11400162
+    second: JtThumbARt
+  - first:
+      114: 11400164
+    second: JtThumbBLf
+  - first:
+      114: 11400166
+    second: JtThumbBRt
+  - first:
+      114: 11400168
+    second: JtThumbCLf
+  - first:
+      114: 11400170
+    second: JtThumbCRt
+  - first:
+      114: 11400172
+    second: JtToeLf
+  - first:
+      114: 11400174
+    second: JtToeRt
+  - first:
+      114: 11400176
+    second: JtTongueA
+  - first:
+      114: 11400178
+    second: JtTongueB
+  - first:
+      114: 11400180
+    second: JtTongueC
+  - first:
+      114: 11400182
+    second: JtUpperArmTwistALf
+  - first:
+      114: 11400184
+    second: JtUpperArmTwistARt
+  - first:
+      114: 11400186
+    second: JtUpperArmTwistBLf
+  - first:
+      114: 11400188
+    second: JtUpperArmTwistBRt
+  - first:
+      114: 11400190
+    second: JtUpperNoseLf
+  - first:
+      114: 11400192
+    second: JtUpperNoseRt
+  - first:
+      114: 11400194
+    second: JtWristLf
+  - first:
+      114: 11400196
+    second: JtWristRt
+  - first:
+      137: 13700000
+    second: Body
+  - first:
+      137: 13700002
+    second: EyelashLfBottom
+  - first:
+      137: 13700004
+    second: EyelashLfTop
+  - first:
+      137: 13700006
+    second: EyelashRtBottom
+  - first:
+      137: 13700008
+    second: EyelashRtTop
+  - first:
+      137: 13700010
+    second: L_Eye
+  - first:
+      137: 13700012
+    second: L_EyeShell
+  - first:
+      137: 13700014
+    second: LowerTeeth
+  - first:
+      137: 13700016
+    second: polySurface1
+  - first:
+      137: 13700018
+    second: polySurface10
+  - first:
+      137: 13700020
+    second: polySurface11
+  - first:
+      137: 13700022
+    second: polySurface12
+  - first:
+      137: 13700024
+    second: polySurface13
+  - first:
+      137: 13700026
+    second: polySurface14
+  - first:
+      137: 13700028
+    second: polySurface15
+  - first:
+      137: 13700030
+    second: polySurface16
+  - first:
+      137: 13700032
+    second: polySurface17
+  - first:
+      137: 13700034
+    second: polySurface18
+  - first:
+      137: 13700036
+    second: polySurface19
+  - first:
+      137: 13700038
+    second: polySurface2
+  - first:
+      137: 13700040
+    second: polySurface20
+  - first:
+      137: 13700042
+    second: polySurface21
+  - first:
+      137: 13700044
+    second: polySurface22
+  - first:
+      137: 13700046
+    second: polySurface23
+  - first:
+      137: 13700048
+    second: polySurface24
+  - first:
+      137: 13700050
+    second: polySurface25
+  - first:
+      137: 13700052
+    second: polySurface26
+  - first:
+      137: 13700054
+    second: polySurface27
+  - first:
+      137: 13700056
+    second: polySurface28
+  - first:
+      137: 13700058
+    second: polySurface29
+  - first:
+      137: 13700060
+    second: polySurface3
+  - first:
+      137: 13700062
+    second: polySurface30
+  - first:
+      137: 13700064
+    second: polySurface31
+  - first:
+      137: 13700066
+    second: polySurface32
+  - first:
+      137: 13700068
+    second: polySurface33
+  - first:
+      137: 13700070
+    second: polySurface34
+  - first:
+      137: 13700072
+    second: polySurface35
+  - first:
+      137: 13700074
+    second: polySurface36
+  - first:
+      137: 13700076
+    second: polySurface37
+  - first:
+      137: 13700078
+    second: polySurface38
+  - first:
+      137: 13700080
+    second: polySurface39
+  - first:
+      137: 13700082
+    second: polySurface4
+  - first:
+      137: 13700084
+    second: polySurface40
+  - first:
+      137: 13700086
+    second: polySurface41
+  - first:
+      137: 13700088
+    second: polySurface42
+  - first:
+      137: 13700090
+    second: polySurface43
+  - first:
+      137: 13700092
+    second: polySurface44
+  - first:
+      137: 13700094
+    second: polySurface45
+  - first:
+      137: 13700096
+    second: polySurface46
+  - first:
+      137: 13700098
+    second: polySurface47
+  - first:
+      137: 13700100
+    second: polySurface48
+  - first:
+      137: 13700102
+    second: polySurface49
+  - first:
+      137: 13700104
+    second: polySurface5
+  - first:
+      137: 13700106
+    second: polySurface50
+  - first:
+      137: 13700108
+    second: polySurface51
+  - first:
+      137: 13700110
+    second: polySurface52
+  - first:
+      137: 13700112
+    second: polySurface53
+  - first:
+      137: 13700114
+    second: polySurface54
+  - first:
+      137: 13700116
+    second: polySurface55
+  - first:
+      137: 13700118
+    second: polySurface56
+  - first:
+      137: 13700120
+    second: polySurface57
+  - first:
+      137: 13700122
+    second: polySurface58
+  - first:
+      137: 13700124
+    second: polySurface59
+  - first:
+      137: 13700126
+    second: polySurface6
+  - first:
+      137: 13700128
+    second: polySurface60
+  - first:
+      137: 13700130
+    second: polySurface61
+  - first:
+      137: 13700132
+    second: polySurface62
+  - first:
+      137: 13700134
+    second: polySurface63
+  - first:
+      137: 13700136
+    second: polySurface64
+  - first:
+      137: 13700138
+    second: polySurface65
+  - first:
+      137: 13700140
+    second: polySurface66
+  - first:
+      137: 13700142
+    second: polySurface67
+  - first:
+      137: 13700144
+    second: polySurface68
+  - first:
+      137: 13700146
+    second: polySurface69
+  - first:
+      137: 13700148
+    second: polySurface7
+  - first:
+      137: 13700150
+    second: polySurface70
+  - first:
+      137: 13700152
+    second: polySurface71
+  - first:
+      137: 13700154
+    second: polySurface72
+  - first:
+      137: 13700156
+    second: polySurface73
+  - first:
+      137: 13700158
+    second: polySurface74
+  - first:
+      137: 13700160
+    second: polySurface75
+  - first:
+      137: 13700162
+    second: polySurface76
+  - first:
+      137: 13700164
+    second: polySurface77
+  - first:
+      137: 13700166
+    second: polySurface78
+  - first:
+      137: 13700168
+    second: polySurface79
+  - first:
+      137: 13700170
+    second: polySurface8
+  - first:
+      137: 13700172
+    second: polySurface80
+  - first:
+      137: 13700174
+    second: polySurface81
+  - first:
+      137: 13700176
+    second: polySurface82
+  - first:
+      137: 13700178
+    second: polySurface83
+  - first:
+      137: 13700180
+    second: polySurface84
+  - first:
+      137: 13700182
+    second: polySurface85
+  - first:
+      137: 13700184
+    second: polySurface86
+  - first:
+      137: 13700186
+    second: polySurface87
+  - first:
+      137: 13700188
+    second: polySurface88
+  - first:
+      137: 13700190
+    second: polySurface89
+  - first:
+      137: 13700192
+    second: polySurface9
+  - first:
+      137: 13700194
+    second: polySurface90
+  - first:
+      137: 13700196
+    second: polySurface91
+  - first:
+      137: 13700198
+    second: R_Eye
+  - first:
+      137: 13700200
+    second: R_EyeShell
+  - first:
+      137: 13700202
+    second: Tongue
+  - first:
+      137: 13700204
+    second: UpperTeeth
+  - first:
+      137: 13700206
+    second: Arms
+  - first:
+      137: 13700208
+    second: EyeballLf
+  - first:
+      137: 13700210
+    second: EyeballRt
+  - first:
+      137: 13700212
+    second: EyeShadowLf
+  - first:
+      137: 13700214
+    second: EyeShadowRt
+  - first:
+      137: 13700216
+    second: EyeShellLf
+  - first:
+      137: 13700218
+    second: EyeShellRt
+  - first:
+      137: 13700220
+    second: Hair
+  - first:
+      137: 13700222
+    second: Head
+  - first:
+      137: 13700224
+    second: Lowerbody
+  - first:
+      137: 13700226
+    second: Upperbody
+  - first:
+      137: 13700228
+    second: Eyelashes
+  - first:
+      137: 13700230
+    second: EyeShadows
+  - first:
+      137: 13700232
+    second: Watch
+  externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 1
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -976,25 +2868,49 @@ ModelImporter:
     globalScale: 0.01
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 0
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
-  copyAvatar: 0
   humanDescription:
+    serializedVersion: 3
     human:
     - boneName: JtRoot
       humanName: Hips
@@ -1071,11 +2987,11 @@ ModelImporter:
     - boneName: JtElbowRt
       humanName: RightLowerArm
       limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
+        min: {x: -70, y: 0, z: -80}
+        max: {x: 55, y: 0, z: 80}
         value: {x: 0, y: 0, z: 0}
         length: 0
-        modified: 0
+        modified: 1
     - boneName: JtWristRt
       humanName: RightHand
       limit:
@@ -1135,11 +3051,11 @@ ModelImporter:
     - boneName: JtElbowLf
       humanName: LeftLowerArm
       limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
+        min: {x: -70, y: 0, z: -80}
+        max: {x: 55, y: 0, z: 80}
         value: {x: 0, y: 0, z: 0}
         length: 0
-        modified: 0
+        modified: 1
     - boneName: JtWristLf
       humanName: LeftHand
       limit:
@@ -1422,870 +3338,870 @@ ModelImporter:
         modified: 0
     skeleton:
     - name: ChrMaria(Clone)
+      parentName: 
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: _IctSettings_
+      parentName: 
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: ChrDefSettings
+      parentName: 
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: CharacterRoot
+      parentName: 
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtRoot
+      parentName: 
       position: {x: -0, y: 1.0258404, z: 0.012067345}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtHipLf
+      parentName: 
       position: {x: -0.10579756, y: -0.078764014, z: -0.00041895726}
       rotation: {x: 0.5058083, y: 0.49685258, z: 0.45080215, w: 0.5422849}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtKneeLf
+      parentName: 
       position: {x: -0.42933932, y: -8.8817837e-17, z: -1.4210854e-16}
       rotation: {x: 5.4623717e-10, y: -0.00000001358166, z: 0.15434942, w: 0.98801637}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtAnkleLf
+      parentName: 
       position: {x: -0.42874137, y: -1.1546319e-16, z: -1.4210854e-16}
       rotation: {x: -0.018269092, y: 0.047022626, z: -0.51702744, w: 0.854481}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtBallLf
+      parentName: 
       position: {x: -0.15855698, y: 7.9936054e-17, z: -1.0658141e-16}
       rotation: {x: -0.00000000130515, y: 4.836687e-10, z: -0.34749138, w: 0.9376832}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtToeLf
+      parentName: 
       position: {x: -0.054991618, y: 3.580469e-17, z: 0}
       rotation: {x: -1.0804665e-15, y: -0.000000016803552, z: 1, w: -1.4027118e-10}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtHeelLf
+      parentName: 
       position: {x: -0.23565601, y: -8.3266725e-19, z: -3.5527135e-16}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtHipRt
+      parentName: 
       position: {x: 0.105797544, y: -0.078764014, z: -0.00041895726}
       rotation: {x: -0.5422849, y: 0.45080215, z: -0.49685258, w: 0.5058083}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtKneeRt
+      parentName: 
       position: {x: 0.42933932, y: 1.0649195e-10, z: 0.000000007734738}
       rotation: {x: 5.462371e-10, y: -0.00000001358166, z: 0.15434942, w: 0.98801637}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtAnkleRt
+      parentName: 
       position: {x: 0.42874137, y: 1.6268482e-10, z: -0.000000009300609}
       rotation: {x: -0.01826909, y: 0.047022626, z: -0.51702744, w: 0.854481}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtBallRt
+      parentName: 
       position: {x: 0.15855698, y: -9.7699626e-17, z: -0.000000003358567}
       rotation: {x: -0.0000000012163289, y: 4.5075327e-10, z: -0.34749138, w: 0.9376832}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtToeRt
+      parentName: 
       position: {x: 0.054991618, y: 1.11022296e-17, z: 0.000000013545614}
       rotation: {x: -6.911671e-16, y: -0.000000018565073, z: 1, w: -1.4027118e-10}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtHeelRt
+      parentName: 
       position: {x: 0.23565601, y: -1.8662507e-11, z: -0.000000009202092}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtSpine
+      parentName: 
       position: {x: -0, y: 0.06837862, z: -0.0034774211}
       rotation: {x: 0.48710397, y: -0.5125717, z: -0.48710397, w: 0.5125717}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtChest
+      parentName: 
       position: {x: -0.1215777, y: 3.5527136e-17, z: -2.6995673e-17}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtClavicleLf
+      parentName: 
       position: {x: -0.24921452, y: 0.0106086945, z: 0.019471789}
       rotation: {x: 0.053562753, y: 0.80485475, z: 0.03524273, w: 0.5899982}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtShoulderLf
+      parentName: 
       position: {x: -0.14690803, y: -9.0483176e-17, z: -5.684342e-16}
       rotation: {x: -0.00073492527, y: -0.12811747, z: -0.064448535, w: 0.9896625}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtElbowLf
+      parentName: 
       position: {x: -0.2664952, y: -1.7763568e-17, z: 0}
       rotation: {x: -0.008251709, y: -0.02298261, z: -0.023124546, w: 0.99943435}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtForeArmTwistALf
+      parentName: 
       position: {x: -0.1332476, y: -1.4210854e-16, z: -5.684342e-16}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtForeArmTwistBLf
+      parentName: 
       position: {x: -0.1332476, y: 1.4210854e-16, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtWristLf
+      parentName: 
       position: {x: -0.2664952, y: -1.4210854e-16, z: -4.2632563e-16}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtIndexALf
+      parentName: 
       position: {x: -0.074523136, y: 0.018343767, z: 0.00042188584}
       rotation: {x: 0.7092521, y: 0.05356882, z: -0.062399507, w: 0.7001415}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtIndexBLf
+      parentName: 
       position: {x: -0.033796772, y: 3.7273706e-10, z: 1.8539673e-10}
       rotation: {x: -0.0006644724, y: -0.004713937, z: -0.03839302, w: 0.9992515}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtIndexCLf
+      parentName: 
       position: {x: -0.018977463, y: 0, z: -2.842171e-16}
       rotation: {x: -0.0003147801, y: 0.007079573, z: -0.038809933, w: 0.99922156}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtIndexDLf
+      parentName: 
       position: {x: -0.015999079, y: 0, z: -7.105427e-17}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLittleALf
+      parentName: 
       position: {x: -0.06345744, y: -0.033348657, z: 0.006847438}
       rotation: {x: 0.7017392, y: 0.07848676, z: -0.028665625, w: 0.707517}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLittleBLf
+      parentName: 
       position: {x: -0.02956387, y: -7.170456e-10, z: 2.482708e-10}
       rotation: {x: -0.00000014901153, y: 0.0000003501771, z: -0.039601397, w: 0.99921554}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLittleCLf
+      parentName: 
       position: {x: -0.016767915, y: -2.842171e-16, z: 2.1316282e-16}
       rotation: {x: 0.00000020715395, y: -0.0000011380226, z: -0.03716861, w: 0.999309}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLittleDLf
+      parentName: 
       position: {x: -0.012713297, y: -1.4210854e-16, z: -2.1316282e-16}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtMiddleALf
+      parentName: 
       position: {x: -0.07398727, y: 0.000023703391, z: 0.00024599023}
       rotation: {x: 0.70550054, y: 0.047612436, z: -0.04761227, w: 0.70550346}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtMiddleBLf
+      parentName: 
       position: {x: -0.034271628, y: 1.4210854e-16, z: -2.842171e-16}
       rotation: {x: -0, y: 0.00000033900125, z: -0.0366084, w: 0.9993297}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtMiddleCLf
+      parentName: 
       position: {x: -0.020419542, y: 0, z: 2.1316282e-16}
       rotation: {x: 0.000000041847294, y: -0.0000007847773, z: -0.038612843, w: 0.9992543}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtMiddleDLf
+      parentName: 
       position: {x: -0.017717727, y: -2.842171e-16, z: -2.842171e-16}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtRingALf
+      parentName: 
       position: {x: -0.06858059, y: -0.01769064, z: 0.0008511243}
       rotation: {x: 0.703758, y: 0.068728335, z: -0.037965305, w: 0.70608765}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtRingBLf
+      parentName: 
       position: {x: -0.03490242, y: 5.684342e-16, z: -2.1316282e-16}
       rotation: {x: -0.00000011920923, y: -0.00000018253914, z: -0.03711967, w: 0.99931085}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtRingCLf
+      parentName: 
       position: {x: -0.019487606, y: 4.2632563e-16, z: 1.4210854e-16}
       rotation: {x: -0.000000047858347, y: 0.0000010913336, z: -0.03956441, w: 0.99921703}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtRingDLf
+      parentName: 
       position: {x: -0.015565691, y: 0, z: -2.1316282e-16}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtThumbALf
+      parentName: 
       position: {x: -0.011599079, y: 0.011465964, z: 0.00890728}
       rotation: {x: 0.8725139, y: -0.30000773, z: -0.2177029, w: 0.3183087}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtThumbBLf
+      parentName: 
       position: {x: -0.023170594, y: 2.842171e-16, z: 4.2632563e-16}
       rotation: {x: -0.000009577938, y: -0.0027928902, z: -0.02734474, w: 0.99962217}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtThumbCLf
+      parentName: 
       position: {x: -0.036027364, y: -2.842171e-16, z: -1.4210854e-16}
       rotation: {x: -0.00007472458, y: 0.0006183809, z: -0.035930444, w: 0.9993541}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtThumbDLf
+      parentName: 
       position: {x: -0.026088182, y: -5.684342e-16, z: 7.105427e-17}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtUpperArmTwistALf
+      parentName: 
       position: {x: 4.2632563e-16, y: -1.7763568e-17, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtUpperArmTwistBLf
+      parentName: 
       position: {x: -0.1332476, y: -8.881784e-18, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtUpperArmTwistCLf
+      parentName: 
       position: {x: -0.1332476, y: 2.6645352e-17, z: 1.4210854e-16}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtClavicleRt
+      parentName: 
       position: {x: -0.24921452, y: 0.0106086945, z: -0.019471789}
       rotation: {x: 0.80485475, y: -0.053562723, z: -0.58999807, w: 0.03524277}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtShoulderRt
+      parentName: 
       position: {x: 0.14690804, y: -9.035591e-10, z: 0.0000000022700823}
       rotation: {x: -0.0007348801, y: -0.12811741, z: -0.064448565, w: 0.9896625}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtElbowRt
+      parentName: 
       position: {x: 0.26649517, y: -0.0000000010726633, z: -0.0000000111915375}
       rotation: {x: -0.00825173, y: -0.022982912, z: -0.023124564, w: 0.99943435}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtForeArmTwistARt
+      parentName: 
       position: {x: 0.1332476, y: -2.414346e-10, z: -0.0000000025951878}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtForeArmTwistBRt
+      parentName: 
       position: {x: 0.1332476, y: -2.4143446e-10, z: -0.0000000025951878}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtWristRt
+      parentName: 
       position: {x: 0.2664952, y: -4.8286897e-10, z: -0.0000000051903757}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtIndexARt
+      parentName: 
       position: {x: 0.07452316, y: -0.018343747, z: -0.00042185918}
       rotation: {x: 0.7092522, y: 0.05356862, z: -0.062398974, w: 0.70014155}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtIndexBRt
+      parentName: 
       position: {x: 0.033796757, y: -0.00000004125341, z: 0.000000025942475}
       rotation: {x: -0.0006643831, y: -0.0047138855, z: -0.038391326, w: 0.99925154}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtIndexCRt
+      parentName: 
       position: {x: 0.018977469, y: 0.00000003446083, z: -0.000000021619094}
       rotation: {x: -0.00031467766, y: 0.007079982, z: -0.038813163, w: 0.9992213}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtIndexDRt
+      parentName: 
       position: {x: 0.015999079, y: -0.000000024149134, z: 0.000000014329412}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLittleARt
+      parentName: 
       position: {x: 0.06345744, y: 0.033348657, z: -0.0068474403}
       rotation: {x: 0.7017393, y: 0.078486376, z: -0.028665772, w: 0.70751697}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLittleBRt
+      parentName: 
       position: {x: 0.029563874, y: 0.000000007826023, z: -0.0000000048475446}
       rotation: {x: -0.000000059604616, y: 0.00000087171753, z: -0.039600454, w: 0.9992156}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLittleCRt
+      parentName: 
       position: {x: 0.016767919, y: 0.000000012170688, z: -0.0000000067741452}
       rotation: {x: 0.00000010676483, y: 0.0000018860712, z: -0.037167978, w: 0.99930906}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLittleDRt
+      parentName: 
       position: {x: 0.012713296, y: -0.000000014065537, z: 0.000000006929792}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtMiddleARt
+      parentName: 
       position: {x: 0.073987275, y: -0.000023694967, z: -0.0002459796}
       rotation: {x: 0.70550054, y: 0.047612436, z: -0.04761227, w: 0.70550346}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtMiddleBRt
+      parentName: 
       position: {x: 0.034271624, y: -0.0000000070921975, z: 0.0000000041460897}
       rotation: {x: 0.00000020861623, y: -0.0000009983777, z: -0.03660805, w: 0.99932975}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtMiddleCRt
+      parentName: 
       position: {x: 0.020419547, y: 0.000000021763165, z: -0.000000013196929}
       rotation: {x: 0.000000167162, y: 0.00000008678624, z: -0.038607344, w: 0.9992545}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtMiddleDRt
+      parentName: 
       position: {x: 0.017717727, y: -0.00000004367199, z: 0.000000024831373}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtRingARt
+      parentName: 
       position: {x: 0.06858059, y: 0.017690638, z: -0.00085112837}
       rotation: {x: 0.70375806, y: 0.06872833, z: -0.037965305, w: 0.7060876}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtRingBRt
+      parentName: 
       position: {x: 0.03490243, y: 0.000000020447816, z: -0.000000013018118}
       rotation: {x: -0.000000059604623, y: -0.00000019744031, z: -0.03712094, w: 0.9993108}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtRingCRt
+      parentName: 
       position: {x: 0.01948761, y: 0.000000008785879, z: -0.0000000052403752}
       rotation: {x: 0.000000048224205, y: 0.00000089868206, z: -0.039553266, w: 0.9992175}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtRingDRt
+      parentName: 
       position: {x: 0.015565687, y: -0.0000000422363, z: 0.00000002269782}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtThumbARt
+      parentName: 
       position: {x: 0.011599077, y: -0.011465967, z: -0.008907284}
       rotation: {x: 0.87251335, y: -0.3000095, z: -0.21770117, w: 0.31830952}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtThumbBRt
+      parentName: 
       position: {x: 0.023170594, y: -5.394867e-10, z: -0.0000000026799358}
       rotation: {x: -0.000009577938, y: -0.0027928902, z: -0.02734474, w: 0.99962217}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtThumbCRt
+      parentName: 
       position: {x: 0.036027364, y: -6.605771e-10, z: 0.0000000013962363}
       rotation: {x: -0.000074641954, y: 0.0006187407, z: -0.03592937, w: 0.9993541}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtThumbDRt
+      parentName: 
       position: {x: 0.02608818, y: -0.000000002999874, z: -0.000000012947872}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtUpperArmTwistARt
+      parentName: 
       position: {x: -0, y: -1.7763568e-17, z: -2.842171e-16}
       rotation: {x: 2.2068669e-16, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtUpperArmTwistBRt
+      parentName: 
       position: {x: 0.13324758, y: -5.363318e-10, z: -0.0000000055957687}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtUpperArmTwistCRt
+      parentName: 
       position: {x: 0.13324758, y: -5.363317e-10, z: -0.0000000055957687}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtNeck
+      parentName: 
       position: {x: -0.2856553, y: 0.015636211, z: -5.822032e-17}
       rotation: {x: -6.105663e-17, y: 1.3763393e-16, z: -0.066281304, w: 0.997801}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtHead
+      parentName: 
       position: {x: -0.0913754, y: -5.3290704e-17, z: -1.608559e-17}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtCheekLowerJawRotLf
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.5680762, y: 0.822976, z: -1.3367329e-16, w: -8.5864484e-17}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtCheekLowerLf
+      parentName: 
       position: {x: -0.06156241, y: 0.023543842, z: -0.04741381}
       rotation: {x: -0.07729405, y: -0.29760343, z: -0.17978011, w: 0.93441796}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtCheekLowerJawRotRt
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.5680762, y: 0.822976, z: -1.3367329e-16, w: -8.5864484e-17}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtCheekLowerRt
+      parentName: 
       position: {x: -0.06759352, y: 0.024594242, z: 0.044006113}
       rotation: {x: 0.070648365, y: 0.26273105, z: -0.17369296, w: 0.9464735}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtCheekUpperLf
+      parentName: 
       position: {x: -0.016524395, y: 0.097971514, z: 0.042992733}
       rotation: {x: 0.7454511, y: -0.63475883, z: -0.14408994, w: -0.14360356}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtCheekUpperRt
+      parentName: 
       position: {x: -0.016524395, y: 0.097971514, z: -0.042992733}
       rotation: {x: 0.7454511, y: -0.63475883, z: 0.14408994, w: 0.14360356}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEarLf
+      parentName: 
       position: {x: -0.017744442, y: 0.005197787, z: 0.065097675}
       rotation: {x: -0.605846, y: 0.42848995, z: 0.43045488, w: 0.51386344}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEarRt
+      parentName: 
       position: {x: -0.022961337, y: 0.011946785, z: -0.0699}
       rotation: {x: 0.63956416, y: -0.4332135, z: 0.39787224, w: 0.49495602}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyebrowParentLf
+      parentName: 
       position: {x: -0.05555434, y: 0.03671895, z: 0.015249999}
       rotation: {x: 0.9380334, y: -0.29817355, z: -0.06705604, w: -0.16336875}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyebrow01Lf
+      parentName: 
       position: {x: -0.038276177, y: -0.052277014, z: 0.029248618}
       rotation: {x: -0.08346262, y: 0.19360119, z: 0.4396588, w: 0.87307084}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyebrow02Lf
+      parentName: 
       position: {x: -0.041492973, y: -0.053078607, z: 0.016244767}
       rotation: {x: -0.0481913, y: 0.10780994, z: 0.43476158, w: 0.8927693}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyebrow03Lf
+      parentName: 
       position: {x: -0.042287927, y: -0.05347946, z: 0.0032434778}
       rotation: {x: -0.009753158, y: 0.021683393, z: 0.43560773, w: 0.8998226}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyebrow04Lf
+      parentName: 
       position: {x: -0.038294468, y: -0.05261134, z: -0.008781248}
       rotation: {x: 0.026345521, y: -0.061788734, z: 0.45230547, w: 0.88932997}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyebrowParentRt
+      parentName: 
       position: {x: -0.05555434, y: 0.03671895, z: -0.015249999}
       rotation: {x: 0.9380334, y: -0.29817355, z: 0.06705604, w: 0.16336875}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyebrow01Rt
+      parentName: 
       position: {x: -0.038276177, y: -0.052277014, z: -0.029248618}
       rotation: {x: 0.08346262, y: -0.19360119, z: 0.4396588, w: 0.87307084}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyebrow02Rt
+      parentName: 
       position: {x: -0.041492973, y: -0.053078607, z: -0.016244767}
       rotation: {x: 0.0481913, y: -0.10780994, z: 0.43476158, w: 0.8927693}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyebrow03Rt
+      parentName: 
       position: {x: -0.042432368, y: -0.053412132, z: -0.006678261}
       rotation: {x: 0.020067293, y: -0.04447334, z: 0.43414876, w: 0.89951897}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyebrow04Rt
+      parentName: 
       position: {x: -0.040474758, y: -0.053171396, z: 0.0045625092}
       rotation: {x: -0.0137086995, y: 0.031240415, z: 0.44371164, w: 0.89552003}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyeLf
+      parentName: 
       position: {x: -0.03955115, y: 0.08398448, z: 0.027499093}
       rotation: {x: 0.7351486, y: -0.67740047, z: -0.019250546, w: -0.017738357}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyeLeafLf
+      parentName: 
       position: {x: -0.014775707, y: -2.842171e-16, z: -2.2204459e-17}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyelidLowerSoftLf
+      parentName: 
       position: {x: -0.03955115, y: 0.08398448, z: 0.027499093}
       rotation: {x: 0.7351486, y: -0.67740047, z: -0.019250546, w: -0.017738357}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyelidLowerLf
+      parentName: 
       position: {x: 1.7763568e-17, y: -5.684342e-16, z: -4.440892e-18}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyelidLowerSecondaryLf
+      parentName: 
       position: {x: 1.7763568e-17, y: -5.684342e-16, z: -4.440892e-18}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyelidLowerSoftRt
+      parentName: 
       position: {x: -0.03955115, y: 0.08398448, z: -0.027461419}
       rotation: {x: 0.7351486, y: -0.67740047, z: 0.019250546, w: 0.017738357}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyelidLowerRt
+      parentName: 
       position: {x: -0, y: 0, z: 4.440892e-18}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyelidLowerSecondaryRt
+      parentName: 
       position: {x: 1.7763568e-17, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyelidUpperSoftLf
+      parentName: 
       position: {x: -0.03955115, y: 0.08398448, z: 0.027499093}
       rotation: {x: 0.7351486, y: -0.67740047, z: -0.019250546, w: -0.017738357}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyelidUpperLf
+      parentName: 
       position: {x: -0, y: -2.842171e-16, z: 4.440892e-18}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyelidUpperSecondaryLf
+      parentName: 
       position: {x: -0, y: -2.842171e-16, z: 4.440892e-18}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyelidUpperSoftRt
+      parentName: 
       position: {x: -0.03955115, y: 0.08398448, z: -0.027461419}
       rotation: {x: 0.7351486, y: -0.67740047, z: 0.019250546, w: 0.017738357}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyelidUpperRt
+      parentName: 
       position: {x: -0, y: 0, z: 4.440892e-18}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyelidUpperSecondaryRt
+      parentName: 
       position: {x: -0, y: 0, z: 4.440892e-18}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyeRt
+      parentName: 
       position: {x: -0.03955115, y: 0.08398448, z: -0.027461419}
       rotation: {x: 0.7351486, y: -0.67740047, z: 0.019250546, w: 0.017738357}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtEyeLeafRt
+      parentName: 
       position: {x: -0.014775707, y: 0, z: 1.3322676e-17}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtHeadLeaf
+      parentName: 
       position: {x: -0.14969802, y: 0.00029676774, z: 1.28238456e-17}
       rotation: {x: 0.9999995, y: -0.00099122, z: -1.6577961e-16, w: -5.0548613e-16}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtJaw
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.5680762, y: 0.822976, z: -1.8787741e-16, w: -1.6439038e-16}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtJawLeaf
+      parentName: 
       position: {x: -0.100789785, y: -2.842171e-16, z: 4.5499976e-17}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtTongueA
+      parentName: 
       position: {x: -0.04963303, y: 0.0041877697, z: 0.0000000011667899}
       rotation: {x: 1.0815781e-16, y: 1.1255357e-16, z: -0.2821396, w: 0.95937335}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtTongueB
+      parentName: 
       position: {x: -0.013853267, y: 1.1368684e-15, z: 6.6609186e-18}
       rotation: {x: 8.2696475e-17, y: -5.2555774e-16, z: 0.077782035, w: 0.9969704}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtTongueC
+      parentName: 
       position: {x: -0.014497476, y: -5.684342e-16, z: -2.2861202e-18}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipRoot
+      parentName: 
       position: {x: -0, y: 1.7763568e-17, z: 1.2621774e-31}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipCornerJawRotLf
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.5167714, y: 0.8557105, z: 0.026301105, w: -0.0038899905}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipCornerLf
+      parentName: 
       position: {x: -0.07398031, y: 0.03639424, z: -0.020520767}
       rotation: {x: -0.5167714, y: 0.8557105, z: 0.026301105, w: 0.0038899905}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipCornerJawRotRt
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.5167161, y: 0.8557391, z: -0.026466407, w: 0.0038273088}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipCornerRt
+      parentName: 
       position: {x: -0.073893405, y: 0.036351487, z: 0.020496666}
       rotation: {x: -0.0038273088, y: -0.026466407, z: -0.8557391, w: 0.5167161}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipLower01JawRotLf
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.5053703, y: 0.86278474, z: 0.014176532, w: 0.0015296132}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipLower01Lf
+      parentName: 
       position: {x: -0.08539749, y: 0.04091166, z: -0.0060888263}
       rotation: {x: -0.5053703, y: 0.86278474, z: 0.014176532, w: -0.0015296132}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipLower01JawRotRt
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.5053198, y: 0.8629045, z: -0.0065737017, w: 0.0021303366}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipLower01Rt
+      parentName: 
       position: {x: -0.08578171, y: 0.041095722, z: 0.006116223}
       rotation: {x: -0.0021303366, y: -0.0065737017, z: -0.8629045, w: 0.5053198}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipLower02JawRotLf
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.5036299, y: 0.8635828, z: 0.024114853, w: 0.0005399673}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipLower02Lf
+      parentName: 
       position: {x: -0.0815328, y: 0.03923295, z: -0.011790498}
       rotation: {x: -0.5036299, y: 0.8635828, z: 0.024114853, w: -0.0005399673}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipLower02JawRotRt
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.50754315, y: 0.86150163, z: -0.0142455315, w: 0.00347559}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipLower02Rt
+      parentName: 
       position: {x: -0.08293322, y: 0.03990682, z: 0.011993014}
       rotation: {x: -0.00347559, y: -0.0142455315, z: -0.86150163, w: 0.50754315}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipLower03JawRotLf
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.51150244, y: 0.85887265, z: 0.026490612, w: -0.0011411364}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipLower03Lf
+      parentName: 
       position: {x: -0.07712209, y: 0.037301455, z: -0.016179768}
       rotation: {x: -0.51150244, y: 0.85887265, z: 0.026490612, w: 0.0011411364}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipLower03JawRotRt
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.5113674, y: 0.858895, z: -0.028332174, w: 0.00027560326}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipLower03Rt
+      parentName: 
       position: {x: -0.078438334, y: 0.03793808, z: 0.016455911}
       rotation: {x: -0.00027560326, y: -0.028332174, z: -0.858895, w: 0.5113674}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipLowerMidJawRot
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.50300324, y: 0.8642845, z: -0.0000000013587416, w: -6.485739e-10}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipLowerMid
+      parentName: 
       position: {x: -0.08679023, y: 0.041351136, z: -1.040791e-17}
       rotation: {x: -0.50300324, y: 0.8642845, z: 3.5604884e-16, w: 4.8609183e-17}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipUpper01JawRotLf
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.49584112, y: 0.8683136, z: 0.013155092, w: -0.00016951366}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipUpper01Lf
+      parentName: 
       position: {x: -0.08199723, y: 0.046292882, z: -0.0063264645}
       rotation: {x: -0.49584112, y: 0.8683136, z: 0.013155092, w: 0.00016951366}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipUpper01JawRotRt
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.49780926, y: 0.8672637, z: -0.0050257607, w: 0.003793398}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipUpper01Rt
+      parentName: 
       position: {x: -0.08347373, y: 0.04712646, z: 0.006440385}
       rotation: {x: 0.003793398, y: 0.0050257607, z: 0.8672637, w: -0.49780926}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipUpper02JawRotLf
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.49916878, y: 0.86625355, z: 0.02074975, w: -0.002196644}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipUpper02Lf
+      parentName: 
       position: {x: -0.079625, y: 0.04390861, z: -0.012117075}
       rotation: {x: -0.49916878, y: 0.86625355, z: 0.02074975, w: 0.002196644}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipUpper02JawRotRt
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.49958983, y: 0.86615574, z: -0.012072545, w: 0.006212094}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipUpper02Rt
+      parentName: 
       position: {x: -0.08041945, y: 0.044346698, z: 0.012237973}
       rotation: {x: 0.0062120934, y: 0.012072545, z: 0.8661557, w: -0.49958983}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipUpper03JawRotLf
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.50489235, y: 0.8627744, z: 0.026357088, w: -0.003075812}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipUpper03Lf
+      parentName: 
       position: {x: -0.0757743, y: 0.03990913, z: -0.016239703}
       rotation: {x: -0.50489235, y: 0.8627744, z: 0.026357088, w: 0.003075812}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipUpper03JawRotRt
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.50831425, y: 0.8607916, z: -0.025450803, w: 0.0025863517}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipUpper03Rt
+      parentName: 
       position: {x: -0.078079715, y: 0.041123357, z: 0.016733795}
       rotation: {x: -0.0025863517, y: -0.025450803, z: -0.8607916, w: 0.50831425}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipUpperMidJawRot
+      parentName: 
       position: {x: 0.020431336, y: 0.01557908, z: 0.0000000011667899}
       rotation: {x: -0.49916875, y: 0.8665048, z: -0.0000000015494483, w: -7.3119144e-10}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtLipUpperMid
+      parentName: 
       position: {x: -0.0840526, y: 0.047641896, z: 2.3652685e-10}
       rotation: {x: -0.49916875, y: 0.8665048, z: 7.0233896e-10, w: -0.0000000012191871}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtNoseLowerLf
+      parentName: 
       position: {x: -0.0047803726, y: 0.11021213, z: 0.0141054075}
       rotation: {x: 0.7209102, y: -0.6901049, z: -0.047575917, w: -0.042193174}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtNoseLowerRt
+      parentName: 
       position: {x: -0.0047803726, y: 0.11021213, z: -0.013561517}
       rotation: {x: 0.7210117, y: -0.69021803, z: 0.045762848, w: 0.040584292}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtNoseUpperLf
+      parentName: 
       position: {x: -0.027817413, y: 0.10597204, z: 0.011251008}
       rotation: {x: 0.79045, y: -0.6103213, z: -0.03498636, w: -0.03837604}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: JtNoseUpperRt
+      parentName: 
       position: {x: -0.027817413, y: 0.10597204, z: -0.011251008}
       rotation: {x: 0.79045, y: -0.6103213, z: 0.03498636, w: 0.03837604}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: Mesh
+      parentName: 
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: SkinnedMesh
+      parentName: 
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: MshRef
+      parentName: 
       position: {x: -0, y: 0.8749057, z: 0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: Arms
+      parentName: 
       position: {x: -0, y: -0.8749057, z: -0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: EyeballLf
+      parentName: 
       position: {x: -0, y: -0.8749057, z: -0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: EyeballRt
+      parentName: 
       position: {x: -0, y: -0.8749057, z: -0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: Eyelashes
+      parentName: 
       position: {x: -0, y: -0.8749057, z: -0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: EyeShadows
+      parentName: 
       position: {x: -0, y: -0.8749057, z: -0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: EyeShellLf
+      parentName: 
       position: {x: -0, y: -0.8749057, z: -0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: EyeShellRt
+      parentName: 
       position: {x: -0, y: -0.8749057, z: -0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: Hair
+      parentName: 
       position: {x: -0, y: -0.8749057, z: -0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: Head
+      parentName: 
       position: {x: -0, y: -0.8749057, z: -0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: Lowerbody
+      parentName: 
       position: {x: -0, y: -0.8749057, z: -0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: LowerTeeth
+      parentName: 
       position: {x: -0, y: -0.8749057, z: -0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: Tongue
+      parentName: 
       position: {x: -0, y: -0.8749057, z: -0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: Upperbody
+      parentName: 
       position: {x: -0, y: -0.8749057, z: -0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: UpperTeeth
+      parentName: 
       position: {x: -0, y: -0.8749057, z: -0.08791898}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     armTwist: 1
     foreArmTwist: 0
     upperLegTwist: 0.5
@@ -2293,12 +4209,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 81f3be983774b5b45917280ad17193e5,
-    type: 3}
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -8,8 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RL5_Template_HQ_EyeRefractive_HDRP
-  m_Shader: {fileID: -6465566751694194690, guid: 63646206e98aefd4abca6f9f2c0dfb84,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 63646206e98aefd4abca6f9f2c0dfb84, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -86,6 +85,7 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 0
+    - _DstBlend2: 0
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _ExcludeFromTUAndAA: 0
@@ -93,15 +93,18 @@ Material:
     - _IrisBrightness: 1
     - _IrisDepth: 0.004
     - _IrisHue: 0.5
+    - _IrisInnerBrightness: 3
     - _IrisRadius: 0.15
     - _IrisSaturation: 1
     - _IrisSmoothness: 0
     - _IsLeftEye: 0
     - _LimbusContrast: 1
-    - _LimbusDarkRadius: 0.1
-    - _LimbusDarkWidth: 0.025
+    - _LimbusDarkScale: 7
     - _LimbusWidth: 0.055
+    - _MaterialID: 1
+    - _MaterialTypeMask: 2
     - _OpaqueCullMode: 2
+    - _PerPixelSorting: 0
     - _PupilScale: 0.8
     - _RayTracing: 0
     - _ReceivesSSR: 1
@@ -132,6 +135,7 @@ Material:
     - _StencilWriteMaskMV: 41
     - _SupportDecals: 1
     - _SurfaceType: 0
+    - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
@@ -154,7 +158,8 @@ Material:
     - _IrisColor: {r: 1, g: 1, b: 1, a: 1}
     - _LimbusColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &1061340412504671145
+  m_AllowLocking: 1
+--- !u!114 &6091924323829668087
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
