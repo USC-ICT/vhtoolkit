@@ -24,15 +24,7 @@ ModelImporter:
       might lower retargeting quality:\nNote: Activate translation DOF on avatar
       to improve retargeting quality.\n\t'JtBallLf' is inbetween humanoid transforms
       and has rotation animation that will be discarded.\n\t'JtChest' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\nEvent
-      readyTime has a time (-1.603904) outside the clip's valid range (0.000000..3.633334).
-      It will never be firedEvent strokeStartTime has a time (-1.603904) outside
-      the clip's valid range (0.000000..3.633334). It will never be firedEvent emphasisTime
-      has a time (-1.603904) outside the clip's valid range (0.000000..3.633334).
-      It will never be firedEvent strokeTime has a time (-1.603904) outside the clip's
-      valid range (0.000000..3.633334). It will never be firedEvent relaxTime has
-      a time (-1.603904) outside the clip's valid range (0.000000..3.633334). It
-      will never be fired"
+      humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -70,37 +62,37 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: -0.44144145
+      - time: 0
         functionName: readyTime
-        data: 
+        data: frame=-49, localFrame=0, time=0s
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: -49
         messageOptions: 1
-      - time: -0.44144145
+      - time: 0
         functionName: strokeStartTime
-        data: 
+        data: frame=-49, localFrame=0, time=0s
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: -49
         messageOptions: 1
-      - time: -0.44144145
+      - time: 0
         functionName: emphasisTime
-        data: 
+        data: frame=-49, localFrame=0, time=0s
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: -49
         messageOptions: 1
-      - time: -0.44144145
+      - time: 0
         functionName: strokeTime
-        data: 
+        data: frame=-49, localFrame=0, time=0s
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: -49
         messageOptions: 1
-      - time: -0.44144145
+      - time: 0
         functionName: relaxTime
-        data: 
+        data: frame=-49, localFrame=0, time=0s
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: -49

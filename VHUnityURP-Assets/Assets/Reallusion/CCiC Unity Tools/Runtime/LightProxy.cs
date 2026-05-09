@@ -27,12 +27,9 @@ using System;
 
 #if UNITY_EDITOR
 using UnityEditor;
-#if PLASTIC_NEWTONSOFT_AVAILABLE
-using Unity.Plastic.Newtonsoft.Json;
-#else
-using Newtonsoft.Json;  // com.unity.collab-proxy (plastic scm) versions prior to 1.14.12
+using Newtonsoft.Json;
 #endif
-#endif
+
 using UnityEngine.Rendering;
 #if HDRP_RUNTIME
 using UnityEngine.Rendering.HighDefinition;
@@ -93,7 +90,7 @@ namespace Reallusion.Runtime
 
         public bool UpdateIntensity = false;
         public bool MultiplyIntensity = false;
-        public float IntensityMultiplier = 1.0f;        
+        public float IntensityMultiplier = 1.0f;
 
         public bool UpdateRange = false;
         public bool MultiplyRange = false;
@@ -377,7 +374,7 @@ namespace Reallusion.Runtime
             UpdateAngles = angle_delta || fall_delta || att_delta;
         }
 #endif
-#endregion Initial Setup by Importer
+        #endregion Initial Setup by Importer
 
         #region Start and Update
         void Start()
@@ -418,7 +415,7 @@ namespace Reallusion.Runtime
             {
                 LightComponent.spotAngle = ProxyAngle;
                 LightComponent.innerSpotAngle = GetInnerAngle(ProxyFalloff, ProxyAttenuation);
-            }            
+            }
         }
         #endregion Start and Update
 

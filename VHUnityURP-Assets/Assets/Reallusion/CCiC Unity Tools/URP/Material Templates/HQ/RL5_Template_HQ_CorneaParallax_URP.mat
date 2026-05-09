@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5299763400758861930
+--- !u!114 &-8566467896996467769
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29,6 +29,7 @@ Material:
   - BOOLEAN_ISCORNEA_ON
   - BOOLEAN_USE_DEPTH_ON
   - _DISABLE_SSR_TRANSPARENT
+  - _EMISSION
   - _ENABLE_FOG_ON_TRANSPARENT
   - _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 2
@@ -92,15 +93,14 @@ Material:
     - _IrisBrightness: 1
     - _IrisDepth: 0.2
     - _IrisHue: 0.5
+    - _IrisInnerBrightness: 1
     - _IrisRadius: 0.15
     - _IrisSaturation: 1
     - _IrisScale: 1
     - _IsLeftEye: 0
     - _LimbusContrast: 1
-    - _LimbusDarkRadius: 0.1
-    - _LimbusDarkWidth: 0.025
+    - _LimbusDarkScale: 9
     - _LimbusWidth: 0.055
-    - _PMod: 6.4
     - _PupilScale: 0.8
     - _QueueControl: 0
     - _QueueOffset: 0

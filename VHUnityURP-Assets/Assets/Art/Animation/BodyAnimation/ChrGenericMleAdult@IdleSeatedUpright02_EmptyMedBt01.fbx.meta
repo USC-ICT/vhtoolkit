@@ -1146,39 +1146,39 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.1
+      - time: 0.2
         functionName: readyTime
-        data: 
+        data: frame=8, localFrame=6, time=0.2s
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
+        floatParameter: 0.2
         intParameter: 8
         messageOptions: 1
-      - time: 0.15
+      - time: 0.33333334
         functionName: strokeStartTime
-        data: 
+        data: frame=12, localFrame=10, time=0.333s
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
+        floatParameter: 0.33333334
         intParameter: 12
         messageOptions: 1
-      - time: 0.3
+      - time: 0.73333335
         functionName: emphasisTime
-        data: 
+        data: frame=24, localFrame=22, time=0.733s
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
+        floatParameter: 0.73333335
         intParameter: 24
         messageOptions: 1
-      - time: 0.3125
+      - time: 0.76666665
         functionName: strokeTime
-        data: 
+        data: frame=25, localFrame=23, time=0.767s
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
+        floatParameter: 0.76666665
         intParameter: 25
         messageOptions: 1
-      - time: 0.35
+      - time: 0.8666667
         functionName: relaxTime
-        data: 
+        data: frame=28, localFrame=26, time=0.867s
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
+        floatParameter: 0.8666667
         intParameter: 28
         messageOptions: 1
       transformMask: []

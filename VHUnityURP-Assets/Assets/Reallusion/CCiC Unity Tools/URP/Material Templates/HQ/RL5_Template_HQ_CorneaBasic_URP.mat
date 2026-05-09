@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1253846443580772179
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 10
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -28,6 +15,7 @@ Material:
   m_InvalidKeywords:
   - BOOLEAN_ISCORNEA_ON
   - _DISABLE_SSR_TRANSPARENT
+  - _EMISSION
   - _ENABLE_FOG_ON_TRANSPARENT
   - _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 2
@@ -91,15 +79,14 @@ Material:
     - _IrisBrightness: 1
     - _IrisDepth: 0.225
     - _IrisHue: 0.5
+    - _IrisInnerBrightness: 1
     - _IrisRadius: 0.15
     - _IrisSaturation: 1
     - _IrisScale: 1
     - _IsLeftEye: 0
     - _LimbusContrast: 1
-    - _LimbusDarkRadius: 0.1
-    - _LimbusDarkWidth: 0.025
+    - _LimbusDarkScale: 9
     - _LimbusWidth: 0.055
-    - _PMod: 6.4
     - _PupilScale: 0.8
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -121,3 +108,16 @@ Material:
     - _LimbusColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+--- !u!114 &6956189325753492954
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 10
