@@ -21,6 +21,7 @@ Material:
   - BOOLEAN_USE_CAVITY_ON
   - BOOLEAN_USE_WRINKLE_ON
   - _DISABLE_SSR_TRANSPARENT
+  - _EMISSION
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -207,7 +208,7 @@ Material:
     - _WrinkleValueSetBCCB: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6835296698015397429
+--- !u!114 &5165236994479891047
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

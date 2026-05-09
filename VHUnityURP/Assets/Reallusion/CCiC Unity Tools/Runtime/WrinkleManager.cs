@@ -21,6 +21,10 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 
 namespace Reallusion.Runtime
 {
@@ -1109,6 +1113,14 @@ namespace Reallusion.Runtime
 
             if (config != null && headMaterial && skinnedMeshRenderer)
             {
+                bool isVisible = false;
+                if (Camera.main) isVisible = GeometryUtility.TestPlanesAABB(GeometryUtility.CalculateFrustumPlanes(Camera.main), skinnedMeshRenderer.bounds);
+#if UNITY_EDITOR
+                if (SceneView.lastActiveSceneView.camera) isVisible |= GeometryUtility.TestPlanesAABB(GeometryUtility.CalculateFrustumPlanes(SceneView.lastActiveSceneView.camera), skinnedMeshRenderer.bounds);
+#endif
+                isVisible &= skinnedMeshRenderer.isVisible;
+                if (!isVisible) return;
+
                 updateTimer -= Time.deltaTime;
 
                 if (updateTimer <= 0f)

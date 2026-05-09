@@ -38,7 +38,7 @@ Material:
   - _REFRACTION_THIN
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
+  m_DoubleSidedGI: 1
   m_CustomRenderQueue: 3000
   stringTagMap:
     MotionVector: User
@@ -373,6 +373,7 @@ Material:
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 1
     - _WorkflowMode: 1
+    - _XRMotionVectorsPass: 1
     - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
     - _ZTestModeDistortion: 4

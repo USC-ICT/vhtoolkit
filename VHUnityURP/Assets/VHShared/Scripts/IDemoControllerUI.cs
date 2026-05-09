@@ -8,5 +8,6 @@ public interface IDemoControllerUI
     void PopulateResponseUI(string writer, string response);
     void UpdateResponseScroll(string text);
     void SetAsrButtonColor(Color color);
+    void SetNextCharacterButtonColor(Color color);
     void InitializeCanvasCamera(); //AR only, desktop skips implementation
 }

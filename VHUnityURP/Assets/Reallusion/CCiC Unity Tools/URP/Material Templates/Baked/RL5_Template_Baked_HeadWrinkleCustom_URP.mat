@@ -19,6 +19,7 @@ Material:
   - BOOLEAN_USE_CAVITY_ON
   - BOOLEAN_USE_WRINKLE_ON
   - _DETAIL_MULX2
+  - _EMISSION
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
   - _OCCLUSIONMAP
@@ -166,7 +167,7 @@ Material:
     - _WrinkleValueSetBCCB: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &485285461313103494
+--- !u!114 &7133533476551457294
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

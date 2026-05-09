@@ -14,6 +14,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _DETAIL_MULX2
+  - _EMISSION
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
   - _OCCLUSIONMAP
@@ -83,16 +84,17 @@ Material:
     - _DetailNormalMapScale: 0.5
     - _IOR: 1.4
     - _IrisDepth: 0.225
+    - _IrisScale: 1
+    - _IsLeftEye: 0
     - _PupilScale: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _UseDepth: 0
     m_Colors:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
-    - _LimbusColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &5672463243280669715
+--- !u!114 &5277904606295253455
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

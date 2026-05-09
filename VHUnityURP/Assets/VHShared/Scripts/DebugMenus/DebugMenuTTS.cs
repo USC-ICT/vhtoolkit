@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Ride.Examples
@@ -11,6 +13,8 @@ namespace Ride.Examples
         #region Debug menu variables
         DebugMenu m_debugMenu;
         DemoController m_controller;
+        private List<(DemoControllerBase.TtsMode mode, string label)> m_ttsOptions;
+        private string[] m_ttsOptionsText;
         Vector2 m_ScrollPos = Vector2.zero;  
         bool m_voiceSelectionToggle = false; 
         #endregion
@@ -23,11 +27,18 @@ namespace Ride.Examples
         {
             base.Start();
 
-            // Get the DebugMenu instance from the global system.
-            m_debugMenu = Globals.api.GetSystem<DebugMenu>();
-
-            // Find an instance of DemoController in the scene.
+            m_debugMenu = Systems.Get<DebugMenu>();
             m_controller = FindAnyObjectByType<DemoController>();
+
+            m_ttsOptions = new()
+            {
+                (DemoControllerBase.TtsMode.Polly, "Polly"),
+                (DemoControllerBase.TtsMode.ElevenLabs, "11Labs"),
+            };
+
+            m_ttsOptionsText = new string[m_ttsOptions.Count];
+            for (int i = 0; i < m_ttsOptions.Count; i++)
+                m_ttsOptionsText[i] = m_ttsOptions[i].label;
         }
 
 
@@ -37,13 +48,8 @@ namespace Ride.Examples
         /// </summary>
         public void OnGUITts()
         {
-            // Draw a label indicating the TTS section.
             m_debugMenu.Label($"<b>TTS</b>");
-
-            // Draw GUI for selecting the TTS system.
             OnGUISystemSelection();
-
-            // Draw GUI for selecting the TTS voice.
             OnGUIVoiceSelection();
         }
 
@@ -53,12 +59,11 @@ namespace Ride.Examples
         /// </summary>
         public void OnGUISystemSelection()
         {
-            // Draw a selection grid for TTS mode and get the user's selection.
-            int ttsMode = m_debugMenu.SelectionGrid(m_controller.m_ttsMode, new string[] { "Polly", "11Labs"}, 2);
+            int currentUiIndex = GetUiIndexFromAsrMode(m_controller.m_ttsMode);
+            int newUiIndex = m_debugMenu.SelectionGrid(currentUiIndex, m_ttsOptionsText, 2);
 
-            // If the selected TTS mode has changed, update it in the DemoController.
-            if (m_controller.m_ttsMode != ttsMode)
-                m_controller.ChangeTts(ttsMode);
+            if (newUiIndex != currentUiIndex)
+                m_controller.ChangeTts(GetAsrModeFromUiIndex(newUiIndex));
         }
 
 
@@ -76,12 +81,44 @@ namespace Ride.Examples
             // If the toggle is enabled, display the voice selection grid inside a scrollable view.
             if (m_voiceSelectionToggle)
             {
+                const int maxDisplayedVoiceNameLength = 10;
+                string[] displayVoices = m_controller.m_currentTTS.GetAvailableVoices()?
+                    .Select(voiceName => string.IsNullOrEmpty(voiceName) || voiceName.Length <= maxDisplayedVoiceNameLength
+                        ? voiceName
+                        : voiceName.Substring(0, maxDisplayedVoiceNameLength) + "~")
+                    .ToArray();
+
                 m_ScrollPos = GUILayout.BeginScrollView(m_ScrollPos, GUILayout.MinHeight(100));
-                m_controller.m_ttsVoice = m_debugMenu.SelectionGrid(m_controller.m_ttsVoice, m_controller.m_currentTTS.GetAvailableVoices(), 4);
+                m_controller.m_ttsVoice = m_debugMenu.SelectionGrid(m_controller.m_ttsVoice, displayVoices, 4);
                 GUILayout.EndScrollView();
             }
 
             m_debugMenu.Space();
+        }
+
+        private DemoControllerBase.TtsMode GetAsrModeFromUiIndex(int uiIndex)
+        {
+            if (m_ttsOptions == null || m_ttsOptions.Count == 0)
+                return DemoControllerBase.TtsMode.Polly;
+
+            if (uiIndex < 0) uiIndex = 0;
+            if (uiIndex >= m_ttsOptions.Count) uiIndex = m_ttsOptions.Count - 1;
+
+            return m_ttsOptions[uiIndex].mode;
+        }
+
+        private int GetUiIndexFromAsrMode(DemoControllerBase.TtsMode mode)
+        {
+            if (m_ttsOptions != null)
+            {
+                for (int i = 0; i < m_ttsOptions.Count; i++)
+                {
+                    if (m_ttsOptions[i].mode == mode)
+                        return i;
+                }
+            }
+
+            return 0;
         }
     }
 }

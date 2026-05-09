@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,12 +10,39 @@ using VHAssets;
 
 namespace Ride.Examples
 {
+    /// <summary>
+    /// Base class for demo logic. Handles initialization and control of all services.
+    /// </summary>
     public abstract class DemoControllerBase : RideMonoBehaviour
     {
+        public enum AsrMode
+        {
+            Azure = 0,
+            Windows = 1,
+            Mobile = 2,
+            AzureWebGL = 3,
+            OpenAI = 4,
+        }
+
+        public enum NlpMode
+        {
+            ChatGPT = 0,
+            Claude = 1,
+            AwsLex = 2,
+            Rasa = 3,
+        }
+
+        public enum TtsMode
+        {
+            Polly = 0,
+            ElevenLabs = 1,
+        }
+
+
         [Header("Debug Menus")]
         [SerializeField] protected DebugMenuGaze m_gaze;
         [SerializeField] protected DebugMenuLipsync m_lipsync;
-        [SerializeField] protected DebugMenuLLM m_llm;
+        [SerializeField] protected DebugMenuNLP m_nlp;
 
         [Header("UI")]
         protected IDemoControllerUI m_demoControllerUI;
@@ -26,9 +54,11 @@ namespace Ride.Examples
 
         protected SpeechRecognitionSystemWindows m_windowsSpeechRecognitionSystem;
         protected SpeechRecognitionSystemAzure m_azureSpeechRecognitionSystem;
+        protected SpeechRecognitionSystemAzureWebGL m_azureWebGLSpeechRecognitionSystem;
+        protected SpeechRecognitionSystemOpenAI m_openAISpeechRecognitionSystem;
         protected NlpSystemChatGPT m_chatGPTSystem;
         protected NlpSystemAnthropic m_anthropicSystem;
-        protected RasaNlpSystem m_rasaNlpSystem;
+        protected NlpSystemRasa m_rasaNlpSystem;
         protected NlpSystemAWSLex m_lexSystem;
         protected NonverbalBehaviorGeneratorSystem m_nvbgSystem;
         protected TextToSpeechSystemElevenLabs m_elevenTextToSpeechSystem;
@@ -36,18 +66,65 @@ namespace Ride.Examples
 
         [SerializeField] protected TtsReader m_ttsReader;
 
-        [System.NonSerialized] public NlpSystemUnity m_currentLLM, m_currentScripted;
-        [System.NonSerialized] public ISpeechRecognitionSystem m_currentASR;
-        [System.NonSerialized] public ILipsyncedTextToSpeechSystem m_currentTTS;
-        [System.NonSerialized] public int m_llmMode, m_asrMode, m_ttsMode, m_ttsVoice;
+        [NonSerialized] public NlpSystemUnity m_currentLLM;
+        [NonSerialized] public NlpSystemUnity m_currentScripted;
+        [NonSerialized] public ISpeechRecognitionSystem m_currentASR;
+        [NonSerialized] public ILipsyncedTextToSpeechSystem m_currentTTS;
+        [NonSerialized] public NlpMode m_nlpMode;
+        [NonSerialized] public AsrMode m_asrMode;
+        [NonSerialized] public TtsMode m_ttsMode;
+        [NonSerialized] public int m_ttsVoice;
 
         protected MecanimCharacter m_currentCharacter;
         protected AudioClip m_audioClip;
-        protected string m_audioFilePath, m_lipsyncXML, m_response;
+        protected string m_audioFilePath;
+        protected string m_lipsyncXML;
+        protected string m_response;
         protected int m_maxSpokenCharacters = 1000;
+        protected ThinkingController m_thinkingController;
+
+        public bool IntroduceOnLoad = true;
 
         public MecanimCharacter CurrentCharacter => m_currentCharacter;
         public IReadOnlyList<MecanimCharacter> Characters => m_characters;
+
+        [NonSerialized] public bool m_startButtonPressed = false;
+
+        /// <summary>
+        /// Controls whether character configuration UI and related interactions
+        /// are currently enabled.
+        ///
+        /// This flag represents a global UI / interaction gate rather than a user
+        /// preference. When false, character-related controls (including ASR,
+        /// TTS configuration, and other interactive elements) are considered
+        /// temporarily unavailable due to application state.
+        ///
+        /// Examples include:
+        ///   - a character utterance is in progress,
+        ///   - a modal interaction is active,
+        ///   - or the application is intentionally preventing configuration changes.
+        ///
+        /// This value does not represent user intent and should not be interpreted
+        /// as a desired on/off state. It is typically managed by higher-level
+        /// application flow.
+        /// </summary>
+        [NonSerialized] public bool m_characterConfigUIEnabled = true;
+
+        /// <summary>
+        /// The user's requested ASR state.
+        ///
+        /// This value represents user intent only (e.g., pressing the mic button)
+        /// and does not guarantee that ASR is currently recognizing. Whether ASR
+        /// can actually start or continue recognizing is determined at runtime
+        /// by <see cref="ApplyAsrState"/>, which also considers gating conditions
+        /// such as <see cref="m_characterConfigUIEnabled"/>.
+        ///
+        /// In contrast to <see cref="m_characterConfigUIEnabled"/>, this flag
+        /// persists across temporary blocking conditions and is reapplied
+        /// automatically when those conditions clear.
+        /// </summary>
+        private bool m_asrDesiredEnabled;
+
 
         protected void Awake()
         {
@@ -64,25 +141,39 @@ namespace Ride.Examples
 
             m_windowsSpeechRecognitionSystem = Systems.Get<SpeechRecognitionSystemWindows>();
             m_azureSpeechRecognitionSystem = Systems.Get<SpeechRecognitionSystemAzure>();
+            m_azureWebGLSpeechRecognitionSystem = Systems.Get<SpeechRecognitionSystemAzureWebGL>();
+            m_openAISpeechRecognitionSystem = Systems.Get<SpeechRecognitionSystemOpenAI>();
             m_chatGPTSystem = Systems.Get<NlpSystemChatGPT>();
             m_anthropicSystem = Systems.Get<NlpSystemAnthropic>();
-            m_rasaNlpSystem = Systems.Get<RasaNlpSystem>();
+            m_rasaNlpSystem = Systems.Get<NlpSystemRasa>();
             m_lexSystem = Systems.Get<NlpSystemAWSLex>();
             m_nvbgSystem = Systems.Get<NonverbalBehaviorGeneratorSystem>();
             m_elevenTextToSpeechSystem = Systems.Get<TextToSpeechSystemElevenLabs>();
             m_awsPollyTextToSpeechSystem = Systems.Get<TextToSpeechSystemAWSPolly>();
             if (!m_ttsReader) m_ttsReader = FindAnyObjectByType<TtsReader>();
 
-            if (m_windowsSpeechRecognitionSystem != null)
-                m_windowsSpeechRecognitionSystem.SpeechRecognized += OnSpeechRecognized;
-            if (m_azureSpeechRecognitionSystem != null)
-                m_azureSpeechRecognitionSystem.SpeechRecognized += OnSpeechRecognized;
+            if (m_windowsSpeechRecognitionSystem != null) m_windowsSpeechRecognitionSystem.SpeechRecognized += OnSpeechRecognized;
+            if (m_azureSpeechRecognitionSystem != null) m_azureSpeechRecognitionSystem.SpeechRecognized += OnSpeechRecognized;
+            if (m_azureWebGLSpeechRecognitionSystem != null) m_azureWebGLSpeechRecognitionSystem.SpeechRecognized += OnSpeechRecognized;
+            if (m_openAISpeechRecognitionSystem != null) m_openAISpeechRecognitionSystem.SpeechRecognized += OnSpeechRecognized;
 
-            ChangeASR(0);
-            m_currentLLM = m_chatGPTSystem ? m_chatGPTSystem : m_anthropicSystem;
+            if (RideUtils.IsWebGL()) ChangeASR(AsrMode.AzureWebGL);
+            else                     ChangeASR(AsrMode.OpenAI);
+            if (m_chatGPTSystem != null) m_currentLLM = m_chatGPTSystem;
+            else                         m_currentLLM = m_anthropicSystem;
             m_currentScripted = m_lexSystem;
-            ChangeLlm(0);
-            m_currentTTS = m_awsPollyTextToSpeechSystem ? m_awsPollyTextToSpeechSystem : m_elevenTextToSpeechSystem;
+            ChangeNlp(NlpMode.ChatGPT);
+            if (m_elevenTextToSpeechSystem != null) ChangeTts(TtsMode.ElevenLabs);
+            else                                    ChangeTts(TtsMode.Polly);
+
+#if UNITY_WEBGL
+            // Turn off reflection probes for WebGL
+            ReflectionProbe[] probes = FindObjectsByType<ReflectionProbe>(FindObjectsSortMode.None);
+            foreach (ReflectionProbe probe in probes)
+            {
+                probe.gameObject.SetActive(false);
+            }
+#endif
 
             //Bind UI and collect characters (AR/Desktop specifics handled in overrides)
             m_demoControllerUI = BindUI();
@@ -90,40 +181,50 @@ namespace Ride.Examples
             CollectCharacters();
             AfterSystemsInitialized();
 
-            //Pick the first already-active character if any
+            // Pick the first already-active character if any
             foreach (var character in m_characters)
-                if (character.gameObject.activeSelf) { SelectCharacterInternal(character.name); break; }
+                if (character.gameObject.activeSelf) { SelectCharacter(character.name); break; }
 
             var onScreen = Systems.Get<DebugOnScreenLogVHAssets>();
             if (onScreen != null) onScreen.m_log.ShowLog(false);
+
+            if (!RideIO.IsInternetConnectionAvailable())
+                RideLog.LogError("Error: internet connection required for cloud services");
         }
 
         /// <summary>
         /// Changes the active Automatic Speech Recognition (ASR) system.
         /// </summary>
-        /// <param name="mode">ASR mode index: 0 = Azure, 1 = Windows, 2 = Mobile (if enabled).</param>
-        public void ChangeASR(int mode)
+        /// <param name="mode">ASR mode.</param>
+        public void ChangeASR(AsrMode mode)
         {
+            if (m_asrMode != mode)
+                SetASR(false);
+
             m_asrMode = mode;
-            if (mode == 0) m_currentASR = m_azureSpeechRecognitionSystem;
-            else if (mode == 1) m_currentASR = m_windowsSpeechRecognitionSystem;
+
+            if (mode == AsrMode.Azure) m_currentASR = m_azureSpeechRecognitionSystem;
+            else if (mode == AsrMode.Windows) m_currentASR = m_windowsSpeechRecognitionSystem;
+            else if (mode == AsrMode.AzureWebGL) m_currentASR = m_azureWebGLSpeechRecognitionSystem;
+            else if (mode == AsrMode.OpenAI) m_currentASR = m_openAISpeechRecognitionSystem;
 #if RIDEVH_URP || RIDEVH_XR
-            // else if (mode == 2) m_currentASR = m_mobileSpeechRecognitionSystem;
+            // else if (mode == AsrMode.Mobile) m_currentASR = m_mobileSpeechRecognitionSystem;
 #endif
-            else throw new System.NotImplementedException();
+            else throw new NotImplementedException();
         }
 
         /// <summary>
-        /// Changes the active Large Language Model (LLM) system.
+        /// Changes the active Natural Language Processing (NLP) system.
         /// </summary>
-        /// <param name="mode">LLM mode index: 0 = ChatGPT, 1 = Anthropic, 2 = Lex, 3 = Rasa.</param>
-        public void ChangeLlm(int mode)
+        /// <param name="mode">NLP mode.</param>
+        public void ChangeNlp(NlpMode mode)
         {
-            m_llmMode = mode;
-            if (mode == 0) m_currentLLM = m_chatGPTSystem;
-            else if (mode == 1) m_currentLLM = m_anthropicSystem;
-            else if (mode == 2) m_currentScripted = m_lexSystem;
-            else if (mode == 3) m_currentLLM = m_rasaNlpSystem;
+            m_nlpMode = mode;
+
+            if (mode == NlpMode.ChatGPT) m_currentLLM = m_chatGPTSystem;
+            else if (mode == NlpMode.Claude) m_currentLLM = m_anthropicSystem;
+            else if (mode == NlpMode.AwsLex) m_currentScripted = m_lexSystem;
+            else if (mode == NlpMode.Rasa) m_currentLLM = m_rasaNlpSystem;
         }
 
         /// <summary>
@@ -135,9 +236,14 @@ namespace Ride.Examples
         public void SetPrompt(MecanimCharacter character, string prompt = "")
             => StartCoroutine(WaitAndSetPrompt(character, prompt));
 
-        public void AskLLMQuestion(string q)
+        public void AskNLPQuestion(string q)
         {
-            if (m_llmMode == 2) m_currentScripted.Request(new NlpRequest(q), QuestionResponse);
+            StopUtterance();                    // Stop current character behaviors
+            SetCharacterConfigUIEnabled(false); // Don't allow character change while interaction is processing and executing
+            if (m_thinkingController != null)   // Start character thinking nonverbal behaviors after a small delay
+                m_thinkingController.StartThinkingBehavior(true);
+
+            if (m_nlpMode == NlpMode.AwsLex) m_currentScripted.Request(new NlpRequest(q), QuestionResponse);
             else m_currentLLM.Request(new NlpRequest(q), QuestionResponse);
         }
 
@@ -150,11 +256,14 @@ namespace Ride.Examples
         /// <summary>
         /// Changes the active TTS system and sets the voice for the current character.
         /// </summary>
-        /// <param name="mode">TTS mode index: 0 = AWS Polly, 1 = ElevenLabs.</param>
-        public void ChangeTts(int mode)
+        /// <param name="mode">TTS mode.</param>
+        public void ChangeTts(TtsMode mode)
         {
             m_ttsMode = mode;
-            m_currentTTS = (mode == 0) ? m_awsPollyTextToSpeechSystem : m_elevenTextToSpeechSystem;
+
+            if (mode == TtsMode.Polly) m_currentTTS = m_awsPollyTextToSpeechSystem;
+            else if (mode == TtsMode.ElevenLabs) m_currentTTS = m_elevenTextToSpeechSystem;
+
             SetCharacterVoice(m_currentTTS, m_currentCharacter);
         }
 
@@ -225,6 +334,8 @@ namespace Ride.Examples
                 CurrentCharacter.StopLipSyncPerformance();
                 CurrentCharacter.StopAudio();
             }
+
+            SetCharacterConfigUIEnabled(true);
         }
 
         /// <summary>
@@ -240,7 +351,7 @@ namespace Ride.Examples
         }
 
         /// <summary>
-        /// Handles recognized speech input and forwards it to the LLM.
+        /// Handles recognized speech input and forwards it to the NLP system.
         /// </summary>
         /// <param name="sender">The sender of the speech recognition event.</param>
         /// <param name="e">The speech recognition result event arguments.</param>
@@ -248,7 +359,7 @@ namespace Ride.Examples
         protected void OnSpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             m_demoControllerUI?.PopulateResponseUI("You", e.Text);
-            AskLLMQuestion(e.Text);
+            AskNLPQuestion(e.Text);
             FindAnyObjectByType<DebugMenus>().SetNlpInput(e.Text);
         }
 
@@ -312,7 +423,15 @@ namespace Ride.Examples
             CurrentCharacter.PlayAudio(ttsFile);
             CurrentCharacter.PlayXml(ttsFile);
 
-            yield return new WaitForSeconds(ttsFile.ClipLength);
+            if (m_thinkingController != null)
+                m_thinkingController.StopThinkingBehavior();
+
+            SetCharacterConfigUIEnabled(false);
+
+            float waitTime = Math.Max(ttsFile.ClipLength - 0.2f, 0.1f);  // Wait until near the end of the audio clip
+            yield return new WaitForSeconds(waitTime);
+
+            SetCharacterConfigUIEnabled(true);
         }
 
         /// <summary>
@@ -329,7 +448,7 @@ namespace Ride.Examples
             var profile = character.GetComponent<VHCharacterProfile>();
             if (!string.IsNullOrEmpty(prompt)) profile.llmPrompt = prompt;
 
-            m_llm.SetUIPrompt(profile.llmPrompt);
+            m_nlp.SetUIPrompt(profile.llmPrompt);
             if (m_chatGPTSystem != null)
                 m_chatGPTSystem.SetSystemPrompt(profile.llmPrompt);
             if (m_anthropicSystem != null)
@@ -337,7 +456,7 @@ namespace Ride.Examples
         }
 
         /// <summary>
-        /// Receives the response from the LLM and processes it.
+        /// Receives the response from the NLP and processes it.
         /// </summary>
         /// <param name="response">The NLP response data.</param><see cref="NlpResponse"/>
         protected void QuestionResponse(NlpResponse response) => SendResponse(response.content[0]);
@@ -345,23 +464,169 @@ namespace Ride.Examples
         protected abstract IDemoControllerUI BindUI();
         protected abstract void CollectCharacters();                   //AR: direct children; Desktop: nested
 
-        public void SelectCharacter(string characterName)
-        {
-            SelectCharacterInternal(characterName);
-        }
-        protected abstract void SelectCharacterInternal(string name);  //gaze target and catalog differences
+        public abstract void SelectCharacter(string characterName);  //gaze target and catalog differences
         protected virtual void AfterSystemsInitialized() { }           //cameras, catalogs, etc.
 
         protected override void Update()
         {
             base.Update();
 
-            UpdateAsrButtonColorInternal();
+            ApplyAsrState();
+            UpdateAsrButtonColor();
+            UpdateNextCharacterButtonColor();
         }
 
-        protected abstract void UpdateAsrButtonColorInternal();
+        protected abstract void UpdateAsrButtonColor();
+
+        protected abstract void UpdateNextCharacterButtonColor();
+
+
+        /// <summary>
+        /// Toggles the desired Automatic Speech Recognition (ASR) state.
+        ///
+        /// This represents a user intent change (e.g., clicking the mic button),
+        /// not an immediate guarantee that recognition will start or stop.
+        /// Actual recognition is gated by runtime conditions such as whether
+        /// the character is speaking, a microphone is selected, or the character
+        /// configuration UI is enabled.
+        ///
+        /// If ASR is currently not interactable, this call is ignored.
+        /// </summary>
+        public virtual void ToggleASR()
+        {
+            if (!IsAsrToggleInteractable())
+                return;
+
+            SetASR(!m_asrDesiredEnabled);
+        }
+
+        /// <summary>
+        /// Sets the desired Automatic Speech Recognition (ASR) state explicitly.
+        ///
+        /// This allows callers to force ASR on or off without relying on toggle
+        /// semantics. Disabling is always allowed; enabling is subject to the same
+        /// interaction constraints as <see cref="ToggleASR"/>.
+        ///
+        /// The requested state is stored and applied opportunistically when
+        /// runtime conditions allow (see <see cref="ApplyAsrState"/>).
+        /// </summary>
+        /// <param name="enabled">
+        /// True to request ASR be enabled; false to request it be disabled.
+        /// </param>
+        public virtual void SetASR(bool enabled)
+        {
+            // Always allow disabling.
+            if (enabled && !IsAsrToggleInteractable())
+                return;
+
+            m_asrDesiredEnabled = enabled;
+            ApplyAsrState();
+        }
+
+        /// <summary>
+        /// Reconciles the desired ASR state with the current runtime conditions
+        /// and starts or stops speech recognition as needed.
+        ///
+        /// This method is the single authority that decides whether ASR should
+        /// actually be recognizing at this moment. It compares:
+        ///   - the user's desired ASR state, and
+        ///   - whether recognition is currently allowed
+        ///
+        /// and issues StartRecognizing / StopRecognizing calls only when a
+        /// transition is required.
+        ///
+        /// This method is safe to call repeatedly and is typically invoked
+        /// from Update().
+        /// </summary>
+        private void ApplyAsrState()
+        {
+            if (m_currentASR == null)
+                return;
+
+            bool shouldRecognize = m_asrDesiredEnabled && IsAsrAllowedToRecognize();
+            if (m_currentASR.IsRecognizing == shouldRecognize)
+                return;
+
+            if (shouldRecognize)
+                m_currentASR.StartRecognizing();
+            else
+                m_currentASR.StopRecognizing();
+        }
+
+        /// <summary>
+        /// Determines whether ASR is currently allowed to actively recognize speech.
+        ///
+        /// This reflects transient runtime conditions that may temporarily block
+        /// recognition even if the user has requested ASR to be enabled. Examples
+        /// include:
+        ///   - the character is speaking,
+        ///   - the character configuration UI is disabled,
+        ///   - no microphone is selected,
+        ///   - or no character is active.
+        ///
+        /// This method does not consider user intent; it only answers whether
+        /// recognition is permitted right now.
+        /// </summary>
+        /// <returns>
+        /// True if ASR may actively recognize speech; otherwise false.
+        /// </returns>
+        protected virtual bool IsAsrAllowedToRecognize()
+        {
+            if (!m_characterConfigUIEnabled)
+                return false;
+
+            if (CurrentCharacter == null)
+                return false;
+
+            var voice = CurrentCharacter.Voice;
+            if (voice != null && voice.isPlaying)
+                return false;
+
+            if (string.IsNullOrEmpty(m_currentASR.SelectedMicrophone))
+                return false;
+
+            return true;
+        }
+
+        /// <summary>
+        /// Determines whether the ASR toggle control should be considered
+        /// interactable by the user.
+        ///
+        /// This is used to gate user input (e.g., mic button presses) and may
+        /// be stricter than <see cref="IsAsrAllowedToRecognize"/>. For example,
+        /// ASR might be temporarily blocked from recognizing, but still allow
+        /// the user to change their desired state, depending on policy.
+        ///
+        /// The default implementation disables interaction when the same
+        /// conditions that block recognition are present.
+        /// </summary>
+        /// <returns>
+        /// True if the ASR toggle should respond to user input; otherwise false.
+        /// </returns>
+        protected virtual bool IsAsrToggleInteractable()
+        {
+            if (m_currentASR == null)
+                return false;
+
+            if (!m_characterConfigUIEnabled)
+                return false;
+
+            if (CurrentCharacter == null)
+                return false;
+
+            var voice = CurrentCharacter.Voice;
+            if (voice != null && voice.isPlaying)
+                return false;
+
+            if (string.IsNullOrEmpty(m_currentASR.SelectedMicrophone))
+                return false;
+
+            return true;
+        }
 
         public enum LipsyncOptions { VH = 0, OVR = 1, }
         public virtual void SetLipsyncMethod(LipsyncOptions method) { }
+
+        protected void SetCharacterConfigUIEnabled(bool enabled) => m_characterConfigUIEnabled = enabled;
     }
 }

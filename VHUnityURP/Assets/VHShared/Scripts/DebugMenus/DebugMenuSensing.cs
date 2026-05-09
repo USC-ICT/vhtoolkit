@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Ride.Sensing;
 using Ride.UI;
@@ -11,22 +12,31 @@ namespace Ride.Examples
     /// </summary>
     public class DebugMenuSensing : RideMonoBehaviour
     {
+        public enum SensingMode
+        {
+            Aws = 0,
+            DeepFace = 1,
+        }
+
+
         [Header("Sensing")]
         [SerializeField] SensingProcessor m_sensingProcessor;
         [SerializeField] VHWebCam m_vhWebCam;
         [SerializeField] RideRawImage m_webcamRawImage;
         [SerializeField] SensingSystemAWSRekognition m_awsRekognitionSystem;
         [SerializeField] SensingSystemAzureFace m_azureFaceSystem;
-        [SerializeField] DeepFaceRecognitionSystem m_localDeepFaceSystem;
+        [SerializeField] SensingSystemDeepFace m_deepFaceSystem;
         [SerializeField] Audio.MicrophoneAudioSystem m_microphoneAudio;
-        [SerializeField] float m_microphoneThreshold = 0.001f;
+        [SerializeField] float m_microphoneThreshold = 0.05f;
 
+        private SensingMode m_sensingMode;
         private ISensingSystem m_currentSensing; 
+        private List<(SensingMode mode, string label)> m_sensingOptions;
+        private string[] m_sensingOptionsText;
 
         #region Debug Menu
-        private int m_webCamIndex = 0;      
-        private int m_sensingMode = 0;      
-        private bool m_isMirroring = false; 
+        private int m_webCamIndex = 0;
+        private bool m_isMirroring = false;
         private bool m_webcamToggle = false;
 
         DebugMenu m_debugMenu;
@@ -42,13 +52,35 @@ namespace Ride.Examples
         {
             base.Start();
 
-            m_debugMenu = Globals.api.GetSystem<DebugMenu>();
+            m_debugMenu = Systems.Get<DebugMenu>();
             m_controller = FindAnyObjectByType<DemoController>();
             m_debugMenusBase = FindAnyObjectByType<DebugMenus>();
 
-            // Set the default sensing system to AWS Rekognition.
-            m_currentSensing = m_awsRekognitionSystem;
-            m_sensingProcessor.SetSensingSystems(m_currentSensing);
+            ChangeSensingMode(SensingMode.Aws);
+
+            var sensingModes = new string[] { "AWS", "DeepFace" };
+            if (RideUtils.IsAndroid() || RideUtils.IsWebGL())
+                sensingModes = new string[] { "AWS" };
+
+            if (RideUtils.IsAndroid() || RideUtils.IsIOS() || RideUtils.IsWebGL())
+            {
+                m_sensingOptions = new()
+                {
+                    (SensingMode.Aws, "AWS"),                  
+                };
+            }
+            else
+            {
+                m_sensingOptions = new()
+                {
+                    (SensingMode.Aws, "AWS"),
+                    (SensingMode.DeepFace, "DeepFace"),
+                };
+            }
+
+            m_sensingOptionsText = new string[m_sensingOptions.Count];
+            for (int i = 0; i < m_sensingOptions.Count; i++)
+                m_sensingOptionsText[i] = m_sensingOptions[i].label;
         }
 
 
@@ -59,22 +91,11 @@ namespace Ride.Examples
         {
             m_debugMenu.Label("Sensing Selection");
 
-            var sensingModes = new string[] { "AWS", "DeepFace" };
-            if (RideUtils.IsAndroid() || RideUtils.IsWebGL())
-                sensingModes = new string[] { "AWS" };
+            int currentUiIndex = GetUiIndexFromSensingMode(m_sensingMode);
+            int newUiIndex = m_debugMenu.SelectionGrid(currentUiIndex, m_sensingOptionsText, 2);
 
-            int sensingMode = m_debugMenu.SelectionGrid(m_sensingMode, sensingModes, 2);
-            if (sensingMode != m_sensingMode)
-            {
-                m_sensingMode = sensingMode;
-
-                if (m_sensingMode == 0)
-                    m_currentSensing = m_awsRekognitionSystem;
-                else if (m_sensingMode == 1)
-                    m_currentSensing = m_localDeepFaceSystem;
-                else if (m_sensingMode == 2)
-                    m_currentSensing = m_azureFaceSystem;
-            }
+            if (newUiIndex != currentUiIndex)
+                ChangeSensingMode(GetSensingModeFromUiIndex(newUiIndex));
         }
 
 
@@ -83,6 +104,12 @@ namespace Ride.Examples
         /// </summary>
         public void OnGUISensing()
         {
+            bool oldGuiEnabled = GUI.enabled;
+            if (RideUtils.IsWebGL())
+                GUI.enabled = false;
+
+            try
+            {
             var character = m_controller.CurrentCharacter;
 
             m_debugMenusBase.OnGUICharacterConfig();
@@ -160,12 +187,16 @@ namespace Ride.Examples
             var listeningController = character.GetComponent<ListeningController>();
             if (listeningController != null)
             {
+                const float listeningLabelWidth = 70f;
+                const float listeningValueWidth = 65f;
+
                 bool isListening = listeningController.IsListening;
 
                 // Adjust microphone threshold.
-                using (new GUILayout.HorizontalScope())
+                using (m_debugMenu.Horizontal())
                 {
-                    m_debugMenu.Label($"{m_microphoneThreshold:f2}", 65);
+                    m_debugMenu.Label("Thresh", listeningLabelWidth);
+                    m_debugMenu.Label($"{m_microphoneThreshold:f2}", listeningValueWidth);
                     float microphoneThreshold = m_debugMenu.HorizontalSlider(m_microphoneThreshold, 0, 1);
 
                     if (microphoneThreshold != m_microphoneThreshold)
@@ -182,10 +213,11 @@ namespace Ride.Examples
                 // Display microphone volume level.
                 if (isListening)
                 {
-                    using (new GUILayout.HorizontalScope())
+                    using (m_debugMenu.Horizontal())
                     {
                         float recordingVolumeLevel = m_microphoneAudio.GetRecordingVolumeLevel();
-                        m_debugMenu.Label($"{recordingVolumeLevel:f2}", 65);
+                        m_debugMenu.Label("Vol", listeningLabelWidth);
+                        m_debugMenu.Label($"{recordingVolumeLevel:f2}", listeningValueWidth);
                         m_debugMenu.HorizontalSlider(recordingVolumeLevel, 0, 1);
                     }
                 }
@@ -205,8 +237,47 @@ namespace Ride.Examples
                     }
                 }
             }
+            }
+            finally
+            {
+                GUI.enabled = oldGuiEnabled;
+            }
         }
 
+        void ChangeSensingMode(SensingMode mode)
+        {
+            m_sensingMode = mode;
+
+            if (mode == SensingMode.Aws) m_currentSensing = m_awsRekognitionSystem;
+            else if (mode == SensingMode.DeepFace) m_currentSensing = m_deepFaceSystem;
+
+            m_sensingProcessor.SetSensingSystems(m_currentSensing);
+        }
+
+        private SensingMode GetSensingModeFromUiIndex(int uiIndex)
+        {
+            if (m_sensingOptions == null || m_sensingOptions.Count == 0)
+                return SensingMode.Aws;
+
+            if (uiIndex < 0) uiIndex = 0;
+            if (uiIndex >= m_sensingOptions.Count) uiIndex = m_sensingOptions.Count - 1;
+
+            return m_sensingOptions[uiIndex].mode;
+        }
+
+        private int GetUiIndexFromSensingMode(SensingMode mode)
+        {
+            if (m_sensingOptions != null)
+            {
+                for (int i = 0; i < m_sensingOptions.Count; i++)
+                {
+                    if (m_sensingOptions[i].mode == mode)
+                        return i;
+                }
+            }
+
+            return 0;
+        }
 
         /// <summary>
         /// Stops the sensing processor.
