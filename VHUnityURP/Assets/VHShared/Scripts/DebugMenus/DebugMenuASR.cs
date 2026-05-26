@@ -35,6 +35,7 @@ namespace Ride.Examples
                     (DemoControllerBase.AsrMode.Windows, "Windows"),
                     (DemoControllerBase.AsrMode.Mobile, "Mobile"),
                     (DemoControllerBase.AsrMode.OpenAI, "OpenAI"),
+                    (DemoControllerBase.AsrMode.FasterWhisper, "Whisper (Local)"),
                 };
             }
             else if (RideUtils.IsWebGL())
@@ -51,6 +52,7 @@ namespace Ride.Examples
                     (DemoControllerBase.AsrMode.Azure, "Azure"),
                     (DemoControllerBase.AsrMode.Windows, "Windows"),
                     (DemoControllerBase.AsrMode.OpenAI, "OpenAI"),
+                    (DemoControllerBase.AsrMode.FasterWhisper, "Whisper (Local)"),
                 };
             }
 

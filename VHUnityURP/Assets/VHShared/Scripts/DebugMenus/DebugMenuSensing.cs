@@ -74,7 +74,7 @@ namespace Ride.Examples
                 m_sensingOptions = new()
                 {
                     (SensingMode.Aws, "AWS"),
-                    (SensingMode.DeepFace, "DeepFace"),
+                    (SensingMode.DeepFace, "DeepFace (Local)"),
                 };
             }
 

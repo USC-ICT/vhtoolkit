@@ -34,6 +34,9 @@ namespace Ride.Examples
             {
                 (DemoControllerBase.TtsMode.Polly, "Polly"),
                 (DemoControllerBase.TtsMode.ElevenLabs, "11Labs"),
+                (DemoControllerBase.TtsMode.Piper, "Piper (Local)"),
+                (DemoControllerBase.TtsMode.Kokoro, "Kokoro (Local)"),
+                (DemoControllerBase.TtsMode.XTTS, "XTTS v2 (Local)"),
             };
 
             m_ttsOptionsText = new string[m_ttsOptions.Count];
@@ -82,7 +85,15 @@ namespace Ride.Examples
             if (m_voiceSelectionToggle)
             {
                 const int maxDisplayedVoiceNameLength = 10;
-                string[] displayVoices = m_controller.m_currentTTS.GetAvailableVoices()?
+                string[] availableVoices = m_controller.m_currentTTS?.GetAvailableVoices();
+                if (availableVoices == null || availableVoices.Length == 0)
+                {
+                    m_debugMenu.Label("Loading voices...");
+                    m_debugMenu.Space();
+                    return;
+                }
+
+                string[] displayVoices = availableVoices
                     .Select(voiceName => string.IsNullOrEmpty(voiceName) || voiceName.Length <= maxDisplayedVoiceNameLength
                         ? voiceName
                         : voiceName.Substring(0, maxDisplayedVoiceNameLength) + "~")

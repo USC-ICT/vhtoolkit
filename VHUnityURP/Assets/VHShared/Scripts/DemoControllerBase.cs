@@ -22,6 +22,7 @@ namespace Ride.Examples
             Mobile = 2,
             AzureWebGL = 3,
             OpenAI = 4,
+            FasterWhisper = 5,
         }
 
         public enum NlpMode
@@ -30,12 +31,16 @@ namespace Ride.Examples
             Claude = 1,
             AwsLex = 2,
             Rasa = 3,
+            VLLM = 4,
         }
 
         public enum TtsMode
         {
             Polly = 0,
             ElevenLabs = 1,
+            Piper = 2,
+            Kokoro = 3,
+            XTTS = 4,
         }
 
 
@@ -56,13 +61,18 @@ namespace Ride.Examples
         protected SpeechRecognitionSystemAzure m_azureSpeechRecognitionSystem;
         protected SpeechRecognitionSystemAzureWebGL m_azureWebGLSpeechRecognitionSystem;
         protected SpeechRecognitionSystemOpenAI m_openAISpeechRecognitionSystem;
+        protected SpeechRecognitionSystemFasterWhisper m_fasterWhisperSpeechRecognitionSystem;
         protected NlpSystemChatGPT m_chatGPTSystem;
         protected NlpSystemAnthropic m_anthropicSystem;
         protected NlpSystemRasa m_rasaNlpSystem;
         protected NlpSystemAWSLex m_lexSystem;
+        protected NlpSystemVLLM m_vLLMSystem;
         protected NonverbalBehaviorGeneratorSystem m_nvbgSystem;
         protected TextToSpeechSystemElevenLabs m_elevenTextToSpeechSystem;
         protected TextToSpeechSystemAWSPolly m_awsPollyTextToSpeechSystem;
+        protected TextToSpeechSystemPiper m_piperTextToSpeechSystem;
+        protected TextToSpeechSystemKokoro m_kokoroTextToSpeechSystem;
+        protected TextToSpeechSystemXTTS m_xttsTextToSpeechSystem;
 
         [SerializeField] protected TtsReader m_ttsReader;
 
@@ -143,19 +153,25 @@ namespace Ride.Examples
             m_azureSpeechRecognitionSystem = Systems.Get<SpeechRecognitionSystemAzure>();
             m_azureWebGLSpeechRecognitionSystem = Systems.Get<SpeechRecognitionSystemAzureWebGL>();
             m_openAISpeechRecognitionSystem = Systems.Get<SpeechRecognitionSystemOpenAI>();
+            m_fasterWhisperSpeechRecognitionSystem = Systems.Get<SpeechRecognitionSystemFasterWhisper>();
             m_chatGPTSystem = Systems.Get<NlpSystemChatGPT>();
             m_anthropicSystem = Systems.Get<NlpSystemAnthropic>();
             m_rasaNlpSystem = Systems.Get<NlpSystemRasa>();
             m_lexSystem = Systems.Get<NlpSystemAWSLex>();
+            m_vLLMSystem = Systems.Get<NlpSystemVLLM>();
             m_nvbgSystem = Systems.Get<NonverbalBehaviorGeneratorSystem>();
             m_elevenTextToSpeechSystem = Systems.Get<TextToSpeechSystemElevenLabs>();
             m_awsPollyTextToSpeechSystem = Systems.Get<TextToSpeechSystemAWSPolly>();
+            m_piperTextToSpeechSystem = Systems.Get<TextToSpeechSystemPiper>();
+            m_kokoroTextToSpeechSystem = Systems.Get<TextToSpeechSystemKokoro>();
+            m_xttsTextToSpeechSystem = Systems.Get<TextToSpeechSystemXTTS>();
             if (!m_ttsReader) m_ttsReader = FindAnyObjectByType<TtsReader>();
 
             if (m_windowsSpeechRecognitionSystem != null) m_windowsSpeechRecognitionSystem.SpeechRecognized += OnSpeechRecognized;
             if (m_azureSpeechRecognitionSystem != null) m_azureSpeechRecognitionSystem.SpeechRecognized += OnSpeechRecognized;
             if (m_azureWebGLSpeechRecognitionSystem != null) m_azureWebGLSpeechRecognitionSystem.SpeechRecognized += OnSpeechRecognized;
             if (m_openAISpeechRecognitionSystem != null) m_openAISpeechRecognitionSystem.SpeechRecognized += OnSpeechRecognized;
+            if (m_fasterWhisperSpeechRecognitionSystem != null) m_fasterWhisperSpeechRecognitionSystem.SpeechRecognized += OnSpeechRecognized;
 
             if (RideUtils.IsWebGL()) ChangeASR(AsrMode.AzureWebGL);
             else                     ChangeASR(AsrMode.OpenAI);
@@ -164,6 +180,9 @@ namespace Ride.Examples
             m_currentScripted = m_lexSystem;
             ChangeNlp(NlpMode.ChatGPT);
             if (m_elevenTextToSpeechSystem != null) ChangeTts(TtsMode.ElevenLabs);
+            else if (m_piperTextToSpeechSystem != null) ChangeTts(TtsMode.Piper);
+            else if (m_kokoroTextToSpeechSystem != null) ChangeTts(TtsMode.Kokoro);
+            else if (m_xttsTextToSpeechSystem != null) ChangeTts(TtsMode.XTTS);
             else                                    ChangeTts(TtsMode.Polly);
 
 #if UNITY_WEBGL
@@ -207,6 +226,7 @@ namespace Ride.Examples
             else if (mode == AsrMode.Windows) m_currentASR = m_windowsSpeechRecognitionSystem;
             else if (mode == AsrMode.AzureWebGL) m_currentASR = m_azureWebGLSpeechRecognitionSystem;
             else if (mode == AsrMode.OpenAI) m_currentASR = m_openAISpeechRecognitionSystem;
+            else if (mode == AsrMode.FasterWhisper) m_currentASR = m_fasterWhisperSpeechRecognitionSystem;
 #if RIDEVH_URP || RIDEVH_XR
             // else if (mode == AsrMode.Mobile) m_currentASR = m_mobileSpeechRecognitionSystem;
 #endif
@@ -225,6 +245,7 @@ namespace Ride.Examples
             else if (mode == NlpMode.Claude) m_currentLLM = m_anthropicSystem;
             else if (mode == NlpMode.AwsLex) m_currentScripted = m_lexSystem;
             else if (mode == NlpMode.Rasa) m_currentLLM = m_rasaNlpSystem;
+            else if (mode == NlpMode.VLLM) m_currentLLM = m_vLLMSystem; 
         }
 
         /// <summary>
@@ -263,6 +284,9 @@ namespace Ride.Examples
 
             if (mode == TtsMode.Polly) m_currentTTS = m_awsPollyTextToSpeechSystem;
             else if (mode == TtsMode.ElevenLabs) m_currentTTS = m_elevenTextToSpeechSystem;
+            else if (mode == TtsMode.Piper) m_currentTTS = m_piperTextToSpeechSystem;
+            else if (mode == TtsMode.Kokoro) m_currentTTS = m_kokoroTextToSpeechSystem;
+            else if (mode == TtsMode.XTTS) m_currentTTS = m_xttsTextToSpeechSystem;
 
             SetCharacterVoice(m_currentTTS, m_currentCharacter);
         }
@@ -302,6 +326,12 @@ namespace Ride.Examples
                     voiceName = profile.PollyVoiceName;
                 else if ((object)m_currentTTS == m_elevenTextToSpeechSystem)
                     voiceName = profile.ElevenLabVoiceName;
+                else if ((object)m_currentTTS == m_piperTextToSpeechSystem)
+                    voiceName = profile.PiperVoiceName;
+                else if ((object)m_currentTTS == m_kokoroTextToSpeechSystem)
+                    voiceName = profile.KokoroVoiceName;
+                else if ((object)m_currentTTS == m_xttsTextToSpeechSystem)
+                    voiceName = profile.XTTSVoiceName;
             }
 
             var voices = m_currentTTS.GetAvailableVoices();
@@ -370,6 +400,15 @@ namespace Ride.Examples
         /// <param name="audioFilePath">The file path to the generated audio.</param>
         protected void OnTtsGenerated(string lipsyncXML, string audioFilePath)
         {
+            if (string.IsNullOrWhiteSpace(audioFilePath))
+            {
+                Debug.LogError($"[{nameof(DemoControllerBase)}] TTS generation failed; audio file path is empty.");
+                if (m_thinkingController != null)
+                    m_thinkingController.StopThinkingBehavior();
+                SetCharacterConfigUIEnabled(true);
+                return;
+            }
+
             m_audioFilePath = audioFilePath;
             m_lipsyncXML = lipsyncXML;
             GenerateNonverbalBehavior(m_currentCharacter, m_response);
@@ -392,6 +431,15 @@ namespace Ride.Examples
         /// <param name="result">The nonverbal behavior output string.</param>
         protected void OnNvbgGenerated(string result)
         {
+            if (string.IsNullOrWhiteSpace(m_audioFilePath))
+            {
+                Debug.LogError($"[{nameof(DemoControllerBase)}] Cannot load TTS audio; path is empty.");
+                if (m_thinkingController != null)
+                    m_thinkingController.StopThinkingBehavior();
+                SetCharacterConfigUIEnabled(true);
+                return;
+            }
+
             var audio = Systems.Get<AudioSystemUnity>();
             m_audioClip = null;
             audio.LoadAudioFile(m_audioFilePath, clip =>
@@ -453,6 +501,8 @@ namespace Ride.Examples
                 m_chatGPTSystem.SetSystemPrompt(profile.llmPrompt);
             if (m_anthropicSystem != null)
                 m_anthropicSystem.SetSystemPrompt(profile.llmPrompt);
+            if (m_vLLMSystem != null)
+                m_vLLMSystem.SetSystemPrompt(profile.llmPrompt);
         }
 
         /// <summary>
