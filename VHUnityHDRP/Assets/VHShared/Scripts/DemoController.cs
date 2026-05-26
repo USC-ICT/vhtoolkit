@@ -142,6 +142,9 @@ namespace Ride.Examples
 
             // 2) If already initialized (or not loadable), do full setup.
             m_currentCharacter = selected;
+
+            DisableCharacterWrinkles(m_currentCharacter);
+
             m_thinkingController = selected.GetComponent<ThinkingController>();
 
             var profile = selected.GetComponent<VHCharacterProfile>();
@@ -166,6 +169,41 @@ namespace Ride.Examples
             }
             else
                 m_gaze.GazeAt("GazeTargetUser");
+        }
+
+        /// <summary>
+        /// Disables Reallusion wrinkle rendering for the specified character on iOS to avoid face artifacts
+        /// caused by the head wrinkle shader path. This only affects the loaded runtime instance.
+        /// </summary>
+        /// <param name="character">The loaded character instance to patch.</param>
+        private static void DisableCharacterWrinkles(MecanimCharacter character)
+        {
+            if (!RideUtils.IsIOS())
+                return;
+
+            if (character == null)
+                return;
+
+            var wrinkleManagers = character.GetComponentsInChildren<Reallusion.Runtime.WrinkleManager>(true);
+            foreach (var wrinkleManager in wrinkleManagers)
+            {
+                if (wrinkleManager == null)
+                    continue;
+
+                Material headMaterial = wrinkleManager.headMaterial;
+                if (headMaterial == null)
+                    continue;
+
+                if (headMaterial.HasProperty("ENUM_WRINKLE_MODE"))
+                    headMaterial.SetFloat("ENUM_WRINKLE_MODE", 0f);
+
+                headMaterial.DisableKeyword("ENUM_WRINKLE_MODE_WRINKLE");
+                headMaterial.DisableKeyword("ENUM_WRINKLE_MODE_WRINKLE_DISPLACEMENT");
+                headMaterial.EnableKeyword("ENUM_WRINKLE_MODE_NONE");
+                headMaterial.DisableKeyword("BOOLEAN_USE_WRINKLE_ON");
+
+                wrinkleManager.enabled = false;
+            }
         }
 
         /// <summary>

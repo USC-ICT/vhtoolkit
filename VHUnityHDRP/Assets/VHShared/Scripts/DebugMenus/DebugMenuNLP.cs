@@ -37,7 +37,7 @@ namespace Ride.Examples
             m_controller = FindAnyObjectByType<DemoController>();
             m_debugMenusBase = FindAnyObjectByType<DebugMenus>();
 
-            if (RideUtils.IsAndroid() || RideUtils.IsWebGL())
+            if (RideUtils.IsAndroid() || RideUtils.IsIOS() || RideUtils.IsWebGL())
             {
                 m_llmOptions = new()
                 {
@@ -53,6 +53,7 @@ namespace Ride.Examples
                     (DemoControllerBase.NlpMode.Claude, "Claude"),
                     (DemoControllerBase.NlpMode.AwsLex, "AWS Lex"),
                     (DemoControllerBase.NlpMode.Rasa, "Rasa"),
+                    (DemoControllerBase.NlpMode.VLLM, "vLLM (Local)"),
                 };
             }
 
