@@ -2,12 +2,12 @@
 
 **Any Character, Any Technology, Anywhere.**
 
-Create interactive 3D characters that listen, think, and talk, on a web browser, mobile device, AR/VR headset, or desktop.
+Create conversational 3D characters for web, mobile, AR/VR, and desktop.
 
 The [Virtual Human Toolkit](https://vhtoolkit.ict.usc.edu) (VHToolkit) is a research and development platform from the [USC Institute for Creative
 Technologies](https://ict.usc.edu) for creating embodied conversational agents / socially intelligent agents: real-time, interactive characters that perceive real humans and respond both verbally and nonverbally. 
 
-To try: 
+Try it out: 
 - [Go to the live web demo](https://vhtoolkitwww.ict.usc.edu/demo/) and talk to a virtual human in your browser right now. 
 - Download binaries for other platforms from the [Releases](https://github.com/USC-ICT/vhtoolkit/releases) page.
 - Watch a detailed video demonstration [here](https://www.youtube.com/watch?v=QU_ItB4p_zc).
@@ -88,7 +88,7 @@ Detailed documentation can be found at this GitHub's [Wiki section](https://gith
 
 ## License
 
-The VHToolkit is licensed under the [USC-RL v3.0 license](https://github.com/USC-ICT/vhtoolkit?tab=License-1-ov-file#readme), a permissive license for academic and personal use. For commercial and government purpose use, please [contact us](https://vhtoolkit.ict.usc.edu/vhtk-download.html).
+The VHToolkit is licensed under the [USC-RL v3.0 license](https://github.com/USC-ICT/vhtoolkit?tab=License-1-ov-file), a permissive license for academic and personal use. For commercial and government purpose use, please [contact us](https://vhtoolkit.ict.usc.edu/vhtk-download.html).
 
 
 ## Citation
