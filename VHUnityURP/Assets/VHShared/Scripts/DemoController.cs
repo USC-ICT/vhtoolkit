@@ -23,6 +23,33 @@ namespace Ride.Examples
 
         private HashSet<String> m_hasVHIntroducedThemselvesYet;
         private int m_numberOfIntroductions = 0;
+
+        // An introduction is driven by an instruction ("introduce yourself using your profile"),
+        // which providers record as the user's turn and replay on every later turn. Left in place
+        // the model treats it as a standing request and introduces itself again on the next reply,
+        // and will explain the instruction if asked about it. Once the greeting is in, the recorded
+        // input is rewritten to something a person could have said.
+        private const string IntroductionRecordedAsUserTurn = "Hello.";
+        private bool m_introductionPending;
+
+        // Each introduction is asked for a different angle, cycled by index. Telling a model to
+        // "vary the wording" cannot work here: every character has its own conversation history,
+        // so the model has never seen the previous introductions and has nothing to vary from.
+        // Current models are also far more consistent than earlier ones, so given one instruction
+        // they settle on the single most likely phrasing and every character says it. Changing
+        // what is asked, rather than hoping for different wording of the same request, is what
+        // keeps consecutive characters distinct - and it holds at any temperature.
+        private static readonly string[] s_introductionAngles =
+        {
+            "Greet the user, give your name, and say what you do. ",
+            "Greet the user, give your name, and say what you'd like to talk about. ",
+            "Greet the user, give your name, and ask them one thing about themselves. ",
+            "Greet the user, give your name, and mention where you are from. ",
+            "Greet the user in your own manner without a question, then give your name. ",
+            "Greet the user, give your name, and offer to talk about something you know well. ",
+            "Greet the user, give your name, and say how you are right now. ",
+            "Open with a short remark of your own, then give your name. ",
+        };
         private RideCatalogAsset m_pendingCharacterLoadAsset;
         private string m_pendingCharacterName;
         private int m_lastPendingLoadPercent = -10;
@@ -43,6 +70,45 @@ namespace Ride.Examples
             m_hasVHIntroducedThemselvesYet = new HashSet<string>();
 
             base.Start();
+
+            OnCharacterResponse += RewriteIntroductionHistoryEntry;
+        }
+
+        private void OnDestroy()
+        {
+            OnCharacterResponse -= RewriteIntroductionHistoryEntry;
+        }
+
+        /// <summary>
+        /// Once an introduction has been spoken, replaces the instruction that produced it with a
+        /// plain greeting in the conversation history, so the character does not read the
+        /// instruction as a standing request on later turns.
+        /// </summary>
+        /// <param name="response">The character's response text (unused; only the timing matters).</param>
+        private void RewriteIntroductionHistoryEntry(string response)
+        {
+            if (!m_introductionPending)
+                return;
+
+            m_introductionPending = false;
+            if (m_currentLLM == null)
+                return;
+
+            // Rewrite through the provider's public history API. Newest first, skipping index 0,
+            // where providers such as ChatGPT keep the system prompt; the entry to fix is the
+            // newest completed turn.
+            var history = m_currentLLM.GetHistory();
+            for (int i = history.Count - 1; i >= 1; i--)
+            {
+                if (string.IsNullOrEmpty(history[i].response))
+                    continue;
+
+                var turn = history[i];
+                turn.input = IntroductionRecordedAsUserTurn;
+                history[i] = turn;
+                m_currentLLM.SetHistory(history);
+                return;
+            }
         }
 
         protected override void AfterSystemsInitialized()
@@ -57,6 +123,9 @@ namespace Ride.Examples
 
             StartCoroutine(LoadCachedCatalogsLogged());
         }
+
+        // Subclasses can override to be notified when LoadCachedCatalogs finishes.
+        protected virtual void OnCatalogsLoaded() { }
 
         private IEnumerator LoadCachedCatalogsLogged()
         {
@@ -81,6 +150,7 @@ namespace Ride.Examples
             }
 
             Debug.Log($"[DemoController] LoadCachedCatalogs COMPLETE elapsed=... catalogsLoaded={bundleLoader.NumCatalogsLoaded} catalogCurrentlyLoading={bundleLoader.CatalogCurrentlyLoading}");
+            OnCatalogsLoaded();
         }
 
         protected override void CollectCharacters()
@@ -113,7 +183,10 @@ namespace Ride.Examples
 
             // If switching to a different character, unload the old one BEFORE disabling it.
             if (m_currentCharacter != null && m_currentCharacter != selected)
+            {
+                SaveCharacterNlpHistory(m_currentCharacter);
                 UnloadCharacter(m_currentCharacter);
+            }
 
             // Disable all non-selected characters.
             foreach (var character in m_characters)
@@ -126,7 +199,7 @@ namespace Ride.Examples
             selected.gameObject.SetActive(true);
 
             SetCharacterConfigUIEnabled(false);
-            m_currentASR.StopRecognizing();
+            if (m_currentASR != null) m_currentASR.StopRecognizing();
             SetASR(false);
 
             // Two-pass behavior:
@@ -151,9 +224,8 @@ namespace Ride.Examples
             if (profile != null && profile.NVBG != null)
                 m_nvbgSystem = profile.NVBG;
 
-            m_nvbgSystem.StartProcess(selected.CharacterName);
+            if (m_nvbgSystem != null) m_nvbgSystem.StartProcess(selected.CharacterName);
 
-            SetPrompt(m_currentCharacter);
             ChangeTts(m_ttsMode);
             SetCharacterConfigUIEnabled(true);
             StartCoroutine(SetSmile());
@@ -164,11 +236,17 @@ namespace Ride.Examples
                 if (m_thinkingController != null)
                     m_thinkingController.StartThinkingBehavior(true);
 
-                m_hasVHIntroducedThemselvesYet.Add(characterName);
-                StartCoroutine(IntroduceYourself());
+                Debug.Log($"[DemoController] Introduction queued character='{characterName}' realtime={UsingRealtimeConversationMode} startButtonPressed={m_startButtonPressed}");
+                StartCoroutine(WaitToIntroduceYourself(characterName));
             }
             else
-                m_gaze.GazeAt("GazeTargetUser");
+            {
+                SetPrompt(m_currentCharacter);
+                if (m_gaze != null) m_gaze.GazeAt("GazeTargetUser");
+            }
+
+            // Seam for subclasses (e.g. the study player): character is fully set up.
+            RaiseCharacterReady(m_currentCharacter);
         }
 
         /// <summary>
@@ -219,21 +297,34 @@ namespace Ride.Examples
             SelectCharacter(m_selectableCharacters[m_currentCharacterIndex].name);
         }
 
-        IEnumerator IntroduceYourself()
+        private IEnumerator WaitToIntroduceYourself(string characterName)
         {
-            // Wait for all systems to initialize, in particular LLM prompt and TTS voice
             yield return new WaitUntil(() => m_startButtonPressed);
-            yield return new WaitForEndOfFrame();
+
+            if (m_currentCharacter == null || !string.Equals(m_currentCharacter.name, characterName, StringComparison.Ordinal))
+            {
+                Debug.Log($"[DemoController] Introduction skipped queuedCharacter='{characterName}' currentCharacter='{(m_currentCharacter != null ? m_currentCharacter.name : "null")}'");
+                yield break;
+            }
+
+            IntroduceYourself(characterName);
+        }
+
+        private void IntroduceYourself(string characterName)
+        {
+            SetPrompt(m_currentCharacter);
 
             // Character introductions should get ever simpler when selecting a new character within the same session
-            string introductionPromptPre =      "Politely and concisely introduce yourself. This introduction will happen many times, " +
-                                                    "so be creative. Do not make up any facts, including what your personal name is. " +
-                                                    "It's good to not be verbose. You can ask how the user is doing. ";
-            string introductionPromptWords =    "Use less than 9 words. ";  // Default after several subsequent introductions
+            // Phrased as a natural conversational cue rather than a setup instruction: wording like
+            // "as the character named in your profile" reads to some models as an attempt to make them
+            // adopt a persona, which the safety prompt tells them to refuse - Gemini did exactly that.
+            string introductionPromptPre =      "Someone has just walked up to you. Greet them and introduce yourself " +
+                                                    "warmly and briefly, using your own name. It's good to not be verbose. ";
+            string introductionPromptWords =    "Use less than 14 words. ";  // Default after several subsequent introductions
             if (m_currentCharacter.name.ToLower().Contains("kevin"))        // Special case for Kevin, since his ElevenLabs voice produces gibberish on short utterances with commas
                 introductionPromptWords =       "Use between 10 and 15 words. Do not use more than 1 comma. ";
             string introductionPromptPost =     "Don't mention you're a virtual human. Don't mention the " +
-                                                    "Virtual Human Toolkit or VHToolkit. You can ask the user how they are.";
+                                                    "Virtual Human Toolkit or VHToolkit.";
 
             switch (m_numberOfIntroductions)
             {
@@ -242,16 +333,24 @@ namespace Ride.Examples
                     introductionPromptPost = "";
                     break;
                 case 1:
-                    introductionPromptWords = "Use less than 17 words. ";
+                    introductionPromptWords = "Use less than 20 words. ";
                     introductionPromptPost = "Don't mention you're a virtual human. ";
                     break;
                 case 2:
-                    introductionPromptWords = "Use less than 12 words. ";
+                    introductionPromptWords = "Use less than 17 words. ";
                     introductionPromptPost = "Don't mention you're a virtual human. ";
                     break;
             }
 
-            AskNLPQuestion(introductionPromptPre + introductionPromptWords + introductionPromptPost);
+            string introductionAngle = s_introductionAngles[m_numberOfIntroductions % s_introductionAngles.Length];
+
+            string introductionPrompt = introductionPromptPre + introductionAngle + introductionPromptWords + introductionPromptPost;
+            Debug.Log($"[DemoController] Introduction sending character='{characterName}' " +
+                $"angle={m_numberOfIntroductions % s_introductionAngles.Length} of {s_introductionAngles.Length} " +
+                $"realtime={UsingRealtimeConversationMode} promptLength={introductionPrompt.Length}");
+            m_introductionPending = !UsingRealtimeConversationMode;
+            AskNLPQuestion(introductionPrompt);
+            m_hasVHIntroducedThemselvesYet.Add(characterName);
             m_numberOfIntroductions++;
         }
 
@@ -479,11 +578,13 @@ namespace Ride.Examples
 
             var voice = m_currentCharacter != null ? m_currentCharacter.Voice : null;
 
-            if (string.IsNullOrEmpty(m_currentASR.SelectedMicrophone) || !m_characterConfigUIEnabled)
+            if (string.IsNullOrEmpty(m_currentASR.SelectedMicrophone) || (!UsingRealtimeConversationMode && !m_characterConfigUIEnabled))
                 m_demoControllerUI.SetAsrButtonColor(Color.gray);
             else if (m_currentASR.IsRecognizing)
                 m_demoControllerUI.SetAsrButtonColor(Color.red);
-            else if (voice != null && voice.isPlaying)
+            else if (UsingRealtimeConversationMode && m_openAIRealtimeConversationSystem != null && m_openAIRealtimeConversationSystem.IsAssistantSpeaking)
+                m_demoControllerUI.SetAsrButtonColor(Color.gray);
+            else if (!UsingRealtimeConversationMode && voice != null && voice.isPlaying)
                 m_demoControllerUI.SetAsrButtonColor(Color.gray);
             else
                 m_demoControllerUI.SetAsrButtonColor(Color.white);

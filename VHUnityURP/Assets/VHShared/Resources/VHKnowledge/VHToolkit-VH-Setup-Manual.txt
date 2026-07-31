@@ -1,0 +1,13 @@
+Setting up a virtual human in Unity, the manual way
+
+Behind the automated setup tool sits a manual process, worth knowing both for understanding what a virtual human is made of and for debugging one that misbehaves. A virtual human is an ordinary Unity humanoid character with a suite of toolkit components layered on.
+
+The character profile holds its identity: voices per speech provider, a reference to the nonverbal behavior generator matching its gender, and its language prompt. The Mecanim character component executes core behaviors and carries the starting posture, which must match the posture named in the behavior generator's configuration, since gestures are chosen per posture.
+
+Gaze and face come from a set of cooperating controllers. The gaze controller aims the eyes with per-character offsets and can draw its gaze direction for debugging. The facial animation player maps visemes to the character's blendshapes, and an incomplete mapping is the usual cause of odd lipsync or missing expressions. The head controller drives nods against the character's neck bone, the saccade and blink controllers drive the eyes and lids against the character's eye bones and blink blendshapes, and a BML event handler parses behavior schedules, referencing the scene's animation manager. Optional listening and mirroring controllers make the character nod along and match the user's expression. A sound node child object carries the character's speech audio.
+
+Because most of these components reference the character's own bones and blendshapes by name, the values differ per character source, and the provided characters serve as working references.
+
+The same jaw caveat as the automated path applies: clear the jaw bone from the Unity avatar definition so it stays closed during idles, since the mouth is driven by blendshapes.
+
+The HDRP Unity application contains a fully embedded character (Kevin), which serves as an example on how to set up a VH character within the VHToolkit.

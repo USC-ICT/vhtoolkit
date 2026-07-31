@@ -1,0 +1,13 @@
+Text-to-speech in the Virtual Human Toolkit
+
+Text-to-speech turns the character's reply into spoken audio, together with a lipsync schedule so the character's mouth matches the speech. The reply text and a voice choice go to the selected provider; the audio comes back and is played on the character while the lipsync schedule drives its mouth shapes.
+
+Cloud options are Amazon Polly, ElevenLabs, Azure Speech, and Google Gemini, all of which need an API key. Local options, which run as containers on the developer's machine, are Kokoro, Piper, and XTTS, with Kokoro being the preferred option; Microsoft SAPI is available natively on Windows. Voices come from the provider: each service is asked for its available voices at startup, and each character has a preferred voice per provider in its profile, so switching providers re-casts every character sensibly.
+
+Lipsync quality varies with what the provider returns. Polly and Azure supply a phoneme schedule directly, which maps to mouth shapes. ElevenLabs supplies per-letter timing, which the toolkit runs through a pronunciation dictionary to recover phonemes, estimating for unknown words. The local services supply audio only, so lipsync is approximated from the audio timing.
+
+Long replies are handled deliberately. Providers cap how much text one request may carry, with limits differing per service and per model, and the VHToolkit keeps a reply within both the provider's limit and its own spoken-length ceiling. When a reply must be shortened it is cut at a sentence boundary and the character says that its full answer was longer than it can say out loud, so the listener is never left with a silently truncated thought.
+
+One known quirk: some ElevenLabs voices produce garbled audio on its fastest models when speaking short sentences containing commas. Raising the voice's stability setting, picking a different voice, or picking a different model works around it.
+
+Pre-recorded audio, such as an actor's recording, can also be used in place of synthesis, with lipsync generated as a pre-processing step using FaceFX, which requires a separate license.

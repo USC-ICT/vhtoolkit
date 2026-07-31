@@ -1,0 +1,11 @@
+Knowledge retrieval in the Virtual Human Toolkit
+
+Knowledge retrieval, often called retrieval-augmented generation or RAG, lets a character answer from reference material a developer supplies rather than only from what its language model already knows. This matters for facts a model cannot have learned: anything that happened after the model was trained - past its training cutoff - as well as internal documentation or details of a specific study or product.
+
+A developer supplies knowledge as plain text documents. The VHToolkit splits each document into passages, and on every conversation turn it scores those passages against what the user asked, attaches the most relevant few to the request, and asks the language model to answer using them. The user never sees this happen and the character never mentions it. Nothing needs to change in the application beyond providing the documents.
+
+Retrieval works in two tiers. Lexical retrieval compares words and needs nothing but the documents themselves, so it works everywhere, including in the browser, at no cost. Semantic retrieval compares meaning, so it still finds the right passage when a question is phrased in words the document never uses. Semantic retrieval needs an embedding model, which runs either as a local service or as a cloud call, and the VHToolkit combines both tiers when it can. If the embedding service is unavailable the character quietly falls back to lexical retrieval rather than failing.
+
+Retrieved material is treated as information, never as instructions, so a document cannot change a character's rules or persona. The character is also told to answer from its own knowledge when the material does not cover a question, and not to invent specifics.
+
+The privacy boundary is deliberate: retrieval never sends conversation data to a service the conversation does not already reach unless the developer opts in. A study running a local language model can therefore use local retrieval and keep everything on the machine.

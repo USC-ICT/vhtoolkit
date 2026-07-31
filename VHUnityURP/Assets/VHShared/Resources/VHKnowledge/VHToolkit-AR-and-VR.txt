@@ -1,0 +1,11 @@
+AR and VR in the Virtual Human Toolkit
+
+The VHToolkit supports interacting with life-sized virtual humans in augmented and virtual reality. The provided sample targets the Meta Quest 3 in passthrough mode: the user points the controller at a real-world surface, pulls the trigger, and a virtual human appears there, standing in the user's actual room.
+
+Once spawned, the user can ask pre-populated questions with the controller, or talk to the character directly using speech recognition, which detects automatically when the user has finished speaking. The character can be moved to a new spot in the room, and different characters can be selected from a portrait menu on the left controller.
+
+A ready-to-run APK is published on the GitHub Releases page and is side-loaded onto the headset with the usual Quest developer tooling: developer mode enabled through the Meta Horizon app, then installed with a tool such as SideQuest, then launched from the headset's unknown-sources library. The headset needs its physical space scanned, an internet connection for the AI services, and microphone and spatial-data permissions on first run.
+
+For development, the VHUnityAR Unity project targets the Quest through the Meta XR All-in-One SDK, with Windows as the main development environment. There are three ways to run it: playing directly from the Unity Editor over Meta Horizon Link, which is best for real-time debugging; building and deploying the APK to the headset to test natively; or the Meta XR Simulator when no headset is available. Development requires Unity's Android build support and USB debugging enabled on the headset.
+
+The AR sample reuses the same conversation pipeline as the desktop and web versions: the same characters, speech recognition, language, voice, and nonverbal behavior systems, orchestrated by an AR-specific controller. Building a custom AR application follows the same pattern as the desktop projects, with the Meta SDK's building blocks providing the headset interactions.

@@ -1,0 +1,13 @@
+Custom characters in the Virtual Human Toolkit
+
+Developers can create their own characters and bring them into the VHToolkit as fully interactive virtual humans. The supported authoring path is Reallusion Character Creator, versions 4 and 5, which requires its own license; a time-limited trial of Character Creator 5 exists for evaluation. With the companion Headshot plugin, a character's face can be generated from a photograph of a real person, and the resulting avatar can optionally be paired with a cloned voice from ElevenLabs, so personalized avatars of real people are possible end to end.
+
+The overall flow has three stages. First, the character is authored in Character Creator: face and body morphs, hair, makeup, and clothing. The one setting that matters most for the toolkit is exporting facial expressions as blendshapes with the viseme profile set to direct mapping, because the toolkit drives lipsync through those viseme blendshapes; exported without them, the character cannot speak convincingly.
+
+Second, the exported character is imported into Unity with Reallusion's Character Creator plugin, which builds the materials and produces a character prefab. High-quality materials are recommended over the basic ones.
+
+Third, that prefab is turned into a virtual human by adding the toolkit's component suite: the character profile holding its voice and language prompt, the animation and gaze controllers, facial animation player, and behavior handlers. From then on it behaves like any provided character, and can be selected, spoken to, and driven by any of the AI services.
+
+Besides Character Creator characters, the toolkit ships with ICT-made characters and a configured subset of the Microsoft Rocketbox library, which is free and open. Those act as examples for setting up further characters from the same sources.
+
+One known quirk with some versions of the Reallusion Unity plugin: an eye can be driven incorrectly, making the character look cross-eyed during rapid eye movements. Disabling the bone-drive component on the character's body works around it.
