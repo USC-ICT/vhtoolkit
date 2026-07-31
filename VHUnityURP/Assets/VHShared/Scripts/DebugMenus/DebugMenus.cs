@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using VHAssets;
 
 namespace Ride.Examples
@@ -26,17 +27,18 @@ namespace Ride.Examples
         [SerializeField] DebugMenuTimeline m_timeline;
         [SerializeField] DebugMenuTTS m_tts;
         [SerializeField] Camera m_camera;
+        [SerializeField] DemoControllerBase m_controller;
 
         [Header("UI")]
         [SerializeField] Transform m_uiWebcam;
         [SerializeField] Transform m_uiInputField;
         [SerializeField] Transform m_uiChatHistory;
-        [SerializeField] private GameObject m_startScreenCanvasRoot;
+        [SerializeField] private GameObject m_startScreenCanvasWidescreen;
+        [SerializeField] private GameObject m_startScreenCanvasPortrait;
 
 
         #region Debug menu variables
         DebugMenu m_debugMenu;
-        DemoControllerBase m_controller;
         [NonSerialized] public GUIStyle m_guiButtonLeftJustify;
         [NonSerialized] public GUIStyle m_guiToggleLeftJustify;
         private Texture2D m_guiToggleLeftJustifyTransparentTexture = null;
@@ -55,13 +57,14 @@ namespace Ride.Examples
         bool m_characterToggle_Ride = false;
         bool m_characterToggle_Rocketbox = false;
         bool m_characterToggle_CC = false;
-        bool m_asrToggle = true;
-        bool m_ttsToggle = true;
-        bool m_lipsyncToggle = true;
-        bool m_nlpToggle = true;
-        bool m_sensingToggle = true;
-        bool m_inputoutputToggle = true;
-        bool m_miscToggle = true;
+        bool m_sensingToggle = false;
+        bool m_asrToggle = false;                
+        bool m_nlpToggle = false;        
+        bool m_ttsToggle = false;
+        bool m_lipsyncToggle = false;
+        bool m_unifiedToggle = false;
+        bool m_inputoutputToggle = false;
+        bool m_miscToggle = false;
         bool m_toggleUI_webcam = true;
         bool m_toggleUI_inputField = true;
         bool m_toggleUI_chatHistory = true;
@@ -70,6 +73,10 @@ namespace Ride.Examples
         [NonSerialized] public Vector3 m_cameraInitialPosition;
         [NonSerialized] public Quaternion m_cameraInitialRotation;
         #endregion
+
+        // Switch to the portrait welcome-screen layout when the current screen aspect ratio is narrower than this threshold.
+        private const float PortraitStartScreenAspectThreshold = 1f;
+        private bool m_usePortraitStartScreenLayout;
 
         bool DisableWebcamUiForPlatform => RideUtils.IsWebGL();
 
@@ -82,19 +89,20 @@ namespace Ride.Examples
             base.Start();
 
             // Get references to DebugMenu, DemoController, and OnScreenLog systems.
-            m_debugMenu = Globals.api.GetSystem<DebugMenu>();
-            m_controller = FindAnyObjectByType<DemoControllerBase>();
-            m_onScreenLog = Globals.api.GetSystem<DebugOnScreenLogVHAssets>();
+            m_debugMenu = Systems.Get<DebugMenu>();
+            if (m_controller == null)
+                m_controller = FindAnyObjectByType<DemoControllerBase>();
+            m_onScreenLog = Systems.Get<DebugOnScreenLogVHAssets>();
 
-            // Insert various debug menu categories for non XR projects
+            // Insert various debug menu categories for non XR projects.
 #if !RIDEVH_XR
             m_debugMenu.InsertMenu(0, "Overview", OnGUIVHDemo);
             m_debugMenu.InsertMenu(1, "Main", OnGUIMain);
-            //m_debugMenu.InsertMenu(2, "NLP", OnGUINLP);
-            m_debugMenu.InsertMenu(2, "Animation", m_animation.OnGUIAnimation);
-            m_debugMenu.InsertMenu(3, "Face", m_face.OnGUIFace);
-            m_debugMenu.InsertMenu(4, "Gaze", m_gaze.OnGUIGaze);
-            m_debugMenu.InsertMenu(5, "Sensing", m_sensing.OnGUISensing);
+            //m_debugMenu.InsertMenu(2, "NLP", OnGUINLP);            
+            if (m_animation != null) m_debugMenu.InsertMenu(2, "Animation", m_animation.OnGUIAnimation);
+            if (m_face != null) m_debugMenu.InsertMenu(3, "Face", m_face.OnGUIFace);
+            if (m_gaze != null) m_debugMenu.InsertMenu(4, "Gaze", m_gaze.OnGUIGaze);
+            if (m_sensing != null) m_debugMenu.InsertMenu(5, "Sensing", m_sensing.OnGUISensing);
             //m_debugMenu.InsertMenu(6, "Timeline", m_timeline.OnGUITimeline);
             //m_debugMenu.InsertMenu(7, "CC Animation", m_ccAnimation.OnGUICCAnimation);
 
@@ -140,7 +148,7 @@ namespace Ride.Examples
             m_selectedLightingIndex = activeIndex >= 0 ? activeIndex : 0;
 
             // Show start screen on WebGL builds
-            if (RideUtils.IsWebGL())
+            if (RideUtils.IsWebGL() || RideUtils.IsIOS() || RideUtils.IsAndroid())
                 EnableStartScreen();
             else
                 DisableStartScreen();
@@ -150,10 +158,14 @@ namespace Ride.Examples
         {
             base.Update();
 
-#if !UNITY_ANDROID && !UNITY_IOS
-            if (Input.GetKeyDown(KeyCode.F11))
-                m_debugMenu.ShowMenu(!m_debugMenu.IsShowing());
-#endif
+            UpdateStartScreenLayout();
+
+            if (!RideUtils.IsIOS() && !RideUtils.IsAndroid())
+            {
+                var toggleKey = RideUtils.IsWebGL() ? KeyCode.F9 : KeyCode.F11;
+                if (Input.GetKeyDown(toggleKey))
+                    m_debugMenu.ShowMenu(!m_debugMenu.IsShowing());
+            }
         }
 
         /// <summary>
@@ -182,7 +194,8 @@ namespace Ride.Examples
                 m_debugMenu.Label($"  Sensing, ASR, NLP, and TTS technologies");
                 m_debugMenu.Label($"\u2022 Click <> to toggle debug menu width");
                 m_debugMenu.Label($"\u2022 Click >> to toggle debug log");
-                m_debugMenu.Label($"\u2022 Press F11 to toggle this debug menu on/off");
+                var toggleKeyLabel = RideUtils.IsWebGL() ? "F9" : "F11";
+                m_debugMenu.Label($"\u2022 Press {toggleKeyLabel} to toggle this debug menu on/off");
                 m_debugMenu.Label($"\u2022 Press J to toggle mouse look on/off; move the");
                 m_debugMenu.Label($"  camera with the arrow or W, A, S, D keys");
                 m_debugMenu.Space();
@@ -303,8 +316,8 @@ namespace Ride.Examples
 
                 using (m_debugMenu.Horizontal())
                 {
-                    if (m_debugMenu.Button("Collapse")) { m_characterSelectionToggle = false; m_sensingToggle = false; m_asrToggle = false; m_nlpToggle = false; m_ttsToggle = false; m_lipsyncToggle = false; m_inputoutputToggle = false; m_miscToggle = false; }
-                    if (m_debugMenu.Button("Expand")) { m_characterSelectionToggle = true; m_sensingToggle = true; m_asrToggle = true; m_nlpToggle = true; m_ttsToggle = true; m_lipsyncToggle = true; m_inputoutputToggle = true; m_miscToggle = true; }
+                    if (m_debugMenu.Button("Collapse")) { m_characterSelectionToggle = false; m_sensingToggle = false; m_asrToggle = false; m_nlpToggle = false; m_ttsToggle = false; m_lipsyncToggle = false; m_unifiedToggle = false; m_inputoutputToggle = false; m_miscToggle = false; }
+                    if (m_debugMenu.Button("Expand")) { m_characterSelectionToggle = true; m_sensingToggle = true; m_asrToggle = true; m_nlpToggle = true; m_ttsToggle = true; m_lipsyncToggle = true; m_unifiedToggle = true; m_inputoutputToggle = true; m_miscToggle = true; }
                 }
 
                 OnGUICharacterConfig();
@@ -314,7 +327,7 @@ namespace Ride.Examples
                     GUI.enabled = false;
 
                 m_sensingToggle = GUILayout.Toggle(m_sensingToggle, m_sensingToggle ? $"- <b>Sensing</b>" : $"+ <b>Sensing</b>", m_guiToggleLeftJustify);
-                if (m_sensingToggle) { m_sensing.OnGUISelectSensingMode(); }
+                if (m_sensingToggle) m_sensing.OnGUISelectSensingMode();
 
                 GUI.enabled = oldGuiEnabled;
 
@@ -322,13 +335,16 @@ namespace Ride.Examples
                 if (m_asrToggle) m_asr.OnGUISystemSelection();
 
                 m_nlpToggle = GUILayout.Toggle(m_nlpToggle, m_nlpToggle ? $"- <b>Natural Language Processing (NLP)</b>" : $"+ <b>NLP</b>", m_guiToggleLeftJustify);
-                if (m_nlpToggle) { m_nlp.OnGUISystemSelection(); m_nlp.OnGUIPrompt(); }
+                if (m_nlpToggle) { m_nlp.OnGUISystemSelection(); m_nlp.OnGUIPrompt(); m_nlp.OnGUIDynamicLanguageDetection(); }
 
                 m_ttsToggle = GUILayout.Toggle(m_ttsToggle, m_ttsToggle ? $"- <b>Text-To-Speech (TTS)</b>" : $"+ <b>TTS</b>", m_guiToggleLeftJustify);
                 if (m_ttsToggle) { m_tts.OnGUISystemSelection(); m_tts.OnGUIVoiceSelection(); }
 
-                m_lipsyncToggle = GUILayout.Toggle(m_lipsyncToggle, m_lipsyncToggle ? $"- <b>Lipsync / NVBG</b>" : $"+ <b>Lipsync / NVBG</b>", m_guiToggleLeftJustify);
+                m_lipsyncToggle = GUILayout.Toggle(m_lipsyncToggle, m_lipsyncToggle ? $"- <b>Nonverbal Behavior (NVB)</b>" : $"+ <b>NVB</b>", m_guiToggleLeftJustify);
                 if (m_lipsyncToggle) m_lipsync.OnGUISystemSelection();
+
+                m_unifiedToggle = GUILayout.Toggle(m_unifiedToggle, m_unifiedToggle ? $"- <b>Unified Cognition</b>" : $"+ <b>Unified Cognition</b>", m_guiToggleLeftJustify);
+                if (m_unifiedToggle) OnGUIUnifiedSelection();
 
                 m_inputoutputToggle = GUILayout.Toggle(m_inputoutputToggle, m_inputoutputToggle ? $"- <b>Input / Output</b>" : $"+ <b>Input / Output</b>", m_guiToggleLeftJustify);
                 if (m_inputoutputToggle) { OnGUIInput(); OnGUIStopUtterance(); OnGUIOutput(); }
@@ -421,6 +437,10 @@ namespace Ride.Examples
         /// <summary>
         /// Displays a selection grid for choosing a character from the available list.
         /// </summary>
+        // Longest character name shown on a selection button before truncation, per menu width.
+        const int CharacterNameCharsNormal = 20;
+        const int CharacterNameCharsWide = 30;
+
         void DrawCharacterGroup(string label, MecanimCharacter[] group)
         {
             if (group.Length == 0) return;
@@ -431,7 +451,13 @@ namespace Ride.Examples
             int currentIndex = Array.FindIndex(names, name =>
                 m_controller.CurrentCharacter != null && m_controller.CurrentCharacter.name == name);
 
-            int selectedIndex = m_debugMenu.SelectionGrid(currentIndex, names, 2);
+            // Buttons show a truncated label so long names cannot stretch the menu;
+            // selection still uses the full name.
+            int maxChars = m_debugMenu.IsWideMode() ? CharacterNameCharsWide : CharacterNameCharsNormal;
+            string[] displayNames = names.Select(n =>
+                n.Length <= maxChars ? n : n.Substring(0, maxChars) + "...").ToArray();
+
+            int selectedIndex = m_debugMenu.SelectionGrid(currentIndex, displayNames, 2);
             if (selectedIndex != currentIndex && selectedIndex >= 0)
                 m_controller.SelectCharacter(names[selectedIndex]);
 
@@ -443,6 +469,14 @@ namespace Ride.Examples
         /// </summary>
         void OnGUIInput()
         {
+            if (m_controller.m_currentASR == null)
+            {
+                GUI.enabled = false;
+                m_debugMenu.Button("No ASR Provider");
+                GUI.enabled = true;
+                return;
+            }
+
             if (m_controller.m_currentASR.SelectedMicrophone == string.Empty)
             {
                 GUI.enabled = false;
@@ -545,6 +579,38 @@ namespace Ride.Examples
 #endif
         }
 
+        /// <summary>
+        /// Displays Unified Cognition debug functionality.
+        /// </summary>
+        public void OnGUIUnifiedSelection()
+        {
+            if (m_controller == null)
+                m_controller = FindAnyObjectByType<DemoControllerBase>();
+
+            if (m_controller == null)
+            {
+                m_debugMenu.Label("No demo controller found.");
+                m_debugMenu.Space();
+                return;
+            }
+
+            bool oldGuiEnabled = GUI.enabled;
+            GUI.enabled = true;
+
+            m_debugMenu.Label($"Conversation mode: {(m_controller.UsingRealtimeConversationMode ? "Unified" : "Classic")}");
+            if (m_debugMenu.Button(m_controller.UsingRealtimeConversationMode ? "Switch to Classic" : "Switch to OpenAI Realtime (Unified AI)"))
+            {
+                m_controller.ChangeConversationMode(
+                    m_controller.UsingRealtimeConversationMode
+                        ? DemoControllerBase.ConversationMode.Classic
+                        : DemoControllerBase.ConversationMode.Unified);
+            }
+
+            GUI.enabled = oldGuiEnabled;
+
+            m_debugMenu.Space();
+        }
+
         public void SetNlpInput(string input)
         {
             m_nlpInput = input;
@@ -559,18 +625,57 @@ namespace Ride.Examples
         {
             m_controller.m_startButtonPressed = false;
             m_debugMenu.ShowMenu(false);
-
-            if (m_startScreenCanvasRoot != null)
-                m_startScreenCanvasRoot.SetActive(true);
+            UpdateStartScreenLayout(true);
+            ApplyStartScreenVisibility(true);
         }
 
         void DisableStartScreen()
         {
             m_controller.m_startButtonPressed = true;
             m_debugMenu.ShowMenu(true);
+            ApplyStartScreenVisibility(false);
+        }
 
-            if (m_startScreenCanvasRoot != null)
-                m_startScreenCanvasRoot.SetActive(false);
+        /// <summary>
+        /// Updates the start screen layout selection based on the current screen aspect ratio.
+        /// Reapplies visibility when the active layout changes or a refresh is forced.
+        /// </summary>
+        /// <param name="force">True to refresh the active start screen layout even if the selected layout has not changed.</param>
+        private void UpdateStartScreenLayout(bool force = false)
+        {
+            bool usePortraitLayout = ShouldUsePortraitStartScreenLayout();
+            if (!force && usePortraitLayout == m_usePortraitStartScreenLayout)
+                return;
+
+            m_usePortraitStartScreenLayout = usePortraitLayout;
+            ApplyStartScreenVisibility(m_controller != null && m_controller.m_startButtonPressed == false);
+        }
+
+        /// <summary>
+        /// Determines whether the portrait start screen layout should be used for the current screen dimensions.
+        /// </summary>
+        /// <returns>True when the current aspect ratio is below the portrait layout threshold; otherwise, false.</returns>
+        private bool ShouldUsePortraitStartScreenLayout()
+        {
+            if (m_startScreenCanvasPortrait == null || Screen.height <= 0)
+                return false;
+
+            float aspectRatio = (float)Screen.width / Screen.height;
+            return aspectRatio < PortraitStartScreenAspectThreshold;
+        }
+
+        /// <summary>
+        /// Applies the start screen visibility state to the widescreen and portrait layout roots.
+        /// Activates only the layout that matches the current aspect ratio selection.
+        /// </summary>
+        /// <param name="isVisible">True to show the active start screen layout; otherwise, false.</param>
+        private void ApplyStartScreenVisibility(bool isVisible)
+        {
+            if (m_startScreenCanvasWidescreen != null)
+                m_startScreenCanvasWidescreen.SetActive(isVisible && !m_usePortraitStartScreenLayout);
+
+            if (m_startScreenCanvasPortrait != null)
+                m_startScreenCanvasPortrait.SetActive(isVisible && m_usePortraitStartScreenLayout);
         }
 
         public void OnClickStart() => DisableStartScreen();

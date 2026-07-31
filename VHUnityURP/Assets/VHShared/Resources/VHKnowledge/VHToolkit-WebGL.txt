@@ -1,0 +1,7 @@
+The Virtual Human Toolkit on the web
+
+The VHToolkit runs in the browser through Unity WebGL, and a live demo is published at vhtoolkitwww.ict.usc.edu/demo. The web version uses a subset of the toolkit's technologies and benefits from a decent graphics card. First-time loading can take a while because the browser downloads and caches the build; later visits load much faster. Some mobile browsers are not fully supported.
+
+The web build is made from the URP sample project with Unity's WebGL build target. Two platform constraints shape it. First, browsers block cross-origin requests for security, so the web version cannot call AI services such as OpenAI, AWS, or Azure directly; requests go through server-side proxy functions instead (AWS Lambda), which also keeps API keys out of the browser. Each additional technology needs its own proxy, which is why not every provider is available on the web. Second, WebGL is single-threaded, which is why the toolkit prefers coroutines over thread-based async code throughout.
+
+One caching behavior is worth knowing during development: Unity WebGL stores build data in the browser's own storage, which survives an ordinary cache clear. After redeploying a build, if the old version still appears, clear the site's stored data from the browser's developer tools.

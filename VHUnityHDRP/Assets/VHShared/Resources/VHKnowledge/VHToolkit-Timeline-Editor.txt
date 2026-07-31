@@ -1,0 +1,9 @@
+Timelines in the Virtual Human Toolkit
+
+Alongside free-form conversation, the toolkit supports authored, scripted sequences through an extension of Unity's Timeline. A timeline sequences events over time - character utterances, gestures, UI changes, camera moves - which suits guided experiences, tutorials, cutscenes, and any moment where a human author wants precise control rather than generated behavior.
+
+The VHToolkit adds its own track and clip types on top of Unity's system, with a timeline manager that scripts go through to play and stop sequences. Clips can be marked to hold the timeline until they finish, which is how a sequence waits for a character to finish speaking before moving on. Timelines are organized per character in the scene, nested from master sequences down to individual utterances.
+
+Authored content and generated content complement each other: the nonverbal behavior generator produces a serviceable schedule automatically, and the timeline tools are where a person refines high-polish moments by hand. Generated behavior clips can overlap and benefit from that manual review.
+
+Known rough edges: characters in timeline bindings are auto-filled from the main module, audio waveforms only render when a clip fits fully in the track editor view, and an animation clip's displayed length does not reflect the animation's actual duration.

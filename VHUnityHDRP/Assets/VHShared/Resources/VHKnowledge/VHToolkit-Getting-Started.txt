@@ -1,0 +1,15 @@
+Getting started with the Virtual Human Toolkit
+
+The quickest way to try the VHToolkit is without installing anything: a WebGL demo runs in the browser at vhtoolkitwww.ict.usc.edu/demo, and downloadable executable releases are on the GitHub repository's Releases page. The executables run out of the box.
+
+To start developing, install the Unity Hub, download the VHToolkit source from github.com/USC-ICT/vhtoolkit, and run the runUnity script in either the VHUnityURP or VHUnityHDRP project folder; it downloads the right Unity version automatically if needed. Then open and play the main scene, SampleScene. The toolkit currently targets Unity 6, with Windows as the main development platform; macOS and Linux work but are less tested.
+
+There are two sample projects that differ only in rendering pipeline. VHUnityURP uses the Universal Render Pipeline, with lower-fidelity graphics that run everywhere including mobile and the web. VHUnityHDRP uses the High Definition Render Pipeline, with higher-fidelity graphics, including ray-tracing, mainly for desktops. Both are feature-equivalent; choose by target hardware.
+
+Running the Unity projects requires your own API keys for the cloud services you want, typically OpenAI for language and speech recognition and ElevenLabs for voice synthesis, with Azure Speech and AWS Polly as alternatives. Keys go in the toolkit's configuration file, ride.json; the Config section of the debug menu opens its folder, and the project should be restarted after adding keys. Alternatively, AI services can run locally on your own machine with no keys at all.
+
+Character art lives in separate asset projects and is delivered as asset bundles that the application downloads at runtime, which keeps executables small and lets characters update without recompiling. ICT and Microsoft Rocketbox characters are provided fully; Reallusion Character Creator characters require a separate license.
+
+The VHTtoolkit is powered by the RIDE platform, distributed as Unity packages. The Cognition package covers sensing, speech recognition, language, and speech synthesis; the VH package covers nonverbal behavior generation and realization. These packages can also be used independently for Unity-based AI development. To create a new VHToolkit project, you only need the RIDE.VH package, which will automatically pull in all other required packages, including RIDE.Cognition.
+
+In the sample scene, the debug menu in the upper left is the control surface: it selects characters, switches and compares AI services live, and exposes configuration. The DemoController scripts orchestrate the conversation flow and are the natural starting point for building your own application: pick a platform, pick or create a character, give it domain knowledge through its prompt or through knowledge retrieval, replace the environment, and add your own technology behind the existing interfaces if you need something the toolkit does not ship.

@@ -1,0 +1,15 @@
+Natural language processing in the Virtual Human Toolkit
+
+The NLP system turns what the user said into what the character says back. It is an abstraction layer with a unified interface over multiple providers, so an application can switch between language services, or compare them, without changing its own code.
+
+Cloud providers are OpenAI ChatGPT, Anthropic Claude, Google Gemini, AWS Lex V2, and Ask Sage. Local providers are Ollama and vLLM, which serve open-weight models on the developer's own machine through an OpenAI-compatible endpoint, and Rasa for intent-based dialogue. Each generative provider offers a choice of models, selectable per provider in the Unity Inspector, and the active provider can be changed at runtime from the debug menu.
+
+Every provider is a RIDE system with the same contract: set a system prompt, send the user's text as a request, and receive the character's reply in a callback. Conversation history is kept per provider so a character remembers the session. Generation settings such as temperature and the maximum response length are adjustable at runtime, including from the debug menu.
+
+Two capabilities wrap every generative provider automatically. Knowledge retrieval attaches relevant passages from developer-supplied reference material to each request, so characters can answer from material the model was never trained on. The conversation guard screens conversation turns so a character stays in role and declines gracefully. Intent-based providers such as Rasa and AWS Lex bypass both, because their responses are authored rather than generated.
+
+The system is built for spoken conversation. Reasoning is turned off by default on models that support it, because deliberation time reads as the character freezing. If a service fails or returns nothing, the character speaks a short error line rather than going silent, so the conversation never stalls.
+
+Cloud providers need an API key from the vendor. Keys are entered in the VHToolkit's configuration file, ride.json, which the Config section of the debug menu can open; after adding keys, restart the project. In WebGL builds, requests go through a server-side proxy rather than carrying a key in the browser.
+
+The character's persona is configured per character in its VHCharacterProfile, where the prompt is composed from a shared safety section, a domain section, and a per-character section.

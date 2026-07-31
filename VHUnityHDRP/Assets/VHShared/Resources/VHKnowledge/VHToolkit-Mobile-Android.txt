@@ -1,0 +1,9 @@
+The Virtual Human Toolkit on Android
+
+The VHToolkit runs on Android phones, and participants can hold full spoken conversations with a character on their phone: the app listens through the phone's microphone using Android's native speech recognizer, and the character talks back, so speaking with a character works the same as on desktop. Typing works too.
+
+A ready-made APK is published on the GitHub repository's Releases page. Because it is not distributed through an app store, the APK is side-loaded: the phone must allow installs from unknown sources for the app used to open the file, after which the downloaded APK installs like any app. Once running, the same debug menu and interaction elements as the desktop version apply.
+
+The app works best in landscape orientation; portrait can show squished or rotated interface elements. Not every AI service is available on mobile - speech recognition, for instance, uses the phone's native recognizer.
+
+For development, the Android build comes from the URP sample project with Unity's Android build support installed. With developer mode and USB debugging enabled on the phone and the phone connected by USB, the project can either play from the Unity Editor for quick iteration or build and deploy the APK directly to the device, where it remains installed like any other app.

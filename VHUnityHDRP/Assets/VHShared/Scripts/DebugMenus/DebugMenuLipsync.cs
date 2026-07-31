@@ -61,6 +61,8 @@ namespace Ride.Examples
                     m_debugMenu.Label(profile.NVBG.IdlePostureId);
                 }
             }
+
+            m_debugMenu.Space();
         }
 
 #if false

@@ -1,0 +1,17 @@
+Troubleshooting the Virtual Human Toolkit
+
+The character does not speak. Usually the text-to-speech voice has not resolved. Check that the selected TTS provider has a valid key, or that its container is running for a local provider. A character always says something rather than going silent: if a service fails it speaks a short error line, so complete silence points at speech synthesis rather than at the language model.
+
+The character says it received an error. That is the deliberate fallback when a service fails, and the spoken message names the error. Check the console for the full request failure. A wrong or expired API key and a service that is not running produce this.
+
+The character answers with nothing, or seems to think forever. This was historically caused by a response-token limit too low for the model, since reasoning models spend part of that budget internally and can return empty text. The limit now defaults high enough and empty responses are reported explicitly in the console.
+
+Answers are vague, or about the wrong topic. Retrieval is the first thing to check. Turn on retrieval logging and look at which passages were selected and with what scores for the question asked. Vague questions that name no subject deliberately skip retrieval. If semantic retrieval is expected, confirm the embedding service is reachable, since the character silently falls back to weaker word-based retrieval when it is not.
+
+A local service is not being used even though it is running. Local services are probed once at startup. If a container was started afterwards, select the provider again in the debug menu, which re-probes it.
+
+Nothing works after a WebGL rebuild. Unity serves stale WebGL builds from a browser cache that survives an ordinary cache clear. Delete the site's storage in the browser's developer tools, or turn off data caching in the publishing settings.
+
+A WebGL build stalls or characters stay invisible in Firefox specifically. This has been caused by shader variants failing to compile in Firefox's graphics layer while Chromium tolerated the same build. Always test WebGL in both browsers, and check the browser console for shader compilation errors.
+
+Voices, models, or characters are missing from the debug menu. The lists are fetched from the provider at startup, and characters load from asset bundles. Check the console for a failed catalog or voice-list request.

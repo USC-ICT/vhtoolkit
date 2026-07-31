@@ -1,0 +1,19 @@
+Supported technologies in the Virtual Human Toolkit
+
+The VHToolkit defines five high-level capabilities and, for each, offers a choice of cloud services and local services. Cloud services need an API key and an internet connection. Local services either come from the operating system or run as a container on the developer's own machine, so no conversation data leaves it. Not every technology is available on every platform.
+
+Automated speech recognition turns the user's speech into text. Cloud options are Azure Speech, OpenAI Realtime, Google Gemini, and ElevenLabs. Local options are Whisper through a faster-whisper container, and the speech recognizers built into Windows, Android, and iOS.
+
+Natural language processing turns the user's text into the character's reply. Cloud options are OpenAI ChatGPT, Anthropic Claude, Google Gemini, AWS Lex V2, and Ask Sage. Local options are Ollama and vLLM, both serving open-weight models through an OpenAI-compatible endpoint, and Rasa for intent-based dialogue. Each provider offers a choice of models, selectable in the Unity Inspector.
+
+Text-to-speech synthesis turns the character's reply into speech audio. Cloud options are AWS Polly, ElevenLabs, Azure Speech, and Google Gemini. Local options are Kokoro, Piper, and XTTS as containers, plus Microsoft SAPI on Windows.
+
+Audio-visual sensing extracts attributes such as facial expression and attention from the user's camera. Options are AWS Rekognition and Azure Face in the cloud, and DeepFace and OpenFace locally on Windows. Azure Face requires Microsoft's own approval process for facial analysis, so the demo does not exercise it; the integration is expected to work for researchers who complete that approval with their own account.
+
+Nonverbal behavior generation and realization produces lipsync, gaze, head movement, and gestures from the character's speech and text. This is handled by the Nonverbal Behavior Generator, which runs either as a local Unity package or as a cloud service.
+
+Two further capabilities apply to any generative provider. Knowledge retrieval, also called retrieval-augmented generation, lets a character answer from reference material the developer supplies. The conversation guard screens conversation turns so a character stays in role. Both behave the same way whichever NLP provider is selected.
+
+There is also a unified conversation option: OpenAI Realtime can handle speech recognition, language, and speech synthesis in a single continuous audio stream instead of the classic sequential pipeline. The difference is large: in a preliminary analysis, the classic pipeline's median latency from the end of user speech to character audio was roughly three and a half seconds regardless of vendor, while the unified stream more than halved that to roughly 1.4 seconds. The trade-off is giving up the per-capability choice of provider described above. Across all capabilities, the toolkit integrates more than twenty vendors and AI technologies.
+
+The VHToolkit runs on Unity 6 and supports Windows, macOS, Linux, Android, iOS, WebGL, and AR/VR headsets including Meta Quest.

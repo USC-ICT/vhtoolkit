@@ -1,0 +1,9 @@
+Audio-visual sensing in the Virtual Human Toolkit
+
+Audio-visual sensing lets a character perceive the person it is talking to. The toolkit captures the user's webcam and analyzes head pose, emotional facial expression, and user characteristics such as apparent age, with optional voice analysis. Characters can use this for mirroring, where the character subtly matches the user's facial expression, for backchanneling, and for adapting to who is present.
+
+The emotion analysis reports intensities for anger, contempt, disgust, fear, happiness, neutrality, sadness, and surprise. Head pose reports pitch, roll, and yaw, plus whether the forehead, eyes, or mouth are occluded. Characteristics include apparent gender, age, hair color, glasses, and facial hair. What is available depends on the provider, and the data model can be extended when a new technology reports more.
+
+Providers are AWS Rekognition and Azure Face as cloud services, and DeepFace and OpenFace running locally on desktop. Local and cloud providers are called the same way, through the same sensing interfaces, so applications do not care which is active. One note on Azure Face: Microsoft gates access to its facial analysis behind its own approval process, so the demo does not use it - the integration is in place and is expected to work for a researcher who completes Microsoft's approval with their own credentials.
+
+Webcam frames are sent at a configurable interval, and image compression trades analysis quality against speed and bandwidth, which matters most for the cloud path. Sensing is optional: conversations work fully without a webcam, and the sample application leaves it off unless enabled.

@@ -1,0 +1,9 @@
+Architecture of the Virtual Human Toolkit
+
+The VHToolkit is powered by the Rapid Integration & Development Environment, RIDE. RIDE is a research and development middleware platform that combines government, industry, and academic technologies into a rapid prototyping sandbox for real-time applications. It is developed at USC ICT in collaboration with its partners.
+
+RIDE follows a three-layered architecture. The foundation is the engine layer, currently focused on the Unity game engine, providing rendering, user interface, and audio. The middleware layer adds common prototyping functionality such as networking and cloud service interfaces, plus the virtual-human technologies: speech recognition, natural language processing, text-to-speech, and nonverbal behavior generation. Both layers are exposed through the RIDE API. Individual projects are built in the project layer on top of that API, and the project layer doubles as an incubation area: technology proven in one project can be moved down into the middleware layer, where every user benefits. RIDE code mixes freely with native Unity and custom code.
+
+The VHToolkit uses RIDE's architecture, API, and the subset of its functionality relevant to virtual humans, particularly the local and cloud service interfaces and the speech, language, and behavior technologies. A defining property is that each capability has multiple interchangeable implementations behind one interface, typically both a cloud service and a local option, so an application can switch providers, or run entirely locally, without changing its own code.
+
+Functionality is packaged as RIDE systems, self-registering components that other code looks up by interface. Cross-cutting capabilities such as knowledge retrieval and the conversation guard hook in at the shared dispatch layer, which is why every application and provider inherits them without integration work.

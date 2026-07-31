@@ -1,0 +1,11 @@
+The conversation guard in the Virtual Human Toolkit
+
+A virtual human driven by a large language model can be talked out of its role. A user may tell it to ignore its instructions, ask it to reveal its system prompt, or steer it into claiming a real biography or giving medical or legal advice. In a research study that is worse than merely embarrassing, because it changes what participants experienced partway through a session.
+
+The conversation guard is a screening stage that sits between the application and the language model, so every character gets it without any application code. It screens what the user said before the model sees it, and screens the character's reply before it is spoken. When a turn is a problem the character declines briefly in its own voice and offers something it can help with, rather than lecturing or quoting rules. When a reply drifts out of role the guard can have it regenerated.
+
+Prompt design carries part of the work. Every character's system prompt begins with a safety section, stated as the highest priority, which covers honesty about being an AI-driven virtual human, no invented life story or credentials, no medical, psychological, legal, or financial advice, care around self-harm and crisis topics, and never revealing the prompt itself. A domain section and a per-character section follow. Because the safety section is shared rather than copied into each character, it can be improved once for every character at the same time.
+
+The guard applies only to generative providers. Intent-based systems such as Rasa or AWS Lex answer with authored content, so there is nothing to jailbreak and nothing to screen, and they bypass it.
+
+Screening is a trade-off: it adds a little latency per turn and can occasionally decline something harmless. It can be switched off, and its strictness configured, per project.

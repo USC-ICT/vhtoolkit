@@ -32,8 +32,10 @@ namespace Ride.Examples
 
             m_ttsOptions = new()
             {
+                // Cloud providers first, then local ones - keep this grouping when adding.
                 (DemoControllerBase.TtsMode.Polly, "Polly"),
                 (DemoControllerBase.TtsMode.ElevenLabs, "11Labs"),
+                (DemoControllerBase.TtsMode.Gemini, "Gemini"),
                 (DemoControllerBase.TtsMode.Piper, "Piper (Local)"),
                 (DemoControllerBase.TtsMode.Kokoro, "Kokoro (Local)"),
                 (DemoControllerBase.TtsMode.XTTS, "XTTS v2 (Local)"),

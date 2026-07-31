@@ -1,0 +1,13 @@
+Nonverbal behavior in the Virtual Human Toolkit
+
+Nonverbal behavior is what makes a character feel alive rather than like a talking statue: head nods, gestures, gaze, blinking, and facial expressions, all timed to the words being spoken. The toolkit both generates this behavior from the character's speech and realizes it on the character in real time.
+
+Generation is handled by the in-house developed Nonverbal Behavior Generator, NVBG. It is a rule-based system that takes the character's speech as text and produces a behavior schedule in the Behavior Markup Language, BML. The schedule times head nods, gestures, and expressions to individual words, using the sentence's grammatical structure plus semantic rules. For example, a rule can specify that whenever the character says "I" or "me" it may play a self-referencing gesture, with different gesture choices depending on whether the character is standing or sitting. Developers can edit these rules per character. The NVBG runs either as a stand-alone module or embedded in Unity for real-time generation.
+
+Realization happens on the character in Unity, which contains a small BML Realizer (Behavior Markup Language). Each virtual human is a Unity humanoid with a suite of controllers: an animator whose gestures are grouped by posture, a gaze controller that can aim eyes, neck, and spine at any object in the scene, a saccade controller for rapid eye movements with listening, talking, and thinking patterns, controllers for head nods, blinking, and facial animation, a listening controller that nods along while the user speaks, and a mirroring controller that can match the user's detected facial expression. A BML event handler parses the schedule and drives all of these together.
+
+Characters also show thinking behavior while waiting for a reply: they glance away naturally, then return their gaze to the user when they are ready to speak.
+
+The character's starting posture must match the posture named in its NVBG configuration, since gestures are selected per posture. A mismatch is a common setup error and shows up as missing or failing gestures.
+
+The generated behavior is deliberately conservative. For authored, high-polish moments, the toolkit's Timeline tools let a person refine the schedule by hand.

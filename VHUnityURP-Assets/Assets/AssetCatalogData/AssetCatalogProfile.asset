@@ -50,9 +50,43 @@ MonoBehaviour:
     - asset: {fileID: 1377460951968152, guid: 910b7e12d495d664b958de5a342de1cc, type: 3}
       labels:
       - Kevin
+      description: Adult male character in military attire with a steady, field-ready
+        presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 28
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: africanDescent
+      - key: clothing
+        value: military
+      - key: role
+        value: soldier
     - asset: {fileID: 100000, guid: 025e045dbbfc82949809d940157d0812, type: 3}
       labels:
       - Kevin_Civilian
+      description: Adult male civilian in business attire, coat and tie, with an
+        approachable, everyday presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 28
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: africanDescent
+      - key: clothing
+        value: formal
+      - key: role
+        value: civilian
     includeInBuild: 1
   - groupName: Ellie
     localPrefixPath: C:/RIDE/Content/AssetCatalogs/VH/Ellie
@@ -61,6 +95,23 @@ MonoBehaviour:
     - asset: {fileID: 100000, guid: 037bb62f09814934f954a2439cb43ca6, type: 3}
       labels:
       - Ellie
+      description: Adult female character with business casual attire and an easy
+        conversational presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 24
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: female
+      - key: ethnicity
+        value: latino
+      - key: clothing
+        value: workwear
+      - key: role
+        value: civilian
     includeInBuild: 1
   - groupName: Rocketbox
     localPrefixPath: C:/RIDE/Content/AssetCatalogs/VH/Rocketbox
@@ -70,104 +121,544 @@ MonoBehaviour:
         type: 3}
       labels:
       - rb_Business_Female_01
+      description: Adult businesswoman in formal office attire with a confident,
+        professional presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 24
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: female
+      - key: ethnicity
+        value: africanDescent
+      - key: clothing
+        value: formal
+      - key: role
+        value: civilian
     - asset: {fileID: 350631076437755692, guid: dd342bff039b4d64f99c03985237e598,
         type: 3}
       labels:
       - rb_Business_Female_03
+      description: Adult businesswoman in tailored office wear with a composed, presentation-ready
+        look.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 46
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: female
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: formal
+      - key: role
+        value: civilian
     - asset: {fileID: 6051260485174701783, guid: da6e44e650f07aa4ca7c27e78a235231,
         type: 3}
       labels:
       - rb_Business_Male_02
+      description: Adult businessman in professional attire with a steady, workplace-ready
+        look.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 26
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: asian
+      - key: clothing
+        value: formal
+      - key: role
+        value: civilian
     - asset: {fileID: 2462092775272424749, guid: 35de7a651741587489e3777ed3ddca38,
         type: 3}
       labels:
       - rb_Business_Male_03
+      description: Adult businessman in neat formalwear with a composed, office-friendly
+        presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 32
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: formal
+      - key: role
+        value: civilian
     - asset: {fileID: 1152252381681276864, guid: 8678ec1617664f44d9686fa762ce4f4e,
         type: 3}
       labels:
       - rb_Business_Male_04
+      description: Older Adult businessman in office clothing with a reliable, professional
+        look.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 56
+      - key: ageGroup
+        value: older
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: formal
+      - key: role
+        value: civilian
     - asset: {fileID: 485328285964347147, guid: 7ee67fabf5155fd43807d083a52433df,
         type: 3}
       labels:
       - rb_Business_Male_05
+      description: Adult businessman in tailored workwear with a clean, corporate
+        presentation.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 24
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: africanDescent
+      - key: clothing
+        value: formal
+      - key: role
+        value: civilian
     - asset: {fileID: 3617376821171985078, guid: 02a256498daa42a48bb4fad211222167,
         type: 3}
       labels:
       - rb_Chef_Female_01
+      description: Adult female chef in kitchen workwear with a practical, service-ready
+        presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 30
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: female
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: workwear
+      - key: role
+        value: civilian
     - asset: {fileID: 8821805352604654323, guid: edbf7eb0918cac648b86bd54ed6cb213,
         type: 3}
       labels:
       - rb_Medical_Female_01
+      description: Adult female medical nurse in practical scrubs with a calm, clinic-ready
+        presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 26
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: female
+      - key: ethnicity
+        value: africanDescent
+      - key: clothing
+        value: workwear
+      - key: role
+        value: medic
     - asset: {fileID: 8082255328692235342, guid: 31036db526c19704c96a804bf1305cd4,
         type: 3}
       labels:
       - rb_Pilot_Female_01
+      description: Adult female pilot in uniform with a composed, transport-ready
+        presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 44
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: female
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: uniform
+      - key: role
+        value: civilian
     - asset: {fileID: 1963139019322526847, guid: 2b20604d28875d445a1b22cda0c0a0d5,
         type: 3}
       labels:
       - rb_Pilot_Female_02
+      description: Adult female pilot in crisp uniform with a confident, travel-ready
+        look.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 28
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: female
+      - key: ethnicity
+        value: africanDescent
+      - key: clothing
+        value: uniform
+      - key: role
+        value: civilian
     - asset: {fileID: 6682410331800796682, guid: 7431f1127313102488be579e5daba945,
         type: 3}
       labels:
       - rb_Pilot_Male_01
+      description: Adult male pilot in uniform with a composed, cockpit-ready presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 38
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: uniform
+      - key: role
+        value: civilian
     - asset: {fileID: 3126919362677728414, guid: ab5379afc41c3da45bee6b69e899c6f4,
         type: 3}
       labels:
       - rb_Pilot_Male_02
+      description: Older Adult male pilot in clean flight uniform with a calm, professional
+        look.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 54
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: uniform
+      - key: role
+        value: civilian
     - asset: {fileID: 5958563538348462438, guid: 0aacca8aa229849409fd6e2bfedf2873,
         type: 3}
       labels:
       - rb_Pilot_Male_03
+      description: Adult male pilot in transport uniform with a steady, duty-ready
+        presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 48
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: uniform
+      - key: role
+        value: civilian
     - asset: {fileID: 106640565815782929, guid: 76ccab224accf3b40ad3e0886420a23d,
         type: 3}
       labels:
       - rb_Police_Male_01
+      description: Adult european male police officer in uniform with a structured,
+        authority-forward presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 36
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: middleEastern
+      - key: clothing
+        value: uniform
+      - key: role
+        value: soldier
     - asset: {fileID: 3617167262915880001, guid: 31f146d42d0df0e4fbe92d39d540bf7a,
         type: 3}
       labels:
       - rb_Police_Male_02
+      description: Adult male police officer in serious SWAT team uniform with a
+        steady, official look.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 34
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: uniform
+      - key: role
+        value: soldier
     - asset: {fileID: 7345444717837715890, guid: c016720afc566f14f881103f7584b8d8,
         type: 3}
       labels:
       - rb_Police_Male_03
+      description: Adult male police officer in traffic control uniform with a firm,
+        controlled presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 28
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: uniform
+      - key: role
+        value: soldier
     - asset: {fileID: 2094264492789539306, guid: a941b787d3c6d4f4b87626f5eed8976e,
         type: 3}
       labels:
       - rb_Police_Male_04
+      description: Adult male european police officer in uniform with a practical,
+        patrol-ready presentation.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 34
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: uniform
+      - key: role
+        value: soldier
     - asset: {fileID: 3587564676895713551, guid: 2f4543e73eb9c9f49a0778268fab6e04,
         type: 3}
       labels:
       - rb_Police_Male_05
+      description: Adult male police captain in uniform with a composed look.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 46
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: asian
+      - key: clothing
+        value: uniform
+      - key: role
+        value: soldier
     - asset: {fileID: 6693895736150493901, guid: b5cb7524f11e9b64ab4fe50ab67eab49,
         type: 3}
       labels:
       - rb_Police_Male_06
+      description: Adult male police officer in short sleeve shirt with bullet proof
+        vest
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 34
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: uniform
+      - key: role
+        value: soldier
     - asset: {fileID: 4782007679365432809, guid: ce91c25a8d54f0941af52a0321baaf78,
         type: 3}
       labels:
       - rb_Police_Male_07
+      description: Adult male police officer in shirt and tie, with bullet proof
+        vest
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 36
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: latino
+      - key: clothing
+        value: uniform
+      - key: role
+        value: soldier
     - asset: {fileID: 3212341183143090851, guid: fbfeb3c5d44b8e043a3a6427313ea6ce,
         type: 3}
       labels:
       - rb_Security_Female_01
+      description: Adult female security staff character in baggy suit with a vigilant,
+        professional presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 28
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: female
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: uniform
+      - key: role
+        value: soldier
     - asset: {fileID: 4711504802004342328, guid: c363f8e00995808499fd9c0bbaf18ee8,
         type: 3}
       labels:
       - rb_Security_Male_01
+      description: Older Adult male security staff character in uniform with a steady,
+        watchful presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 64
+      - key: ageGroup
+        value: older
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: uniform
+      - key: role
+        value: soldier
     - asset: {fileID: 8133811673107828709, guid: dfa699a45af0ab64cad2508383dda1ed,
         type: 3}
       labels:
       - rb_Sports_Female_02
+      description: Athletic adult female character in sporty casual wear, tank top
+        and sweat pants, with an energetic, active presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 24
+      - key: ageGroup
+        value: young
+      - key: gender
+        value: female
+      - key: ethnicity
+        value: asian
+      - key: clothing
+        value: casual
+      - key: role
+        value: civilian
     - asset: {fileID: 306442609144634166, guid: 461ddbf0e97fa494d833f0875c3d83d9,
         type: 3}
       labels:
       - rb_Sports_Male_01
+      description: Athletic adult male character, bare chested and in sport boxer
+        briefs, with an upbeat, active look.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 26
+      - key: ageGroup
+        value: young
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: casual
+      - key: role
+        value: civilian
     - asset: {fileID: 4664186813742324910, guid: f3057ed9bb086f342b978c709f4df9ea,
         type: 3}
       labels:
       - rb_Sports_Male_02
+      description: Athletic adult male character in sportswear, soccer unitform,
+        with an energetic, scene-ready presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 26
+      - key: ageGroup
+        value: young
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: casual
+      - key: role
+        value: civilian
     - asset: {fileID: 2806169021802824389, guid: d2664a8fa08e941448a5a1e28dd0d529,
         type: 3}
       labels:
       - rb_Business_Male_01
+      description: Adult businessman in formal office wear, suit and red tie, with
+        a polished, boardroom-ready presence.
+      attributes:
+      - key: category
+        value: character
+      - key: age
+        value: 30
+      - key: ageGroup
+        value: middle
+      - key: gender
+        value: male
+      - key: ethnicity
+        value: white
+      - key: clothing
+        value: formal
+      - key: role
+        value: civilian
     includeInBuild: 1

@@ -1,0 +1,7 @@
+DeepFace as a local sensing service in the Virtual Human Toolkit
+
+DeepFace is the toolkit's local option for audio-visual sensing: an open-source facial analysis framework that reports emotion, age, gender, and related attributes from the user's webcam, wrapping state-of-the-art models. Running it locally means webcam images never leave the developer's machine, which matters wherever participant video cannot be sent to a cloud service.
+
+It runs as a local Python server the toolkit connects to, set up in a Conda environment - on Windows, inside the Windows Subsystem for Linux. Installation is a pip install of the DeepFace package, and the server is then started from the package's bundled API script. No license or API key is needed.
+
+With the server running, DeepFace is selected from the Sensing section of the debug menu and the webcam toggled on; results appear on the webcam view and in the console. The first activation downloads DeepFace's models, which can take a while - later runs start quickly. From the application's point of view it behaves exactly like the cloud sensing service, through the same interfaces.

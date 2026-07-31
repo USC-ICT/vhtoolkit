@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Management;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using Microsoft.Win32;
 
@@ -18,7 +20,8 @@ using Microsoft.Win32;
 ///
 /// Purpose:
 ///   - Launches a Unity project with the exact specified Unity version.
-///   - If the requested Unity version is not installed locally, attempts to open Unity Hub to install it automatically.
+///   - Uses the standalone Unity CLI when available, with a legacy Unity Hub fallback.
+///   - If the requested Unity version is not installed locally, attempts to install it automatically.
 ///   - Ensures strict version matching to prevent accidental project upgrades or mismatches.
 ///
 /// Usage:
@@ -32,16 +35,19 @@ using Microsoft.Win32;
 ///   - projectPath (optional): Path to the Unity project folder. If omitted, defaults to the current working directory.
 ///
 /// Behavior:
-///   - Detects installed Unity editors by querying Unity Hub.
+///   - Detects whether the standalone `unity` CLI is available on the machine.
+///   - Detects installed Unity editors by querying the standalone Unity CLI when available, otherwise Unity Hub.
 ///   - If the requested version is found:
-///       - Launches Unity.exe directly with the given project path.
+///       - Launches the project with `unity open --editor-version ...` when the standalone Unity CLI is available.
+///       - Otherwise launches Unity.exe directly with the given project path.
 ///   - If the version is not found:
-///       - If a known changeset exists, opens a UnityHub URL to install the version automatically.
-///       - If changeset is unknown, launches Unity Hub and prompts manual install.
+///       - Attempts install with the standalone Unity CLI when available.
+///       - Otherwise uses the legacy Unity Hub CLI / Unity Hub URL fallback.
+///       - If the legacy path needs a changeset and none is known, launches Unity Hub and prompts manual install.
 ///
 /// Fallbacks and Safety:
-///   - Verifies Unity.exe existence before launching.
-///   - Provides clear console messages for missing versions or missing Unity Hub installation.
+///   - Verifies Unity.exe existence before direct legacy launch.
+///   - Provides clear console messages for missing versions or missing standalone Unity CLI support.
 ///   - Never auto-upgrades projects or selects "close" versions without explicit matching.
 ///
 /// Platform Support:
@@ -51,10 +57,12 @@ using Microsoft.Win32;
 /// Requirements:
 ///   - (windows) CSCS (C# scripting runtime)
 ///   - (maxOS/linux) mono
-///   - Unity Hub must be installed and accessible.
+///   - Unity Hub must be installed and accessible for the legacy fallback path.
 ///
 /// Notes:
-///   - Changeset dictionary should be updated periodically to include new Unity versions.
+///   - The changeset dictionary is still used by the legacy Unity Hub fallback path.
+///   - Unity Hub release notes: https://unity.com/unity-hub/release-notes
+///   - Unity CLI documentation: https://docs.unity.com/en-us/hub/unity-cli
 /// </summary>
 class Script
 {
@@ -63,6 +71,10 @@ class Script
     // or it can be searched via this cache of versions:  https://dragonbox.github.io/unities/v1/versions.json (used by u3d, https://github.com/DragonBox/u3d)
     static readonly Dictionary<string, string> m_versionAndChangeset = new Dictionary<string, string>()
     {
+        { "6000.4.7f1",  "f3c3c4248748" },
+        { "6000.3.15f1", "c1aa84e375f6" },
+        { "6000.2.15f1", "0707b6d1e918" },
+        { "6000.1.17f1", "c0b9d3899998" },
         { "6000.1.5f1",  "923722cbbcfc" },
         { "6000.0.47f1", "2ad1ed33fd3b" },
         { "6000.0.27f1", "27c554a2199c" },
@@ -167,7 +179,13 @@ class Script
 
 
     static string m_unityHubExePath = "";
+    static string m_unityCliPath = "";
+    static bool m_canRunUnityCli = false;
     static Dictionary<string, string> m_installedEditors = new Dictionary<string, string>();
+
+
+    static bool IsUnityHubInstalled { get { return !string.IsNullOrEmpty(m_unityHubExePath); } }
+    static bool IsUnityCliInstalled { get { return m_canRunUnityCli; } }
 
 
     static public void Main(string[] args)
@@ -185,14 +203,21 @@ class Script
 
         // get location of unity hub exe
         m_unityHubExePath = GetUnityHubLocation();
+        m_unityCliPath = GetUnityCliLocation();
+        m_canRunUnityCli = CanRunUnityCli();
 
+        if (!IsUnityCliInstalled)
+        {
+            Console.WriteLine("Standalone Unity CLI not found on PATH.");
+            ShowUnityCliInstallInstructions();
+            Console.WriteLine("");
+        }
 
         // process help command
         if (args[0].Trim().ToLower() == "help")
         {
-            string helpOutput = RunHubCommandHelp();
-            helpOutput = helpOutput.Replace("\n\n", "\n");
-            Console.WriteLine(helpOutput);
+            ShowUsage();
+            ShowEnvironmentSummary();
             return;
         }
 
@@ -222,20 +247,15 @@ class Script
             Console.WriteLine();
             Console.WriteLine("Unity version {0} is not installed locally.", version);
 
-            if (m_versionAndChangeset.ContainsKey(version))
-            {
-                Console.WriteLine("Opening Unity Hub to install Unity {0} automatically...", version);
-                InstallUnityViaUrl(version);
-            }
-            else
-            {
-                Console.WriteLine("No changeset available for Unity version {0}.", version);
-                Console.WriteLine("You must manually install this version via Unity Hub.");
-                RunHub();
-            }
+            if (!TryInstallMissingEditor(version))
+                return;
 
-            // exit now while user installs Unity via Hub
-            return;
+            GetInstalledEditors();
+            if (!m_installedEditors.ContainsKey(version))
+            {
+                Console.WriteLine("Unity version {0} is still not available after install attempt.", version);
+                return;
+            }
         }
 
         // launch editor with project path on current folder
@@ -251,10 +271,27 @@ class Script
 
     static bool IsOSX()
     {
-        // https://stackoverflow.com/questions/5116977/how-to-check-the-os-version-at-runtime-e-g-on-windows-or-linux-without-using/47390306#47390306
-        // https://docs.microsoft.com/en-us/dotnet/api/system.platformid?view=netframework-4.8
-        return (int)System.Environment.OSVersion.Platform == 4 ||
-               (int)System.Environment.OSVersion.Platform == 6;
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            return true;
+
+        // Fallback for older Mono
+        if (Environment.OSVersion.Platform == PlatformID.Unix)
+            return Directory.Exists("/System/Library/CoreServices");
+
+        return false;
+    }
+
+    static bool IsLinux()
+    {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            return true;
+
+        // Fallback for older Mono
+        // macOS has /System, Linux does not
+        if (Environment.OSVersion.Platform == PlatformID.Unix)
+            return !Directory.Exists("/System/Library/CoreServices");
+
+        return false;
     }
 
     static string GetUnityHubLocation()
@@ -264,6 +301,10 @@ class Script
         if (IsOSX())
         {
             unityHubExePath = @"/Applications/Unity Hub.app/Contents/MacOS/Unity Hub";
+        }
+        else if (IsLinux())
+        {
+            unityHubExePath = @"unityhub";
         }
         else
         {
@@ -300,30 +341,29 @@ class Script
 
     static void GetInstalledEditors()
     {
-        // get list of editors
-        string editorsOutput = RunHubCommandEditorsInstalled();
+        var installedEditors = new Dictionary<string, string>();
+        string editorsOutput = QueryInstalledEditors();
+        installedEditors = ParseEditorsOutput(editorsOutput);
 
-        // parse list
-        m_installedEditors = ParseEditorsOutput(editorsOutput);
+        if (installedEditors.Count == 0)
+            AddDefaultInstallLocationIfPresent(installedEditors);
 
-        //foreach (var e in m_installedEditors)
-        //    Console.WriteLine("'{0}' - '{1}'", e.Key, e.Value);
+        m_installedEditors = installedEditors;
     }
 
-    static string RunHub()
+    static string RunHubCommand(string args)
     {
-        return RunHubCommand(@"");
+        //string command = @"C:\Program Files\Unity Hub\Unity Hub.exe";
+        //string args = @"-- --headless install-path --get";
+        //string args = @"-- --headless editors";
+        //string args = @"-- --headless help";
+
+        return RunCommand(m_unityHubExePath, args);
     }
 
-    static string RunHubCommandHelp()
-    {
-        return RunHubCommand(@"-- --headless help");
-    }
-
-    static string RunHubCommandEditorsInstalled()
-    {
-        return RunHubCommand(@"-- --headless editors --installed");
-    }
+    static string RunHub() { return RunHubCommand(@""); }
+    static string RunHubCommandHelp() { return RunHubCommand(@"-- --headless help"); }
+    static string RunHubCommandEditorsInstalled() { return RunHubCommand(@"-- --headless editors --installed"); }
 
     static string RunHubCommandInstallUnity(string version, List<string> components)
     {
@@ -338,40 +378,124 @@ class Script
         return RunHubCommand(string.Format(@"-- --headless install --version {0} {1} {2}", version, changesetString, componentsString));
     }
 
-    static string RunHubCommand(string args)
-    {
-        //string command = @"C:\Program Files\Unity Hub\Unity Hub.exe";
-        //string args = @"-- --headless install-path --get";
-        //string args = @"-- --headless editors";
-        //string args = @"-- --headless help";
+    static string RunUnityCliCommand(string args) { return RunCommand(m_unityCliPath, args); }
+    static string RunUnityCliEditorsInstalled() { return RunUnityCliCommand(@"editors -i --format tsv"); }
+    static int RunUnityCliInstallUnity(string version) { return RunCommandPassthrough(m_unityCliPath, string.Format(@"install {0}", version)); }
+    //static string RunUnityCliInstallUnity(string version) { return RunUnityCliCommand(string.Format(@"install {0} -c {1}", version, m_versionAndChangeset[version])); }
 
-        string command = m_unityHubExePath;
+    static string QueryInstalledEditors()
+    {
+        if (IsUnityCliInstalled)
+            return RunUnityCliEditorsInstalled();
+
+        if (IsUnityHubInstalled)
+            return RunHubCommandEditorsInstalled();
+
+        return "";
+    }
+
+    static bool InstallUnityVersion(string version)
+    {
+        if (IsUnityCliInstalled)
+            return RunUnityCliInstallUnity(version) == 0;
+
+        if (IsUnityHubInstalled)
+            return !string.IsNullOrWhiteSpace(RunHubCommandInstallUnity(version, new List<string>()));
+
+        return false;
+    }
+
+    static string GetCliDisplayName() { return IsUnityCliInstalled ? "Standalone Unity CLI" : "Unity Hub CLI"; }
+
+    static string RunCommand(string command, string args)
+    {
+        if (string.IsNullOrWhiteSpace(command))
+            return "";
 
         Console.WriteLine("{0} {1}", command, args);
 
         StringBuilder output = new StringBuilder();
         var process = new Process()
-        { 
+        {
             StartInfo = new ProcessStartInfo()
             {
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
+                RedirectStandardError = true,
                 WindowStyle = ProcessWindowStyle.Normal,
                 FileName = command,
                 Arguments = args
             },
         };
+
         process.OutputDataReceived += (sender, e) =>
         {
+            if (e.Data == null)
+                return;
+
             //Console.WriteLine(":{0}", e.Data);
+
             output.Append(e.Data);
             output.Append("\n");
         };
-        process.Start();
-        process.BeginOutputReadLine();
-        process.WaitForExit();
+
+        process.ErrorDataReceived += (sender, e) =>
+        {
+            if (e.Data == null)
+                return;
+
+            //Console.WriteLine(":{0}", e.Data);
+
+            output.Append(e.Data);
+            output.Append("\n");
+        };
+
+        try
+        {
+            process.Start();
+            process.BeginOutputReadLine();
+            process.BeginErrorReadLine();
+            process.WaitForExit();
+        }
+        catch (Exception ex)
+        {
+            output.AppendLine(ex.ToString());
+        }
 
         return output.ToString();
+    }
+
+    static int RunCommandPassthrough(string command, string args)
+    {
+        if (string.IsNullOrWhiteSpace(command))
+            return -1;
+
+        Console.WriteLine("{0} {1}", command, args);
+
+        var process = new Process()
+        {
+            StartInfo = new ProcessStartInfo()
+            {
+                UseShellExecute = false,
+                RedirectStandardOutput = false,
+                RedirectStandardError = false,
+                WindowStyle = ProcessWindowStyle.Normal,
+                FileName = command,
+                Arguments = args
+            },
+        };
+
+        try
+        {
+            process.Start();
+            process.WaitForExit();
+            return process.ExitCode;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+            return -1;
+        }
     }
 
     static Dictionary<string, string> ParseEditorsOutput(string output)
@@ -399,7 +523,15 @@ class Script
         //6000.0.47f1 installed at C:\Program Files\Unity\Hub\Editor\6000.0.47f1\Editor\Unity.exe
         //6000.1.5f1  installed at C:\Program Files\Unity\Hub\Editor\6000.1.5f1\Editor\Unity.exe
 
-        Dictionary<string, string> versionAndLocation = new Dictionary<string, string>();
+        // Standalone Unity CLI
+        //Version Alias   Arch    Default Platforms
+        //2023.2.4f1              x86_64  false
+        //2022.3.13f1             x86_64  false
+        //6000.0.27f1     6.0.27f1        x86_64  false
+        //6000.1.5f1      6.1.5f1 x86_64  false   Android, Android SDK & NDK Tools, iOS, Linux, Mac, OpenJDK, Web
+        //6000.0.47f1     6.0.47f1        x86_64  false
+
+        var versionAndLocation = new Dictionary<string, string>();
 
         Console.WriteLine(output);
 
@@ -414,6 +546,11 @@ class Script
             string version = null;
             string location = null;
 
+            // CLI header row
+            if (line.StartsWith("Version\t", StringComparison.OrdinalIgnoreCase) ||
+                line.StartsWith("Version ", StringComparison.OrdinalIgnoreCase))
+                continue;
+
             int idx = line.IndexOf("installed at", StringComparison.OrdinalIgnoreCase);
             if (idx >= 0)
             {
@@ -424,6 +561,12 @@ class Script
                               .Trim();
 
                 location = line.Substring(idx + "installed at".Length).Trim();
+            }
+            else if (TryParseUnityCliInstalledEditorsLine(line, out version))
+            {
+                // The standalone Unity CLI installed-editor TSV does not include an editor path.
+                // For the new CLI path we only need to know whether the version is installed.
+                location = version;
             }
 
             if (string.IsNullOrEmpty(version) || string.IsNullOrEmpty(location))
@@ -446,12 +589,54 @@ class Script
         string changeset = m_versionAndChangeset[version];
 
         string url = string.Format("unityhub://{0}/{1}", version, changeset);
-        System.Diagnostics.Process.Start(url);
+
+        if (IsLinux())
+            System.Diagnostics.Process.Start("xdg-open", url);
+        else
+            System.Diagnostics.Process.Start(url);
+    }
+
+    static bool TryInstallMissingEditor(string version)
+    {
+        if (IsUnityCliInstalled)
+        {
+            if (InstallUnityVersion(version))
+            {
+                Console.WriteLine("Unity {0} install completed via the {1}.", version, GetCliDisplayName());
+                return true;
+            }
+        }
+
+        if (!m_versionAndChangeset.ContainsKey(version))
+        {
+            Console.WriteLine("No changeset available for Unity version {0}.", version);
+            Console.WriteLine("You must manually install this version via Unity Hub.");
+            ShowUnityCliInstallInstructions();
+            RunHub();
+            return false;
+        }
+
+        if (InstallUnityVersion(version))
+        {
+            Console.WriteLine("Installing Unity {0} via the {1}...", version, GetCliDisplayName());
+            return false;
+        }
+
+        Console.WriteLine("Falling back to the Unity Hub deeplink installer for Unity {0}...", version);
+        ShowUnityCliInstallInstructions();
+        InstallUnityViaUrl(version);
+        return false;
     }
 
     static void LaunchEditor(string version, string projectPath)
     {
-        //start Unity.exe -projectPath %PROJECTPATH% %1 %2 %3 %4 %5 %6 %7
+        if (IsUnityCliInstalled)
+        {
+            LaunchEditorWithUnityCli(version, projectPath);
+            return;
+        }
+
+        // Legacy Hub CLI path: launch Unity.exe directly.
 
         string fileName = m_installedEditors[version];
 
@@ -474,10 +659,164 @@ class Script
         Process.Start(fileName, arguments);
     }
 
+    static void LaunchEditorWithUnityCli(string version, string projectPath)
+    {
+        string args = string.Format("open \"{0}\" --editor-version {1}", projectPath, version);
+        Console.WriteLine("Launching Unity {0} with project: {1}", version, projectPath);
+        RunCommandPassthrough(m_unityCliPath, args);
+    }
+
+    static void AddDefaultInstallLocationIfPresent(Dictionary<string, string> installedEditors)
+    {
+        if (IsWindows())
+        {
+            string programFiles = Environment.ExpandEnvironmentVariables("%ProgramW6432%");
+            string editorRoot = Path.Combine(programFiles, "Unity", "Hub", "Editor");
+            if (!Directory.Exists(editorRoot))
+                return;
+
+            foreach (string versionFolder in Directory.GetDirectories(editorRoot))
+            {
+                string version = Path.GetFileName(versionFolder);
+                string candidate = Path.Combine(versionFolder, "Editor", "Unity.exe");
+                if (File.Exists(candidate))
+                    installedEditors[version] = candidate;
+            }
+        }
+        else if (IsOSX())
+        {
+            string editorRoot = "/Applications/Unity/Hub/Editor";
+            if (!Directory.Exists(editorRoot))
+                return;
+
+            foreach (string versionFolder in Directory.GetDirectories(editorRoot))
+            {
+                string version = Path.GetFileName(versionFolder);
+                string candidate = Path.Combine(versionFolder, "Unity.app");
+                if (Directory.Exists(candidate))
+                    installedEditors[version] = candidate;
+            }
+        }
+        else if (IsLinux())
+        {
+            string editorRoot = "/opt/unityhub/editor";
+            if (!Directory.Exists(editorRoot))
+                return;
+
+            foreach (string versionFolder in Directory.GetDirectories(editorRoot))
+            {
+                string version = Path.GetFileName(versionFolder);
+                string candidate = Path.Combine(versionFolder, "Editor", "Unity");
+                if (File.Exists(candidate))
+                    installedEditors[version] = candidate;
+            }
+        }
+    }
+
+    // Parses the standalone `unity editors -i --format tsv` rows, which only provide editor metadata.
+    // In that format we only need the installed version because the new CLI launch path uses `unity open`.
+    static bool TryParseUnityCliInstalledEditorsLine(string line, out string version)
+    {
+        version = null;
+
+        string[] tokens = line.Split('\t');
+        if (tokens.Length == 0)
+            return false;
+
+        string firstToken = NormalizeEditorToken(tokens[0]);
+        if (!LooksLikeUnityVersion(firstToken))
+            return false;
+
+        version = firstToken;
+        return true;
+    }
+
+    static string NormalizeEditorToken(string token)
+    {
+        if (token == null)
+            return "";
+
+        return token.Trim().Trim('"');
+    }
+
+    static bool LooksLikeUnityVersion(string token)
+    {
+        if (string.IsNullOrWhiteSpace(token))
+            return false;
+
+        return Regex.IsMatch(token, @"^\d+\.\d+\.\d+[abcfp]\d+$");
+    }
+
+    static string GetUnityCliLocation() { return "unity"; }
+
+    static bool CanRunUnityCli()
+    {
+        try
+        {
+            var process = new Process()
+            {
+                StartInfo = new ProcessStartInfo()
+                {
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    CreateNoWindow = true,
+                    FileName = m_unityCliPath,
+                    Arguments = "--version"
+                },
+            };
+
+            process.Start();
+            string stdout = process.StandardOutput.ReadToEnd();
+            string stderr = process.StandardError.ReadToEnd();
+            process.WaitForExit();
+
+            if (process.ExitCode != 0)
+                return false;
+
+            if (string.IsNullOrWhiteSpace(stdout) && string.IsNullOrWhiteSpace(stderr))
+                return false;
+
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    static void ShowEnvironmentSummary()
+    {
+        Console.WriteLine("Unity Hub path: {0}", string.IsNullOrEmpty(m_unityHubExePath) ? "(not found)" : m_unityHubExePath);
+        Console.WriteLine("Standalone Unity CLI: {0}", IsUnityCliInstalled ? m_unityCliPath + " (installed)" : "(not found on PATH)");
+        Console.WriteLine("");
+        ShowUnityCliInstallInstructions();
+        Console.WriteLine("");
+        Console.WriteLine("Commands:");
+        Console.WriteLine("  cscs runUnity.cs help");
+        Console.WriteLine("  cscs runUnity.cs 6000.1.5f1");
+        Console.WriteLine("  cscs runUnity.cs 6000.1.5f1 D:\\Projects\\MyProject");
+    }
+
+    static void ShowUnityCliInstallInstructions()
+    {
+        Console.WriteLine("Standalone Unity CLI install commands:");
+        Console.WriteLine("  Windows PowerShell:");
+        Console.WriteLine("    $env:UNITY_CLI_CHANNEL='beta'; irm https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.ps1 | iex");
+        Console.WriteLine("  macOS:");
+        Console.WriteLine("    curl -fsSL https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.sh | UNITY_CLI_CHANNEL=beta bash");
+        Console.WriteLine("  Linux:");
+        Console.WriteLine("    curl -fsSL https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.sh | UNITY_CLI_CHANNEL=beta bash");
+        Console.WriteLine("  Verify after install:");
+        Console.WriteLine("    unity --version");
+    }
+
     static void ShowUsage()
     {
         Console.WriteLine("");
-        Console.WriteLine("usage: cscs runUnity.cs 2019.2.1f1 [projectPath (optional)]");
+        Console.WriteLine("usage: cscs runUnity.cs <unityVersion> [projectPath (optional)]");
+        Console.WriteLine("usage: cscs runUnity.cs help");
+        Console.WriteLine("example: cscs runUnity.cs 2019.2.1f1 D:\\Projects\\MyProject");
         Console.WriteLine("");
     }
 }
