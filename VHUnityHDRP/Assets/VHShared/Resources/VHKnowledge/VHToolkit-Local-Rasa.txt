@@ -1,0 +1,7 @@
+Rasa as a local dialogue service in the Virtual Human Toolkit
+
+Rasa gives the toolkit an intent-based alternative to generative language models: instead of a model generating replies freely, the character matches what the user said against trained intents and answers with authored content. That trades open-ended conversation for full control over what the character can say, which some studies and applications require. Because responses are authored, the conversation guard and knowledge retrieval do not apply to it - there is nothing generated to screen or augment.
+
+Rasa runs as a local server the toolkit connects to. The setup uses a toolkit-specific Rasa configuration published in the USC-ICT rasa_vh repository on GitHub, running under Python in a Conda environment - on Windows, inside the Windows Subsystem for Linux. It requires a Rasa Pro developer license key, and the current configuration also uses OpenAI as a fallback language model for inputs that match no intent, so an OpenAI key is needed alongside it. After training the model, the server runs with Rasa's API enabled on a local port.
+
+With the server running, Rasa is selected like any other language provider from the debug menu, marked as a local option, and the character answers from the trained model from then on.

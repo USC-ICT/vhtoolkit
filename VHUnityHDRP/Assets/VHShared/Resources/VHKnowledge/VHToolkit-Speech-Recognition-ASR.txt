@@ -1,0 +1,11 @@
+Speech recognition in the Virtual Human Toolkit
+
+Speech recognition turns the user's voice into text for the character to respond to. The user speaks into the microphone, the audio is processed either locally or by a cloud service, and the recognized text feeds the conversation. All providers implement one interface, so applications start and stop recognition and receive results the same way regardless of which service is active.
+
+Cloud options are Azure Speech, OpenAI Realtime, Google Gemini, and ElevenLabs. Local options are Whisper, running in a faster-whisper container on the developer's machine, and the native recognizers of Windows, Android, and iOS. Depending on the provider there are extra features such as continuous recognition, partial in-progress results, and automatic end-of-utterance detection.
+
+Recognition timing is tunable. The auto-silence timeout decides how long a pause ends the user's turn; shorter values make the character feel more responsive, longer values tolerate slow or thoughtful speakers. There is also an initial-silence timeout for when the user never starts speaking. Applications can pick the microphone where the platform allows it.
+
+The toolkit can also detect which language the user is speaking and adapt, for providers that support it.
+
+Cloud providers need an API key. Mobile recognition uses a third-party Unity asset that cannot be redistributed under the Unity Asset Store license, so developers add it to the sample projects themselves. Windows recognition requires Speech Recognition to be enabled in Windows Settings, and every platform requires microphone permission from the operating system.

@@ -141,10 +141,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PollyVoiceName: Matthew
   ElevenLabVoiceName: Chris - Charming, Down-to-Earth
+  PiperVoiceName: en_US-lessac-medium
+  KokoroVoiceName: af_heart
+  XTTSVoiceName: Ana Florence
+  GeminiVoiceName: Puck
+  OpenAIRealtimeVoiceName: cedar
   NVBG: {fileID: 0}
-  llmPrompt: "Your personal name is Kevin. \r\n\r\nThis paragraph describes your
-    personal background; only discuss it when people bring it up explicitly or state
-    that you look familiar. People may recognize you from VITA, a job interviewing
+  m_composeFromParts: 1
+  m_characterPrompt: "Your personal name is Kevin. \r\n\r\nThis paragraph describes
+    your personal background; only discuss it when people bring it up explicitly
+    or state that you look familiar. People may recognize you from VITA, a job interviewing
+    system developed for veterans, young adults with autism (in collaboration with
+    the Dan Marino Foundation), opportunity youth, and low income families (in collaboration
+    with the HHS Office of Community Services). You wear a suit and have a wedding
+    ring. This is the end of the personal background paragraph."
+  m_domainSource: 0
+  m_domainPrompt: 
+  m_safetySource: 0
+  m_safetyPrompt: 
+  m_legacyPrompt: "Your personal name is Kevin. \r\n\r\nThis paragraph describes
+    your personal background; only discuss it when people bring it up explicitly
+    or state that you look familiar. People may recognize you from VITA, a job interviewing
     system developed for veterans, young adults with autism (in collaboration with
     the Dan Marino Foundation), opportunity youth, and low income families (in collaboration
     with the HHS Office of Community Services). You wear a suit and have a wedding

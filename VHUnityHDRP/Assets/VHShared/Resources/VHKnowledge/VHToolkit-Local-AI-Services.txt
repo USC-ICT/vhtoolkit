@@ -1,0 +1,13 @@
+Running the Virtual Human Toolkit with local AI services
+
+Every conversational capability in the VHToolkit can run on the developer's own machine instead of a cloud service. This matters for three reasons: no conversation data leaves the machine, there is no per-turn cost, and a demo works without an internet connection. The trade-off is that local models are smaller than frontier cloud models, so answers are shorter on knowledge and the first request after startup is slow while a model loads.
+
+The local services ship as containers, each in its own folder under WebServices with a Dockerfile, a compose file, and load and unload scripts. Prerequisites are Docker Desktop and, for the language and speech models, an NVIDIA GPU.
+
+For language, Ollama and vLLM both serve open-weight models through an OpenAI-compatible endpoint. Ollama holds two models resident at once and can switch between them per request, which makes it convenient for demonstrations. vLLM serves one model per process and is the faster of the two for sustained use. On Windows under WSL2, vLLM only works with models that use its V1 model runner; Ollama has no such restriction, so it is the safer default there.
+
+For speech recognition, Whisper runs in a faster-whisper container. For speech synthesis there are three choices: Kokoro, Piper, and XTTS, which differ in voice quality and speed. Kokoro provides the best balance. For audio-visual sensing, DeepFace and OpenFace run locally on Windows.
+
+Semantic knowledge retrieval also has a local path: an embedding model served by Ollama or vLLM, so reference material and questions never leave the machine.
+
+Selecting a local service is a runtime choice. The debug menu lists cloud and local options side by side, with local ones marked, and a developer can switch provider mid-conversation to compare them. If a container is not running, the character reports the failure and keeps the conversation going rather than stalling.

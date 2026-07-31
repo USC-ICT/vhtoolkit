@@ -1,0 +1,9 @@
+Windows Subsystem for Linux and the Virtual Human Toolkit
+
+Most local AI services are developed on Linux with Python, so on Windows they run through the Windows Subsystem for Linux, WSL. Docker Desktop uses WSL as its backend, which means the containerized services ship with the toolkit work on Windows without any manual Linux setup. Installing Docker Desktop and enabling its WSL backend is the normal path.
+
+A developer setting up a service by hand instead of using a container works inside WSL directly, and uses Conda environments to keep each service's Python dependencies isolated from the others.
+
+One WSL constraint is worth knowing because it decides which language server to use. vLLM only works under WSL2 with models that use its V1 model runner: models needing the newer runner require Unified Virtual Addressing, which WSL2 does not provide. Ollama has no such restriction. On Windows, therefore, Ollama is the safer default for local language models, and vLLM is the better choice on native Linux.
+
+GPU access works through WSL for NVIDIA cards with a current driver, and the language, speech, and sensing containers all expect it. Without a GPU the speech and language models either fail to start or run too slowly for conversation.

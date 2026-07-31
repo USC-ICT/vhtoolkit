@@ -1,0 +1,9 @@
+Setting up a virtual human in Unity, the automated way
+
+Turning an imported Character Creator model into a working virtual human is largely automated by the CC Character Setup tool, found under the toolkit's Ride menu in the Unity Editor. It replaces most of the component-by-component manual setup with one configured step.
+
+The tool lists imported Character Creator prefabs and checks that the character's built assets are complete, flagging anything missing in red. The developer picks the male or female animation controller and starting posture, reviews fields the tool pre-fills from tested defaults, and confirms that the neck and eye transforms match the character's skeleton. One click then creates a new virtual-human prefab with the full component suite added and configured.
+
+A few references still need wiring by hand afterwards, because they point at objects in the scene: the nonverbal behavior generator for the character's gender in its profile, the eyelid controller's blink and gaze dependencies, the BML event handler's character controller and cutscene references, and the listening and mirroring controllers' references to the character itself. The new prefab is then placed in the scene under the characters group, the original art prefab is hidden, and the character is ready to play and talk to.
+
+One recurring gotcha with Character Creator avatars: if the character's jaw hangs open during idle animations, the jaw bone must be cleared from the Unity avatar definition, under the head mapping in the avatar configuration. The toolkit drives the mouth through blendshapes, so the skeleton jaw mapping only fights it.

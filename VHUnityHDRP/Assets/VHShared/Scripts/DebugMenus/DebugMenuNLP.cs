@@ -18,10 +18,15 @@ namespace Ride.Examples
         private List<(DemoControllerBase.NlpMode mode, string label)> m_llmOptions;
         private string[] m_llmOptionsText;
         private RideVector2 m_promptScroll;
-        private float m_LLMTemperature = 0.3f;
-        private int m_LLMMaxToken = 200;
         private bool m_promptToggle = false;
+        private bool m_languageDetectionToggle = false;
+        private GUIStyle m_languageDetectionCheckboxStyle;
         private string m_prompt;
+
+        // Reasoning models spend part of this budget on internal reasoning, so a low ceiling can
+        // return an empty answer; the range stays wide enough to show that effect deliberately.
+        private const int MaxTokensMinimum = 100;
+        private const int MaxTokensMaximum = 4000;
 
         #endregion
 
@@ -43,6 +48,7 @@ namespace Ride.Examples
                 {
                     (DemoControllerBase.NlpMode.ChatGPT, "ChatGPT"),
                     (DemoControllerBase.NlpMode.Claude, "Claude"),
+                    (DemoControllerBase.NlpMode.Gemini, "Gemini"),
                 };
             }
             else
@@ -51,9 +57,11 @@ namespace Ride.Examples
                 {
                     (DemoControllerBase.NlpMode.ChatGPT, "ChatGPT"),
                     (DemoControllerBase.NlpMode.Claude, "Claude"),
+                    (DemoControllerBase.NlpMode.Gemini, "Gemini"),
                     (DemoControllerBase.NlpMode.AwsLex, "AWS Lex"),
-                    (DemoControllerBase.NlpMode.Rasa, "Rasa"),
+                    (DemoControllerBase.NlpMode.Rasa, "Rasa (Local)"),
                     (DemoControllerBase.NlpMode.VLLM, "vLLM (Local)"),
+                    (DemoControllerBase.NlpMode.Ollama, "Ollama (Local)"),
                 };
             }
 
@@ -71,8 +79,8 @@ namespace Ride.Examples
             m_debugMenu.Label($"<b>LLM / Scripted</b>");
 
             OnGUISystemSelection();
-
             OnGUIPrompt();
+            OnGUIDynamicLanguageDetection();
         }
 
         /// <summary>
@@ -87,16 +95,49 @@ namespace Ride.Examples
             if (newUiIndex != currentUiIndex)
                 m_controller.ChangeNlp(GetLlmModeFromUiIndex(newUiIndex));
 
+            // Ollama keeps two models resident and swaps per request — offer a live hot-swap button.
+            if (m_controller.m_nlpMode == DemoControllerBase.NlpMode.Ollama)
+            {
+                using (new GUILayout.HorizontalScope())
+                {
+                    m_debugMenu.Label($"Model: {m_controller.OllamaActiveModelDisplay}", 200f);
+                    if (m_debugMenu.Button("Swap model"))
+                        m_controller.ToggleOllamaModel();
+                }
+            }
+
+            OnGUIGenerationSettings();
+
+            m_debugMenu.Space();
+        }
+
+        /// <summary>
+        /// Displays temperature and max-token sliders for the active LLM, reading and writing the
+        /// provider's own settings so a change takes effect on the next request. Hidden for
+        /// providers with no generation settings (scripted/intent-based systems).
+        /// </summary>
+        public void OnGUIGenerationSettings()
+        {
+            var llm = m_controller.m_currentLLM;
+            if (llm == null || !llm.SupportsGenerationSettings)
+                return;
+
             using (new GUILayout.HorizontalScope())
             {
-                m_debugMenu.Label($"Temperature: {m_LLMTemperature:F1}", 200f);
-                m_LLMTemperature = m_debugMenu.HorizontalSlider(m_LLMTemperature, 0f, 1f);
+                float temperature = llm.Temperature;
+                m_debugMenu.Label($"Temperature: {temperature:F2}", 200f);
+                float newTemperature = m_debugMenu.HorizontalSlider(temperature, 0f, 1f);
+                if (!Mathf.Approximately(newTemperature, temperature))
+                    llm.Temperature = newTemperature;
             }
 
             using (new GUILayout.HorizontalScope())
             {
-                m_debugMenu.Label($"Max Tokens: {m_LLMMaxToken}", 200f);
-                m_LLMMaxToken = (int)m_debugMenu.HorizontalSlider(m_LLMMaxToken, 0, 200);
+                int maxTokens = llm.MaxTokens;
+                m_debugMenu.Label($"Max Tokens: {maxTokens}", 200f);
+                int newMaxTokens = (int)m_debugMenu.HorizontalSlider(maxTokens, MaxTokensMinimum, MaxTokensMaximum);
+                if (newMaxTokens != maxTokens)
+                    llm.MaxTokens = newMaxTokens;
             }
         }
 
@@ -128,6 +169,40 @@ namespace Ride.Examples
 
             m_debugMenu.Space();
         }
+
+        /// <summary>
+        /// Display debug functionality for dynamic langauge detection, from either ASR or LLM fallback.
+        /// </summary>
+        public void OnGUIDynamicLanguageDetection()
+        {
+            m_languageDetectionToggle = GUILayout.Toggle(m_languageDetectionToggle, m_languageDetectionToggle ? $"- <b>Dynamic Language Detection:</b>" : $"+ <b>Dynamic Language Detection</b>", m_debugMenusBase.m_guiToggleLeftJustify);
+
+            if (m_languageDetectionToggle)
+            {
+                bool languageFallbackEnabled = m_controller.LanguageDetectionFallbackEnabled;
+                bool newLanguageFallbackEnabled = GUILayout.Toggle(languageFallbackEnabled, "OpenAI text fallback detection", GetLanguageDetectionCheckboxStyle());
+                if (newLanguageFallbackEnabled != languageFallbackEnabled)
+                    m_controller.LanguageDetectionFallbackEnabled = newLanguageFallbackEnabled;
+
+                m_debugMenu.Label($"Detected: {m_controller.UserLanguageDebugDisplay}");
+                m_debugMenu.Label($"NVBG: {m_controller.EffectiveNvbgLanguageDisplay}");
+                m_debugMenu.Label($"Provider: {m_controller.AsrLanguageSupportDisplay}");
+            }
+            m_debugMenu.Space();
+        }
+
+        private GUIStyle GetLanguageDetectionCheckboxStyle()
+        {
+            if (m_languageDetectionCheckboxStyle == null)
+                m_languageDetectionCheckboxStyle = new GUIStyle(GUI.skin.toggle);
+
+            float scale = (float)Screen.height / 1080f;
+            m_languageDetectionCheckboxStyle.fontSize = (int)(22.0f * scale);
+            m_languageDetectionCheckboxStyle.fixedHeight = 30f * scale;
+
+            return m_languageDetectionCheckboxStyle;
+        }
+
 
         /// <summary>
         /// Sets the LLM prompt input field with a predefined value.

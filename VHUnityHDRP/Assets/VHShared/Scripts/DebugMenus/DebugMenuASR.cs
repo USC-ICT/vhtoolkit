@@ -31,10 +31,12 @@ namespace Ride.Examples
             {
                 m_asrOptions = new()
                 {
+                    // Cloud providers first, then on-device ones - keep this grouping.
                     (DemoControllerBase.AsrMode.Azure, "Azure"),
+                    (DemoControllerBase.AsrMode.OpenAI, "OpenAI"),
+                    (DemoControllerBase.AsrMode.Gemini, "Gemini"),
                     (DemoControllerBase.AsrMode.Windows, "Windows"),
                     (DemoControllerBase.AsrMode.Mobile, "Mobile"),
-                    (DemoControllerBase.AsrMode.OpenAI, "OpenAI"),
                     (DemoControllerBase.AsrMode.FasterWhisper, "Whisper (Local)"),
                 };
             }
@@ -49,9 +51,11 @@ namespace Ride.Examples
             {
                 m_asrOptions = new()
                 {
+                    // Cloud providers first, then on-device ones - keep this grouping.
                     (DemoControllerBase.AsrMode.Azure, "Azure"),
-                    (DemoControllerBase.AsrMode.Windows, "Windows"),
                     (DemoControllerBase.AsrMode.OpenAI, "OpenAI"),
+                    (DemoControllerBase.AsrMode.Gemini, "Gemini"),
+                    (DemoControllerBase.AsrMode.Windows, "Windows"),
                     (DemoControllerBase.AsrMode.FasterWhisper, "Whisper (Local)"),
                 };
             }

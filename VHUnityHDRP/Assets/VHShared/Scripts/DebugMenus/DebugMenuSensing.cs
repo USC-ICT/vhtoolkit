@@ -16,6 +16,7 @@ namespace Ride.Examples
         {
             Aws = 0,
             DeepFace = 1,
+            OpenFace = 2,
         }
 
 
@@ -26,6 +27,7 @@ namespace Ride.Examples
         [SerializeField] SensingSystemAWSRekognition m_awsRekognitionSystem;
         [SerializeField] SensingSystemAzureFace m_azureFaceSystem;
         [SerializeField] SensingSystemDeepFace m_deepFaceSystem;
+        [SerializeField] SensingSystemOpenFace m_openFaceSystem;
         [SerializeField] Audio.MicrophoneAudioSystem m_microphoneAudio;
         [SerializeField] float m_microphoneThreshold = 0.05f;
 
@@ -55,14 +57,23 @@ namespace Ride.Examples
             m_debugMenu = Systems.Get<DebugMenu>();
             m_controller = FindAnyObjectByType<DemoController>();
             m_debugMenusBase = FindAnyObjectByType<DebugMenus>();
+            if (m_openFaceSystem == null)
+                m_openFaceSystem = FindAnyObjectByType<SensingSystemOpenFace>();
+            if (m_openFaceSystem == null)
+                m_openFaceSystem = gameObject.AddComponent<SensingSystemOpenFace>();
 
             ChangeSensingMode(SensingMode.Aws);
 
-            var sensingModes = new string[] { "AWS", "DeepFace" };
-            if (RideUtils.IsAndroid() || RideUtils.IsWebGL())
-                sensingModes = new string[] { "AWS" };
+            BuildSensingOptions();
+        }
 
-            if (RideUtils.IsAndroid() || RideUtils.IsIOS() || RideUtils.IsWebGL())
+
+        void BuildSensingOptions()
+        {
+            bool supportsLocalSensing = Application.isEditor ||
+                (!RideUtils.IsAndroid() && !RideUtils.IsIOS() && !RideUtils.IsWebGL());
+
+            if (!supportsLocalSensing)
             {
                 m_sensingOptions = new()
                 {
@@ -75,6 +86,7 @@ namespace Ride.Examples
                 {
                     (SensingMode.Aws, "AWS"),
                     (SensingMode.DeepFace, "DeepFace (Local)"),
+                    (SensingMode.OpenFace, "OpenFace (Local)"),
                 };
             }
 
@@ -89,6 +101,9 @@ namespace Ride.Examples
         /// </summary>
         public void OnGUISelectSensingMode()
         {
+            if (m_sensingOptions == null || m_sensingOptionsText == null)
+                BuildSensingOptions();
+
             m_debugMenu.Label("Sensing Selection");
 
             int currentUiIndex = GetUiIndexFromSensingMode(m_sensingMode);
@@ -96,6 +111,8 @@ namespace Ride.Examples
 
             if (newUiIndex != currentUiIndex)
                 ChangeSensingMode(GetSensingModeFromUiIndex(newUiIndex));
+
+            m_debugMenu.Space();
         }
 
 
@@ -156,10 +173,43 @@ namespace Ride.Examples
             m_debugMenu.Label($"Sensing Results:");
             if (m_sensingProcessor.IsProcessing)
             {
-                m_debugMenu.Label($"HeadRoll: {m_sensingProcessor.headResponse.roll:0.0}");
-                m_debugMenu.Label($"Age: {m_sensingProcessor.characteristicsResponse.age}");
-                m_debugMenu.Label($"Glasses: {m_sensingProcessor.characteristicsResponse.glasses}");
-                m_debugMenu.Label($"Gender: {m_sensingProcessor.characteristicsResponse.gender}");
+                SensingFrameResponse frame = m_sensingProcessor.frameResponse;
+                if (frame != null)
+                {
+                    m_debugMenu.Label($"Provider: {frame.provider}");
+                    m_debugMenu.Label($"Capabilities: {frame.capabilities}");
+
+                    if (!frame.success)
+                    {
+                        m_debugMenu.Label($"Error: {frame.error}");
+                    }
+                    else if (frame.PrimaryFace == null)
+                    {
+                        m_debugMenu.Label("No face detected");
+                    }
+                    else
+                    {
+                        m_debugMenu.Label($"Confidence: {frame.PrimaryFace.confidence:0.00}");
+                        if (frame.capabilities.HasFlag(SensingCapability.Gaze))
+                        {
+                            m_debugMenu.Label($"GazePitch: {frame.PrimaryFace.gazePitch:0.0}");
+                            m_debugMenu.Label($"GazeYaw: {frame.PrimaryFace.gazeYaw:0.0}");
+                        }
+                        if (frame.capabilities.HasFlag(SensingCapability.ActionUnits))
+                            m_debugMenu.Label($"Action Units: {frame.PrimaryFace.actionUnits.Length}");
+                    }
+                }
+
+                if (m_sensingProcessor.headResponse != null)
+                    m_debugMenu.Label($"HeadRoll: {m_sensingProcessor.headResponse.roll:0.0}");
+                if (m_sensingProcessor.emotionResponse != null)
+                    m_debugMenu.Label($"Emotion: {m_sensingProcessor.emotion}");
+                if (m_sensingProcessor.characteristicsResponse != null)
+                {
+                    m_debugMenu.Label($"Age: {m_sensingProcessor.characteristicsResponse.age}");
+                    m_debugMenu.Label($"Glasses: {m_sensingProcessor.characteristicsResponse.glasses}");
+                    m_debugMenu.Label($"Gender: {m_sensingProcessor.characteristicsResponse.gender}");
+                }
             }
 
             m_debugMenu.Space();
@@ -250,6 +300,7 @@ namespace Ride.Examples
 
             if (mode == SensingMode.Aws) m_currentSensing = m_awsRekognitionSystem;
             else if (mode == SensingMode.DeepFace) m_currentSensing = m_deepFaceSystem;
+            else if (mode == SensingMode.OpenFace) m_currentSensing = m_openFaceSystem;
 
             m_sensingProcessor.SetSensingSystems(m_currentSensing);
         }
