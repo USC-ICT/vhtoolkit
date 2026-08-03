@@ -1,0 +1,429 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ShaderVariantsToPreload
+  m_Shaders:
+  - first: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+  - first: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON UNITY_UI_ALPHACLIP
+        passType: 0
+      - keywords: UNITY_UI_ALPHACLIP
+        passType: 0
+  - first: {fileID: 66, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 6, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+  - first: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: _SUNDISK_SIMPLE
+        passType: 0
+  - first: {fileID: 9000, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9001, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9002, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9003, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9004, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9007, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9101, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 9103, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: UIE_FORCE_GAMMA
+        passType: 0
+  - first: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 10755, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+  - first: {fileID: 19011, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+    second:
+      variants:
+      - keywords: _OUTPUT_DEPTH
+        passType: 0
+  - first: {fileID: 4800000, guid: 65df88701913c224d95fc554db28381a, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: e7857e9d0c934dc4f83f270f8447b006, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 93446b5c5339d4f00b85c159e1159b7c, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 4431b1f1f743fbf4eb310a967890cbea, type: 3}
+    second:
+      variants:
+      - keywords: XR_OCCLUSION_MESH_COMBINED
+        passType: 0
+  - first: {fileID: 4800000, guid: d5a307c014552314b9f560906d708772, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: _ALPHATEST_ON
+        passType: 8
+      - keywords: EVALUATE_SH_VERTEX
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _ALPHAPREMULTIPLY_ON _ALPHATEST_ON
+          _NORMALMAP _SPECULAR_SETUP _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _ALPHAPREMULTIPLY_ON _ALPHATEST_ON
+          _SPECULARHIGHLIGHTS_OFF _SPECULAR_SETUP _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _ALPHAPREMULTIPLY_ON _EMISSION
+          _SPECULAR_SETUP _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _ALPHAPREMULTIPLY_ON _NORMALMAP
+          _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _ALPHAPREMULTIPLY_ON _SPECULARHIGHLIGHTS_OFF
+          _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _ALPHAPREMULTIPLY_ON _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _ALPHATEST_ON _ENVIRONMENTREFLECTIONS_OFF
+          _METALLICSPECGLOSSMAP _SPECULARHIGHLIGHTS_OFF _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _EMISSION _ENVIRONMENTREFLECTIONS_OFF
+          _SPECULARHIGHLIGHTS_OFF _SPECULAR_SETUP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _EMISSION _METALLICSPECGLOSSMAP
+          _NORMALMAP _SPECULAR_SETUP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _EMISSION _NORMALMAP _SPECULAR_SETUP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _EMISSION _SPECULAR_SETUP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _METALLICSPECGLOSSMAP _NORMALMAP
+          _OCCLUSIONMAP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _METALLICSPECGLOSSMAP _NORMALMAP
+          _SPECULARHIGHLIGHTS_OFF _SPECULAR_SETUP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _METALLICSPECGLOSSMAP _NORMALMAP
+          _SPECULAR_SETUP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _NORMALMAP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _NORMALMAP _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _ALPHAPREMULTIPLY_ON _ALPHATEST_ON _NORMALMAP
+          _SPECULAR_SETUP _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _ALPHAPREMULTIPLY_ON _ALPHATEST_ON _SPECULARHIGHLIGHTS_OFF
+          _SPECULAR_SETUP _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _ALPHAPREMULTIPLY_ON _EMISSION _SPECULAR_SETUP
+          _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _ALPHAPREMULTIPLY_ON _NORMALMAP _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _ALPHAPREMULTIPLY_ON _SPECULARHIGHLIGHTS_OFF
+          _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _ALPHAPREMULTIPLY_ON _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _ALPHATEST_ON _ENVIRONMENTREFLECTIONS_OFF _METALLICSPECGLOSSMAP
+          _SPECULARHIGHLIGHTS_OFF _SURFACE_TYPE_TRANSPARENT
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _EMISSION _ENVIRONMENTREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
+          _SPECULAR_SETUP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _SPECULAR_SETUP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _EMISSION _NORMALMAP _SPECULAR_SETUP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _EMISSION _SPECULAR_SETUP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _METALLICSPECGLOSSMAP _NORMALMAP _SPECULARHIGHLIGHTS_OFF
+          _SPECULAR_SETUP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _METALLICSPECGLOSSMAP _NORMALMAP _SPECULAR_SETUP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _NORMALMAP
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _NORMALMAP _SPECULARHIGHLIGHTS_OFF
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 4ff292228cf2e114ead19d62fe48192a,
+      type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: c2e954369775dac45a09cfe18b4fb3d9,
+      type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 09058b4f0b424df4bb82ecfe7f590865,
+      type: 3}
+    second:
+      variants:
+      - keywords: _ENUMCLIPQUALITY_ON_DITHER
+        passType: 8
+      - keywords: _ENUMCLIPQUALITY_ON_STANDARD
+        passType: 8
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _ENUMCLIPQUALITY_ON_DITHER
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _ENUMCLIPQUALITY_ON_DITHER
+        passType: 13
+      - keywords: _ENUMCLIPQUALITY_ON_DITHER
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 93e6d915c8e66ea4782e9402aaf9a8de,
+      type: 3}
+    second:
+      variants:
+      - keywords: BOOLEAN_IS_HEAD_ON BOOLEAN_USE_SSS_ON ENUM_DISPLACEMENT_MODE_NONE
+          ENUM_WRINKLE_MODE_WRINKLE
+        passType: 8
+      - keywords: BOOLEAN_USE_SSS_ON ENUM_DISPLACEMENT_MODE_NONE ENUM_WRINKLE_MODE_NONE
+        passType: 8
+      - keywords: ENUM_DISPLACEMENT_MODE_NONE ENUM_WRINKLE_MODE_NONE
+        passType: 8
+      - keywords: BOOLEAN_IS_HEAD_ON BOOLEAN_USE_SSS_ON ENUM_DISPLACEMENT_MODE_NONE
+          ENUM_WRINKLE_MODE_WRINKLE
+        passType: 13
+      - keywords: BOOLEAN_IS_HEAD_ON BOOLEAN_USE_SSS_ON ENUM_DISPLACEMENT_MODE_NONE
+          ENUM_WRINKLE_MODE_WRINKLE EVALUATE_SH_VERTEX
+        passType: 13
+      - keywords: BOOLEAN_IS_HEAD_ON BOOLEAN_USE_SSS_ON ENUM_DISPLACEMENT_MODE_NONE
+          ENUM_WRINKLE_MODE_WRINKLE EVALUATE_SH_VERTEX STEREO_INSTANCING_ON
+        passType: 13
+      - keywords: BOOLEAN_USE_SSS_ON ENUM_DISPLACEMENT_MODE_NONE ENUM_WRINKLE_MODE_NONE
+        passType: 13
+      - keywords: BOOLEAN_USE_SSS_ON ENUM_DISPLACEMENT_MODE_NONE ENUM_WRINKLE_MODE_NONE
+          EVALUATE_SH_VERTEX
+        passType: 13
+      - keywords: BOOLEAN_USE_SSS_ON ENUM_DISPLACEMENT_MODE_NONE ENUM_WRINKLE_MODE_NONE
+          EVALUATE_SH_VERTEX STEREO_INSTANCING_ON
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: ba5f9e5f41cc6d047b3b171d5eba9167,
+      type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON
+        passType: 13
+  - first: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: faff192ad5862624d8a3be26ae4d15d6, type: 3}
+    second:
+      variants:
+      - keywords: LIGHTPROBE_SH
+        passType: 0
+  - first: {fileID: -6465566751694194690, guid: 30e7a19fd529b964e971986815fac8d1,
+      type: 3}
+    second:
+      variants:
+      - keywords: _ENUMCLIPQUALITY_ON_DITHER
+        passType: 8
+      - keywords: _ENUMCLIPQUALITY_ON_STANDARD
+        passType: 8
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON _ENUMCLIPQUALITY_ON_DITHER
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX _ENUMCLIPQUALITY_ON_DITHER
+        passType: 13
+      - keywords: _ENUMCLIPQUALITY_ON_DITHER
+        passType: 13
+  - first: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+  - first: {fileID: -6465566751694194690, guid: d1242887402161c44b3363b797b66738,
+      type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: 
+        passType: 8
+      - keywords: 
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 28d12b9b79962d04fb6b50a9ccf15d3b,
+      type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 9414d1056562f16428fcafecfe1cf795,
+      type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: 
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX
+        passType: 13
+      - keywords: EVALUATE_SH_VERTEX STEREO_INSTANCING_ON
+        passType: 13
+  - first: {fileID: -6465566751694194690, guid: 91ad7ffd6f581244fa5b0625fcf55611,
+      type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: 
+        passType: 13
+  - first: {fileID: 4800000, guid: 1fd0c0add1014e349be27442ff000696, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: b895d3431e75dc345a72e171f82bfbea, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+      - keywords: 
+        passType: 13
+      - keywords: STEREO_INSTANCING_ON
+        passType: 13
+  - first: {fileID: 4800000, guid: 57c328e70d404164ab9b23ac6fc12df6, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: STEREO_INSTANCING_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: a31796e9e8816c7448b55d584c9417f1, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+  - first: {fileID: 4800000, guid: d8e39106449b12147968b744f7b25296, type: 3}
+    second:
+      variants:
+      - keywords: ALPHA_TO_MASK
+        passType: 0
+      - keywords: ALPHA_TO_MASK STEREO_INSTANCING_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 36e335017ad71d54fbb10842863188ae, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0

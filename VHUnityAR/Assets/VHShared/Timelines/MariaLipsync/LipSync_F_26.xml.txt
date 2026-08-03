@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_F_26" ref="LipSync_F_26" type="application/ssml+xml">
+      <mark name="T0" />Frank
+	<mark name="T1" /><mark name="T2" />finds
+	<mark name="T3" /><mark name="T4" />fun
+	<mark name="T5" /><mark name="T6" />in
+	<mark name="T7" /><mark name="T8" />frying
+	<mark name="T9" /><mark name="T10" />fresh
+	<mark name="T11" /><mark name="T12" />fish
+	<mark name="T13" /><mark name="T14" />every
+	<mark name="T15" /><mark name="T16" />Friday.
+	<mark name="T17" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Frank " stroke="LipSync_F_26:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Frank finds " stroke="LipSync_F_26:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Frank finds fun " stroke="LipSync_F_26:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Frank finds fun in " stroke="LipSync_F_26:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Frank finds fun in frying " stroke="LipSync_F_26:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Frank finds fun in frying fresh " stroke="LipSync_F_26:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Frank finds fun in frying fresh fish " stroke="LipSync_F_26:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 Frank finds fun in frying fresh fish every " stroke="LipSync_F_26:T15" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T17 Frank finds fun in frying fresh fish every Friday. " stroke="LipSync_F_26:T17" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Frank finds fun in frying fresh fish every Friday.  " stroke="LipSync_F_26:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_26:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_26:T5" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_26:T11" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_26:T15" priority="5" />
+  </bml>
+</act>

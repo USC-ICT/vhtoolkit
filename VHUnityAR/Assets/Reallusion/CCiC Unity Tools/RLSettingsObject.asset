@@ -1,0 +1,193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa89a4491701a14d84219c16beed8e4, type: 3}
+  m_Name: RLSettingsObject
+  m_EditorClassIdentifier: 
+  showOnStartup: 1
+  ignoreAllErrors: 0
+  checkForUpdates: 1
+  updateWindowShownOnce: 0
+  postInstallShowUpdateWindow: 0
+  postInstallShowPopupNotWindow: 0
+  criticalUpdateRequired: 0
+  shaderUpdateInProgress: 0
+  runtimeUpdateInProgress: 0
+  pendingShaderUninstall: 0
+  pendingRuntimeUninstall: 0
+  pendingShaderInstall: 0
+  pendingRuntimeInstall: 0
+  performPostInstallationShaderCheck: 0
+  performPostInstallationRuntimeCheck: 0
+  updateMessage: 'Shader package: URP171 2.2.6 has been imported.
+
+    Runtime package:
+    2.2.6 has been imported.
+
+'
+  updateAvailable: 1
+  lastUpdateCheck: 639126439599588978
+  jsonTagName: 2.2.6
+  jsonHtmlUrl: https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.2.6
+  jsonPublishedAt: 2026-04-07T20:05:42Z
+  jsonBodyLines:
+  - '**[:arrow_down_small:Download CC/iC Unity Tools 2.2.6 - for Unity 2022.3 - 6000.3](https://github.com/soupday/CCiC-Unity-Tools/archive/refs/tags/2.2.6.zip)**'
+  - '**[:arrow_down_small:Download CC/iC Unity Pipeline Plug-in 2.2.5 - for Character
+    Creator / iClone](https://github.com/soupday/CCiC-Unity-Pipeline-Plugin/archive/refs/tags/2.2.5.zip)**'
+  - ---
+  - 
+  - '### 2.2.6'
+  - '- Fixes to:'
+  - '    - Basic materials locking importer UI.'
+  - '    - Facial Expression preview.'
+  - '    - Alpha detection from blender exports.'
+  - '    - Exports with embedded textures.'
+  - '    - Transparencies in Pbr eyes.'
+  - '- Updated URP preview scene lighting presets.'
+  - '- Log spam clean-up.'
+  - '- Invalid Json data (from corrupted or incorrect application target) throws
+    an error message.'
+  fullJsonFragment: '[{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/306273791","assets_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/306273791/assets","upload_url":"https://uploads.github.com/repos/soupday/CCiC-Unity-Tools/releases/306273791/assets{?name,label}","html_url":"https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.2.6","id":306273791,"author":{"login":"soupday","id":79094830,"node_id":"MDQ6VXNlcjc5MDk0ODMw","avatar_url":"https://avatars.githubusercontent.com/u/79094830?v=4","gravatar_id":"","url":"https://api.github.com/users/soupday","html_url":"https://github.com/soupday","followers_url":"https://api.github.com/users/soupday/followers","following_url":"https://api.github.com/users/soupday/following{/other_user}","gists_url":"https://api.github.com/users/soupday/gists{/gist_id}","starred_url":"https://api.github.com/users/soupday/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/soupday/subscriptions","organizations_url":"https://api.github.com/users/soupday/orgs","repos_url":"https://api.github.com/users/soupday/repos","events_url":"https://api.github.com/users/soupday/events{/privacy}","received_events_url":"https://api.github.com/users/soupday/received_events","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOL2lAh84SQV3_","tag_name":"2.2.6","target_commitish":"main","name":"CC/iC
+    Unity Tools 2.2.6","draft":false,"immutable":false,"prerelease":false,"created_at":"2026-04-07T20:02:50Z","updated_at":"2026-04-07T20:05:42Z","published_at":"2026-04-07T20:05:42Z","assets":[],"tarball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/tarball/2.2.6","zipball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/zipball/2.2.6","body":"**[:arrow_down_small:Download
+    CC/iC Unity Tools 2.2.6 - for Unity 2022.3 - 6000.3](https://github.com/soupday/CCiC-Unity-Tools/archive/refs/tags/2.2.6.zip)**\r\n**[:arrow_down_small:Download
+    CC/iC Unity Pipeline Plug-in 2.2.5 - for Character Creator / iClone](https://github.com/soupday/CCiC-Unity-Pipeline-Plugin/archive/refs/tags/2.2.5.zip)**\r\n---\r\n\r\n###
+    2.2.6\r\n- Fixes to:\r\n    - Basic materials locking importer UI.\r\n    - Facial
+    Expression preview.\r\n    - Alpha detection from blender exports.\r\n    - Exports
+    with embedded textures.\r\n    - Transparencies in Pbr eyes.\r\n- Updated URP
+    preview scene lighting presets.\r\n- Log spam clean-up.\r\n- Invalid Json data
+    (from corrupted or incorrect application target) throws an error message."},{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/303365621","assets_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/303365621/assets","upload_url":"https://uploads.github.com/repos/soupday/CCiC-Unity-Tools/releases/303365621/assets{?name,label}","html_url":"https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.2.5","id":303365621,"author":{"login":"soupday","id":79094830,"node_id":"MDQ6VXNlcjc5MDk0ODMw","avatar_url":"https://avatars.githubusercontent.com/u/79094830?v=4","gravatar_id":"","url":"https://api.github.com/users/soupday","html_url":"https://github.com/soupday","followers_url":"https://api.github.com/users/soupday/followers","following_url":"https://api.github.com/users/soupday/following{/other_user}","gists_url":"https://api.github.com/users/soupday/gists{/gist_id}","starred_url":"https://api.github.com/users/soupday/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/soupday/subscriptions","organizations_url":"https://api.github.com/users/soupday/orgs","repos_url":"https://api.github.com/users/soupday/repos","events_url":"https://api.github.com/users/soupday/events{/privacy}","received_events_url":"https://api.github.com/users/soupday/received_events","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOL2lAh84SFP31","tag_name":"2.2.5","target_commitish":"main","name":"CC/iC
+    Unity Tools 2.2.5","draft":false,"immutable":false,"prerelease":false,"created_at":"2026-03-30T19:12:19Z","updated_at":"2026-03-30T19:13:06Z","published_at":"2026-03-30T19:13:06Z","assets":[],"tarball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/tarball/2.2.5","zipball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/zipball/2.2.5","body":"**[:arrow_down_small:Download
+    CC/iC Unity Tools 2.2.5 - for Unity 2022.3 - 6000.3](https://github.com/soupday/CCiC-Unity-Tools/archive/refs/tags/2.2.5.zip)**\r\n**[:arrow_down_small:Download
+    CC/iC Unity Pipeline Plug-in 2.2.5 - for Character Creator / iClone](https://github.com/soupday/CCiC-Unity-Pipeline-Plugin/archive/refs/tags/2.2.5.zip)**\r\n---\r\n\r\n###
+    2.2.5\r\n- Bone driver update:\r\n    - Toggle bone groups to enable / disable
+    driving certain bones.\r\n    - Missing blendshapes for driver facial expressions
+    are re-added to mesh.\r\n- Enhanced alpha blending type detection between cutout,
+    gradient and opaque.\r\n- Material type overrides - for when the auto-detection
+    gets it wrong.\r\n- Fix some OnGUI error spam at start up.\r\n- Updates for Unity
+    6.4."},{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/287286095","assets_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/287286095/assets","upload_url":"https://uploads.github.com/repos/soupday/CCiC-Unity-Tools/releases/287286095/assets{?name,label}","html_url":"https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.2.4","id":287286095,"author":{"login":"soupday","id":79094830,"node_id":"MDQ6VXNlcjc5MDk0ODMw","avatar_url":"https://avatars.githubusercontent.com/u/79094830?v=4","gravatar_id":"","url":"https://api.github.com/users/soupday","html_url":"https://github.com/soupday","followers_url":"https://api.github.com/users/soupday/followers","following_url":"https://api.github.com/users/soupday/following{/other_user}","gists_url":"https://api.github.com/users/soupday/gists{/gist_id}","starred_url":"https://api.github.com/users/soupday/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/soupday/subscriptions","organizations_url":"https://api.github.com/users/soupday/orgs","repos_url":"https://api.github.com/users/soupday/repos","events_url":"https://api.github.com/users/soupday/events{/privacy}","received_events_url":"https://api.github.com/users/soupday/received_events","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOL2lAh84RH6NP","tag_name":"2.2.4","target_commitish":"main","name":"CC/iC
+    Unity Tools 2.2.4","draft":false,"immutable":false,"prerelease":false,"created_at":"2026-02-17T14:34:32Z","updated_at":"2026-02-17T14:36:38Z","published_at":"2026-02-17T14:36:38Z","assets":[],"tarball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/tarball/2.2.4","zipball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/zipball/2.2.4","body":"**[:arrow_down_small:Download
+    CC/iC Unity Tools 2.2.4 - for Unity 2021.3 - 6000.3](https://github.com/soupday/CCiC-Unity-Tools/archive/refs/tags/2.2.4.zip)**\r\n**[:arrow_down_small:Download
+    CC/iC Unity Pipeline Plug-in 2.2.3 - for Character Creator / iClone](https://github.com/soupday/CCiC-Unity-Pipeline-Plugin/archive/refs/tags/2.2.3.zip)**\r\n---\r\n\r\n###
+    2.2.4\r\n- Lod Combiner UI fixes.\r\n- Fixes for a possible infinite update loop.\r\n-
+    Bone driver fix for direct Visemes Ih and Th.\r\n- HDRP diffusion profiles restored
+    after shader package upgrade."},{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/284822217","assets_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/284822217/assets","upload_url":"https://uploads.github.com/repos/soupday/CCiC-Unity-Tools/releases/284822217/assets{?name,label}","html_url":"https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.2.3","id":284822217,"author":{"login":"soupday","id":79094830,"node_id":"MDQ6VXNlcjc5MDk0ODMw","avatar_url":"https://avatars.githubusercontent.com/u/79094830?v=4","gravatar_id":"","url":"https://api.github.com/users/soupday","html_url":"https://github.com/soupday","followers_url":"https://api.github.com/users/soupday/followers","following_url":"https://api.github.com/users/soupday/following{/other_user}","gists_url":"https://api.github.com/users/soupday/gists{/gist_id}","starred_url":"https://api.github.com/users/soupday/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/soupday/subscriptions","organizations_url":"https://api.github.com/users/soupday/orgs","repos_url":"https://api.github.com/users/soupday/repos","events_url":"https://api.github.com/users/soupday/events{/privacy}","received_events_url":"https://api.github.com/users/soupday/received_events","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOL2lAh84Q-grJ","tag_name":"2.2.3","target_commitish":"main","name":"CC/iC
+    Unity Tools 2.2.3","draft":false,"immutable":false,"prerelease":false,"created_at":"2026-02-10T13:13:29Z","updated_at":"2026-02-10T13:14:14Z","published_at":"2026-02-10T13:14:14Z","assets":[],"tarball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/tarball/2.2.3","zipball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/zipball/2.2.3","body":"**[:arrow_down_small:Download
+    CC/iC Unity Tools 2.2.3 - for Unity 2021.3 - 6000.3](https://github.com/soupday/CCiC-Unity-Tools/archive/refs/tags/2.2.3.zip)**\r\n**[:arrow_down_small:Download
+    CC/iC Unity Pipeline Plug-in 2.2.3 - for Character Creator / iClone](https://github.com/soupday/CCiC-Unity-Pipeline-Plugin/archive/refs/tags/2.2.3.zip)**\r\n---\r\n\r\n###
+    2.2.3\r\n- Removed all references to PlasticSCM Json in Runtime package.\r\n-
+    Fix to Camera Proxy inspector.\r\n- Added Wrinkle Displacement option to character
+    build features.\r\n- Increased threshold of transparency detection.\r\n- Clean
+    up of unused usings\r\n- Fix to object / material names being less than 3 characters."},{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/283949027","assets_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/283949027/assets","upload_url":"https://uploads.github.com/repos/soupday/CCiC-Unity-Tools/releases/283949027/assets{?name,label}","html_url":"https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.2.2","id":283949027,"author":{"login":"soupday","id":79094830,"node_id":"MDQ6VXNlcjc5MDk0ODMw","avatar_url":"https://avatars.githubusercontent.com/u/79094830?v=4","gravatar_id":"","url":"https://api.github.com/users/soupday","html_url":"https://github.com/soupday","followers_url":"https://api.github.com/users/soupday/followers","following_url":"https://api.github.com/users/soupday/following{/other_user}","gists_url":"https://api.github.com/users/soupday/gists{/gist_id}","starred_url":"https://api.github.com/users/soupday/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/soupday/subscriptions","organizations_url":"https://api.github.com/users/soupday/orgs","repos_url":"https://api.github.com/users/soupday/repos","events_url":"https://api.github.com/users/soupday/events{/privacy}","received_events_url":"https://api.github.com/users/soupday/received_events","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOL2lAh84Q7Lfj","tag_name":"2.2.2","target_commitish":"main","name":"CC/iC
+    Unity Tools 2.2.2","draft":false,"immutable":false,"prerelease":false,"created_at":"2026-02-07T00:37:08Z","updated_at":"2026-02-07T00:39:38Z","published_at":"2026-02-07T00:39:38Z","assets":[],"tarball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/tarball/2.2.2","zipball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/zipball/2.2.2","body":"**[:arrow_down_small:Download
+    CC/iC Unity Tools 2.2.2 - for Unity 2021.3 - 6000.3](https://github.com/soupday/CCiC-Unity-Tools/archive/refs/tags/2.2.2.zip)**\r\n**[:arrow_down_small:Download
+    CC/iC Unity Pipeline Plug-in 2.2.2 - for Character Creator / iClone](https://github.com/soupday/CCiC-Unity-Pipeline-Plugin/archive/refs/tags/2.2.2.zip)**\r\n---\r\n\r\n###
+    2.2.2\r\n- Generic animation merge enabled (experimental)\r\n    - Animated bones
+    not in humanoid skeleton will be combined into the mechanim humanoid animation
+    clip.\r\n    - e.g. Character animations with animated accessory bones (wings,
+    tails, ears) or spring bones (hair accessories).\r\n- Better transparency detection
+    & basic hair detection.\r\n- Fix to calculated blendshape normal distortion.\r\n-
+    Bone driver fixes.\r\n- Animation retargeting fixes.\r\n- Fix to DataLinkActorData
+    editor code."},{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/281549862","assets_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/281549862/assets","upload_url":"https://uploads.github.com/repos/soupday/CCiC-Unity-Tools/releases/281549862/assets{?name,label}","html_url":"https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.2.1","id":281549862,"author":{"login":"soupday","id":79094830,"node_id":"MDQ6VXNlcjc5MDk0ODMw","avatar_url":"https://avatars.githubusercontent.com/u/79094830?v=4","gravatar_id":"","url":"https://api.github.com/users/soupday","html_url":"https://github.com/soupday","followers_url":"https://api.github.com/users/soupday/followers","following_url":"https://api.github.com/users/soupday/following{/other_user}","gists_url":"https://api.github.com/users/soupday/gists{/gist_id}","starred_url":"https://api.github.com/users/soupday/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/soupday/subscriptions","organizations_url":"https://api.github.com/users/soupday/orgs","repos_url":"https://api.github.com/users/soupday/repos","events_url":"https://api.github.com/users/soupday/events{/privacy}","received_events_url":"https://api.github.com/users/soupday/received_events","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOL2lAh84QyBwm","tag_name":"2.2.1","target_commitish":"main","name":"CC/iC
+    Unity Tools 2.2.1","draft":false,"immutable":false,"prerelease":false,"created_at":"2026-01-30T15:29:14Z","updated_at":"2026-01-30T15:34:40Z","published_at":"2026-01-30T15:34:40Z","assets":[],"tarball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/tarball/2.2.1","zipball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/zipball/2.2.1","body":"**[:arrow_down_small:Download
+    CC/iC Unity Tools 2.2.1 - for Unity 2021.3 - 6000.3](https://github.com/soupday/CCiC-Unity-Tools/archive/refs/tags/2.2.1.zip)**\r\n**[:arrow_down_small:Download
+    CC/iC Unity Pipeline Plugin 2.2.1 - for Character Creator / iClone](https://github.com/soupday/CCiC-Unity-Pipeline-Plugin/archive/refs/tags/2.2.1.zip)**\r\n---\r\n\r\n###
+    2.2.1\r\n- HD Facial profile animation retargeting.\r\n- Updated Animation Player
+    - Facial Expression Preview for HD facial profile.\r\n- DataLink lights import
+    with highest shadow quality.\r\n- Better opacity detection on hair, brows, and
+    beards.\r\n- Faster animation retargeting.\r\n- LOD Model processing fix.\r\n-
+    Merged Material update.\r\n- Standard eyelash disabled/hidden when HD eyelash
+    detected.\r\n- Fix to Send motion when character names differ."},{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/273078520","assets_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/273078520/assets","upload_url":"https://uploads.github.com/repos/soupday/CCiC-Unity-Tools/releases/273078520/assets{?name,label}","html_url":"https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.2.0","id":273078520,"author":{"login":"soupday","id":79094830,"node_id":"MDQ6VXNlcjc5MDk0ODMw","avatar_url":"https://avatars.githubusercontent.com/u/79094830?v=4","gravatar_id":"","url":"https://api.github.com/users/soupday","html_url":"https://github.com/soupday","followers_url":"https://api.github.com/users/soupday/followers","following_url":"https://api.github.com/users/soupday/following{/other_user}","gists_url":"https://api.github.com/users/soupday/gists{/gist_id}","starred_url":"https://api.github.com/users/soupday/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/soupday/subscriptions","organizations_url":"https://api.github.com/users/soupday/orgs","repos_url":"https://api.github.com/users/soupday/repos","events_url":"https://api.github.com/users/soupday/events{/privacy}","received_events_url":"https://api.github.com/users/soupday/received_events","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOL2lAh84QRtj4","tag_name":"2.2.0","target_commitish":"main","name":"CC/iC
+    Unity Tools 2.2.0","draft":false,"immutable":false,"prerelease":false,"created_at":"2025-12-28T15:23:01Z","updated_at":"2025-12-28T15:29:43Z","published_at":"2025-12-28T15:24:27Z","assets":[],"tarball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/tarball/2.2.0","zipball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/zipball/2.2.0","body":"**[:arrow_down_small:Download
+    CC/iC Unity Tools 2.2.0 - for Unity 2021.3 - 6000.3](https://github.com/soupday/CCiC-Unity-Tools/archive/refs/tags/2.2.0.zip)**\r\n**[:arrow_down_small:Download
+    CC/iC Unity Pipeline Plugin 2.2.0 - for Character Creator / iClone](https://github.com/soupday/CCiC-Unity-Pipeline-Plugin/archive/refs/tags/2.2.0.zip)**\r\n---\r\n\r\n###
+    2.2.0\r\n- Build error from Bone drivers fixed.\r\n- Unity 2020.3 no longer supported
+    directly.\r\n- Eye shader scale update.\r\n- Shader updates for URP 17.1, 17.2
+    and 17.3.\r\n\r\nNote: Unity 2020.3 is no longer supported."},{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/268901671","assets_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/268901671/assets","upload_url":"https://uploads.github.com/repos/soupday/CCiC-Unity-Tools/releases/268901671/assets{?name,label}","html_url":"https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.1.1","id":268901671,"author":{"login":"soupday","id":79094830,"node_id":"MDQ6VXNlcjc5MDk0ODMw","avatar_url":"https://avatars.githubusercontent.com/u/79094830?v=4","gravatar_id":"","url":"https://api.github.com/users/soupday","html_url":"https://github.com/soupday","followers_url":"https://api.github.com/users/soupday/followers","following_url":"https://api.github.com/users/soupday/following{/other_user}","gists_url":"https://api.github.com/users/soupday/gists{/gist_id}","starred_url":"https://api.github.com/users/soupday/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/soupday/subscriptions","organizations_url":"https://api.github.com/users/soupday/orgs","repos_url":"https://api.github.com/users/soupday/repos","events_url":"https://api.github.com/users/soupday/events{/privacy}","received_events_url":"https://api.github.com/users/soupday/received_events","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOL2lAh84QBx0n","tag_name":"2.1.1","target_commitish":"main","name":"CC/iC
+    Unity Tools 2.1.1","draft":false,"immutable":false,"prerelease":false,"created_at":"2025-12-09T21:28:55Z","updated_at":"2025-12-09T21:35:47Z","published_at":"2025-12-09T21:35:47Z","assets":[],"tarball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/tarball/2.1.1","zipball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/zipball/2.1.1","body":"**[:arrow_down_small:Download
+    CC/iC Unity Tools 2.1.1 - for Unity 2020.3 - 6000.3](https://github.com/soupday/CCiC-Unity-Tools/archive/refs/tags/2.1.1.zip)**\r\n**[:arrow_down_small:Download
+    CC/iC Unity Pipeline Plugin 2.1.1 - for Character Creator / iClone](https://github.com/soupday/CCiC-Unity-Pipeline-Plugin/archive/refs/tags/2.1.1.zip)**\r\n---\r\n\r\n###
+    2.1.1\r\n- Unity 6.3 fixes.\r\n- Import blendshape normals set to calculate by
+    default.\r\n- Eye shader limbus adjusted to be more accurate to CC/iC eyes.\r\n-
+    Eyelash and Brows shadow and reflection fixes.\r\n- Bone driver script added.\r\n   
+    - For exports with bone/expression data (CC4.63 / CC5.0+).\r\n    - Script will
+    drive face bones from the facial expression blendshapes on the body mesh.\r\n   
+    - Script will also copy facial expression blendshapes from the body to other
+    relevant meshes.\r\n    - Facial expression blendshapes need only target the
+    body and driver script takes care of the rest.\r\n    - Optional expression strength
+    controls.\r\n    - Animations retargeted to characters with active bone driver
+    scripts have the driven blendshapes and bones stripped from the animation, significantly
+    reducing size and improving playback performance.","reactions":{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/268901671/reactions","total_count":1,"+1":1,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0}},{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/250302395","assets_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/250302395/assets","upload_url":"https://uploads.github.com/repos/soupday/CCiC-Unity-Tools/releases/250302395/assets{?name,label}","html_url":"https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.1.0","id":250302395,"author":{"login":"soupday","id":79094830,"node_id":"MDQ6VXNlcjc5MDk0ODMw","avatar_url":"https://avatars.githubusercontent.com/u/79094830?v=4","gravatar_id":"","url":"https://api.github.com/users/soupday","html_url":"https://github.com/soupday","followers_url":"https://api.github.com/users/soupday/followers","following_url":"https://api.github.com/users/soupday/following{/other_user}","gists_url":"https://api.github.com/users/soupday/gists{/gist_id}","starred_url":"https://api.github.com/users/soupday/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/soupday/subscriptions","organizations_url":"https://api.github.com/users/soupday/orgs","repos_url":"https://api.github.com/users/soupday/repos","events_url":"https://api.github.com/users/soupday/events{/privacy}","received_events_url":"https://api.github.com/users/soupday/received_events","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOL2lAh84O60-7","tag_name":"2.1.0","target_commitish":"main","name":"CC/iC
+    Unity Tools 2.1.0","draft":false,"immutable":false,"prerelease":false,"created_at":"2025-09-26T13:07:05Z","updated_at":"2025-11-06T07:23:12Z","published_at":"2025-09-26T13:07:41Z","assets":[],"tarball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/tarball/2.1.0","zipball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/zipball/2.1.0","body":"**[:arrow_down_small:Download
+    CC/iC Unity Tools 2.1.0 - for Unity 2020.3 - 6000.2](https://github.com/soupday/CCiC-Unity-Tools/archive/refs/tags/2.1.0.zip)**\r\n**[:arrow_down_small:Download
+    CC/iC Unity Pipeline Plugin 2.1.0 - for Character Creator / iClone](https://github.com/soupday/CCiC-Unity-Pipeline-Plugin/archive/refs/tags/2.1.0.zip)**\r\n---\r\n\r\n**Note:
+    This is a work in progress beta release.**\r\n\r\n### 2.1.0\r\n- Shader update
+    for CC5 HD characters.\r\n    - Eye shader updates\r\n    - Skin shader updates:\r\n       
+    - Cavity maps.\r\n        - Displacement maps.\r\n        - Wrinkle displacement
+    maps.\r\n        - Wrinkle system update.\r\n- DataLink\r\n    - Uses the ''CCIC
+    Unity Pipeline Plugin'' (https://github.com/soupday/CCIC-Unity-Pipeline-Plugin)
+    for both Character Creator (versions 4 & 5) and iClone.\r\n    - Allows the direct
+    import of Characters, props cameras, lights and full iClone scenes into a Unity
+    project with a single button click.\r\n    - All exports can automatically be
+    placed directly into a Unity scene and added to a Unity Timeline to allow direct
+    replication of an iClone scene in Unity.\r\n    - Animated cameras (positions,
+    camera tracking and switching [using the switcher track], depth of field, focus
+    distance) and lights (positions, color, intensity, ranges, angles and activation
+    state) can also be automatically set up in a Unity Timeline.\r\n    - Datalink
+    is not limited to a local machine, a remote host using iClone/Character Creator
+    can be connected to (Unity 2021 and above).\r\n- TBD:\r\n    - URP Anisotropic
+    hair.\r\n    - Tessellation shaders for URP (Skin only for now)\r\n    - Retarget
+    expressions to/from CC5 HD profile.\r\n    - Simultaneous datalink connection
+    to Character Creator and iClone.\r\n    - Sending meshes from the Unity scene
+    to iClone to aid scene specific animation. ","reactions":{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/250302395/reactions","total_count":4,"+1":4,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0}},{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/227393413","assets_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/227393413/assets","upload_url":"https://uploads.github.com/repos/soupday/CCiC-Unity-Tools/releases/227393413/assets{?name,label}","html_url":"https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.0.2","id":227393413,"author":{"login":"soupday","id":79094830,"node_id":"MDQ6VXNlcjc5MDk0ODMw","avatar_url":"https://avatars.githubusercontent.com/u/79094830?v=4","gravatar_id":"","url":"https://api.github.com/users/soupday","html_url":"https://github.com/soupday","followers_url":"https://api.github.com/users/soupday/followers","following_url":"https://api.github.com/users/soupday/following{/other_user}","gists_url":"https://api.github.com/users/soupday/gists{/gist_id}","starred_url":"https://api.github.com/users/soupday/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/soupday/subscriptions","organizations_url":"https://api.github.com/users/soupday/orgs","repos_url":"https://api.github.com/users/soupday/repos","events_url":"https://api.github.com/users/soupday/events{/privacy}","received_events_url":"https://api.github.com/users/soupday/received_events","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOL2lAh84Njb-F","tag_name":"2.0.2","target_commitish":"main","name":"CC/iC
+    Unity Tools 2.0.2","draft":false,"immutable":false,"prerelease":false,"created_at":"2025-06-24T14:41:40Z","updated_at":"2025-06-24T20:23:31Z","published_at":"2025-06-24T14:43:03Z","assets":[],"tarball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/tarball/2.0.2","zipball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/zipball/2.0.2","body":"[Download
+    CC/iC Unity Tools 2.0.2](https://github.com/soupday/ccic_unity_tools_all/archive/refs/tags/2.0.2.zip)\r\n-------\r\n\r\n###
+    2.0.2\r\n- Fix to Magica Cloth hair only collider generation.\r\n- Fix to spring
+    bone build generation.\r\n- Fix to additional motion processing with differing
+    Avatar''s.\r\n- Unity 6000.1 (HDRP/URP-17.1) shader support added.\r\n\r\n###
+    2.0.1\r\n- Fix to combined mesh & morph eye depth.\r\n- Fix to strand hair compilation
+    errors.","reactions":{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/227393413/reactions","total_count":6,"+1":6,"-1":0,"laugh":0,"hooray":0,"confused":0,"heart":0,"rocket":0,"eyes":0}},{"url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/191491308","assets_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/releases/191491308/assets","upload_url":"https://uploads.github.com/repos/soupday/CCiC-Unity-Tools/releases/191491308/assets{?name,label}","html_url":"https://github.com/soupday/CCiC-Unity-Tools/releases/tag/2.0.0","id":191491308,"author":{"login":"soupday","id":79094830,"node_id":"MDQ6VXNlcjc5MDk0ODMw","avatar_url":"https://avatars.githubusercontent.com/u/79094830?v=4","gravatar_id":"","url":"https://api.github.com/users/soupday","html_url":"https://github.com/soupday","followers_url":"https://api.github.com/users/soupday/followers","following_url":"https://api.github.com/users/soupday/following{/other_user}","gists_url":"https://api.github.com/users/soupday/gists{/gist_id}","starred_url":"https://api.github.com/users/soupday/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/soupday/subscriptions","organizations_url":"https://api.github.com/users/soupday/orgs","repos_url":"https://api.github.com/users/soupday/repos","events_url":"https://api.github.com/users/soupday/events{/privacy}","received_events_url":"https://api.github.com/users/soupday/received_events","type":"User","user_view_type":"public","site_admin":false},"node_id":"RE_kwDOL2lAh84Laezs","tag_name":"2.0.0","target_commitish":"main","name":"CC/iC
+    Unity Tools 2.0.0","draft":false,"immutable":false,"prerelease":false,"created_at":"2024-12-18T15:15:46Z","updated_at":"2024-12-19T13:33:02Z","published_at":"2024-12-18T16:58:57Z","assets":[],"tarball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/tarball/2.0.0","zipball_url":"https://api.github.com/repos/soupday/CCiC-Unity-Tools/zipball/2.0.0","body":"[Download
+    CC/iC Unity Tools 2.0.0](https://github.com/soupday/ccic_unity_tools_all/archive/refs/tags/2.0.0.zip)\r\n-------\r\n\r\n###
+    2.0.0\r\n- Unified version, for all versions of Unity and pipelines.\r\n    -
+    Automatically installs and updates run time shaders and scripts.\r\n    - Checks
+    for missing shaders and runtimes.\r\n- Fixes for:\r\n    - HDRP shader recompiling.\r\n   
+    - Wrinkle masks not being detected when installed in Assets.\r\n\r\n## Notes\r\nVersion
+    2.0.0 for all versions of Unity 2020.3 to 6000.0 and all pipelines (HDRP / URP
+    / 3D).\r\n\r\nTo upgrade, remove the old CC/iC Unity Tools entirely and install
+    this with the package manager. It should also work if just dropped into Assets.\r\n\r\nThis
+    package will install the shaders, template materials and run-time scripts into:
+    **Assets/Reallusion/CCiC Unity Tools**.\r\n\r\nIt should also detect when the
+    _wrong_ shader package is installed, or if any of the shaders are missing, for
+    the version of Unity and pipeline and present options to fix this.\r\n\r\nThere
+    are also functions to remove and install different shader packages if required."}]'
+  lastPath: Assets/Reallusion/CCiC Unity Tools/RLSettingsObject.asset
+  toolVersion: 2.2.6
+  shaderToolVersion: 2.2.6
+  InstalledShaderRevision: 1
+  runtimeToolVersion: 2.2.6
+  installedRuntimeRevision: 1
+  showProps: 1
+  lastExportPath: 
+  isClientLocal: 1
+  lastSuccessfulHost: 
+  lastTriedHosts: []
+  simpleMode: 1
+  importDestinationFolder: 
+  importIntoScene: 1
+  useCurrentScene: 0
+  addToTimeline: 1
+  lockTimelineToLast: 1
+  sceneReference: 
+  recentSceneRefs: []
+  lastSaveFolder: 
+  activeTimeLines: []
+  showPlayerAfterPlayMode: 0
+  showRetargetAfterPlayMode: 0

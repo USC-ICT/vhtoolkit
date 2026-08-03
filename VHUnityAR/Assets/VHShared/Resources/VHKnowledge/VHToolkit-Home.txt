@@ -1,0 +1,15 @@
+The Virtual Human Toolkit
+
+The Virtual Human Toolkit, VHToolkit, is an academic research and development platform for the creation of virtual humans, also called embodied conversational agents or socially intelligent agents. It enables the creation and deployment of real-time interactive characters that perceive end-users and respond both verbally and nonverbally. Its guiding idea is any character, any technology, anywhere: researchers can create any character, drive it by any of more than twenty integrated vendors and AI technologies, and deploy it to any supported hardware.
+
+The toolkit is an integrated framework: it combines audio-visual sensing and speech recognition with natural language processing, text-to-speech synthesis, and nonverbal behavior generation in a single framework. Its architecture is flexible, letting developers select among multiple technology vendors and open-source solutions, cloud services or local technologies, and its API is extendable, so developers can add their own technology by implementing the principled interfaces. It supports Windows, macOS, Linux, Android, iOS, WebGL, and AR and VR.
+
+Custom characters are supported through Reallusion's Character Creator, which imports into the toolkit to become interactive. Personalized avatars of real people are possible with Character Creator's Headshot plugin, working from a photograph, optionally paired with a voice cloned by ElevenLabs. These tools require their own licenses.
+
+The VHToolkit is powered by the Rapid Integration & Development Environment platform, RIDE, and targets the Unity game engine. Both the VHToolkit and RIDE are developed by the Simulations, Architectures & Intelligent Agents (SAIA) Lab at USC ICT, led by Arno Hartholt, in collaboration with other ICT labs.
+
+Where things live: everything is in the GitHub repository at github.com/USC-ICT/vhtoolkit - the source, the example Unity projects, and the documentation in that repository's wiki. The address vhtoolkit.ict.usc.edu is only a short, easy-to-remember landing page that points to the repository; it does not itself hold the code, the examples, or the documentation. A running WebGL demo is published at vhtoolkitwww.ict.usc.edu/demo.
+
+The VHToolkit is licensed under the USC-RL v3.0 license, a permissive license for academic and personal use; the license text is in the GitHub repository. For commercial and government purpose use, get in touch through the landing page.
+
+When publishing work that uses the VHToolkit, cite one of its two main papers: the 2013 paper "All Together Now: Introducing the Virtual Human Toolkit" by Hartholt, Traum, Marsella, Shapiro, Stratou, Leuski, Morency, and Gratch, from the International Workshop on Intelligent Virtual Agents (IVA); or the 2022 paper "Re-architecting the Virtual Human Toolkit" by Hartholt, Fast, Li, Kim, Leeds, and Mozgai, from the 22nd ACM International Conference on Intelligent Virtual Agents (IVA). The publications document covers both in detail.

@@ -1,0 +1,11 @@
+Asset bundles and the asset catalog in the Virtual Human Toolkit
+
+Character art is not compiled into VHToolkit applications. Instead, characters are built as asset bundles in dedicated art projects, one per rendering pipeline, and applications download them at runtime from either a local path or a remote host such as an S3 bucket. This keeps executables small and means characters can be updated or added without recompiling the application. The trade-off is more asset management and, for remote loading, a hosting setup.
+
+The pipeline has two halves. In the Unity Editor, the Asset Catalog window - under the toolkit's Ride menu - is where assets are organized into named groups, given labels, and built. Each group produces its own catalog file plus the bundles themselves, and a hash file tracks changes so unchanged assets are not rebuilt. It is the toolkit's own alternative to Unity Addressables, kept scriptable and configurable across multiple catalogs.
+
+At runtime, the asset loading system reads the catalogs and loads assets asynchronously by name or by label. It tries the local path first and falls back to the remote one, caches what it loads, and supports clean unloading. On each character, a catalog-asset component knows which bundle to fetch; selecting a character that is not yet loaded triggers the download, with progress shown while it arrives.
+
+Bundles are built per character, per rendering pipeline, and per hardware platform, so a character needs a bundle matching the project's pipeline and target. A character without a matching bundle simply fails to load, which is the first thing to check when a newly added character does not appear.
+
+Asset names must be unique within a group. Loading by label can match several assets, while loading by name identifies exactly one. In WebGL builds, remote bundle hosting must permit cross-origin requests from the page serving the build.

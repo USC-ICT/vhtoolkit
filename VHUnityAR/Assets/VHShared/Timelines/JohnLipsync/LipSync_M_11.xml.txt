@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_M_11" ref="LipSync_M_11" type="application/ssml+xml">
+      <mark name="T0" />Timothy
+	<mark name="T1" /><mark name="T2" />trains
+	<mark name="T3" /><mark name="T4" />tiny
+	<mark name="T5" /><mark name="T6" />turtles
+	<mark name="T7" /><mark name="T8" />to
+	<mark name="T9" /><mark name="T10" />talk
+	<mark name="T11" /><mark name="T12" />clearly.
+	<mark name="T13" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Timothy " stroke="LipSync_M_11:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Timothy trains " stroke="LipSync_M_11:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Timothy trains tiny " stroke="LipSync_M_11:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Timothy trains tiny turtles " stroke="LipSync_M_11:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Timothy trains tiny turtles to " stroke="LipSync_M_11:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Timothy trains tiny turtles to talk " stroke="LipSync_M_11:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Timothy trains tiny turtles to talk clearly. " stroke="LipSync_M_11:T13" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Timothy trains tiny turtles to talk clearly.  " stroke="LipSync_M_11:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_11:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_11:T5" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_11:T13" priority="5" />
+  </bml>
+</act>

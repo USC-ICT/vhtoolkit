@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_M_23" ref="LipSync_M_23" type="application/ssml+xml">
+      <mark name="T0" />Giraffes
+	<mark name="T1" /><mark name="T2" />gracefully
+	<mark name="T3" /><mark name="T4" />gallop
+	<mark name="T5" /><mark name="T6" />across
+	<mark name="T7" /><mark name="T8" />grassy
+	<mark name="T9" /><mark name="T10" />plains
+	<mark name="T11" /><mark name="T12" />at
+	<mark name="T13" /><mark name="T14" />sunset.
+	<mark name="T15" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Giraffes " stroke="LipSync_M_23:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Giraffes gracefully " stroke="LipSync_M_23:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Giraffes gracefully gallop " stroke="LipSync_M_23:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Giraffes gracefully gallop across " stroke="LipSync_M_23:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Giraffes gracefully gallop across grassy " stroke="LipSync_M_23:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Giraffes gracefully gallop across grassy plains " stroke="LipSync_M_23:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Giraffes gracefully gallop across grassy plains at " stroke="LipSync_M_23:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 Giraffes gracefully gallop across grassy plains at sunset. " stroke="LipSync_M_23:T15" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Giraffes gracefully gallop across grassy plains at sunset.  " stroke="LipSync_M_23:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_23:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_23:T9" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_23:T9" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_M_23:T15" priority="5" />
+  </bml>
+</act>

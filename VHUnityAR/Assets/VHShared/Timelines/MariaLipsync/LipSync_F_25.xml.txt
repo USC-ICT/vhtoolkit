@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_F_25" ref="LipSync_F_25" type="application/ssml+xml">
+      <mark name="T0" />Penguins
+	<mark name="T1" /><mark name="T2" />prefer
+	<mark name="T3" /><mark name="T4" />paddling
+	<mark name="T5" /><mark name="T6" />past
+	<mark name="T7" /><mark name="T8" />icy
+	<mark name="T9" /><mark name="T10" />rocks
+	<mark name="T11" /><mark name="T12" />in
+	<mark name="T13" /><mark name="T14" />the
+	<mark name="T15" /><mark name="T16" />Arctic.
+	<mark name="T17" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Penguins " stroke="LipSync_F_25:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Penguins prefer " stroke="LipSync_F_25:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Penguins prefer paddling " stroke="LipSync_F_25:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Penguins prefer paddling past " stroke="LipSync_F_25:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Penguins prefer paddling past icy " stroke="LipSync_F_25:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Penguins prefer paddling past icy rocks " stroke="LipSync_F_25:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Penguins prefer paddling past icy rocks in " stroke="LipSync_F_25:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 Penguins prefer paddling past icy rocks in the " stroke="LipSync_F_25:T15" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T17 Penguins prefer paddling past icy rocks in the Arctic. " stroke="LipSync_F_25:T17" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Penguins prefer paddling past icy rocks in the Arctic.  " stroke="LipSync_F_25:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_25:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_25:T7" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_25:T15" priority="5" />
+  </bml>
+</act>

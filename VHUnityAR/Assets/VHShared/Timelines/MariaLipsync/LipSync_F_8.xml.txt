@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_F_8" ref="LipSync_F_8" type="application/ssml+xml">
+      <mark name="T0" />Big
+	<mark name="T1" /><mark name="T2" />furry
+	<mark name="T3" /><mark name="T4" />cats
+	<mark name="T5" /><mark name="T6" />quickly
+	<mark name="T7" /><mark name="T8" />jumped
+	<mark name="T9" /><mark name="T10" />over
+	<mark name="T11" /><mark name="T12" />the
+	<mark name="T13" /><mark name="T14" />fence
+	<mark name="T15" /><mark name="T16" />near
+	<mark name="T17" /><mark name="T18" />the
+	<mark name="T19" /><mark name="T20" />barn.
+	<mark name="T21" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Big " stroke="LipSync_F_8:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Big furry " stroke="LipSync_F_8:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Big furry cats " stroke="LipSync_F_8:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Big furry cats quickly " stroke="LipSync_F_8:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Big furry cats quickly jumped " stroke="LipSync_F_8:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Big furry cats quickly jumped over " stroke="LipSync_F_8:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Big furry cats quickly jumped over the " stroke="LipSync_F_8:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 Big furry cats quickly jumped over the fence " stroke="LipSync_F_8:T15" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T17 Big furry cats quickly jumped over the fence near " stroke="LipSync_F_8:T17" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T19 Big furry cats quickly jumped over the fence near the " stroke="LipSync_F_8:T19" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T21 Big furry cats quickly jumped over the fence near the barn. " stroke="LipSync_F_8:T21" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Big furry cats quickly jumped over the fence near the barn.  " stroke="LipSync_F_8:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_8:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_8:T13" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_8:T19" priority="5" />
+  </bml>
+</act>

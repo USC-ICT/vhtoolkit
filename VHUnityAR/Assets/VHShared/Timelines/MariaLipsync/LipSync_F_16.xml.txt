@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_F_16" ref="LipSync_F_16" type="application/ssml+xml">
+      <mark name="T0" />Quick
+	<mark name="T1" /><mark name="T2" />foxes
+	<mark name="T3" /><mark name="T4" />chase
+	<mark name="T5" /><mark name="T6" />vibrant
+	<mark name="T7" /><mark name="T8" />butterflies
+	<mark name="T9" /><mark name="T10" />under
+	<mark name="T11" /><mark name="T12" />quiet
+	<mark name="T13" /><mark name="T14" />skies.
+	<mark name="T15" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Quick " stroke="LipSync_F_16:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Quick foxes " stroke="LipSync_F_16:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Quick foxes chase " stroke="LipSync_F_16:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Quick foxes chase vibrant " stroke="LipSync_F_16:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Quick foxes chase vibrant butterflies " stroke="LipSync_F_16:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Quick foxes chase vibrant butterflies under " stroke="LipSync_F_16:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Quick foxes chase vibrant butterflies under quiet " stroke="LipSync_F_16:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 Quick foxes chase vibrant butterflies under quiet skies. " stroke="LipSync_F_16:T15" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Quick foxes chase vibrant butterflies under quiet skies.  " stroke="LipSync_F_16:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_16:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_16:T7" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_16:T13" priority="5" />
+  </bml>
+</act>

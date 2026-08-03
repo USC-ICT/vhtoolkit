@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_F_9" ref="LipSync_F_9" type="application/ssml+xml">
+      <mark name="T0" />Just
+	<mark name="T1" /><mark name="T2" />quickly
+	<mark name="T3" /><mark name="T4" />bring
+	<mark name="T5" /><mark name="T6" />me
+	<mark name="T7" /><mark name="T8" />a
+	<mark name="T9" /><mark name="T10" />box
+	<mark name="T11" /><mark name="T12" />of
+	<mark name="T13" /><mark name="T14" />paper
+	<mark name="T15" /><mark name="T16" />and
+	<mark name="T17" /><mark name="T18" />pens.
+	<mark name="T19" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Just " stroke="LipSync_F_9:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Just quickly " stroke="LipSync_F_9:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Just quickly bring " stroke="LipSync_F_9:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Just quickly bring me " stroke="LipSync_F_9:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Just quickly bring me a " stroke="LipSync_F_9:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Just quickly bring me a box " stroke="LipSync_F_9:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Just quickly bring me a box of " stroke="LipSync_F_9:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 Just quickly bring me a box of paper " stroke="LipSync_F_9:T15" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T17 Just quickly bring me a box of paper and " stroke="LipSync_F_9:T17" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T19 Just quickly bring me a box of paper and pens. " stroke="LipSync_F_9:T19" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Just quickly bring me a box of paper and pens.  " stroke="LipSync_F_9:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_9:T7" priority="5" />
+    <!--Me Animation-->
+    <animation stroke="LipSync_F_9:T6" priority="4" name="IdleStandingUpright01_MeLf01" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_9:T9" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_9:T9" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_9:T15" priority="5" />
+  </bml>
+</act>

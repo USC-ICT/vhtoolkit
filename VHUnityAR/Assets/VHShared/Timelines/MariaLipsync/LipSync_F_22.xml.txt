@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_F_22" ref="LipSync_F_22" type="application/ssml+xml">
+      <mark name="T0" />Dozens
+	<mark name="T1" /><mark name="T2" />of
+	<mark name="T3" /><mark name="T4" />balloons
+	<mark name="T5" /><mark name="T6" />bobbed
+	<mark name="T7" /><mark name="T8" />in
+	<mark name="T9" /><mark name="T10" />the
+	<mark name="T11" /><mark name="T12" />breeze
+	<mark name="T13" /><mark name="T14" />by
+	<mark name="T15" /><mark name="T16" />the
+	<mark name="T17" /><mark name="T18" />riverbank.
+	<mark name="T19" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Dozens " stroke="LipSync_F_22:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Dozens of " stroke="LipSync_F_22:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Dozens of balloons " stroke="LipSync_F_22:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Dozens of balloons bobbed " stroke="LipSync_F_22:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Dozens of balloons bobbed in " stroke="LipSync_F_22:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Dozens of balloons bobbed in the " stroke="LipSync_F_22:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Dozens of balloons bobbed in the breeze " stroke="LipSync_F_22:T13" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T15 Dozens of balloons bobbed in the breeze by " stroke="LipSync_F_22:T15" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T17 Dozens of balloons bobbed in the breeze by the " stroke="LipSync_F_22:T17" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T19 Dozens of balloons bobbed in the breeze by the riverbank. " stroke="LipSync_F_22:T19" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Dozens of balloons bobbed in the breeze by the riverbank.  " stroke="LipSync_F_22:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_22:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_22:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_22:T5" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_22:T11" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_22:T17" priority="5" />
+  </bml>
+</act>

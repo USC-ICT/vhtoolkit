@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<act>
+  <participant id="ChrKevin" role="actor" />
+  <bml>
+    <speech id="LipSync_F_7" ref="LipSync_F_7" type="application/ssml+xml">
+      <mark name="T0" />Sphinx
+	<mark name="T1" /><mark name="T2" />of
+	<mark name="T3" /><mark name="T4" />black
+	<mark name="T5" /><mark name="T6" />quartz,
+	<mark name="T7" /><mark name="T8" />judge
+	<mark name="T9" /><mark name="T10" />my
+	<mark name="T11" /><mark name="T12" />vow.
+	<mark name="T13" /></speech>
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T1 Sphinx " stroke="LipSync_F_7:T1" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T3 Sphinx of " stroke="LipSync_F_7:T3" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T5 Sphinx of black " stroke="LipSync_F_7:T5" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T7 Sphinx of black quartz, " stroke="LipSync_F_7:T7" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T9 Sphinx of black quartz, judge " stroke="LipSync_F_7:T9" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T11 Sphinx of black quartz, judge my " stroke="LipSync_F_7:T11" />
+    <event message="vrAgentSpeech partial VirtualCoachPerson1-20180131165329 T13 Sphinx of black quartz, judge my vow. " stroke="LipSync_F_7:T13" />
+    <gaze participant="ChrKevin" target="user" direction="POLAR 0" angle="0" start="sp1:T0" joint-range="HEAD EYES" xmlns:sbm="http://ict.usc.edu" />
+    <event message="vrSpoke ChrKevin user VirtualCoachPerson1-20180131165329 Sphinx of black quartz, judge my vow.  " stroke="LipSync_F_7:relax" xmlns:sbm="http://ict.usc.edu" />
+    <!--First noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_7:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_7:T1" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_7:T5" priority="5" />
+    <!--Noun clause nod-->
+    <head type="NOD" amount="0.10" repeats="1.0" relax="LipSync_F_7:T11" priority="5" />
+  </bml>
+</act>

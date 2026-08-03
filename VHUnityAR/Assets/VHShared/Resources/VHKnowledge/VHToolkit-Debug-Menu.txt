@@ -1,0 +1,9 @@
+The debug menu in the Virtual Human Toolkit
+
+The debug menu is the developer's control surface for the running application, sitting in the upper left of the screen and toggled with F11. It exists so common functionality can be tested and compared live, without stopping the application or editing configuration.
+
+From it a developer can select characters, switch the active provider for speech recognition, language, voice synthesis, and sensing while a conversation is running, adjust language-model settings such as temperature and maximum response length, edit and apply a character's prompt on the fly, and open the configuration file where API keys live. Local services are marked as local in the provider lists, so it doubles as a map of what runs where. An initial overview page offers guidance for first-time users.
+
+It is built on the VHToolkit's immediate-mode debug menu system, which developers can extend with their own pages by registering a menu name and a drawing function - a few lines of code per page. Arrows at the top navigate between pages, and buttons expand the menu or toggle the debug log.
+
+The menu is a development tool, hidden from end users by default. Its one notable limitation is layout: long option lists have no dropdowns or collapsing, so very long lists can run off screen, which is why long character names are truncated in its selection grid.

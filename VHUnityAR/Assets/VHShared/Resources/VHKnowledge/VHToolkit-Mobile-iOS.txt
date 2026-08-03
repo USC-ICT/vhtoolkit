@@ -1,0 +1,5 @@
+The Virtual Human Toolkit on iOS
+
+The VHToolkit runs on iPhones, and participants can hold spoken conversations with a character on their phone: the app listens through the phone's microphone using iOS's native speech recognizer, and the character talks back. Apple's distribution rules, however, shape how the app gets onto the phone. iOS deployment requires a Mac, Xcode, and an Apple developer account: the free tier allows testing on your own device, while broader distribution needs the paid membership and goes through App Store Connect and TestFlight. Because of those restrictions there is no downloadable iOS binary on the GitHub Releases page; anyone interested in trying the iOS version can get in touch through the landing page at vhtoolkit.ict.usc.edu.
+
+For developers, the iOS build comes from the URP sample project. Unity on a Mac builds an Xcode project for the iOS target; Xcode then handles signing with your own organization's bundle identifier, archiving, and either on-device testing or distribution through TestFlight.
