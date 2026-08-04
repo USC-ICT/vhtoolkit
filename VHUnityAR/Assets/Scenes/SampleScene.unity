@@ -4385,82 +4385,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_autoSilenceTimeoutSeconds: 1.2
   m_initialSilenceTimeoutSeconds: 10
-  kkListener: {fileID: 4486877509973075903}
---- !u!1001 &4486877509973075901
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 6877555344238986720}
-    m_Modifications:
-    - target: {fileID: 109392, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
-      propertyPath: m_Name
-      value: KKSpeechRecognizerListener
-      objectReference: {fileID: 0}
-    - target: {fileID: 436470, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 414.64706
-      objectReference: {fileID: 0}
-    - target: {fileID: 436470, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 195.96094
-      objectReference: {fileID: 0}
-    - target: {fileID: 436470, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 401.88562
-      objectReference: {fileID: 0}
-    - target: {fileID: 436470, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 436470, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436470, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436470, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436470, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436470, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 436470, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
---- !u!4 &4486877509973075902 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 436470, guid: 69c76459e92ef4228aad5dd1d7ab7921,
-    type: 3}
-  m_PrefabInstance: {fileID: 4486877509973075901}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4486877509973075903 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921,
-    type: 3}
-  m_PrefabInstance: {fileID: 4486877509973075901}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a45e6b21ee748fc93436bfc55e8b1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5991016956484423941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4595,8 +4519,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4486877509973075902}
+  m_Children: []
   m_Father: {fileID: 5991016956484423943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7158120259223195527
