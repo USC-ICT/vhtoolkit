@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -80,7 +80,7 @@ namespace Ride.Examples
         protected StreamingLipsyncSystem m_streamingLipsyncSystem;
         protected NlpSystemChatGPT m_chatGPTSystem;
         protected NlpSystemGemini m_geminiSystem;
-        protected NlpSystemAnthropic m_anthropicSystem;
+        protected NlpSystemClaude m_claudeSystem;
         protected NlpSystemRasa m_rasaNlpSystem;
         protected NlpSystemAWSLex m_lexSystem;
         protected NlpSystemVLLM m_vLLMSystem;
@@ -95,6 +95,18 @@ namespace Ride.Examples
         protected TextToSpeechSystemGemini m_geminiTextToSpeechSystem;
 
         [SerializeField] protected TtsReader m_ttsReader;
+
+        [Header("Idle Behavior")]
+        [Tooltip("When the character and the user have both been quiet for a while, briefly play " +
+                 "thinking nonverbal behavior so the character does not hold eye contact indefinitely.")]
+        [SerializeField] protected bool m_showIdleBehavior = true;
+        [Tooltip("Silence, in seconds, before an idle episode may begin. A value is drawn from this " +
+                 "range for each episode so the cadence does not become predictable.")]
+        [SerializeField] protected float m_idleDelayMin = 20f;
+        [SerializeField] protected float m_idleDelayMax = 30f;
+        [Tooltip("How long, in seconds, an idle episode lasts before gaze returns to the user.")]
+        [SerializeField] protected float m_idleEpisodeMin = 5f;
+        [SerializeField] protected float m_idleEpisodeMax = 15f;
 
         [NonSerialized] public NlpSystemUnity m_currentLLM;
         [NonSerialized] public NlpSystemUnity m_currentScripted;
@@ -136,6 +148,18 @@ namespace Ride.Examples
         protected int m_classicPipelineGeneration = 0;
         protected MecanimCharacter m_realtimeBoundCharacter;
         protected AudioSource m_realtimeOutputAudioSource;
+
+        private float m_lastActivityTime;
+        private float m_currentIdleDelay;
+        private float m_idleEpisodeEndTime;
+
+        // Gaze speed used to return attention to the user when thinking behavior ends.
+        private const float UserGazeReturnSpeed = 90f;
+
+        // Leaving idle behavior is eased out this much more slowly than ending a conversational
+        // turn: nothing has prompted the character, so a brisk snap back to the user reads as a
+        // reaction to something that did not happen.
+        private const float IdleExitEaseOutScale = 1.5f;
         protected string m_realtimeAssistantResponse = string.Empty;
         protected string m_realtimePendingAssistantUiText = string.Empty;
         protected string m_realtimePendingLipsyncText = string.Empty;
@@ -243,7 +267,7 @@ namespace Ride.Examples
                 m_streamingLipsyncSystem = gameObject.AddComponent<StreamingLipsyncSystem>();
             m_chatGPTSystem = Systems.Get<NlpSystemChatGPT>();
             m_geminiSystem = Systems.Get<NlpSystemGemini>();
-            m_anthropicSystem = Systems.Get<NlpSystemAnthropic>();
+            m_claudeSystem = Systems.Get<NlpSystemClaude>();
             m_rasaNlpSystem = Systems.Get<NlpSystemRasa>();
             m_lexSystem = Systems.Get<NlpSystemAWSLex>();
             m_vLLMSystem = Systems.Get<NlpSystemVLLM>();
@@ -285,7 +309,7 @@ namespace Ride.Examples
             if (RideUtils.IsWebGL()) ChangeASR(AsrMode.AzureWebGL);
             else                     ChangeASR(AsrMode.OpenAI);
             if (m_chatGPTSystem != null) m_currentLLM = m_chatGPTSystem;
-            else                         m_currentLLM = m_anthropicSystem;
+            else                         m_currentLLM = m_claudeSystem;
             m_currentScripted = m_lexSystem;
             ChangeNlp(NlpMode.ChatGPT);
             if (m_elevenTextToSpeechSystem != null) ChangeTts(TtsMode.ElevenLabs);
@@ -366,7 +390,7 @@ namespace Ride.Examples
             m_nlpMode = mode;
 
             if (mode == NlpMode.ChatGPT) m_currentLLM = m_chatGPTSystem;
-            else if (mode == NlpMode.Claude) m_currentLLM = m_anthropicSystem;
+            else if (mode == NlpMode.Claude) m_currentLLM = m_claudeSystem;
             else if (mode == NlpMode.Gemini) m_currentLLM = m_geminiSystem;
             else if (mode == NlpMode.AwsLex) m_currentScripted = m_lexSystem;
             else if (mode == NlpMode.Rasa) m_currentLLM = m_rasaNlpSystem;
@@ -517,6 +541,7 @@ namespace Ride.Examples
                 StopUtterance();
                 ResetRealtimeAssistantState();
                 SetCharacterConfigUIEnabled(false);
+                ReleaseIdleEpisode();
                 if (m_thinkingController != null)
                     m_thinkingController.StartThinkingBehavior(true);
 
@@ -526,6 +551,7 @@ namespace Ride.Examples
 
             StopUtterance();                    // Stop current character behaviors
             SetCharacterConfigUIEnabled(false); // Don't allow character change while interaction is processing and executing
+            ReleaseIdleEpisode();               // Any idle behavior running is now the conversation's
             if (m_thinkingController != null)   // Start character thinking nonverbal behaviors after a small delay
                 m_thinkingController.StartThinkingBehavior(true);
 
@@ -1067,6 +1093,96 @@ namespace Ride.Examples
             ApplyAsrState();
             UpdateAsrButtonColor();
             UpdateNextCharacterButtonColor();
+            UpdateIdleBehavior();
+        }
+
+
+        /// <summary>
+        /// Records that the user is engaged - speaking, or typing - which restarts the idle
+        /// countdown and ends any idle behavior already running so the character attends to
+        /// them again. Safe to call on every keystroke.
+        /// </summary>
+        public void NoteUserActivity()
+        {
+            m_lastActivityTime = Time.time;
+
+            if (m_idleEpisodeEndTime > 0f)
+            {
+                m_idleEpisodeEndTime = 0f;
+                StopThinkingBehaviorAndRestoreUserGaze();
+            }
+
+            PickNextIdleDelay();
+        }
+
+
+        /// <summary>
+        /// Hands an in-progress idle episode over to the conversation. Called when genuine
+        /// thinking behavior begins: the behavior itself continues uninterrupted, but it is no
+        /// longer on the idle timer, so the conversation decides when it ends.
+        /// </summary>
+        private void ReleaseIdleEpisode()
+        {
+            m_idleEpisodeEndTime = 0f;
+            m_lastActivityTime = Time.time;
+            PickNextIdleDelay();
+        }
+
+
+        private void PickNextIdleDelay()
+            => m_currentIdleDelay = UnityEngine.Random.Range(Mathf.Min(m_idleDelayMin, m_idleDelayMax),
+                                                            Mathf.Max(m_idleDelayMin, m_idleDelayMax));
+
+
+        /// <summary>
+        /// Whether the character is currently producing audio, in either the classic or the
+        /// realtime pipeline. Idle behavior must not begin while the character is speaking.
+        /// </summary>
+        private bool IsCharacterSpeaking()
+        {
+            if (m_realtimeOutputAudioSource != null && m_realtimeOutputAudioSource.isPlaying)
+                return true;
+
+            var voice = CurrentCharacter != null ? CurrentCharacter.Voice : null;
+            return voice != null && voice.isPlaying;
+        }
+
+
+        /// <summary>
+        /// Starts and ends idle nonverbal behavior. An idle episode is a thinking episode on a
+        /// timer: it reuses the same gaze behavior, so it inherits the existing weight blending
+        /// and the gaze return to the user when it ends.
+        /// </summary>
+        private void UpdateIdleBehavior()
+        {
+            if (m_thinkingController == null)
+                return;
+
+            if (m_idleEpisodeEndTime > 0f)
+            {
+                if (Time.time >= m_idleEpisodeEndTime)
+                {
+                    m_idleEpisodeEndTime = 0f;
+                    StopThinkingBehaviorAndRestoreUserGaze(IdleExitEaseOutScale);
+                    m_lastActivityTime = Time.time;
+                    PickNextIdleDelay();
+                }
+                return;
+            }
+
+            if (!m_showIdleBehavior || m_thinkingController.IsThinking || IsCharacterSpeaking())
+                return;
+
+            if (m_currentIdleDelay <= 0f)
+                PickNextIdleDelay();
+
+            if (Time.time - m_lastActivityTime < m_currentIdleDelay)
+                return;
+
+            m_thinkingController.StartThinkingBehavior(false);
+            m_idleEpisodeEndTime = Time.time + UnityEngine.Random.Range(
+                Mathf.Min(m_idleEpisodeMin, m_idleEpisodeMax),
+                Mathf.Max(m_idleEpisodeMin, m_idleEpisodeMax));
         }
 
         protected abstract void UpdateAsrButtonColor();
@@ -1311,6 +1427,8 @@ namespace Ride.Examples
             if (!UsingRealtimeConversationMode)
                 return;
 
+            m_idleEpisodeEndTime = 0f;
+            NoteUserActivity();
             StopRealtimeThinkingBehavior();
         }
 
@@ -1319,6 +1437,7 @@ namespace Ride.Examples
             if (!UsingRealtimeConversationMode)
                 return;
 
+            ReleaseIdleEpisode();
             if (m_thinkingController != null)
                 m_thinkingController.StartThinkingBehavior(true);
         }
@@ -1418,7 +1537,18 @@ namespace Ride.Examples
         /// explicitly once the character is ready to address them again. Without this the
         /// character remains fixed on whichever target it glanced at last.
         /// </remarks>
-        private void StopThinkingBehaviorAndRestoreUserGaze()
+        private void StopThinkingBehaviorAndRestoreUserGaze() => StopThinkingBehaviorAndRestoreUserGaze(1f);
+
+
+        /// <summary>
+        /// Stops thinking nonverbal behavior and aims gaze back at the user.
+        /// </summary>
+        /// <param name="easeOutScale">
+        /// Multiplies the gaze and weight-blend durations. Above 1 eases out more gently, which
+        /// suits leaving idle behavior - nothing has happened, so there is no reason to snap back.
+        /// A turn that ends because the character is about to speak uses the default.
+        /// </param>
+        private void StopThinkingBehaviorAndRestoreUserGaze(float easeOutScale)
         {
             if (m_thinkingController == null)
                 return;
@@ -1426,11 +1556,12 @@ namespace Ride.Examples
             if (CurrentCharacter != null)
             {
                 if (GameObject.Find(RealtimeUserGazeTargetName) != null)
-                    CurrentCharacter.Gaze(RealtimeUserGazeTargetName, 90f);
+                    CurrentCharacter.Gaze(RealtimeUserGazeTargetName, UserGazeReturnSpeed / easeOutScale);
                 else
-                    CurrentCharacter.StopGaze(0.2f);
+                    CurrentCharacter.StopGaze(0.2f * easeOutScale);
             }
 
+            m_thinkingController.NextExitBlendScale = easeOutScale;
             m_thinkingController.StopThinkingBehavior();
         }
 

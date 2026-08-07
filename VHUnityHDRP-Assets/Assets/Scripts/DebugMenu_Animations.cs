@@ -184,7 +184,26 @@ namespace VH
             ProcessCharacterSwap();
         }
 
-        private void PreviousCharacter()
+        #region Public API (used by PortraitCapture)
+        public Animator[] Characters => m_characters;
+        public int CurrentCharacterIndex => m_currentCharacter;
+        public int CharacterCount => m_characters != null ? m_characters.Length : 0;
+        public Animator CurrentCharacter =>
+            (m_characters != null && m_currentCharacter >= 0 && m_currentCharacter < m_characters.Length)
+                ? m_characters[m_currentCharacter] : null;
+        /// <summary>True once the character swap slide animation has settled.</summary>
+        public bool IsSwapSettled => Mathf.Abs(m_currentX - m_targetX) < 0.005f;
+        /// <summary>Base animator controller name for an animator (e.g. IctFemaleAnimatorController).</summary>
+        public string GetControllerNameFor(Animator a)
+        {
+            if (a == null || a.runtimeAnimatorController == null)
+                return "";
+            var baseCtrl = GetBaseController(a.runtimeAnimatorController);
+            return baseCtrl != null ? baseCtrl.name : a.runtimeAnimatorController.name;
+        }
+        #endregion
+
+        public void PreviousCharacter()
         {
             if (m_currentCharacter == 0)
                 return;
@@ -209,7 +228,7 @@ namespace VH
             }
         }
 
-        private void NextCharacter()
+        public void NextCharacter()
         {
             if (m_currentCharacter == m_characters.Length - 1)
                 return;
@@ -339,9 +358,9 @@ namespace VH
 
         public void CameraMale() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(0, 1.48f, 1.42f), Quaternion.Euler(8, 180, 0));
         public void CameraFemale() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(-2, 1.48f, 1.42f), Quaternion.Euler(8, 180, 0));
-        public void CameraMaleHead() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(0, 1.6f, 0.5f), Quaternion.Euler(8, 180, 0));
+        public void CameraMaleHead() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(0, 1.67f, 0.79f), Quaternion.Euler(8, 180, 0));
         public void CameraMaleHands() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(-.5f, 0.9f, 0), Quaternion.Euler(8, 90, 0));
-        public void CameraFemaleHead() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(-2, 1.6f, 0.5f), Quaternion.Euler(8, 180, 0));
+        public void CameraFemaleHead() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(-2, 1.6f, 0.79f), Quaternion.Euler(8, 180, 0));
         public void CameraFemaleHands() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(-2.5f, 0.9f, 0), Quaternion.Euler(8, 90, 0));
         public void CameraReset() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(0, 1.48f, 1.42f), Quaternion.Euler(8, 180, 0));
 
@@ -892,7 +911,7 @@ namespace VH
 
         private float ComputeNeutralAmountFromVisemes()
         {
-            // Assumption: we treat all viseme weights as sharing the 0–1 budget,
+            // Assumption: we treat all viseme weights as sharing the 0-1 budget,
             // so neutral = 1 - sum(visemeValues), clamped to [0,1].
             float total = 0f;
 

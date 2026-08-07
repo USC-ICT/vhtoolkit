@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using VHAssets;
 
 namespace Ride.Examples
@@ -625,6 +626,7 @@ namespace Ride.Examples
         {
             m_controller.m_startButtonPressed = false;
             m_debugMenu.ShowMenu(false);
+            ApplyStartScreenFootnoteText();
             UpdateStartScreenLayout(true);
             ApplyStartScreenVisibility(true);
         }
@@ -676,6 +678,47 @@ namespace Ride.Examples
 
             if (m_startScreenCanvasPortrait != null)
                 m_startScreenCanvasPortrait.SetActive(isVisible && m_usePortraitStartScreenLayout);
+        }
+
+        private void ApplyStartScreenFootnoteText()
+        {
+            string footnoteText =
+                    "Welcome to the <u>Virtual Human Toolkit</u>!\n" +
+                    "Converse with 3D AI characters and talk about the VHToolkit\n" +
+                    "and its creator: the USC Institute for Creative Technologies. \n" +
+                    "\n" +
+                    "Loading may be slow the first time; later uses will be faster.\n" +
+                    "If performance is slow, change the quality level in the top left.\n" +
+                    "Mobile browsers are not yet supported.\n";
+
+            if (RideUtils.IsAndroid() || RideUtils.IsIOS())
+            {
+                footnoteText =
+                    "Welcome to the <u>Virtual Human Toolkit</u>!\n" +
+                    "Converse with 3D AI characters and talk about the VHToolkit\n" +
+                    "and its creator: the USC Institute for Creative Technologies. \n" +
+                    "\n" +
+                    "Loading may be slow the first time; later uses will be faster.\n" +
+                    "Unmute your phone to hear the characters speak.\n";
+                    
+            }
+
+            ApplyStartScreenFootnoteText(m_startScreenCanvasWidescreen, footnoteText);
+            ApplyStartScreenFootnoteText(m_startScreenCanvasPortrait, footnoteText);
+        }
+
+        private void ApplyStartScreenFootnoteText(GameObject startScreenCanvas, string footnoteText)
+        {
+            if (startScreenCanvas == null)
+                return;
+
+            Transform footnote = startScreenCanvas.transform.Find("Footnote");
+            if (footnote == null)
+                return;
+
+            var footnoteTextComponent = footnote.GetComponent<TextMeshProUGUI>();
+            if (footnoteTextComponent != null)
+                footnoteTextComponent.text = footnoteText;
         }
 
         public void OnClickStart() => DisableStartScreen();

@@ -31,7 +31,17 @@ public class DemoController_UI : RideMonoBehaviour, IDemoControllerUI
     public void Awake()
     {
         if (m_inputField != null)
+        {
             m_inputField.onSubmit.AddListener(_ => SubmitInputTextField());
+
+            // Typing counts as the user being engaged, so it has to reach the controller before
+            // submit does - otherwise idle behavior can begin while a long message is being typed.
+            m_inputField.onValueChanged.AddListener(_ =>
+            {
+                if (m_controller != null)
+                    m_controller.NoteUserActivity();
+            });
+        }
 
 #if UNITY_ANDROID || UNITY_IOS
         AdjustUIForMobile();    

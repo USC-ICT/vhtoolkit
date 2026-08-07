@@ -768,6 +768,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7500000000000000003, guid: bbb139f8881fe834291227ca4a633b2e,
         type: 3}
+      propertyPath: m_settings.logRetrievals
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7500000000000000003, guid: bbb139f8881fe834291227ca4a633b2e,
+        type: 3}
       propertyPath: m_settings.contextPreamble
       value: 'Reference material related to the conversation. First and always, respond
         to the user''s message in the natural flow of the dialogue - if they are
@@ -940,6 +945,18 @@ Transform:
   - {fileID: 833458122}
   m_Father: {fileID: 1786557485}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &141760376 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8912734650200000005, guid: bd4b0f48b4cb1f44e949b0f1e603a76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 372670666444744238}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b8b1797a36664fb4255a5de86651b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &175497863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,7 +2324,6 @@ MonoBehaviour:
   m_camera: {fileID: 585461942}
   m_xrOrigin: {fileID: 0}
   m_uiController: {fileID: 408206131}
-  m_allowMultipleActiveCharacters: 0
   m_selectableCharacters:
   - {fileID: 372670666444744246}
   - {fileID: 372670666444744245}
@@ -2317,6 +2333,10 @@ MonoBehaviour:
   - {fileID: 372670666444744241}
   - {fileID: 372670666444744240}
   - {fileID: 372670666444744239}
+  - {fileID: 1934629884}
+  - {fileID: 765922817}
+  - {fileID: 472831056}
+  - {fileID: 141760376}
 --- !u!4 &408206133
 Transform:
   m_ObjectHideFlags: 0
@@ -2507,6 +2527,18 @@ PlayableDirector:
   m_SceneBindings: []
   m_ExposedReferences:
     m_References: []
+--- !u!114 &472831056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8912734650100000005, guid: bd4b0f48b4cb1f44e949b0f1e603a76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 372670666444744238}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b8b1797a36664fb4255a5de86651b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &473909622
 GameObject:
   m_ObjectHideFlags: 0
@@ -4157,6 +4189,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 765328102}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &765922817 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5488518463724477715, guid: bd4b0f48b4cb1f44e949b0f1e603a76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 372670666444744238}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b8b1797a36664fb4255a5de86651b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &769058305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8582,6 +8626,18 @@ MonoBehaviour:
   m_openFaceSystem: {fileID: 0}
   m_microphoneAudio: {fileID: 715502220}
   m_microphoneThreshold: 0.05
+--- !u!114 &1934629884 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8583272130244454173, guid: bd4b0f48b4cb1f44e949b0f1e603a76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 372670666444744238}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b8b1797a36664fb4255a5de86651b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1950474232
 GameObject:
   m_ObjectHideFlags: 0
