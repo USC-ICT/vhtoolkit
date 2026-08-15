@@ -4410,6 +4410,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7500000000000000003, guid: bbb139f8881fe834291227ca4a633b2e,
         type: 3}
+      propertyPath: m_settings.logRetrievals
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7500000000000000003, guid: bbb139f8881fe834291227ca4a633b2e,
+        type: 3}
+      propertyPath: m_settings.retrievalMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7500000000000000003, guid: bbb139f8881fe834291227ca4a633b2e,
+        type: 3}
       propertyPath: m_settings.contextPreamble
       value: 'Reference material related to the conversation. First and always, respond
         to the user''s message in the natural flow of the dialogue - if they are
@@ -4434,7 +4444,7 @@ PrefabInstance:
     - target: {fileID: 7500000000000000005, guid: bbb139f8881fe834291227ca4a633b2e,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8344103313544686372, guid: bbb139f8881fe834291227ca4a633b2e,
         type: 3}
