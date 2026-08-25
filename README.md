@@ -9,7 +9,7 @@ Technologies](https://ict.usc.edu) for creating embodied conversational agents /
 
 Try it out: 
 - [Go to the live web demo](https://vhtoolkitwww.ict.usc.edu/demo/) and talk to a virtual human in your browser right now. 
-- Download the iPhone app from the [Apple Store](https://apps.apple.com/za/app/vhtoolkit-mobile/id6737787323)
+- Download the iPhone app from the Apple [App Store](https://apps.apple.com/za/app/vhtoolkit-mobile/id6737787323)
 - Download binaries for other platforms from the [Releases](https://github.com/USC-ICT/vhtoolkit/releases) page.
 - Watch a detailed video demonstration [here](https://www.youtube.com/watch?v=QU_ItB4p_zc).
 
