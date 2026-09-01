@@ -51,7 +51,7 @@ All cloud services use your own accounts and API keys. Note that not all technol
 | `VHUnityURP-Assets` | Character art asset Unity project (URP) - import and prepare new Character Creator characters | Only for character authoring |
 | `VHUnityHDRP-Assets` | HDRP version of the character art asset Unity project | Only for character authoring |
 | `VHUnityAR` | Dedicated Quest 3 Passthrough Unity project | Only for AR/VR development |
-| `Services` | Docker containers for local AI services | Only for running local services |
+| `RideServices` | Docker containers for local AI services | Only for running local services |
 
 
 ## Getting Started
