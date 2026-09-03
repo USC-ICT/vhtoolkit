@@ -39,7 +39,7 @@ Try it out:
 | Knowledge grounding (RAG) | OpenAI semantic embeddings | Unity-embedded lexical, hybrid |
 | Sensing | AWS Rekognition, Azure Face (requires MS approval) | DeepFace, OpenFace |
 
-All cloud services use your own accounts and API keys. Note that not all technologies are supported for all hardware platforms. Mobile development requires 3rd party Unity packages. WebGL development requires custom AWS Lambdas due to CORS requirements. 
+All cloud services use your own accounts and API keys. Note that not all technologies are supported for all hardware platforms. Mobile native ASR requires 3rd party Unity packages. WebGL development requires custom AWS Lambdas due to CORS requirements. 
 
 
 ## Repository Layout
