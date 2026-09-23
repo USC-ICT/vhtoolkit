@@ -99,12 +99,7 @@ When publishing work that uses the VHToolkit, please cite one of the following p
 
 - Hartholt, A., Fast, E., Leeds, A., Mozgai, S. (2026). "Demonstrating the Open Virtual
   Human Toolkit: Any Character, Any Technology, Anywhere." ACM International Conference on
-  Intelligent Virtual Agents (IVA). (To be published)
-- Hartholt, A., Fast, E., Li, Z., Kim, K., Leeds, A., Mozgai, S. (2022). "Re-architecting
-  the Virtual Human Toolkit: Towards an Interoperable Platform for Embodied Conversational
-  Agent Research and Development." 22nd ACM International Conference on Intelligent Virtual
-  Agents (IVA).
-  https://dl.acm.org/doi/10.1145/3514197.3549671  
+  Intelligent Virtual Agents (IVA). Winner Best Technical Demonstration Paper. https://dl.acm.org/doi/10.1145/3806774.3832327
 - Hartholt, A., Traum, D., Marsella, S. C., Shapiro, A., Stratou, G., Leuski, A.,
   Morency, L.-P., Gratch, J. (2013). "All Together Now: Introducing the Virtual Human
   Toolkit." International Workshop on Intelligent Virtual Agents (IVA).
@@ -117,17 +112,6 @@ When publishing work that uses the VHToolkit, please cite one of the following p
   booktitle={Proceedings of the ACM International Conference on Intelligent Virtual Agents},
   year={2026},
   doi={10.1145/3806774.3832327}
-}
-```
-
-```bibtex
-@inproceedings{hartholt2022re,
-  title={Re-architecting the virtual human toolkit: towards an interoperable
-         platform for embodied conversational agent research and development},
-  author={Hartholt, Arno and Fast, Ed and Li, Zongjian and Kim, Kevin and Leeds, Andrew and Mozgai, Sharon},
-  booktitle={Proceedings of the 22nd ACM International Conference on Intelligent Virtual Agents},
-  pages={1--8},
-  year={2022}
 }
 ```
 
