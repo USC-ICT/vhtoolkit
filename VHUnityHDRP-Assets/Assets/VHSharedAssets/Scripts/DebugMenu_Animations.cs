@@ -358,9 +358,9 @@ namespace VH
 
         public void CameraMale() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(0, 1.48f, 1.42f), Quaternion.Euler(8, 180, 0));
         public void CameraFemale() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(-2, 1.48f, 1.42f), Quaternion.Euler(8, 180, 0));
-        public void CameraMaleHead() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(0, 1.67f, 0.79f), Quaternion.Euler(8, 180, 0));
+        public void CameraMaleHead() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(0, 1.6f, 0.5f), Quaternion.Euler(8, 180, 0));
         public void CameraMaleHands() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(-.5f, 0.9f, 0), Quaternion.Euler(8, 90, 0));
-        public void CameraFemaleHead() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(-2, 1.6f, 0.79f), Quaternion.Euler(8, 180, 0));
+        public void CameraFemaleHead() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(-2, 1.6f, 0.5f), Quaternion.Euler(8, 180, 0));
         public void CameraFemaleHands() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(-2.5f, 0.9f, 0), Quaternion.Euler(8, 90, 0));
         public void CameraReset() => FindAnyObjectByType<Camera>().transform.SetPositionAndRotation(new Vector3(0, 1.48f, 1.42f), Quaternion.Euler(8, 180, 0));
 

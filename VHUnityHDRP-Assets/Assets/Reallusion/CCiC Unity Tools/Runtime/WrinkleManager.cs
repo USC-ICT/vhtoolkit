@@ -19,6 +19,7 @@
  *  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 #if UNITY_EDITOR
@@ -122,7 +123,7 @@ namespace Reallusion.Runtime
         [Range(1f, 120f)]
         public float updateFrequency = 30f;
 
-        [SerializeField]
+        [NonSerialized]
         private Dictionary<string, WrinkleRule> wrinkleRules;
         [SerializeField]
         public List<WrinkleConfig> config;

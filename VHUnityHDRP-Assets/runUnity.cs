@@ -71,7 +71,11 @@ class Script
     // or it can be searched via this cache of versions:  https://dragonbox.github.io/unities/v1/versions.json (used by u3d, https://github.com/DragonBox/u3d)
     static readonly Dictionary<string, string> m_versionAndChangeset = new Dictionary<string, string>()
     {
+        { "6000.5.11f1", "5c3a1087d8e4" },
+        { "6000.4.12f1", "3ca267ce8005" },
         { "6000.4.7f1",  "f3c3c4248748" },
+        { "6000.3.23f1", "09d2ecc7fb28" },
+        { "6000.3.22f1", "1c726e1fb402" },
         { "6000.3.15f1", "c1aa84e375f6" },
         { "6000.2.15f1", "0707b6d1e918" },
         { "6000.1.17f1", "c0b9d3899998" },
