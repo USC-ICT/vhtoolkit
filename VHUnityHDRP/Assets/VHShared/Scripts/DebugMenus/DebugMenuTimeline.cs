@@ -127,7 +127,11 @@ namespace Ride.Examples
 
         public PlayableDirector GetDirector(string directorName)
         {
+#if UNITY_6000_5_OR_NEWER
+            List<PlayableDirector> directorList = FindObjectsByType<PlayableDirector>().ToList();
+#else
             List<PlayableDirector> directorList = FindObjectsByType<PlayableDirector>(FindObjectsSortMode.None).ToList();
+#endif
 
             foreach (var director in directorList)
             {
@@ -149,7 +153,11 @@ namespace Ride.Examples
 
         public List<PlayableDirector> GetAllDirectors()
         {
+#if UNITY_6000_5_OR_NEWER
+            return FindObjectsByType<PlayableDirector>().ToList();
+#else
             return FindObjectsByType<PlayableDirector>(FindObjectsSortMode.None).ToList();
+#endif
         }
 
 

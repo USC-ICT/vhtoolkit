@@ -176,6 +176,10 @@ namespace Ride.Examples
         private int m_ttsVoiceAssignmentToken;
         private bool m_isCurrentCharacterVoiceReady;
         private const float TtsVoiceAssignmentTimeoutSeconds = 5f;
+
+        // Longest wait for a downloaded speech clip to finish decoding before it is played anyway.
+        // Decodes take tens of milliseconds; this only bounds a decode that never completes.
+        private const float AudioClipLoadTimeoutSeconds = 10f;
         private const string MissingVoiceMessage = "I'm sorry, but I can't seem to find my voice.";
 
         public bool IntroduceOnLoad = true;
@@ -320,7 +324,11 @@ namespace Ride.Examples
 
 #if UNITY_WEBGL
             // Turn off reflection probes for WebGL
+#if UNITY_6000_5_OR_NEWER
+            ReflectionProbe[] probes = FindObjectsByType<ReflectionProbe>();
+#else
             ReflectionProbe[] probes = FindObjectsByType<ReflectionProbe>(FindObjectsSortMode.None);
+#endif
             foreach (ReflectionProbe probe in probes)
             {
                 probe.gameObject.SetActive(false);
@@ -387,15 +395,40 @@ namespace Ride.Examples
         /// <param name="mode">NLP mode.</param>
         public void ChangeNlp(NlpMode mode)
         {
-            m_nlpMode = mode;
+            if (mode == NlpMode.AwsLex)
+            {
+                if (m_lexSystem == null)
+                {
+                    Debug.LogWarning($"NLP mode '{mode}' is not available. Check that the provider system exists in RideSystemsCognition.");
+                    return;
+                }
 
-            if (mode == NlpMode.ChatGPT) m_currentLLM = m_chatGPTSystem;
-            else if (mode == NlpMode.Claude) m_currentLLM = m_claudeSystem;
-            else if (mode == NlpMode.Gemini) m_currentLLM = m_geminiSystem;
-            else if (mode == NlpMode.AwsLex) m_currentScripted = m_lexSystem;
-            else if (mode == NlpMode.Rasa) m_currentLLM = m_rasaNlpSystem;
-            else if (mode == NlpMode.VLLM) m_currentLLM = m_vLLMSystem;
-            else if (mode == NlpMode.Ollama) m_currentLLM = m_ollamaSystem;
+                m_nlpMode = mode;
+                m_currentScripted = m_lexSystem;
+                if (m_currentCharacter != null)
+                    ApplyCharacterPrompt(m_currentCharacter);
+                return;
+            }
+
+            NlpSystemUnity nextLLM = null;
+
+            if (mode == NlpMode.ChatGPT) nextLLM = m_chatGPTSystem;
+            else if (mode == NlpMode.Claude) nextLLM = m_claudeSystem;
+            else if (mode == NlpMode.Gemini) nextLLM = m_geminiSystem;
+            else if (mode == NlpMode.Rasa) nextLLM = m_rasaNlpSystem;
+            else if (mode == NlpMode.VLLM) nextLLM = m_vLLMSystem;
+            else if (mode == NlpMode.Ollama) nextLLM = m_ollamaSystem;
+
+            // Keep the working system rather than clearing it: a null current LLM leaves the
+            // character unable to answer at all, with no error at the point of failure.
+            if (nextLLM == null)
+            {
+                Debug.LogWarning($"NLP mode '{mode}' is not available. Check that the provider system exists in RideSystemsCognition.");
+                return;
+            }
+
+            m_nlpMode = mode;
+            m_currentLLM = nextLLM;
 
             if (m_currentCharacter != null)
                 ApplyCharacterPrompt(m_currentCharacter);
@@ -435,7 +468,23 @@ namespace Ride.Examples
         public event Action<MecanimCharacter> OnCharacterReady;
 
         /// <summary>Invokes <see cref="OnCharacterReady"/> (events can only be raised by the declaring type).</summary>
-        protected void RaiseCharacterReady(MecanimCharacter character) => OnCharacterReady?.Invoke(character);
+        /// <remarks>
+        /// Hair materials are corrected here because this is the single point every concrete
+        /// controller passes through once a character's assets have finished loading. The two
+        /// repairs address different character sources and are independent of each other: see
+        /// <see cref="HairRenderQueueRepair"/> and <see cref="CutoutHairRepair"/> for why each is
+        /// needed.
+        /// </remarks>
+        protected void RaiseCharacterReady(MecanimCharacter character)
+        {
+            if (character != null)
+            {
+                HairRenderQueueRepair.Apply(character.gameObject);
+                CutoutHairRepair.Apply(character.gameObject);
+            }
+
+            OnCharacterReady?.Invoke(character);
+        }
 
         /// <summary>
         /// Submits typed user text into the conversation pipeline, mirroring the
@@ -655,6 +704,13 @@ namespace Ride.Examples
 
             m_ttsVoice = (idx >= 0 && idx < voices.Length) ? idx : 0;
             m_isCurrentCharacterVoiceReady = true;
+
+            string provider = ttsSystem.GetType().Name;
+            if (m_ttsVoice == idx)
+                Debug.Log($"[{nameof(DemoControllerBase)}] Character '{character.name}' uses {provider} voice '{voices[m_ttsVoice]}'.");
+            else
+                Debug.LogWarning($"[{nameof(DemoControllerBase)}] Character '{character.name}' wants {provider} voice '{voiceName}', " +
+                                 $"which is not among the {voices.Length} available voices; using '{voices[m_ttsVoice]}' instead.");
             return true;
         }
 
@@ -893,7 +949,7 @@ namespace Ride.Examples
 
             if (string.IsNullOrWhiteSpace(audioFilePath))
             {
-                Debug.LogError($"[{nameof(DemoControllerBase)}] TTS generation failed; audio file path is empty.");
+                Debug.LogWarning($"[{nameof(DemoControllerBase)}] TTS generation failed; audio file path is empty.");
                 StopThinkingBehaviorAndRestoreUserGaze();
                 SetCharacterConfigUIEnabled(true);
                 return;
@@ -968,7 +1024,7 @@ namespace Ride.Examples
 
             if (string.IsNullOrWhiteSpace(m_audioFilePath))
             {
-                Debug.LogError($"[{nameof(DemoControllerBase)}] Cannot load TTS audio; path is empty.");
+                Debug.LogWarning($"[{nameof(DemoControllerBase)}] Cannot load TTS audio; path is empty.");
                 StopThinkingBehaviorAndRestoreUserGaze();
                 SetCharacterConfigUIEnabled(true);
                 return;
@@ -976,14 +1032,44 @@ namespace Ride.Examples
 
             var audio = Systems.Get<AudioSystemUnity>();
             m_audioClip = null;
+            StartCoroutine(LoadAudioAndPlayUtterance(audio, result, generation));
+        }
+
+        private IEnumerator LoadAudioAndPlayUtterance(AudioSystemUnity audio, string nvbgResult, int generation)
+        {
+            bool loadCompleted = false;
+            AudioClip loadedClip = null;
             audio.LoadAudioFile(m_audioFilePath, clip =>
             {
-                if (generation != m_classicPipelineGeneration || UsingRealtimeConversationMode)
-                    return;
-
-                m_audioClip = clip;
-                StartCoroutine(PlayUtterance(result, generation));
+                loadedClip = clip;
+                loadCompleted = true;
             });
+
+            float loadDeadline = Time.realtimeSinceStartup + AudioClipLoadTimeoutSeconds;
+            while (!loadCompleted && Time.realtimeSinceStartup < loadDeadline)
+                yield return null;
+
+            if (generation != m_classicPipelineGeneration || UsingRealtimeConversationMode)
+                yield break;
+
+            if (!loadCompleted)
+            {
+                Debug.LogWarning($"[{nameof(DemoControllerBase)}] Speech audio load did not complete within {AudioClipLoadTimeoutSeconds}s; ending the current turn.");
+                StopThinkingBehaviorAndRestoreUserGaze();
+                SetCharacterConfigUIEnabled(true);
+                yield break;
+            }
+
+            if (loadedClip == null)
+            {
+                Debug.LogWarning($"[{nameof(DemoControllerBase)}] Speech audio load completed without a clip; ending the current turn.");
+                StopThinkingBehaviorAndRestoreUserGaze();
+                SetCharacterConfigUIEnabled(true);
+                yield break;
+            }
+
+            m_audioClip = loadedClip;
+            yield return PlayUtterance(nvbgResult, generation);
         }
 
         /// <summary>
@@ -1010,10 +1096,33 @@ namespace Ride.Examples
                 facefx = VisemeFormatConverter.ConvertTtsToFaceFx(tts);
             }
 
-            yield return new WaitUntil(() => m_audioClip != null);
+            if (m_audioClip == null)
+            {
+                Debug.LogWarning($"[{nameof(DemoControllerBase)}] Cannot play speech because no audio clip was loaded; ending the current turn.");
+                StopThinkingBehaviorAndRestoreUserGaze();
+                SetCharacterConfigUIEnabled(true);
+                yield break;
+            }
+
+            // The clip object exists as soon as the download completes, but on WebGL the browser decodes
+            // the compressed audio asynchronously (decodeAudioData) and the clip reports Loading until
+            // that finishes. Playing before then hands the browser a source with no buffer: the lips move
+            // to the lipsync schedule while nothing is heard, or only the tail of the line arrives once
+            // the decode catches up. Short clips decode faster than a frame, which is why an opening
+            // line tends to work and a longer reply does not. Wait for the decode, bounded so a decode
+            // that never completes cannot hold the turn.
+            float loadDeadline = Time.realtimeSinceStartup + AudioClipLoadTimeoutSeconds;
+            while (m_audioClip != null &&
+                   m_audioClip.loadState != AudioDataLoadState.Loaded &&
+                   m_audioClip.loadState != AudioDataLoadState.Failed &&
+                   Time.realtimeSinceStartup < loadDeadline)
+                yield return null;
 
             if (generation != m_classicPipelineGeneration || UsingRealtimeConversationMode)
                 yield break;
+
+            if (m_audioClip != null && m_audioClip.loadState != AudioDataLoadState.Loaded)
+                Debug.LogWarning($"[{nameof(DemoControllerBase)}] Speech clip load state is {m_audioClip.loadState} after waiting {AudioClipLoadTimeoutSeconds}s; playing anyway.");
 
             var ttsFile = AudioSpeechFile.CreateAudioSpeechFile(facefx, nvbgResult, m_audioClip);
             MecanimManager.Get().FindAudioFiles();
@@ -1517,7 +1626,7 @@ namespace Ride.Examples
 
         protected void OnRealtimeConversationError(string error)
         {
-            Debug.LogError($"[OpenAI Realtime] {error}");
+            Debug.LogWarning($"[OpenAI Realtime] {error}");
             if (UsingRealtimeConversationMode)
             {
                 ResetRealtimeAssistantState();
@@ -1609,7 +1718,11 @@ namespace Ride.Examples
 
         protected void StopNonRealtimeSceneAudioSources()
         {
+#if UNITY_6000_5_OR_NEWER
+            var allSources = FindObjectsByType<AudioSource>(FindObjectsInactive.Include);
+#else
             var allSources = FindObjectsByType<AudioSource>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+#endif
             foreach (var source in allSources)
             {
                 if (source == null || source == m_realtimeOutputAudioSource)
