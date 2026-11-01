@@ -6,9 +6,11 @@ namespace VH
     {
         [SerializeField] private TMPro.TextMeshPro m_text;
         [SerializeField] private Transform m_fillQuad;
+        [SerializeField] private bool m_showDetailedStatus = false;
 
         [Range(0f, 1f)]
         [SerializeField] private float m_progress01 = 0f;
+        [SerializeField] private string m_statusText = string.Empty;
 
         private Vector3 m_fillBaseScale;
         private float m_fillBasePosX;
@@ -36,6 +38,18 @@ namespace VH
             Apply(m_progress01);
         }
 
+        public void UpdateLoadedAssetStatus(string status)
+        {
+            m_statusText = status ?? string.Empty;
+            Apply(m_progress01);
+        }
+
+        public void ClearLoadedAssetStatus()
+        {
+            m_statusText = string.Empty;
+            Apply(m_progress01);
+        }
+
         // called via SendMessage from RideCatalogAsset during load
         public void UpdateLoadedAssetProgress(float progress01)
         {
@@ -45,8 +59,11 @@ namespace VH
         private void Apply(float progress01)
         {
             int pct = Mathf.RoundToInt(progress01 * 100f);
+            string text = $"Loading... {pct}%";
+            if (m_showDetailedStatus && !string.IsNullOrEmpty(m_statusText))
+                text += $"\n{m_statusText}";
 
-            SetText($"Loading... {pct}%");
+            SetText(text);
 
             if (m_fillQuad == null)
                 return;

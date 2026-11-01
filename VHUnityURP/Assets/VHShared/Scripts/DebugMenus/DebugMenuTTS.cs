@@ -36,10 +36,17 @@ namespace Ride.Examples
                 (DemoControllerBase.TtsMode.Polly, "Polly"),
                 (DemoControllerBase.TtsMode.ElevenLabs, "11Labs"),
                 (DemoControllerBase.TtsMode.Gemini, "Gemini"),
-                (DemoControllerBase.TtsMode.Piper, "Piper (Local)"),
-                (DemoControllerBase.TtsMode.Kokoro, "Kokoro (Local)"),
-                (DemoControllerBase.TtsMode.XTTS, "XTTS v2 (Local)"),
             };
+
+            if (!RideUtils.IsWebGL() && !RideUtils.IsAndroid() && !RideUtils.IsIOS())
+            {
+                m_ttsOptions.Add((DemoControllerBase.TtsMode.Piper, "Piper (Local)"));
+                m_ttsOptions.Add((DemoControllerBase.TtsMode.Kokoro, "Kokoro (Local)"));
+                m_ttsOptions.Add((DemoControllerBase.TtsMode.XTTS, "XTTS v2 (Local)"));
+            }
+
+            if (!m_ttsOptions.Any(option => option.mode == m_controller.m_ttsMode))
+                m_controller.ChangeTts(DemoControllerBase.TtsMode.Polly);
 
             m_ttsOptionsText = new string[m_ttsOptions.Count];
             for (int i = 0; i < m_ttsOptions.Count; i++)

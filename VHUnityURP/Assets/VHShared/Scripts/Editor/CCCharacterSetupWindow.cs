@@ -1184,7 +1184,11 @@ namespace Ride.VH
 
         private static Camera FindPreferredCamera()
         {
+#if UNITY_6000_5_OR_NEWER
+            var cams = FindObjectsByType<Camera>(FindObjectsInactive.Include);
+#else
             var cams = FindObjectsByType<Camera>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+#endif
             if (cams == null || cams.Length == 0)
                 return null;
 

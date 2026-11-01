@@ -139,7 +139,11 @@ namespace Ride.Examples
             }
 
             // Find all lighting configurations
+#if UNITY_6000_5_OR_NEWER
+            var allGameobjects = FindObjectsByType<Transform>(FindObjectsInactive.Include);
+#else
             var allGameobjects = FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+#endif
             m_lightingChoices = allGameobjects
                         .Select(t => t.gameObject)
                         .Where(go => go.name.StartsWith(lightingPrefix, StringComparison.Ordinal))
@@ -327,22 +331,24 @@ namespace Ride.Examples
                 if (DisableWebcamUiForPlatform)
                     GUI.enabled = false;
 
+                // Each section's menu is optional: a project may ship only a subset of the debug
+                // menus, so a missing one is reported in place rather than throwing when expanded.
                 m_sensingToggle = GUILayout.Toggle(m_sensingToggle, m_sensingToggle ? $"- <b>Sensing</b>" : $"+ <b>Sensing</b>", m_guiToggleLeftJustify);
-                if (m_sensingToggle) m_sensing.OnGUISelectSensingMode();
+                if (m_sensingToggle) { if (m_sensing != null) m_sensing.OnGUISelectSensingMode(); else MissingMenu("Sensing"); }
 
                 GUI.enabled = oldGuiEnabled;
 
                 m_asrToggle = GUILayout.Toggle(m_asrToggle, m_asrToggle ? $"- <b>Automated Speech Recognition (ASR)</b>" : $"+ <b>ASR</b>", m_guiToggleLeftJustify);
-                if (m_asrToggle) m_asr.OnGUISystemSelection();
+                if (m_asrToggle) { if (m_asr != null) m_asr.OnGUISystemSelection(); else MissingMenu("ASR"); }
 
                 m_nlpToggle = GUILayout.Toggle(m_nlpToggle, m_nlpToggle ? $"- <b>Natural Language Processing (NLP)</b>" : $"+ <b>NLP</b>", m_guiToggleLeftJustify);
-                if (m_nlpToggle) { m_nlp.OnGUISystemSelection(); m_nlp.OnGUIPrompt(); m_nlp.OnGUIDynamicLanguageDetection(); }
+                if (m_nlpToggle) { if (m_nlp != null) { m_nlp.OnGUISystemSelection(); m_nlp.OnGUIPrompt(); m_nlp.OnGUIDynamicLanguageDetection(); } else MissingMenu("NLP"); }
 
                 m_ttsToggle = GUILayout.Toggle(m_ttsToggle, m_ttsToggle ? $"- <b>Text-To-Speech (TTS)</b>" : $"+ <b>TTS</b>", m_guiToggleLeftJustify);
-                if (m_ttsToggle) { m_tts.OnGUISystemSelection(); m_tts.OnGUIVoiceSelection(); }
+                if (m_ttsToggle) { if (m_tts != null) { m_tts.OnGUISystemSelection(); m_tts.OnGUIVoiceSelection(); } else MissingMenu("TTS"); }
 
                 m_lipsyncToggle = GUILayout.Toggle(m_lipsyncToggle, m_lipsyncToggle ? $"- <b>Nonverbal Behavior (NVB)</b>" : $"+ <b>NVB</b>", m_guiToggleLeftJustify);
-                if (m_lipsyncToggle) m_lipsync.OnGUISystemSelection();
+                if (m_lipsyncToggle) { if (m_lipsync != null) m_lipsync.OnGUISystemSelection(); else MissingMenu("NVB"); }
 
                 m_unifiedToggle = GUILayout.Toggle(m_unifiedToggle, m_unifiedToggle ? $"- <b>Unified Cognition</b>" : $"+ <b>Unified Cognition</b>", m_guiToggleLeftJustify);
                 if (m_unifiedToggle) OnGUIUnifiedSelection();
@@ -353,6 +359,16 @@ namespace Ride.Examples
                 m_miscToggle = GUILayout.Toggle(m_miscToggle, m_miscToggle ? $"- <b>Miscellaneous</b>" : $"+ <b>Miscellaneous</b>", m_guiToggleLeftJustify);
                 if (m_miscToggle) { OnGUIIntroduceToggle(); }
             }
+        }
+
+        /// <summary>
+        /// Notes that a debug section has no menu assigned in this scene.
+        /// </summary>
+        /// <param name="name">Section name as shown in the menu.</param>
+        private void MissingMenu(string name)
+        {
+            m_debugMenu.Label($"No {name} debug menu in this scene.");
+            m_debugMenu.Space();
         }
 
         /// <summary>
@@ -384,9 +400,9 @@ namespace Ride.Examples
             if (!m_controller.m_characterConfigUIEnabled)
                 GUI.enabled = false;
 
-            var ictCharacters = m_controller.CharactersParent.Find("ICT").GetComponentsInChildren<MecanimCharacter>(true);
-            var rbCharacters = m_controller.CharactersParent.Find("Rocketbox").GetComponentsInChildren<MecanimCharacter>(true);
-            var ccCharacters = m_controller.CharactersParent.Find("CC").GetComponentsInChildren<MecanimCharacter>(true);
+            var ictCharacters = FindCharacterGroup("ICT");
+            var rbCharacters = FindCharacterGroup("Rocketbox");
+            var ccCharacters = FindCharacterGroup("CC");
 
             if (ictCharacters.Length > 0)
             {
@@ -404,6 +420,20 @@ namespace Ride.Examples
             {
                 m_characterToggle_CC = GUILayout.Toggle(m_characterToggle_CC, m_characterToggle_CC ? $"- <b>CC</b>" : $"+ <b>CC</b>", m_guiToggleLeftJustify);
                 if (m_characterToggle_CC) { DrawCharacterGroup("CC", ccCharacters); }
+            }
+
+            // Any other category present in the scene, so a project that adds or renames a
+            // group still gets a selectable list without editing this menu.
+            foreach (Transform category in m_controller.CharactersParent)
+            {
+                if (category.name == "ICT" || category.name == "Rocketbox" || category.name == "CC")
+                    continue;
+
+                var others = category.GetComponentsInChildren<MecanimCharacter>(true);
+                if (others.Length == 0)
+                    continue;
+
+                DrawCharacterGroup(category.name, others);
             }
 
             GUI.enabled = true;
@@ -433,6 +463,25 @@ namespace Ride.Examples
             Rect rect = GUILayoutUtility.GetRect(1, 1, GUILayout.ExpandWidth(true));
             GUI.DrawTexture(rect, Texture2D.whiteTexture);
             m_debugMenu.Space();
+        }
+
+        /// <summary>
+        /// Returns the characters under a named category, or an empty array when the scene has
+        /// no such category. Not every project carries every group - a study player may ship
+        /// only a subset - so a missing category is normal rather than an error.
+        /// </summary>
+        /// <param name="categoryName">Name of the child category under the characters parent.</param>
+        /// <returns>The characters in that category, including inactive ones.</returns>
+        private MecanimCharacter[] FindCharacterGroup(string categoryName)
+        {
+            if (m_controller == null || m_controller.CharactersParent == null)
+                return System.Array.Empty<MecanimCharacter>();
+
+            Transform category = m_controller.CharactersParent.Find(categoryName);
+            if (category == null)
+                return System.Array.Empty<MecanimCharacter>();
+
+            return category.GetComponentsInChildren<MecanimCharacter>(true);
         }
 
         /// <summary>
@@ -508,7 +557,7 @@ namespace Ride.Examples
             }
 
             GUI.SetNextControlName("NLPInput");
-            m_nlpInput = m_debugMenu.TextField(m_nlpInput);
+            m_nlpInput = m_debugMenu.TextArea(m_nlpInput);
             if (m_debugMenu.Button("Send"))
                 m_controller.AskNLPQuestion(m_nlpInput);
         }
@@ -634,7 +683,12 @@ namespace Ride.Examples
         void DisableStartScreen()
         {
             m_controller.m_startButtonPressed = true;
-            m_debugMenu.ShowMenu(true);
+
+            if (RideUtils.IsAndroid() || RideUtils.IsIOS())
+                m_debugMenu.ShowMenu(false);
+            else
+                m_debugMenu.ShowMenu(true);
+
             ApplyStartScreenVisibility(false);
         }
 
@@ -683,7 +737,7 @@ namespace Ride.Examples
         private void ApplyStartScreenFootnoteText()
         {
             string footnoteText =
-                    "Welcome to the <u>Virtual Human Toolkit</u>!\n" +
+                    "Welcome to the Virtual Human Toolkit!\n" +
                     "Converse with 3D AI characters and talk about the VHToolkit\n" +
                     "and its creator: the USC Institute for Creative Technologies. \n" +
                     "\n" +
@@ -693,14 +747,31 @@ namespace Ride.Examples
 
             if (RideUtils.IsAndroid() || RideUtils.IsIOS())
             {
+                //footnoteText =
+                //    "Welcome to the Virtual Human Toolkit!\n" +
+                //    "Talk with 3D AI characters about\n" +
+                //    "the VHToolkit and USC ICT.\n" +
+                //    "\n" +
+                //    "First time loading may be slow.\n" +
+                //    " Unmute your phone to hear audio.\n" +
+                //    "\n" +
+                //    "Privacy: your text input will be sent\n" +
+                //    "to OpenAI. Optionally, your voice (mic)\n" +
+                //    "and video (camera) data will be sent to\n" +
+                //    "OpenAI and AWS, respectively. See our\n" +
+                //    "<u>Privacy Policy</u> for details.\n" +
+                //    "\n" +                    
+                //    "Please Agree to continue.";
                 footnoteText =
-                    "Welcome to the <u>Virtual Human Toolkit</u>!\n" +
-                    "Converse with 3D AI characters and talk about the VHToolkit\n" +
-                    "and its creator: the USC Institute for Creative Technologies. \n" +
+                    "Welcome to the Virtual Human Toolkit! Talk with 3D AI characters about the VHToolkit and USC ICT.\n" +
                     "\n" +
-                    "Loading may be slow the first time; later uses will be faster.\n" +
-                    "Unmute your phone to hear the characters speak.\n";
-                    
+                    "First time loading may be slow. Unmute your phone to hear audio.\n" +
+                    "\n" +
+                    "Privacy: your text input will be sent to OpenAI. Optionally, your voice (mic) " +
+                    "and video (camera) data will be sent to OpenAI and AWS, respectively. See our " +
+                    "<u>Privacy Policy</u> for details.\n" +
+                    "\n" +
+                    "Please Agree to continue.";
             }
 
             ApplyStartScreenFootnoteText(m_startScreenCanvasWidescreen, footnoteText);

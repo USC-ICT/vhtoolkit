@@ -8,10 +8,9 @@ namespace VH
     /// using a perceptually weighted curve. Intended for placeholder / fade-in assets using
     /// transparent materials (HDRP or URP).
     ///
-    /// This component supports two common initialization paths:
-    /// - Non-loadable objects: initializes in <see cref="Start"/>.
-    /// - Loadable objects (e.g., driven by <see cref="RideCatalogAsset"/>): initializes when
-    ///   <c>InitializeLoadedAsset()</c> is invoked via SendMessage after instantiation.
+    /// This component initializes in <see cref="Awake"/>, resets its alpha in
+    /// <see cref="OnEnable"/>, and uses load progress callbacks to drive the placeholder alpha
+    /// before the real asset is instantiated.
     ///
     /// While an asset is loading, <see cref="RideCatalogAsset"/> may call
     /// <c>UpdateLoadedAssetProgress(float)</c> via SendMessage. This component uses that
@@ -47,11 +46,16 @@ namespace VH
         private MaterialPropertyBlock m_mpb;
 
 
-        private void Start()
+        private void Awake()
         {
             var root = m_rendererRootOverride == null ? transform : m_rendererRootOverride.transform;
             m_smrs = root.GetComponentsInChildren<SkinnedMeshRenderer>(true);
             m_mpb = new MaterialPropertyBlock();
+        }
+
+        private void OnEnable()
+        {
+            SetAlpha01(0f);
         }
 
         /// <summary>

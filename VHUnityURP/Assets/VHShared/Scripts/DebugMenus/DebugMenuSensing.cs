@@ -40,6 +40,12 @@ namespace Ride.Examples
         private int m_webCamIndex = 0;
         private bool m_isMirroring = false;
         private bool m_webcamToggle = false;
+        private bool m_webcamDebugToggle = false;
+        private RectTransform m_webcamPreviewRoot;
+        private Vector2 m_webcamPreviewRootAnchoredPosition;
+        private bool m_hasWebcamPreviewRootAnchoredPosition;
+        static readonly string[] s_webCamFacingOptions = { "Any", "Front", "Back" };
+        static readonly string[] s_webCamRotationOptions = { "0", "90", "180", "270" };
 
         DebugMenu m_debugMenu;
         DemoController m_controller;
@@ -65,8 +71,16 @@ namespace Ride.Examples
             ChangeSensingMode(SensingMode.Aws);
 
             BuildSensingOptions();
+            m_webCamIndex = m_vhWebCam.currentDevice;
+            SetWebcamPreviewVisible(m_webcamToggle);
         }
 
+        protected override void Update()
+        {
+            base.Update();
+
+            UpdateWebcamPreviewOrientation();
+        }
 
         void BuildSensingOptions()
         {
@@ -77,7 +91,7 @@ namespace Ride.Examples
             {
                 m_sensingOptions = new()
                 {
-                    (SensingMode.Aws, "AWS"),                  
+                    (SensingMode.Aws, "AWS"),
                 };
             }
             else
@@ -148,6 +162,8 @@ namespace Ride.Examples
                 StopSensingProcessor();
                 m_vhWebCam.SetCurrentDevice(m_webCamIndex);
             }
+
+            OnGUIWebcamDebug();
 
             m_debugMenu.Space();
 
@@ -348,9 +364,8 @@ namespace Ride.Examples
                 return;
 
             m_webcamRawImage.m_image.material = m_vhWebCam.renderMaterial;
-            m_webcamRawImage.texture = m_vhWebCam.renderMaterial.mainTexture;
-
-            Application.RequestUserAuthorization(UserAuthorization.WebCam);
+            m_webcamRawImage.texture = m_vhWebCam.renderMaterial != null ? m_vhWebCam.renderMaterial.mainTexture : null;
+            m_vhWebCam.ApplyRawImageOrientation(m_webcamRawImage.m_image);
 
             m_sensingProcessor.SetSensingSystems(m_currentSensing);
             m_sensingProcessor.StartProcessing();
@@ -382,7 +397,129 @@ namespace Ride.Examples
             else if (!m_webcamToggle)
                 StopSensingProcessor();
 
-            m_webcamRawImage.Show(m_webcamToggle);
+            SetWebcamPreviewVisible(m_webcamToggle);
+        }
+
+        void SetWebcamPreviewVisible(bool visible)
+        {
+            RectTransform previewRoot = GetWebcamPreviewRoot();
+            if (previewRoot != null)
+                previewRoot.gameObject.SetActive(visible);
+
+            m_webcamRawImage.Show(visible);
+        }
+
+        void UpdateWebcamPreviewOrientation()
+        {
+            if (m_webcamToggle)
+            {
+                m_vhWebCam.ApplyRawImageOrientation(m_webcamRawImage.m_image);
+                UpdateWebcamPreviewOffset();
+            }
+            else
+            {
+                ResetWebcamPreviewOffset();
+            }
+        }
+
+        void UpdateWebcamPreviewOffset()
+        {
+            RectTransform previewRoot = GetWebcamPreviewRoot();
+            if (previewRoot == null)
+                return;
+
+            if (!m_hasWebcamPreviewRootAnchoredPosition)
+            {
+                m_webcamPreviewRootAnchoredPosition = previewRoot.anchoredPosition;
+                m_hasWebcamPreviewRootAnchoredPosition = true;
+            }
+
+            Vector2 anchoredPosition = m_webcamPreviewRootAnchoredPosition;
+            if (IsWebcamPreviewSideways())
+            {
+                Rect imageRect = m_webcamRawImage.m_image.rectTransform.rect;
+                anchoredPosition.y -= Mathf.Max(0, (imageRect.width - imageRect.height) * 0.5f);
+            }
+
+            previewRoot.anchoredPosition = anchoredPosition;
+        }
+
+        void ResetWebcamPreviewOffset()
+        {
+            RectTransform previewRoot = GetWebcamPreviewRoot();
+            if (previewRoot != null && m_hasWebcamPreviewRootAnchoredPosition)
+                previewRoot.anchoredPosition = m_webcamPreviewRootAnchoredPosition;
+        }
+
+        RectTransform GetWebcamPreviewRoot()
+        {
+            if (m_webcamPreviewRoot == null && m_webcamRawImage != null && m_webcamRawImage.m_image != null)
+                m_webcamPreviewRoot = m_webcamRawImage.m_image.rectTransform.parent as RectTransform;
+
+            return m_webcamPreviewRoot;
+        }
+
+        bool IsWebcamPreviewSideways() => m_vhWebCam != null && m_vhWebCam.nativeOrientationCorrectionEnabled && IsSidewaysRotation(m_vhWebCam.effectiveVideoRotationAngle);
+
+        void OnGUIWebcamDebug()
+        {
+            m_debugMenusBase.OnGUICustomStylesSetup();
+            m_webcamDebugToggle = GUILayout.Toggle(m_webcamDebugToggle, m_webcamDebugToggle ? "- <b>Webcam Debug</b>" : "+ <b>Webcam Debug</b>", m_debugMenusBase.m_guiToggleLeftJustify);
+            if (!m_webcamDebugToggle)
+                return;
+
+            m_debugMenu.Label("Webcam Facing");
+            int webCamFacing = m_debugMenu.SelectionGrid((int)m_vhWebCam.preferredFacing, s_webCamFacingOptions, 3);
+            if (webCamFacing != (int)m_vhWebCam.preferredFacing)
+            {
+                StopSensingProcessor();
+                m_vhWebCam.SetPreferredFacing((VHWebCam.CameraFacing)webCamFacing);
+                m_webCamIndex = m_vhWebCam.currentDevice;
+            }
+
+            bool forceOrientationCorrection = m_debugMenu.Toggle(m_vhWebCam.debugForceNativeOrientationCorrection, m_vhWebCam.debugForceNativeOrientationCorrection ? "Sim Orientation ON" : "Sim Orientation OFF");
+            if (forceOrientationCorrection != m_vhWebCam.debugForceNativeOrientationCorrection)
+                m_vhWebCam.SetDebugNativeOrientationCorrection(forceOrientationCorrection);
+
+            m_debugMenu.Label("Sim Rotation");
+            int rotationIndex = GetWebCamRotationIndex(m_vhWebCam.debugVideoRotationAngle);
+            int newRotationIndex = m_debugMenu.SelectionGrid(rotationIndex, s_webCamRotationOptions, 4);
+            if (newRotationIndex != rotationIndex)
+            {
+                m_vhWebCam.SetDebugNativeOrientationCorrection(true);
+                m_vhWebCam.SetDebugOrientationMetadata(GetWebCamRotationAngle(newRotationIndex), m_vhWebCam.debugVideoVerticallyMirrored);
+            }
+
+            bool verticalMirror = m_debugMenu.Toggle(m_vhWebCam.debugVideoVerticallyMirrored, m_vhWebCam.debugVideoVerticallyMirrored ? "Sim MirrorY ON" : "Sim MirrorY OFF");
+            if (verticalMirror != m_vhWebCam.debugVideoVerticallyMirrored)
+            {
+                m_vhWebCam.SetDebugNativeOrientationCorrection(true);
+                m_vhWebCam.SetDebugOrientationMetadata(m_vhWebCam.debugVideoRotationAngle, verticalMirror);
+            }
+
+            m_debugMenu.Label($"Device: {m_vhWebCam.currentDevice} {(m_vhWebCam.isFrontFacing ? "Front" : "Back")}");
+            m_debugMenu.Label($"Raw Rotation: {m_vhWebCam.videoRotationAngle} MirrorY: {m_vhWebCam.videoVerticallyMirrored}");
+            m_debugMenu.Label($"Effective Rotation: {m_vhWebCam.effectiveVideoRotationAngle} MirrorY: {m_vhWebCam.effectiveVideoVerticallyMirrored}");
+            m_debugMenu.Label($"Capture: {m_sensingProcessor.captureWidth}x{m_sensingProcessor.captureHeight}");
+        }
+
+        static int GetWebCamRotationIndex(int rotationAngle)
+        {
+            switch (((rotationAngle % 360) + 360) % 360)
+            {
+                case 90: return 1;
+                case 180: return 2;
+                case 270: return 3;
+                default: return 0;
+            }
+        }
+
+        static int GetWebCamRotationAngle(int rotationIndex) => Mathf.Clamp(rotationIndex, 0, 3) * 90;
+
+        static bool IsSidewaysRotation(int rotationAngle)
+        {
+            int rotation = ((rotationAngle % 360) + 360) % 360;
+            return rotation == 90 || rotation == 270;
         }
     }
 }
