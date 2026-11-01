@@ -19,6 +19,7 @@
  *  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -43,7 +44,7 @@ namespace Reallusion.Runtime
         }
 
         [SerializeField] private CameraProxy proxy;
-        public Styles styles;
+        [NonSerialized] public Styles styles;
         private bool doneInit = false;
 
         void DoInit()

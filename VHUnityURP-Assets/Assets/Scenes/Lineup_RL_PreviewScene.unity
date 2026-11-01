@@ -2972,6 +2972,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1199655357108399038, guid: d68c18d6affcb744a9e2642485d8fe1e,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328371390238013686, guid: d68c18d6affcb744a9e2642485d8fe1e,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2569123291528499557, guid: d68c18d6affcb744a9e2642485d8fe1e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3176,7 +3186,7 @@ PrefabInstance:
     - target: {fileID: 5870767371135649334, guid: d68c18d6affcb744a9e2642485d8fe1e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5870767371135649334, guid: d68c18d6affcb744a9e2642485d8fe1e,
         type: 3}
@@ -3243,6 +3253,11 @@ PrefabInstance:
       propertyPath: m_PointlightHDType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7141424395873731530, guid: d68c18d6affcb744a9e2642485d8fe1e,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7375704023635195177, guid: d68c18d6affcb744a9e2642485d8fe1e,
         type: 3}
       propertyPath: m_Intensity
@@ -3282,6 +3297,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PointlightHDType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598304168383430599, guid: d68c18d6affcb744a9e2642485d8fe1e,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8884857556158224398, guid: d68c18d6affcb744a9e2642485d8fe1e,
         type: 3}

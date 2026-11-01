@@ -294,7 +294,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 			#define _EMISSION
 			#define _NORMALMAP 1
 			#define ASE_VERSION 19908
-			#define ASE_SRP_VERSION 170100
+			#define ASE_SRP_VERSION 170300
 			#define ASE_USING_SAMPLING_MACROS 1
 
 
@@ -306,6 +306,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 			#pragma multi_compile_fragment _ _REFLECTION_PROBE_BOX_PROJECTION
 			#pragma multi_compile_fragment _ _REFLECTION_PROBE_ATLAS
 			#pragma multi_compile_fragment _ _SHADOWS_SOFT _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM _SHADOWS_SOFT_HIGH
+			#pragma multi_compile_fragment _ _SCREEN_SPACE_IRRADIANCE
 			#pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
 			#pragma multi_compile _ _LIGHT_LAYERS
 			#pragma multi_compile_fragment _ _LIGHT_COOKIES
@@ -315,7 +316,8 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 			#pragma multi_compile _ SHADOWS_SHADOWMASK
 			#pragma multi_compile _ DIRLIGHTMAP_COMBINED
 			#pragma multi_compile _ LIGHTMAP_ON
-			#pragma multi_compile _ LIGHTMAP_BICUBIC_SAMPLING
+			#pragma multi_compile_fragment _ LIGHTMAP_BICUBIC_SAMPLING
+			#pragma multi_compile_fragment _ REFLECTION_PROBE_ROTATION
 			#pragma multi_compile _ DYNAMICLIGHTMAP_ON
 			#pragma multi_compile _ USE_LEGACY_LIGHTMAPS
 
@@ -885,7 +887,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 						,out float outputDepth : ASE_SV_DEPTH
 						#endif
 						#ifdef _WRITE_RENDERING_LAYERS
-						, out float4 outRenderingLayers : SV_Target1
+						, out uint outRenderingLayers : SV_Target1
 						#endif
 						 ) : SV_Target
 			{
@@ -1304,7 +1306,9 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 					float3 SH = input.lightmapUVOrVertexSH.xyz;
 				#endif
 
-				#if defined(DYNAMICLIGHTMAP_ON)
+				#if defined(_SCREEN_SPACE_IRRADIANCE)
+					inputData.bakedGI = SAMPLE_GI(_ScreenSpaceIrradiance, input.positionCS.xy);
+				#elif defined(DYNAMICLIGHTMAP_ON)
 					inputData.bakedGI = SAMPLE_GI(input.lightmapUVOrVertexSH.xy, input.dynamicLightmapUV.xy, SH, inputData.normalWS);
 					inputData.shadowMask = SAMPLE_SHADOWMASK(input.lightmapUVOrVertexSH.xy);
 				#elif !defined(LIGHTMAP_ON) && (defined(PROBE_VOLUMES_L1) || defined(PROBE_VOLUMES_L2))
@@ -1481,8 +1485,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 				#endif
 
 				#ifdef _WRITE_RENDERING_LAYERS
-					uint renderingLayers = GetMeshRenderingLayer();
-					outRenderingLayers = float4( EncodeMeshRenderingLayer( renderingLayers ), 0, 0, 0 );
+					outRenderingLayers = EncodeMeshRenderingLayer();
 				#endif
 
 				#if defined( ASE_OPAQUE_KEEP_ALPHA )
@@ -1517,7 +1520,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 			#define _EMISSION
 			#define _NORMALMAP 1
 			#define ASE_VERSION 19908
-			#define ASE_SRP_VERSION 170100
+			#define ASE_SRP_VERSION 170300
 			#define ASE_USING_SAMPLING_MACROS 1
 
 
@@ -2016,7 +2019,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 			#define _EMISSION
 			#define _NORMALMAP 1
 			#define ASE_VERSION 19908
-			#define ASE_SRP_VERSION 170100
+			#define ASE_SRP_VERSION 170300
 			#define ASE_USING_SAMPLING_MACROS 1
 
 
@@ -2487,7 +2490,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 			#define _EMISSION
 			#define _NORMALMAP 1
 			#define ASE_VERSION 19908
-			#define ASE_SRP_VERSION 170100
+			#define ASE_SRP_VERSION 170300
 			#define ASE_USING_SAMPLING_MACROS 1
 
 			#pragma shader_feature EDITOR_VISUALIZATION
@@ -3299,7 +3302,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 			#define _EMISSION
 			#define _NORMALMAP 1
 			#define ASE_VERSION 19908
-			#define ASE_SRP_VERSION 170100
+			#define ASE_SRP_VERSION 170300
 			#define ASE_USING_SAMPLING_MACROS 1
 
 
@@ -4079,7 +4082,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 			#define _EMISSION
 			#define _NORMALMAP 1
 			#define ASE_VERSION 19908
-			#define ASE_SRP_VERSION 170100
+			#define ASE_SRP_VERSION 170300
 			#define ASE_USING_SAMPLING_MACROS 1
 
 
@@ -4561,7 +4564,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 						,out float outputDepth : ASE_SV_DEPTH
 						#endif
 						#ifdef _WRITE_RENDERING_LAYERS
-						, out float4 outRenderingLayers : SV_Target1
+						, out uint outRenderingLayers : SV_Target1
 						#endif
 						 )
 			{
@@ -4839,8 +4842,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 				#endif
 
 				#ifdef _WRITE_RENDERING_LAYERS
-					uint renderingLayers = GetMeshRenderingLayer();
-					outRenderingLayers = float4(EncodeMeshRenderingLayer(renderingLayers), 0, 0, 0);
+					outRenderingLayers = EncodeMeshRenderingLayer();
 				#endif
 			}
 			ENDHLSL
@@ -4875,18 +4877,20 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 			#define _EMISSION
 			#define _NORMALMAP 1
 			#define ASE_VERSION 19908
-			#define ASE_SRP_VERSION 170100
+			#define ASE_SRP_VERSION 170300
 			#define ASE_USING_SAMPLING_MACROS 1
 
 
 			// Deferred Rendering Path does not support the OpenGL-based graphics API:
 			// Desktop OpenGL, OpenGL ES 3.0, WebGL 2.0.
-			#pragma exclude_renderers glcore gles3 webgpu 
+			#pragma exclude_renderers glcore gles3 switch2 webgpu 
 
 			#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
+			#pragma multi_compile _ EVALUATE_SH_MIXED EVALUATE_SH_VERTEX
 			#pragma multi_compile_fragment _ _REFLECTION_PROBE_BLENDING
 			#pragma multi_compile_fragment _ _REFLECTION_PROBE_BOX_PROJECTION
 			#pragma multi_compile_fragment _ _SHADOWS_SOFT _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM _SHADOWS_SOFT_HIGH
+			#pragma multi_compile_fragment _ _SCREEN_SPACE_IRRADIANCE
 			#pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
 			#pragma multi_compile_fragment _ _GBUFFER_NORMALS_OCT
 			#pragma multi_compile_fragment _ _RENDER_PASS_ENABLED
@@ -4898,7 +4902,8 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 			#pragma multi_compile _ DIRLIGHTMAP_COMBINED
 			#pragma multi_compile _ USE_LEGACY_LIGHTMAPS
 			#pragma multi_compile _ LIGHTMAP_ON
-			#pragma multi_compile _ LIGHTMAP_BICUBIC_SAMPLING
+			#pragma multi_compile_fragment _ LIGHTMAP_BICUBIC_SAMPLING
+			#pragma multi_compile_fragment _ REFLECTION_PROBE_ROTATION
 			#pragma multi_compile _ DYNAMICLIGHTMAP_ON
 
 			#pragma vertex vert
@@ -5874,7 +5879,9 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 					float3 SH = input.lightmapUVOrVertexSH.xyz;
 				#endif
 
-				#if defined(DYNAMICLIGHTMAP_ON)
+				#if defined(_SCREEN_SPACE_IRRADIANCE)
+					inputData.bakedGI = SAMPLE_GI(_ScreenSpaceIrradiance, input.positionCS.xy);
+				#elif defined(DYNAMICLIGHTMAP_ON)
 					inputData.bakedGI = SAMPLE_GI(input.lightmapUVOrVertexSH.xy, input.dynamicLightmapUV.xy, SH, inputData.normalWS);
 					inputData.shadowMask = SAMPLE_SHADOWMASK(input.lightmapUVOrVertexSH.xy);
 				#elif !defined(LIGHTMAP_ON) && (defined(PROBE_VOLUMES_L1) || defined(PROBE_VOLUMES_L2))
@@ -5964,7 +5971,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 			#define _EMISSION
 			#define _NORMALMAP 1
 			#define ASE_VERSION 19908
-			#define ASE_SRP_VERSION 170100
+			#define ASE_SRP_VERSION 170300
 			#define ASE_USING_SAMPLING_MACROS 1
 
 
@@ -6433,7 +6440,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 			#define _EMISSION
 			#define _NORMALMAP 1
 			#define ASE_VERSION 19908
-			#define ASE_SRP_VERSION 170100
+			#define ASE_SRP_VERSION 170300
 			#define ASE_USING_SAMPLING_MACROS 1
 
 
@@ -6902,7 +6909,7 @@ Shader "Reallusion/Amplify/RL5_SkinShader_Variants_URP"
 			#define _EMISSION
 			#define _NORMALMAP 1
 			#define ASE_VERSION 19908
-			#define ASE_SRP_VERSION 170100
+			#define ASE_SRP_VERSION 170300
 			#define ASE_USING_SAMPLING_MACROS 1
 
 
@@ -7976,4 +7983,4 @@ WireConnection;688;5;700;0
 WireConnection;688;2;697;0
 WireConnection;688;8;701;0
 ASEEND*/
-//CHKSM=A54D15B7778FCA5E40C0B5BB94C8DD47514C36C6
+//CHKSM=3DCF71C80FC16E0F3FF67198A2869DF6EDBA7367

@@ -203,7 +203,9 @@ namespace Reallusion.Runtime
 #endif
             runtimePipeline = RuntimePipeline.Uninversal;  
             URPCameraData = GetComponent<UniversalAdditionalCameraData>();
-#if UNITY_2021_3_OR_NEWER
+#if UNITY_6000_5_OR_NEWER
+            Volume[] volumes = FindObjectsByType<Volume>();
+#elif UNITY_2021_3_OR_NEWER
             Volume[] volumes = FindObjectsByType<Volume>(FindObjectsSortMode.None);
 #else
             Volume[] volumes = FindObjectsOfType<Volume>();
@@ -304,7 +306,9 @@ namespace Reallusion.Runtime
             // The quickvolume method will obey any layer changes made by the user and will be less intrusive
 
             // find a global volume: this will have already been created by the importer or by the user
-#if UNITY_2021_3_OR_NEWER
+#if UNITY_6000_5_OR_NEWER
+            PostProcessVolume[] volumes = GameObject.FindObjectsByType<PostProcessVolume>();
+#elif UNITY_2021_3_OR_NEWER
             PostProcessVolume[] volumes = GameObject.FindObjectsByType<PostProcessVolume>(FindObjectsSortMode.None);
 #else
             PostProcessVolume[] volumes = GameObject.FindObjectsOfType<PostProcessVolume>();
