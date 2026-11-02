@@ -2333,7 +2333,7 @@ MonoBehaviour:
   m_xrOrigin: {fileID: 0}
   m_uiController: {fileID: 342795528}
   m_selectableCharacters:
-  - {fileID: 0}
+  - {fileID: 2190141132583836340}
   - {fileID: 1963425971}
   - {fileID: 1370856169}
   - {fileID: 2068298084}
@@ -2345,8 +2345,6 @@ MonoBehaviour:
   - {fileID: 93223391}
   - {fileID: 660497220}
   - {fileID: 855006939}
-  - {fileID: 1085682098}
-  - {fileID: 377564297}
 --- !u!4 &342795530
 Transform:
   m_ObjectHideFlags: 0
@@ -2512,18 +2510,6 @@ MonoBehaviour:
     glasses: 
     moustache: 0
     beard: 0
---- !u!114 &377564297 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 411818862820122352, guid: e1a968c9b23d7c74290babef2a92b72b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2190141132583836337}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b7b8b1797a36664fb4255a5de86651b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &386621618
 GameObject:
   m_ObjectHideFlags: 0
@@ -6605,18 +6591,6 @@ PlayableDirector:
   m_SceneBindings: []
   m_ExposedReferences:
     m_References: []
---- !u!114 &1085682098 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8796422833124018095, guid: e1a968c9b23d7c74290babef2a92b72b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2190141132583836337}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b7b8b1797a36664fb4255a5de86651b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1087890066
 GameObject:
   m_ObjectHideFlags: 0
@@ -9527,7 +9501,7 @@ PrefabInstance:
     - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
         type: 3}
       propertyPath: m_catalogsToLoad.Array.size
-      value: 14
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
         type: 3}
@@ -9546,76 +9520,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
         type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[3].isRemote
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[4].isRemote
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[5].isRemote
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[6].isRemote
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[7].isRemote
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[8].isRemote
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[9].isRemote
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[10].isRemote
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[11].isRemote
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[12].isRemote
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[13].isRemote
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[14].isRemote
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[15].isRemote
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[16].isRemote
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
       propertyPath: m_catalogsToLoad.Array.data[0].catalogPath
       value: ride-content-e22e17c3/AssetCatalogs/VH/Kevin
       objectReference: {fileID: 0}
@@ -9628,76 +9532,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_catalogsToLoad.Array.data[2].catalogPath
       value: ride-content-e22e17c3/AssetCatalogs/VH/Rocketbox
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[3].catalogPath
-      value: ride-content-e22e17c3/AssetCatalogs/VH-Internal/John
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[4].catalogPath
-      value: ride-content-e22e17c3/AssetCatalogs/VH-Internal/Maria
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[5].catalogPath
-      value: ride-content-e22e17c3/AssetCatalogs/VH-Internal/Mila
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[6].catalogPath
-      value: ride-content-e22e17c3/AssetCatalogs/VH-Internal/Aaron
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[7].catalogPath
-      value: ride-content-e22e17c3/AssetCatalogs/VH-Internal/Ariana
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[8].catalogPath
-      value: ride-content-e22e17c3/AssetCatalogs/VH-Internal/ArnoArmyCombat
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[9].catalogPath
-      value: ride-content-e22e17c3/AssetCatalogs/VH-Internal/Arno
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[10].catalogPath
-      value: ride-content-e22e17c3/AssetCatalogs/VH-Internal/MateoArmyCombat
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[11].catalogPath
-      value: ride-content-e22e17c3/AssetCatalogs/VH-Internal/Rashid
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[12].catalogPath
-      value: ride-content-e22e17c3/AssetCatalogs/VH-Internal/James
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[13].catalogPath
-      value: ride-content-e22e17c3/AssetCatalogs/VH-Internal/Lyndall
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[14].catalogPath
-      value: ride-content-e22e17c3/AssetCatalogs/VH-Internal/Lyndall
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[15].catalogPath
-      value: ride-content-e22e17c3/AssetCatalogs/VH-Internal/ArnoArmyCombat
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733232261636766170, guid: ec8dafeb11b0e614d887c5c050e1542f,
-        type: 3}
-      propertyPath: m_catalogsToLoad.Array.data[16].catalogPath
-      value: ride-content-e22e17c3/AssetCatalogs/VH-Internal/ArnoArmyCombat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11699,35 +11533,335 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5926634330911136488, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_EyeGazeWeight
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5926634330911136488, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_BodyGazeWeight
-      value: 0.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 5926634330911136488, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_HeadGazeWeight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5832023436778639654, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 136220071820676778, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
       value: 
       objectReference: {fileID: 635274966}
-    - target: {fileID: 5832023436778639654, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 136220071820676778, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CharacterController
       value: 
       objectReference: {fileID: 635274969}
-    - target: {fileID: 5845507951877551419, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 163495186926946316, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 163495186926946316, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 165629991998604830, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: 'labelsToLoad.Array.data[0]'
+      value: James
+      objectReference: {fileID: 0}
+    - target: {fileID: 165629991998604830, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 165629991998604830, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 165629991998604830, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 165629991998604830, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Ride.Examples.DemoController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 165629991998604830, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: ccMaleWhiteTeen
+      objectReference: {fileID: 0}
+    - target: {fileID: 165629991998604830, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 469958306283686892, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 469958306283686892, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Male_Adult_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 586898290484031490, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 586898290484031490, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 593390977060356993, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 665133932718583804, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 665133932718583804, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 688254824099088197, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 698168418075474555, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 698168418075474555, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 698168418075474555, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 698168418075474555, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Ride.Examples.DemoController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 698168418075474555, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: ccAriana
+      objectReference: {fileID: 0}
+    - target: {fileID: 698168418075474555, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 754492318563100093, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 754492318563100093, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Female_Adult_15
+      objectReference: {fileID: 0}
+    - target: {fileID: 891893013778425240, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 891893013778425240, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Sports_Female_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 924838313960216496, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 924838313960216496, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Pilot_Male_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1091716155024911799, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 1091716155024911799, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 1308120627265054985, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 1308120627265054985, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 1524043410552003825, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 1524043410552003825, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 1635631107694766797, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 1635631107694766797, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Female_Adult_14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653157582744177283, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 1653157582744177283, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 1697291633670136688, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 1697291633670136688, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 1830727768791591992, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_GazeOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830727768791591992, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_GazeOffset.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830727768791591992, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_EyeGazeWeight
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830727768791591992, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_BodyGazeWeight
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830727768791591992, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_HeadGazeWeight
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887017512850089658, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 1887017512850089658, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Police_Male_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982961440593050216, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: 'labelsToLoad.Array.data[0]'
+      value: Arno
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982961440593050216, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982961440593050216, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 1982961440593050216, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982961440593050216, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Ride.Examples.DemoController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982961440593050216, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: ccArnoCivilian
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982961440593050216, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2062343414247514646, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_headController
+      value: 
+      objectReference: {fileID: 2190141132583836338}
+    - target: {fileID: 2093700685330657066, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 2093700685330657066, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Business_Male_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2263766276448297861, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336184035319767870, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 2336184035319767870, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Police_Male_07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360340862503289270, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 2360340862503289270, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Security_Female_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2387756215605474794, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: llmPrompt
-      value: "Your personal name is Maria.\n\nYou are a virtual human, or embodied
+      value: "Your personal name is John. \n\nYou are a virtual human, or embodied
         conversational agent. You are not a real human, but you roleplay as one.
         You can acknowlege that you are not real and that you are driven by technologies
         like large language models, but keep things conversational and in the realm
@@ -11765,72 +11899,424 @@ PrefabInstance:
         know an answer, refer people to the Virtual Human Toolkit website at vhtoolkit.ict.usc.edu.
         Do not use lists."
       objectReference: {fileID: 0}
-    - target: {fileID: 5870653016599693867, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 2407887206060598723, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
       value: 
       objectReference: {fileID: 635274966}
-    - target: {fileID: 5870653016599693867, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 2407887206060598723, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CharacterController
       value: 
       objectReference: {fileID: 635274969}
-    - target: {fileID: 6459754806970471137, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 2515554934788961205, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 2515554934788961205, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 2618372452520460479, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 342795529}
-    - target: {fileID: 6459754806970471137, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 2618372452520460479, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Pilot_Male_03
+      value: Female_Adult_02
       objectReference: {fileID: 0}
-    - target: {fileID: 6859158463606770941, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 2697450501911399479, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2697450501911399479, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 2697450501911399479, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2697450501911399479, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Ride.Examples.DemoController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2697450501911399479, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: ccJohn
+      objectReference: {fileID: 0}
+    - target: {fileID: 2697450501911399479, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714084304980367365, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
       value: 
       objectReference: {fileID: 635274966}
-    - target: {fileID: 6859158463606770941, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 2714084304980367365, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CharacterController
       value: 
       objectReference: {fileID: 635274969}
-    - target: {fileID: 6849591088712714329, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 2957900825292485998, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 2957900825292485998, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Medical_Female_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110366658125071421, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_EyeGazeWeight
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110366658125071421, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_HeadGazeWeight
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387475338336281597, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 3387475338336281597, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Business_Male_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418336076861746322, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 3418336076861746322, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Business_Male_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429224213549085872, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 3429224213549085872, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Police_Male_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3433454895389679761, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
       value: 
       objectReference: {fileID: 635274966}
-    - target: {fileID: 6849591088712714329, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 3433454895389679761, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CharacterController
       value: 
       objectReference: {fileID: 635274969}
-    - target: {fileID: 6885841327125519320, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 3524529769421589426, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
       value: 
       objectReference: {fileID: 635274966}
-    - target: {fileID: 6885841327125519320, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 3524529769421589426, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CharacterController
       value: 
       objectReference: {fileID: 635274969}
-    - target: {fileID: 6882144216180724930, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 3624350581963041475, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
       value: 
       objectReference: {fileID: 635274966}
-    - target: {fileID: 6882144216180724930, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 3624350581963041475, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CharacterController
       value: 
       objectReference: {fileID: 635274969}
-    - target: {fileID: 6700783438024887203, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 3668475156029466821, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 3698179499899662883, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
       value: 
       objectReference: {fileID: 635274966}
-    - target: {fileID: 6700783438024887203, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 3698179499899662883, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 3740976823448510437, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 3740976823448510437, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 3765368828264248494, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 3765368828264248494, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Pilot_Female_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779267400049708915, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 3779267400049708915, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Pilot_Male_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896731002335732445, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: llmPrompt
+      value: "Your personal name is Mila.\n\nYou are a representative of the Virtual
+        Human Toolkit. Answer concisely. Use only one or two sentences in your response.
+        You are polite and helpful and will answer questions about the Toolkit. You
+        can engage in smalltalk.\r\n\r\nThe Virtual Human Toolkit combines a range
+        of integrated virtual human and AI specific features, including speech recognition,
+        natural language processing, and audio-visual sensing, all in real-time.
+        The Toolkit was originally released in 2009 as a collection of modules, tools,
+        and libraries designed to aid and support researchers and developers with
+        the creation of virtual human conversational characters. The current iteration
+        of the Virtual Human Toolkit is built with RIDE.\r\n\r\nRapid Integration
+        & Development Environment (RIDE) is a  research and development rapid prototyping
+        testbed using real-time 3D game engines. It primarily targets the Unity game
+        engine, with early support for Unreal Engine. RIDE has a vendor-agnostic
+        API that allows porting to other engines, including VBS4.\r\n\r\nRIDE is
+        a collaboration between many groups at ICT. RIDE is developed at USC ICT,
+        sponsored by the U.S. Army DEVCOM Soldier Center STTC, ARO, the Navy, and
+        others. The Institute for Creative Technologies (ICT) is a University Affiliated
+        Research Center (UARC) and as such a trusted partner with the DoD. ICT is
+        part of the University of Southern California (USC) Viterbi School of Engineering.
+        ICT was founded in 1999, so we are celebrating our 25th anniversary!\r\n\r\nThe
+        VHToolkit is available for the academic and military S&T communities, including
+        source code. \r\n\r\nVirtual humans are embodied conversational agents that
+        use speech recognition, natural language processing, audio-visual sensing,
+        text-to-speech generation, and nonverbal behavior generation and realization.
+        \r\n\r\nYou will be concise and to the point. Keep responses to two sentences
+        maximum and a 1000 character maximum. You will not apologize. If you don\u2019t
+        know an answer, refer people to the Virtual Human Toolkit website at vhtoolkit.ict.usc.edu.
+        Do not use lists."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900513627389913550, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 3900513627389913550, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Police_Male_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3910425085386295532, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 3910425085386295532, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 3983183263849562334, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 3983183263849562334, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Male_Adult_08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020047867318504609, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 4020047867318504609, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 4046271753449005346, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 4046271753449005346, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 4081674824471543693, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081674824471543693, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 4081674824471543693, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081674824471543693, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Ride.Examples.DemoController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081674824471543693, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: ccMila
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081674824471543693, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4177571176972037795, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 4177571176972037795, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 4219665875518785927, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_GazeOffset.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219665875518785927, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_GazeOffset.y
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219665875518785927, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_EyeGazeWeight
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219665875518785927, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_BodyGazeWeight
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219665875518785927, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_HeadGazeWeight
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4251945855931571894, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 4251945855931571894, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 4287394587577038165, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_Name
+      value: Characters
+      objectReference: {fileID: 0}
+    - target: {fileID: 4315508996578324248, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 4315508996578324248, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 4424342736810817448, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 4424342736810817448, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Police_Male_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433266909771823857, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 4433266909771823857, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: KevinArmy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442504736436199864, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_character
+      value: 
+      objectReference: {fileID: 2190141132583836339}
+    - target: {fileID: 4498883968888609977, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 4498883968888609977, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Sports_Male_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530246440713805449, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 4530246440713805449, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Business_Male_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4535794693286604779, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 4535794693286604779, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CharacterController
       value: 
@@ -11940,40 +12426,20 @@ PrefabInstance:
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 1982961440593050216, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: 'labelsToLoad.Array.data[0]'
-      value: Arno
-      objectReference: {fileID: 0}
-    - target: {fileID: 1982961440593050216, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1982961440593050216, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 5560482784041689312, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 342795529}
-    - target: {fileID: 1982961440593050216, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 1982961440593050216, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Ride.Examples.DemoController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1982961440593050216, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 5560482784041689312, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: ccArnoCivilian
+      value: Police_Male_06
       objectReference: {fileID: 0}
-    - target: {fileID: 1982961440593050216, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 5563574942673463865, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      propertyPath: ElevenLabVoiceName
+      value: Arno
       objectReference: {fileID: 0}
     - target: {fileID: 5684554520022100503, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
@@ -11985,161 +12451,152 @@ PrefabInstance:
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Female_Adult_05
       objectReference: {fileID: 0}
-    - target: {fileID: 5560482784041689312, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 5560482784041689312, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Police_Male_06
-      objectReference: {fileID: 0}
-    - target: {fileID: 8353272961077975797, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 5832023436778639654, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
       value: 
       objectReference: {fileID: 635274966}
-    - target: {fileID: 8353272961077975797, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 5832023436778639654, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CharacterController
       value: 
       objectReference: {fileID: 635274969}
-    - target: {fileID: 8341813147026868880, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 5845507951877551419, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 8341813147026868880, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Male_Adult_10
+      propertyPath: llmPrompt
+      value: "Your personal name is Maria.\n\nYou are a virtual human, or embodied
+        conversational agent. You are not a real human, but you roleplay as one.
+        You can acknowlege that you are not real and that you are driven by technologies
+        like large language models, but keep things conversational and in the realm
+        of simulating real humans. For example, don't say things like \"I'm functioning
+        normally\" or \"I'm just a virutal human\". Only talk how real humans would
+        talk. \n\nIn addition to large language models, people use speech recognition
+        and audiovisual sensing to interact with you. You are hooked up to the Unity
+        game engine, and you have a 3D animated body, nonverbal behavior generation,
+        and a voice through text-to-speech. \n\nYou are a representative of the Virtual
+        Human Toolkit. Answer concisely. Use only one or two sentences in your response.
+        You are polite and helpful and will answer questions about the Toolkit. You
+        can engage in smalltalk.\r\n\r\nThe Virtual Human Toolkit combines a range
+        of integrated virtual human and AI specific features, including speech recognition,
+        natural language processing, and audio-visual sensing, all in real-time.
+        The Toolkit was originally released in 2009 as a collection of modules, tools,
+        and libraries designed to aid and support researchers and developers with
+        the creation of virtual human conversational characters. The current iteration
+        of the Virtual Human Toolkit is built with RIDE.\r\n\r\nRapid Integration
+        & Development Environment (RIDE) is a  research and development rapid prototyping
+        testbed using real-time 3D game engines. It primarily targets the Unity game
+        engine, with early support for Unreal Engine. RIDE has a vendor-agnostic
+        API that allows porting to other engines, including VBS4.\r\n\r\nRIDE is
+        a collaboration between many groups at ICT. RIDE is developed at USC ICT,
+        sponsored by the U.S. Army DEVCOM Soldier Center STTC, ARO, the Navy, and
+        others. The Institute for Creative Technologies (ICT) is a University Affiliated
+        Research Center (UARC) and as such a trusted partner with the DoD. ICT is
+        part of the University of Southern California (USC) Viterbi School of Engineering.
+        ICT was founded in 1999, so we are celebrating our 25th anniversary!\r\n\r\nThe
+        VHToolkit is available for the academic and military S&T communities, including
+        source code. \r\n\r\nVirtual humans are embodied conversational agents that
+        use speech recognition, natural language processing, audio-visual sensing,
+        text-to-speech generation, and nonverbal behavior generation and realization.
+        \r\n\r\nYou will be concise and to the point. Keep responses to two sentences
+        maximum and a 1000 character maximum. You will not apologize. If you don\u2019t
+        know an answer, refer people to the Virtual Human Toolkit website at vhtoolkit.ict.usc.edu.
+        Do not use lists."
       objectReference: {fileID: 0}
-    - target: {fileID: 8389929710065407089, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 5870653016599693867, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
       value: 
       objectReference: {fileID: 635274966}
-    - target: {fileID: 8389929710065407089, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 5870653016599693867, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CharacterController
       value: 
       objectReference: {fileID: 635274969}
-    - target: {fileID: 8445320792488281430, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 5926634330911136488, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_EyeGazeWeight
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5926634330911136488, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_BodyGazeWeight
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5926634330911136488, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_HeadGazeWeight
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6459754806970471137, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 342795529}
-    - target: {fileID: 8445320792488281430, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 6459754806970471137, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Female_Adult_09
+      value: Pilot_Male_03
       objectReference: {fileID: 0}
-    - target: {fileID: 8479125966627785956, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 6700783438024887203, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
       value: 
       objectReference: {fileID: 635274966}
-    - target: {fileID: 8479125966627785956, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 6700783438024887203, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CharacterController
       value: 
       objectReference: {fileID: 635274969}
-    - target: {fileID: 8502519517359479078, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: 'labelsToLoad.Array.data[0]'
-      value: MateoArmyCombat
-      objectReference: {fileID: 0}
-    - target: {fileID: 8502519517359479078, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8502519517359479078, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 8502519517359479078, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 8502519517359479078, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Ride.Examples.DemoController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8502519517359479078, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: ccMaleHispanicArmyCombat
-      objectReference: {fileID: 0}
-    - target: {fileID: 8502519517359479078, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8889780577365617466, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9161893115333765836, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: CharacterId
-      value: Business_Male_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182277519555542089, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 9182277519555542089, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Business_Female_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 8940172713777783991, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 6849591088712714329, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
       value: 
       objectReference: {fileID: 635274966}
-    - target: {fileID: 8940172713777783991, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 6849591088712714329, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CharacterController
       value: 
       objectReference: {fileID: 635274969}
-    - target: {fileID: 7132870793313452194, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 6859158463606770941, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
       value: 
       objectReference: {fileID: 635274966}
-    - target: {fileID: 7132870793313452194, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 6859158463606770941, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CharacterController
       value: 
       objectReference: {fileID: 635274969}
-    - target: {fileID: 7117146844975352565, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 6882144216180724930, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: m_CutscenePrefab
       value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 7117146844975352565, guid: e1a968c9b23d7c74290babef2a92b72b,
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 6882144216180724930, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Security_Male_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162857897604499944, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: m_CharacterController
       value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 7162857897604499944, guid: e1a968c9b23d7c74290babef2a92b72b,
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 6885841327125519320, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Male_Adult_03
-      objectReference: {fileID: 0}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 6885841327125519320, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 6888304414670094705, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 6888304414670094705, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
     - target: {fileID: 6989986014701780871, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
@@ -12170,6 +12627,46 @@ PrefabInstance:
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Chef_Female_01
       objectReference: {fileID: 0}
+    - target: {fileID: 7117146844975352565, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 7117146844975352565, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Security_Male_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7132870793313452194, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 7132870793313452194, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 7162857897604499944, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342795529}
+    - target: {fileID: 7162857897604499944, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Male_Adult_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7226322255544465608, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 7226322255544465608, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
     - target: {fileID: 7412831187547350247, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12220,22 +12717,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3910425085386295532, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 7534097187914112251, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
       value: 
       objectReference: {fileID: 635274966}
-    - target: {fileID: 3910425085386295532, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 7226322255544465608, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 7226322255544465608, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 7534097187914112251, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CharacterController
       value: 
@@ -12250,16 +12737,6 @@ PrefabInstance:
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Pilot_Female_02
       objectReference: {fileID: 0}
-    - target: {fileID: 7534097187914112251, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 7534097187914112251, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
     - target: {fileID: 7562482429811280217, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: 'labelsToLoad.Array.data[0]'
@@ -12294,21 +12771,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7972508698955548505, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: CharacterId
-      value: Business_Female_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 8015264792188371754, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 8015264792188371754, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Business_Male_05
       objectReference: {fileID: 0}
     - target: {fileID: 7802772176303236857, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
@@ -12405,713 +12867,105 @@ PrefabInstance:
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 1308120627265054985, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 7972508698955548505, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 1308120627265054985, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 1635631107694766797, guid: e1a968c9b23d7c74290babef2a92b72b,
+      propertyPath: CharacterId
+      value: Business_Female_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015264792188371754, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 342795529}
-    - target: {fileID: 1635631107694766797, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8015264792188371754, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Female_Adult_14
+      value: Business_Male_05
       objectReference: {fileID: 0}
-    - target: {fileID: 1653157582744177283, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 1653157582744177283, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 1697291633670136688, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 1697291633670136688, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 1524043410552003825, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 1524043410552003825, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 1887017512850089658, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8341813147026868880, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 342795529}
-    - target: {fileID: 1887017512850089658, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8341813147026868880, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Police_Male_04
+      value: Male_Adult_10
       objectReference: {fileID: 0}
-    - target: {fileID: 1830727768791591992, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8353272961077975797, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
-      propertyPath: m_GazeOffset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1830727768791591992, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_GazeOffset.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1830727768791591992, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_EyeGazeWeight
-      value: 0.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 1830727768791591992, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_BodyGazeWeight
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1830727768791591992, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_HeadGazeWeight
-      value: 0.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 5563574942673463865, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: ElevenLabVoiceName
-      value: Arno
-      objectReference: {fileID: 0}
-    - target: {fileID: 2263766276448297861, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.035
-      objectReference: {fileID: 0}
-    - target: {fileID: 2062343414247514646, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_headController
+      propertyPath: m_CutscenePrefab
       value: 
-      objectReference: {fileID: 2190141132583836338}
-    - target: {fileID: 2093700685330657066, guid: e1a968c9b23d7c74290babef2a92b72b,
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 8353272961077975797, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 8389929710065407089, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 8389929710065407089, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 8445320792488281430, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 342795529}
-    - target: {fileID: 2093700685330657066, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8445320792488281430, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Business_Male_04
+      value: Female_Adult_09
       objectReference: {fileID: 0}
-    - target: {fileID: 165629991998604830, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8479125966627785956, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CutscenePrefab
+      value: 
+      objectReference: {fileID: 635274966}
+    - target: {fileID: 8479125966627785956, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: m_CharacterController
+      value: 
+      objectReference: {fileID: 635274969}
+    - target: {fileID: 8502519517359479078, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: 'labelsToLoad.Array.data[0]'
-      value: James
+      value: MateoArmyCombat
       objectReference: {fileID: 0}
-    - target: {fileID: 165629991998604830, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8502519517359479078, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 165629991998604830, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8502519517359479078, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 342795529}
-    - target: {fileID: 165629991998604830, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8502519517359479078, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SelectCharacter
       objectReference: {fileID: 0}
-    - target: {fileID: 165629991998604830, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8502519517359479078, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Ride.Examples.DemoController, Assembly-CSharp
       objectReference: {fileID: 0}
-    - target: {fileID: 165629991998604830, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8502519517359479078, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: ccMaleWhiteTeen
+      value: ccMaleHispanicArmyCombat
       objectReference: {fileID: 0}
-    - target: {fileID: 165629991998604830, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8502519517359479078, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 163495186926946316, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 163495186926946316, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 136220071820676778, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 136220071820676778, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 469958306283686892, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 469958306283686892, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Male_Adult_04
-      objectReference: {fileID: 0}
-    - target: {fileID: 754492318563100093, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 754492318563100093, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Female_Adult_15
-      objectReference: {fileID: 0}
-    - target: {fileID: 593390977060356993, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 586898290484031490, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 586898290484031490, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 665133932718583804, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 665133932718583804, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 698168418075474555, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 698168418075474555, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 698168418075474555, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 698168418075474555, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Ride.Examples.DemoController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 698168418075474555, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: ccAriana
-      objectReference: {fileID: 0}
-    - target: {fileID: 698168418075474555, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 688254824099088197, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.038
-      objectReference: {fileID: 0}
-    - target: {fileID: 1091716155024911799, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 1091716155024911799, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 891893013778425240, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 891893013778425240, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Sports_Female_02
-      objectReference: {fileID: 0}
-    - target: {fileID: 924838313960216496, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 924838313960216496, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Pilot_Male_02
-      objectReference: {fileID: 0}
-    - target: {fileID: 6888304414670094705, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 6888304414670094705, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 3624350581963041475, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 3624350581963041475, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 3668475156029466821, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 3698179499899662883, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 3698179499899662883, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 3740976823448510437, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 3740976823448510437, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 3524529769421589426, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 3524529769421589426, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 3900513627389913550, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 3900513627389913550, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Police_Male_05
-      objectReference: {fileID: 0}
-    - target: {fileID: 3896731002335732445, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: llmPrompt
-      value: "Your personal name is Mila.\n\nYou are a representative of the Virtual
-        Human Toolkit. Answer concisely. Use only one or two sentences in your response.
-        You are polite and helpful and will answer questions about the Toolkit. You
-        can engage in smalltalk.\r\n\r\nThe Virtual Human Toolkit combines a range
-        of integrated virtual human and AI specific features, including speech recognition,
-        natural language processing, and audio-visual sensing, all in real-time.
-        The Toolkit was originally released in 2009 as a collection of modules, tools,
-        and libraries designed to aid and support researchers and developers with
-        the creation of virtual human conversational characters. The current iteration
-        of the Virtual Human Toolkit is built with RIDE.\r\n\r\nRapid Integration
-        & Development Environment (RIDE) is a  research and development rapid prototyping
-        testbed using real-time 3D game engines. It primarily targets the Unity game
-        engine, with early support for Unreal Engine. RIDE has a vendor-agnostic
-        API that allows porting to other engines, including VBS4.\r\n\r\nRIDE is
-        a collaboration between many groups at ICT. RIDE is developed at USC ICT,
-        sponsored by the U.S. Army DEVCOM Soldier Center STTC, ARO, the Navy, and
-        others. The Institute for Creative Technologies (ICT) is a University Affiliated
-        Research Center (UARC) and as such a trusted partner with the DoD. ICT is
-        part of the University of Southern California (USC) Viterbi School of Engineering.
-        ICT was founded in 1999, so we are celebrating our 25th anniversary!\r\n\r\nThe
-        VHToolkit is available for the academic and military S&T communities, including
-        source code. \r\n\r\nVirtual humans are embodied conversational agents that
-        use speech recognition, natural language processing, audio-visual sensing,
-        text-to-speech generation, and nonverbal behavior generation and realization.
-        \r\n\r\nYou will be concise and to the point. Keep responses to two sentences
-        maximum and a 1000 character maximum. You will not apologize. If you don\u2019t
-        know an answer, refer people to the Virtual Human Toolkit website at vhtoolkit.ict.usc.edu.
-        Do not use lists."
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983183263849562334, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 3983183263849562334, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Male_Adult_08
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020047867318504609, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 4020047867318504609, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 3779267400049708915, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 3779267400049708915, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Pilot_Male_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 3765368828264248494, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 3765368828264248494, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Pilot_Female_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219665875518785927, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_GazeOffset.x
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219665875518785927, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_GazeOffset.y
-      value: -0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219665875518785927, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_EyeGazeWeight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219665875518785927, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_BodyGazeWeight
-      value: 0.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219665875518785927, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_HeadGazeWeight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4251945855931571894, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 4251945855931571894, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 4287394587577038165, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_Name
-      value: Characters
-      objectReference: {fileID: 0}
-    - target: {fileID: 4315508996578324248, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 4315508996578324248, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 4046271753449005346, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 4046271753449005346, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 4081674824471543693, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081674824471543693, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 4081674824471543693, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081674824471543693, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Ride.Examples.DemoController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081674824471543693, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: ccMila
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081674824471543693, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4177571176972037795, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 4177571176972037795, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 4498883968888609977, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 4498883968888609977, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Sports_Male_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4535794693286604779, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 4535794693286604779, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 4530246440713805449, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 4530246440713805449, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Business_Male_02
-      objectReference: {fileID: 0}
-    - target: {fileID: 4424342736810817448, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 4424342736810817448, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Police_Male_03
-      objectReference: {fileID: 0}
-    - target: {fileID: 4442504736436199864, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_character
-      value: 
-      objectReference: {fileID: 2190141132583836339}
-    - target: {fileID: 4433266909771823857, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 4433266909771823857, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: KevinArmy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2515554934788961205, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 2515554934788961205, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 2336184035319767870, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 2336184035319767870, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Police_Male_07
-      objectReference: {fileID: 0}
-    - target: {fileID: 2360340862503289270, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 2360340862503289270, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Security_Female_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 2387756215605474794, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: llmPrompt
-      value: "Your personal name is John. \n\nYou are a virtual human, or embodied
-        conversational agent. You are not a real human, but you roleplay as one.
-        You can acknowlege that you are not real and that you are driven by technologies
-        like large language models, but keep things conversational and in the realm
-        of simulating real humans. For example, don't say things like \"I'm functioning
-        normally\" or \"I'm just a virutal human\". Only talk how real humans would
-        talk. \n\nIn addition to large language models, people use speech recognition
-        and audiovisual sensing to interact with you. You are hooked up to the Unity
-        game engine, and you have a 3D animated body, nonverbal behavior generation,
-        and a voice through text-to-speech. \n\nYou are a representative of the Virtual
-        Human Toolkit. Answer concisely. Use only one or two sentences in your response.
-        You are polite and helpful and will answer questions about the Toolkit. You
-        can engage in smalltalk.\r\n\r\nThe Virtual Human Toolkit combines a range
-        of integrated virtual human and AI specific features, including speech recognition,
-        natural language processing, and audio-visual sensing, all in real-time.
-        The Toolkit was originally released in 2009 as a collection of modules, tools,
-        and libraries designed to aid and support researchers and developers with
-        the creation of virtual human conversational characters. The current iteration
-        of the Virtual Human Toolkit is built with RIDE.\r\n\r\nRapid Integration
-        & Development Environment (RIDE) is a  research and development rapid prototyping
-        testbed using real-time 3D game engines. It primarily targets the Unity game
-        engine, with early support for Unreal Engine. RIDE has a vendor-agnostic
-        API that allows porting to other engines, including VBS4.\r\n\r\nRIDE is
-        a collaboration between many groups at ICT. RIDE is developed at USC ICT,
-        sponsored by the U.S. Army DEVCOM Soldier Center STTC, ARO, the Navy, and
-        others. The Institute for Creative Technologies (ICT) is a University Affiliated
-        Research Center (UARC) and as such a trusted partner with the DoD. ICT is
-        part of the University of Southern California (USC) Viterbi School of Engineering.
-        ICT was founded in 1999, so we are celebrating our 25th anniversary!\r\n\r\nThe
-        VHToolkit is available for the academic and military S&T communities, including
-        source code. \r\n\r\nVirtual humans are embodied conversational agents that
-        use speech recognition, natural language processing, audio-visual sensing,
-        text-to-speech generation, and nonverbal behavior generation and realization.
-        \r\n\r\nYou will be concise and to the point. Keep responses to two sentences
-        maximum and a 1000 character maximum. You will not apologize. If you don\u2019t
-        know an answer, refer people to the Virtual Human Toolkit website at vhtoolkit.ict.usc.edu.
-        Do not use lists."
-      objectReference: {fileID: 0}
-    - target: {fileID: 2407887206060598723, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 2407887206060598723, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 2618372452520460479, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 2618372452520460479, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Female_Adult_02
-      objectReference: {fileID: 0}
-    - target: {fileID: 2697450501911399479, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2697450501911399479, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 2697450501911399479, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SelectCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 2697450501911399479, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Ride.Examples.DemoController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2697450501911399479, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: ccJohn
-      objectReference: {fileID: 0}
-    - target: {fileID: 2697450501911399479, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 2714084304980367365, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CutscenePrefab
-      value: 
-      objectReference: {fileID: 635274966}
-    - target: {fileID: 2714084304980367365, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_CharacterController
-      value: 
-      objectReference: {fileID: 635274969}
-    - target: {fileID: 3110366658125071421, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_EyeGazeWeight
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3110366658125071421, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_HeadGazeWeight
-      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8774515649603608858, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
@@ -13143,55 +12997,35 @@ PrefabInstance:
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 2957900825292485998, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8889780577365617466, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 2957900825292485998, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Medical_Female_01
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3387475338336281597, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 3387475338336281597, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Business_Male_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 3418336076861746322, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 342795529}
-    - target: {fileID: 3418336076861746322, guid: e1a968c9b23d7c74290babef2a92b72b,
-        type: 3}
-      propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Business_Male_03
-      objectReference: {fileID: 0}
-    - target: {fileID: 3433454895389679761, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8940172713777783991, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CutscenePrefab
       value: 
       objectReference: {fileID: 635274966}
-    - target: {fileID: 3433454895389679761, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 8940172713777783991, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_CharacterController
       value: 
       objectReference: {fileID: 635274969}
-    - target: {fileID: 3429224213549085872, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 9161893115333765836, guid: e1a968c9b23d7c74290babef2a92b72b,
+        type: 3}
+      propertyPath: CharacterId
+      value: Business_Male_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182277519555542089, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 342795529}
-    - target: {fileID: 3429224213549085872, guid: e1a968c9b23d7c74290babef2a92b72b,
+    - target: {fileID: 9182277519555542089, guid: e1a968c9b23d7c74290babef2a92b72b,
         type: 3}
       propertyPath: m_onAssetLoaded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Police_Male_01
+      value: Business_Female_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -13218,6 +13052,18 @@ MonoBehaviour:
 --- !u!114 &2190141132583836339 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5631643420083372251, guid: e1a968c9b23d7c74290babef2a92b72b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2190141132583836337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7b8b1797a36664fb4255a5de86651b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2190141132583836340 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8343306664385593413, guid: e1a968c9b23d7c74290babef2a92b72b,
     type: 3}
   m_PrefabInstance: {fileID: 2190141132583836337}
   m_PrefabAsset: {fileID: 0}
